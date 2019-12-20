@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Inventario.COMMON.Entidades
 {
-    public class Material:Bases
+    public class Material:Base
     {
         public int Clave { get; set; }
 

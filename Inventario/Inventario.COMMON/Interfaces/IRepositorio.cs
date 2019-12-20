@@ -11,9 +11,9 @@ namespace Inventario.COMMON.Interfaces
 
         List<T> Read { get; }
 
-        bool Update(string id, T entidadModificada);
+        bool Update(T entidadModificada);
         
-        bool Delete(T entidad);
+        bool Delete(string id);
         
     }
 }
