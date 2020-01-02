@@ -8,32 +8,32 @@ using System.Text;
 
 namespace Inventario.DAL
 {
-    class RepositorioDeVales : IRepositorio<Vale>
+    public class RepositorioDeMaterial : IRepositorio<Material>
     {
         private string DBName = "Inventario.db";
-        private string TableName = "Vales";
+        private string TableName = "Materiales";
 
-        public List<Vale> Read
+        public List<Material> Read
         {
             get
             {
-                List<Vale> datos = new List<Vale>();
+                List<Material> datos = new List<Material>();
                 using (var db = new LiteDatabase(DBName))
                 {
-                    datos = db.GetCollection<Vale>(TableName).FindAll().ToList();
+                    datos = db.GetCollection<Material>(TableName).FindAll().ToList();
                 }
                 return datos;
             }
         }
 
-        public bool Create(Vale entidad)
+        public bool Create(Material entidad)
         {
             entidad.Id = Guid.NewGuid().ToString();
             try
             {
                 using (var db = new LiteDatabase(DBName))
                 {
-                    var colection = db.GetCollection<Vale>(TableName);
+                    var colection = db.GetCollection<Material>(TableName);
                     colection.Insert(entidad);
                 }
                 return true;
@@ -49,7 +49,7 @@ namespace Inventario.DAL
                 int r;
                 using (var db = new LiteDatabase(DBName))
                 {
-                    var colection = db.GetCollection<Vale>(TableName);
+                    var colection = db.GetCollection<Material>(TableName);
                     r = colection.Delete(e => e.Id == id);
                 }
                 return r > 0;
@@ -58,13 +58,13 @@ namespace Inventario.DAL
             catch (Exception) { return false; }
         }
 
-        public bool Update(Vale entidadModificada)
+        public bool Update(Material entidadModificada)
         {
             try
             {
                 using (var db = new LiteDatabase(DBName))
                 {
-                    var colection = db.GetCollection<Vale>(TableName);
+                    var colection = db.GetCollection<Material>(TableName);
                     colection.Update(entidadModificada);
                 }
                 return true;
