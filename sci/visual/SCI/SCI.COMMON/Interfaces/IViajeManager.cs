@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SCI.COMMON.Interfaces
 {
-    public interface IViajeManager:IGenericManager<viaje>
+    public interface IViajeManager : IGenericManager<viaje>
     {
         viaje BuscarPorIdCliente(string idViajeCliente);
 

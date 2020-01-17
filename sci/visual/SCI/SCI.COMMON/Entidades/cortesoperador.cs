@@ -9,7 +9,7 @@ namespace SCI.COMMON.Entidades
         public int IdCorte { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
-        public decimal Costo { get; set; }
+        public double Costo { get; set; }
         public int IdViajeOps { get; set; }
     }
 }

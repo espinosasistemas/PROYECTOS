@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SCI.COMMON.Validadores
 {
-    class StatusViajeValidator:AbstractValidator<statusviaje>
+    public class StatusViajeValidator:AbstractValidator<statusviaje>
     {
         public StatusViajeValidator()
         {

@@ -9,7 +9,7 @@ namespace SCI.COMMON.Entidades
         public int IdGasto { get; set; }
         public int IdTipoGasto { get; set; }
         public string Concepto { get; set; }
-        public decimal Costo { get; set; }
+        public double Costo { get; set; }
         public string RutaPdf { get; set; }
         public string RutaXml { get; set; }
         public DateTime Fecha { get; set; }

@@ -10,7 +10,7 @@ namespace SCI.COMMON.Entidades
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public DateTime FechaIngreso { get; set; }
-        public decimal Salarioporhora { get; set; }
+        public double Salarioporhora { get; set; }
         public string Direccion { get; set; }
     }
 }

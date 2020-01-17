@@ -8,7 +8,7 @@ namespace SCI.COMMON.Entidades
     {
         public int IdRuta { get; set; }
         public string Nombre { get; set; }
-        public decimal Costo { get; set; }
+        public double Costo { get; set; }
         public int IdUnidad { get; set; }
     }
 }
