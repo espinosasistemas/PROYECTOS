@@ -10,7 +10,7 @@ namespace SCI.COMMON.Validadores
     {
         public ClienteValidator()
         {
-            RuleFor(c => c.IdCliente).NotNull().NotEmpty();
+            //RuleFor(c => c.IdCliente).NotNull().NotEmpty();
             RuleFor(c => c.RazonSocial).NotNull().NotEmpty().Length(1,200);
             RuleFor(c => c.Rfc).NotNull().NotEmpty().Length(1, 15);
             RuleFor(c => c.Giro).NotNull().NotEmpty().Length(1, 50);
