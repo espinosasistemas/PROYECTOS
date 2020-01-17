@@ -10,6 +10,7 @@ namespace SCI.COMMON.Validadores
     {
         public UsuarioValidator()
         {
+
             RuleFor(u => u.NombreUsuario).NotNull().NotEmpty().Length(1, 50);
             RuleFor(u => u.Password).NotNull().NotEmpty().Length(1, 50);
             RuleFor(u => u.NombreCompleto).NotNull().NotEmpty().Length(1, 50);
