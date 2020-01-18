@@ -19,6 +19,8 @@ namespace SCI.Tests
         IGenericRepository<statusviaje> statusRepository;
         IGenericRepository<tipogasto> tipoGastoRepository;
         IGenericRepository<unidades> unidadesRepository;
+        IGenericRepository<ruta> rutaRepository;
+        IGenericRepository<viaje> viajeRepository;
 
         Random r;
         public UnitTestDAL()
@@ -31,6 +33,8 @@ namespace SCI.Tests
             statusRepository = new GenericRepository<statusviaje>(new StatusViajeValidator());
             tipoGastoRepository = new GenericRepository<tipogasto>(new TipoDeGastoValidator());
             unidadesRepository = new GenericRepository<unidades>(new UnidadesValidator());
+            rutaRepository = new GenericRepository<ruta>(new RutaValidator());
+            viajeRepository = new GenericRepository<viaje>(new ViajeValidator());
         }
 
         [TestMethod]
@@ -180,6 +184,90 @@ namespace SCI.Tests
                 Assert.IsTrue(unidadesRepository.Delete(item.IdUnidad.ToString()), unidadesRepository.Error);
             }
             Assert.AreEqual(0, unidadesRepository.Read.Count(), "Sigue existiendo unidades");
+        }
+
+        [TestMethod]
+        public void TestRuta()
+        {
+            unidades unidad = CrearUnidades();
+            Assert.IsTrue(unidadesRepository.Create(unidad), unidadesRepository.Error);
+            int idUnidad = unidadesRepository.Read.Max(u=>u.IdUnidad);
+            int cantidadRutas = rutaRepository.Read.Count();
+            ruta nuevaRuta = CrearRuta(idUnidad);
+            Assert.IsTrue(rutaRepository.Create(nuevaRuta), rutaRepository.Error);
+            Assert.AreEqual(cantidadRutas + 1, rutaRepository.Read.Count(), "La cantidad de las rutas no son iguales");
+            int idRuta = rutaRepository.Read.Max(r => r.IdRuta);
+            ruta aModificar = rutaRepository.SearchById(idRuta.ToString());
+            aModificar.Nombre = "Nombre de la ruta modificada";
+            Assert.IsTrue(rutaRepository.Update(aModificar), rutaRepository.Error);
+            List<ruta> rutas = rutaRepository.Read.ToList();
+            foreach (var item in rutas)
+            {
+                Assert.IsTrue(rutaRepository.Delete(item.IdRuta.ToString()), rutaRepository.Error);
+            }
+            Assert.IsTrue(unidadesRepository.Delete(idUnidad.ToString()), unidadesRepository.Error);
+            Assert.AreEqual(0, rutaRepository.Read.Count(), "Todavía existen rutas en la bd.");
+            Assert.AreEqual(0, unidadesRepository.Read.Count(), "Todavía existen unidades en la bd.");
+
+        }
+
+        [TestMethod]
+        public void TestViaje()
+        {
+            statusviaje status = CrearStatus();
+            Assert.IsTrue(statusRepository.Create(status), statusRepository.Error);
+            int idStatus = statusRepository.Read.Max(s => s.IdStatus);
+
+            unidades unidad = CrearUnidades();
+            Assert.IsTrue(unidadesRepository.Create(unidad), unidadesRepository.Error);
+            int idUnidad = unidadesRepository.Read.Max(u => u.IdUnidad);
+
+            ruta rutaViaje = CrearRuta(idUnidad);
+            Assert.IsTrue(rutaRepository.Create(rutaViaje), rutaRepository.Error);
+            int idRuta = rutaRepository.Read.Max(r => r.IdRuta);
+
+            cliente clienteViaje = CrearCliente();
+            Assert.IsTrue(clienteRepository.Create(clienteViaje), clienteRepository.Error);
+            int idCliente = clienteRepository.Read.Max(c => c.IdCliente);
+
+            operador op = CrearOperador();
+            Assert.IsTrue(operadorRepository.Create(op), operadorRepository.Error);
+            int idOPerador = operadorRepository.Read.Max(o => o.IdOperador);
+
+
+            viaje nuevoViaje = CrearViaje(idStatus,idRuta,idCliente,idOPerador);
+            Assert.IsTrue(viajeRepository.Create(nuevoViaje), viajeRepository.Error);
+            int idViajeNuevo = viajeRepository.Read.Max(vj => vj.IdViajeOps);
+            viaje aMOdificar = viajeRepository.SearchById(idViajeNuevo.ToString());
+            aMOdificar.IdViajeCliente = "VIAJEFAURECIA";
+            Assert.IsTrue(viajeRepository.Update(aMOdificar), viajeRepository.Error);
+
+        }
+
+        private viaje CrearViaje(int idStatus, int idRuta, int idCliente, int idOPerador)
+        {
+            return new viaje
+            {
+                IdViajeCliente = "axadad",
+                FechaInicioOps = DateTime.Now,
+                FechaInicioCliente = DateTime.Now,
+                FechaFinOps = DateTime.Now,
+                FechaFinCliente = DateTime.Now,
+                IdStatus = idStatus,
+                IdRuta = idRuta,
+                IdCliente = idCliente,
+                IdOperador = idOPerador
+            };
+        }
+
+        private ruta CrearRuta(int idUnidadNueva)
+        {
+            return new ruta
+            {
+                Nombre = "Nombre de la ruta nueva",
+                Costo = 1600,
+                IdUnidad = idUnidadNueva
+            };
         }
 
         private unidades CrearUnidades()
