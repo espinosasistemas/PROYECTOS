@@ -21,6 +21,8 @@ namespace SCI.Tests
         IGenericRepository<unidades> unidadesRepository;
         IGenericRepository<ruta> rutaRepository;
         IGenericRepository<viaje> viajeRepository;
+        IGenericRepository<gasto> gastoRepository;
+        IGenericRepository<cortesoperador> cortesRepository;
 
         Random r;
         public UnitTestDAL()
@@ -35,6 +37,8 @@ namespace SCI.Tests
             unidadesRepository = new GenericRepository<unidades>(new UnidadesValidator());
             rutaRepository = new GenericRepository<ruta>(new RutaValidator());
             viajeRepository = new GenericRepository<viaje>(new ViajeValidator());
+            gastoRepository = new GenericRepository<gasto>(new GastoValidator());
+            cortesRepository = new GenericRepository<cortesoperador>(new CortesOperadorValidator());
         }
 
         [TestMethod]
@@ -238,10 +242,125 @@ namespace SCI.Tests
             viaje nuevoViaje = CrearViaje(idStatus,idRuta,idCliente,idOPerador);
             Assert.IsTrue(viajeRepository.Create(nuevoViaje), viajeRepository.Error);
             int idViajeNuevo = viajeRepository.Read.Max(vj => vj.IdViajeOps);
+
             viaje aMOdificar = viajeRepository.SearchById(idViajeNuevo.ToString());
             aMOdificar.IdViajeCliente = "VIAJEFAURECIA";
             Assert.IsTrue(viajeRepository.Update(aMOdificar), viajeRepository.Error);
 
+            
+
+            Assert.IsTrue(viajeRepository.Delete(idViajeNuevo.ToString()), viajeRepository.Error);
+            Assert.IsTrue(operadorRepository.Delete(idOPerador.ToString()), operadorRepository.Error);
+            Assert.IsTrue(clienteRepository.Delete(idCliente.ToString()), clienteRepository.Error);
+            Assert.IsTrue(rutaRepository.Delete(idRuta.ToString()), rutaRepository.Error);
+            Assert.IsTrue(unidadesRepository.Delete(idUnidad.ToString()), unidadesRepository.Error);
+            Assert.IsTrue(statusRepository.Delete(idStatus.ToString()), statusRepository.Error);
+
+        }
+
+        
+
+        [TestMethod]
+        public void TestGasto()
+        {
+            statusviaje status = CrearStatus();
+            Assert.IsTrue(statusRepository.Create(status), statusRepository.Error);
+            int idStatus = statusRepository.Read.Max(s => s.IdStatus);
+
+            unidades unidad = CrearUnidades();
+            Assert.IsTrue(unidadesRepository.Create(unidad), unidadesRepository.Error);
+            int idUnidad = unidadesRepository.Read.Max(u => u.IdUnidad);
+
+            ruta rutaViaje = CrearRuta(idUnidad);
+            Assert.IsTrue(rutaRepository.Create(rutaViaje), rutaRepository.Error);
+            int idRuta = rutaRepository.Read.Max(r => r.IdRuta);
+
+            cliente clienteViaje = CrearCliente();
+            Assert.IsTrue(clienteRepository.Create(clienteViaje), clienteRepository.Error);
+            int idCliente = clienteRepository.Read.Max(c => c.IdCliente);
+
+            operador op = CrearOperador();
+            Assert.IsTrue(operadorRepository.Create(op), operadorRepository.Error);
+            int idOPerador = operadorRepository.Read.Max(o => o.IdOperador);
+
+
+            viaje nuevoViaje = CrearViaje(idStatus, idRuta, idCliente, idOPerador);
+            Assert.IsTrue(viajeRepository.Create(nuevoViaje), viajeRepository.Error);
+            int idViajeNuevo = viajeRepository.Read.Max(vj => vj.IdViajeOps);
+
+            tipogasto tipoGastoNuevo = CrearTipoGasto();
+            Assert.IsTrue(tipoGastoRepository.Create(tipoGastoNuevo), tipoGastoRepository.Error);
+            int idTipoGastoNuevo = tipoGastoRepository.Read.Max(tg => tg.IdTipoGasto);
+
+            gasto nuevoGasto = CrearGasto(idTipoGastoNuevo,idViajeNuevo);
+            Assert.IsTrue(gastoRepository.Create(nuevoGasto), gastoRepository.Error);
+            int idGastoNuevo = gastoRepository.Read.Max(id => id.IdGasto);
+
+            gasto aModificar = gastoRepository.SearchById(idGastoNuevo.ToString());
+            aModificar.RutaPdf = @"C:\comprobante\gasto.xml";
+            Assert.IsTrue(gastoRepository.Update(aModificar), gastoRepository.Error);
+
+            for (int i = 0; i < 10; i++)
+            {
+                Assert.IsTrue(gastoRepository.Create(CrearGasto(idTipoGastoNuevo, idViajeNuevo)), gastoRepository.Error);
+            }
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                Assert.IsTrue(cortesRepository.Create(CrearCorteOperador(idViajeNuevo)), cortesRepository.Error);
+            }
+
+
+            List<gasto> Gastos = gastoRepository.Read.ToList();
+
+            foreach (var item in Gastos)
+            {
+                Assert.IsTrue(gastoRepository.Delete(item.IdGasto.ToString()), gastoRepository.Error);
+            }
+
+            List<cortesoperador> cortes = cortesRepository.Read.ToList();
+
+            foreach (var item in cortes)
+            {
+                Assert.IsTrue(cortesRepository.Delete(item.IdCorte.ToString()), cortesRepository.Error);
+            }
+
+
+
+            Assert.IsTrue(tipoGastoRepository.Delete(idTipoGastoNuevo.ToString()), tipoGastoRepository.Error);
+            Assert.IsTrue(viajeRepository.Delete(idViajeNuevo.ToString()), viajeRepository.Error);
+            Assert.IsTrue(operadorRepository.Delete(idOPerador.ToString()), operadorRepository.Error);
+            Assert.IsTrue(clienteRepository.Delete(idCliente.ToString()), clienteRepository.Error);
+            Assert.IsTrue(rutaRepository.Delete(idRuta.ToString()), rutaRepository.Error);
+            Assert.IsTrue(unidadesRepository.Delete(idUnidad.ToString()), unidadesRepository.Error);
+            Assert.IsTrue(statusRepository.Delete(idStatus.ToString()), statusRepository.Error);
+
+
+        }
+
+        private cortesoperador CrearCorteOperador(int idViajeNuevo)
+        {
+            return new cortesoperador
+            {
+                FechaInicio = DateTime.Now,
+                FechaFin = DateTime.Now,
+                Costo = 568.23,
+                IdViajeOps = idViajeNuevo
+            };
+        }
+
+        private gasto CrearGasto(int idTipoGastoNuevo, int idViajeNuevo)
+        {
+            return new gasto {
+                IdTipoGasto = idTipoGastoNuevo,
+                Concepto = "Pago de Casetas",
+                Costo = 150.65,
+                RutaPdf = "",
+                RutaXml = "",
+                Fecha = DateTime.Now,
+                IdViajeOps = idViajeNuevo
+            };
         }
 
         private viaje CrearViaje(int idStatus, int idRuta, int idCliente, int idOPerador)
