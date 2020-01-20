@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SCI.COMMON\SCI.COMMON.csproj" />
+    <ProjectReference Include="..\SCI.DAL\SCI.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

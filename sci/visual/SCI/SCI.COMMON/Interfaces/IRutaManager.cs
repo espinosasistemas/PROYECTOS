@@ -7,6 +7,6 @@ namespace SCI.COMMON.Interfaces
 {
     public interface IRutaManager:IGenericManager<ruta>
     {
-        ruta BuscaPorNombreRuta(string nombre);
+        IEnumerable<ruta> BuscaPorNombreRuta(string nombre);
     }
 }

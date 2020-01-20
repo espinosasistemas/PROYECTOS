@@ -12,6 +12,6 @@ namespace SCI.COMMON.Interfaces
         /// </summary>
         /// <param name="tipo">tipo de Gasto</param>
         /// <returns>Regresa el tipo de Gasto</returns>
-        tipogasto BuscaPorTipoGasto(string tipo);
+        tipogasto BuscaPorConcepto(string concepto);
     }
 }

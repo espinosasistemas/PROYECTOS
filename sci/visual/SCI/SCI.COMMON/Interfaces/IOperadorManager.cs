@@ -12,6 +12,6 @@ namespace SCI.COMMON.Interfaces
         /// </summary>
         /// <param name="nombre">Nombre a bucar</param>
         /// <returns>Regresa una lita de operadores con ese nombre</returns>
-        List<operador> BuscarPorNombre(string nombre);
+        IEnumerable<operador> BuscarPorNombre(string nombre);
     }
 }

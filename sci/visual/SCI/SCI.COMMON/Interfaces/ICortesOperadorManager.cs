@@ -7,6 +7,6 @@ namespace SCI.COMMON.Interfaces
 {
     public interface ICortesOperadorManager:IGenericManager<cortesoperador>
     {
-        cortesoperador BuscarCortesPorIdViaje(int idViajeOps);
+        IEnumerable<cortesoperador> BuscarCortesPorIdViaje(int idViajeOps);
     }
 }

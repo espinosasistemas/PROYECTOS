@@ -7,8 +7,8 @@ namespace SCI.COMMON.Interfaces
 {
     public interface ILogManager:IGenericManager<log>
     {
-        log BuscaMovimientoPorUsuario(string idUsuario, DateTime fechaInicio, DateTime fechaFin);
+        IEnumerable<log> BuscaMovimientoPorUsuario(string nombreUsuario, DateTime fechaInicio, DateTime fechaFin);
 
-        log BuscaPorModuloAfectado(string moduloAfectado, DateTime fechaInicio, DateTime fechaFin);
+        IEnumerable<log> BuscaPorModuloAfectado(string moduloAfectado, DateTime fechaInicio, DateTime fechaFin);
     }
 }

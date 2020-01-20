@@ -7,10 +7,10 @@ namespace SCI.COMMON.Interfaces
 {
     public interface IGastoManager:IGenericManager<gasto>
     {
-        gasto BuscarPorIdViajeOps(int idViajeOps);
+        IEnumerable<gasto>BuscarPorIdViajeOps(int idViajeOps);
 
-        List<gasto> BuscarGastosPorRangoFechas(DateTime fechaInicio, DateTime fechaFinal);
+        IEnumerable<gasto> BuscarGastosPorRangoFechas(DateTime fechaInicio, DateTime fechaFinal);
 
-        List<gasto> BuscarPorTipoGasto(int idTipoGasto, DateTime fechaInicio, DateTime fechaFinal);
+        IEnumerable<gasto> BuscarPorTipoGasto(int idTipoGasto, DateTime fechaInicio, DateTime fechaFinal);
     }
 }

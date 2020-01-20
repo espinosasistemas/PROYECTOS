@@ -9,8 +9,8 @@ namespace SCI.COMMON.Interfaces
     {
         viaje BuscarPorIdCliente(string idViajeCliente);
 
-        List<viaje> BuscarViajes(DateTime fechaInicio, DateTime fechaFinal);
+        IEnumerable<viaje> BuscarViajesOps(DateTime fechaInicio, DateTime fechaFinal);
 
-        List<viaje> BuscarViajesPorRuta(int idRuta, DateTime fechaInicio, DateTime fechaFinal);
+        IEnumerable<viaje> BuscarViajesPorRuta(int idRuta, DateTime fechaInicio, DateTime fechaFinal);
     }
 }

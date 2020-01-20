@@ -19,7 +19,7 @@ namespace SCI.COMMON.Interfaces
         /// </summary>
         /// <param name="tipoCombustible">Tipo de Combustible</param>
         /// <returns>Regresa una lista de unidades que usan cierto tipo de combustible</returns>
-        List<unidades> BuscaUnidadesPorTipoCombustible(string tipoCombustible);
+        IEnumerable<unidades> BuscaUnidadesPorTipoCombustible(string tipoCombustible);
 
     }
 }
