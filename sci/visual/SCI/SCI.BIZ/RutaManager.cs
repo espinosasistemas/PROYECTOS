@@ -14,7 +14,7 @@ namespace SCI.BIZ
 
         public IEnumerable<ruta> BuscaPorNombreRuta(string nombre)
         {
-            return repository.Query(r => r.Nombre.ToLower().Contains(nombre.ToLower());
+            return repository.Query(r => r.Nombre.ToLower().Contains(nombre.ToLower()));
         }
     }
 }
