@@ -55,15 +55,12 @@ namespace SCI.INTERFAZ.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Codigo
             openDashBoardForm(new FormUnidades());
-            //hideSubmenu();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //Codigo
-            //hideSubmenu();
+            openDashBoardForm(new FormOperadores());
         }
 
         private void button4_Click(object sender, EventArgs e)

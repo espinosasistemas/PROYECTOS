@@ -52,7 +52,7 @@ namespace SCI.INTERFAZ.UI
         private void btnCrearUnidad_Click(object sender, EventArgs e)
         {
             FormAgregarUnidad fm = new FormAgregarUnidad("agregar",-1);
-            DialogResult DialogFormEditAlumno = fm.ShowDialog();
+            DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
                 cargarTodasUnidades();
@@ -65,7 +65,7 @@ namespace SCI.INTERFAZ.UI
             if(filaSeleccionada>=0)
             {
                 FormAgregarUnidad fm = new FormAgregarUnidad("editar", int.Parse(dgvUnidades["idUnidad",filaSeleccionada].Value.ToString()));
-                DialogResult DialogFormEditAlumno = fm.ShowDialog();
+                DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
                     cargarTodasUnidades();

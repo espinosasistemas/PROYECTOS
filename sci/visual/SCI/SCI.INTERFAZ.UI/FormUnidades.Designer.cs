@@ -33,18 +33,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarUnidad = new System.Windows.Forms.Button();
+            this.btnEditarUnidad = new System.Windows.Forms.Button();
             this.panelResultado = new System.Windows.Forms.Panel();
             this.labelResultado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCrearUnidad = new System.Windows.Forms.Button();
             this.btnBuscarTodasUnidades = new System.Windows.Forms.Button();
             this.dgvUnidades = new System.Windows.Forms.DataGridView();
-            this.btnEditarUnidad = new System.Windows.Forms.Button();
-            this.btnEliminarUnidad = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelResultado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -90,6 +92,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnEliminarUnidad);
             this.groupBox1.Controls.Add(this.btnEditarUnidad);
             this.groupBox1.Controls.Add(this.panelResultado);
@@ -102,6 +105,44 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mostrar Todas las Unidades";
+            // 
+            // btnEliminarUnidad
+            // 
+            this.btnEliminarUnidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnEliminarUnidad.FlatAppearance.BorderSize = 0;
+            this.btnEliminarUnidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarUnidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarUnidad.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminarUnidad.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarUnidad.Image")));
+            this.btnEliminarUnidad.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnEliminarUnidad.Location = new System.Drawing.Point(414, 20);
+            this.btnEliminarUnidad.Name = "btnEliminarUnidad";
+            this.btnEliminarUnidad.Size = new System.Drawing.Size(130, 33);
+            this.btnEliminarUnidad.TabIndex = 5;
+            this.btnEliminarUnidad.Text = "Eliminar Unidad";
+            this.btnEliminarUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarUnidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarUnidad.UseVisualStyleBackColor = false;
+            this.btnEliminarUnidad.Click += new System.EventHandler(this.btnEliminarUnidad_Click);
+            // 
+            // btnEditarUnidad
+            // 
+            this.btnEditarUnidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnEditarUnidad.FlatAppearance.BorderSize = 0;
+            this.btnEditarUnidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarUnidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarUnidad.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEditarUnidad.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarUnidad.Image")));
+            this.btnEditarUnidad.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnEditarUnidad.Location = new System.Drawing.Point(278, 20);
+            this.btnEditarUnidad.Name = "btnEditarUnidad";
+            this.btnEditarUnidad.Size = new System.Drawing.Size(130, 33);
+            this.btnEditarUnidad.TabIndex = 4;
+            this.btnEditarUnidad.Text = "Editar Unidad";
+            this.btnEditarUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditarUnidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditarUnidad.UseVisualStyleBackColor = false;
+            this.btnEditarUnidad.Click += new System.EventHandler(this.btnEditarUnidad_Click);
             // 
             // panelResultado
             // 
@@ -188,43 +229,16 @@
             this.dgvUnidades.TabIndex = 0;
             this.dgvUnidades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnidades_CellClick);
             // 
-            // btnEditarUnidad
+            // pictureBox1
             // 
-            this.btnEditarUnidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
-            this.btnEditarUnidad.FlatAppearance.BorderSize = 0;
-            this.btnEditarUnidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnEditarUnidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarUnidad.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEditarUnidad.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarUnidad.Image")));
-            this.btnEditarUnidad.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEditarUnidad.Location = new System.Drawing.Point(278, 20);
-            this.btnEditarUnidad.Name = "btnEditarUnidad";
-            this.btnEditarUnidad.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarUnidad.TabIndex = 4;
-            this.btnEditarUnidad.Text = "Editar Unidad";
-            this.btnEditarUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditarUnidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditarUnidad.UseVisualStyleBackColor = false;
-            this.btnEditarUnidad.Click += new System.EventHandler(this.btnEditarUnidad_Click);
-            // 
-            // btnEliminarUnidad
-            // 
-            this.btnEliminarUnidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
-            this.btnEliminarUnidad.FlatAppearance.BorderSize = 0;
-            this.btnEliminarUnidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnEliminarUnidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarUnidad.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEliminarUnidad.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarUnidad.Image")));
-            this.btnEliminarUnidad.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEliminarUnidad.Location = new System.Drawing.Point(414, 20);
-            this.btnEliminarUnidad.Name = "btnEliminarUnidad";
-            this.btnEliminarUnidad.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarUnidad.TabIndex = 5;
-            this.btnEliminarUnidad.Text = "Eliminar Unidad";
-            this.btnEliminarUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarUnidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminarUnidad.UseVisualStyleBackColor = false;
-            this.btnEliminarUnidad.Click += new System.EventHandler(this.btnEliminarUnidad_Click);
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(621, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(70, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // FormUnidades
             // 
@@ -244,6 +258,7 @@
             this.panelResultado.ResumeLayout(false);
             this.panelResultado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,5 +277,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEditarUnidad;
         private System.Windows.Forms.Button btnEliminarUnidad;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
