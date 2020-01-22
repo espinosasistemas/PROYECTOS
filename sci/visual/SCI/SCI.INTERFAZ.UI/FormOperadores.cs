@@ -62,6 +62,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnEditarOperador_Click(object sender, EventArgs e)
         {
+            //Editar
             if (filaSeleccionada >= 0)
             {
                 FormAgregarOperador fm = new FormAgregarOperador("editar", int.Parse(dgvOperadores["idOperador", filaSeleccionada].Value.ToString()));
