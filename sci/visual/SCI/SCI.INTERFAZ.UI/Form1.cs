@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SCI.INTERFAZ.UI
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipal : Form
     {
-        public Form1()
+        public FormPrincipal()
         {
             InitializeComponent();
             customizeDising();
@@ -54,7 +54,7 @@ namespace SCI.INTERFAZ.UI
         private void button2_Click(object sender, EventArgs e)
         {
             //Codigo
-            openDashBoardForm(new FormClientes());
+            openDashBoardForm(new FormUnidades());
             //hideSubmenu();
         }
 
