@@ -9,7 +9,6 @@ namespace SCI.BIZ
 {
     public class FabricManager
     {
-
         public IUsuarioManager UsuarioManager()
         {
             return new UsuarioManager(new DAL.GenericRepository<usuario>(new UsuarioValidator(), false));

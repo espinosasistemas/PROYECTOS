@@ -12,6 +12,8 @@ namespace SCI.INTERFAZ.UI
 {
     public partial class FormPrincipal : Form
     {
+        private Form activeForm = null;
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace SCI.INTERFAZ.UI
 
         private void customizeDising()
         {
-            panelCatalogoSubMenu.Visible = false;
+            panelCatalogoSubMenu.Visible = true;
             panelViajesSubMenu.Visible = false;
             panelReportesSubMenu.Visible = false;
         }
@@ -70,7 +72,7 @@ namespace SCI.INTERFAZ.UI
             //hideSubmenu();
         }
 
-        private Form activeForm = null;
+        
         private void openDashBoardForm(Form childForm)
         {
             if (activeForm != null)
