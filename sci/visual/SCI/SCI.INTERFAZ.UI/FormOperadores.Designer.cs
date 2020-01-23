@@ -252,6 +252,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormOperadores";
             this.Text = "FormOperadores";
+            this.Load += new System.EventHandler(this.FormOperadores_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelResultado.ResumeLayout(false);

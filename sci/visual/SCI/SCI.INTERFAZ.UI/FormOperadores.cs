@@ -58,11 +58,12 @@ namespace SCI.INTERFAZ.UI
                 cargarTodosOperadores();
                 mostrarLabelStatus(fm.Valor, true);
             }
+            
         }
 
         private void btnEditarOperador_Click(object sender, EventArgs e)
         {
-            //Editar
+            
             if (filaSeleccionada >= 0)
             {
                 FormAgregarOperador fm = new FormAgregarOperador("editar", int.Parse(dgvOperadores["idOperador", filaSeleccionada].Value.ToString()));
@@ -72,6 +73,7 @@ namespace SCI.INTERFAZ.UI
                     cargarTodosOperadores();
                     mostrarLabelStatus(fm.Valor, true);
                 }
+                
             }
         }
 
@@ -117,6 +119,11 @@ namespace SCI.INTERFAZ.UI
                 }
 
             }
+        }
+
+        private void FormOperadores_Load(object sender, EventArgs e)
+        {
+            cargarTodosOperadores();
         }
     }
 }

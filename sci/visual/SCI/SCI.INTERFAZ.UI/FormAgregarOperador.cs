@@ -54,11 +54,14 @@ namespace SCI.INTERFAZ.UI
                 {
                     operador operadorNuevo = CrearOperador();
                     if (managerOperador.Insertar(operadorNuevo))
+                    {
                         resultado = "Se ha agregado correctamente el nuevo Operador.";
+                        this.Close();
+                    }
                     else
-                        resultado = managerOperador.Error;
-
-                    this.Close();
+                    {
+                        MessageBox.Show(managerOperador.Error, "Error al ingresar el nuevo Operador.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -77,11 +80,15 @@ namespace SCI.INTERFAZ.UI
                         operadorAeditar.Salarioporhora = double.Parse(textSalarioXhora.Text);
                         operadorAeditar.Direccion = textDireccion.Text;
 
-                        if(managerOperador.Actualizar(operadorAeditar))
+                        if (managerOperador.Actualizar(operadorAeditar))
+                        {
                             resultado = "Se ha actualizado correctamente los datos de la unidad.";
+                            this.Close();
+                        }
                         else
-                            resultado = managerOperador.Error;
-                        this.Close();
+                        {
+                            MessageBox.Show(managerOperador.Error, "Error al intentar actualizar el nuevo Operador.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     catch (Exception ex)
                     {

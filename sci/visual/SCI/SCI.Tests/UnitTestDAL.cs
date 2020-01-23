@@ -395,7 +395,7 @@ namespace SCI.Tests
                 Nombre = "Tracto",
                 NumeroEconomico = 30,
                 Placas = "XYZ-24-65",
-                NumeroSerie = "00025476E4AD45",
+                NumeroSerie = "5646",
                 TipoCombustible = "Gasolina"
             };
         }
@@ -437,7 +437,7 @@ namespace SCI.Tests
                 Telefono = "2221846700",
                 Correo = "juan@gmail.com",
                 NombreContacto = "Juan Espinosa",
-                Observaciones ="Ninguna observación"
+                Direccion ="Ninguna observación"
             };
         }
 

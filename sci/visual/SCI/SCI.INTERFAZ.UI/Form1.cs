@@ -65,8 +65,7 @@ namespace SCI.INTERFAZ.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //Codigo
-            //hideSubmenu();
+            openDashBoardForm(new FormClientes());
         }
 
         

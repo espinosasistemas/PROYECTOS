@@ -68,11 +68,14 @@ namespace SCI.INTERFAZ.UI
                 {
                     unidades nuevaUnidad = CrearUnidad();
                     if (managerUnidades.Insertar(nuevaUnidad))
+                    {
                         resultado = "Se ha agregado correctamente la nueva unidad.";
+                        this.Close();
+                    }
                     else
-                        resultado = managerUnidades.Error;
-
-                    this.Close();
+                    {
+                        MessageBox.Show(managerUnidades.Error, "Error al ingresar la nueva Unidad.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -92,10 +95,14 @@ namespace SCI.INTERFAZ.UI
                         unidadAeditar.TipoCombustible = comboTipoCombustible.Text;
 
                         if (managerUnidades.Actualizar(unidadAeditar))
-                            resultado = "Se ha actualizado correctamente los datos de la unidad.";
+                        {
+                            resultado = "Se han actualizado correctamente los datos de la unidad.";
+                            this.Close();
+                        }
                         else
-                            resultado = managerUnidades.Error;
-                        this.Close();
+                        {
+                            MessageBox.Show(managerUnidades.Error, "Error al actualizar los datos de la unidad.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     catch (Exception ex)
                     {

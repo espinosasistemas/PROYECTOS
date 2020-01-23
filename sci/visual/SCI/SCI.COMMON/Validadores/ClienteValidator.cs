@@ -16,8 +16,8 @@ namespace SCI.COMMON.Validadores
             RuleFor(c => c.Giro).NotNull().NotEmpty().Length(1, 50);
             RuleFor(c => c.Telefono).NotNull().NotEmpty().Length(1, 20);
             RuleFor(c => c.Correo).NotNull().NotEmpty().Length(1, 100);
-            RuleFor(c => c.NombreContacto).NotNull().NotEmpty().Length(1, 200);
-            RuleFor(c => c.Observaciones).NotNull().NotEmpty().Length(1, 200);
+            RuleFor(c => c.NombreContacto).NotNull().Length(1, 200);
+            RuleFor(c => c.Direccion).NotNull().Length(1, 200);
         }
         
     }

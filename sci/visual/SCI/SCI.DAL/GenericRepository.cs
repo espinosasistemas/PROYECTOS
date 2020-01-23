@@ -216,60 +216,74 @@ namespace SCI.DAL
 
         public bool Update(T entidad)
         {
-            try
+            ValidationResult resultadoDeValidacion = validator.Validate(entidad);
+            if (resultadoDeValidacion.IsValid)
             {
-                string sql1 = "UPDATE " + typeof(T).Name + " SET ";
-                string sql2 = " WHERE ";
-                string sql = "";
-                var campos = typeof(T).GetProperties();
-                T dato = (T)Activator.CreateInstance(typeof(T));
-                Type Ttypo = typeof(T);
-                for (int i = 0; i < campos.Length; i++)
+                try
                 {
-                    var propiedad = Ttypo.GetProperty(campos[i].Name);
-                    var valor = propiedad.GetValue(entidad);
-                    sql += propiedad.Name + "=";
-                    switch (propiedad.PropertyType.Name)
+                    string sql1 = "UPDATE " + typeof(T).Name + " SET ";
+                    string sql2 = " WHERE ";
+                    string sql = "";
+                    var campos = typeof(T).GetProperties();
+                    T dato = (T)Activator.CreateInstance(typeof(T));
+                    Type Ttypo = typeof(T);
+                    for (int i = 0; i < campos.Length; i++)
                     {
-                        case "String":
-                            sql += "'" + valor + "'";
-                            break;
-                        case "DateTime":
-                            DateTime v = (DateTime)valor;
-                            sql += string.Format($"'{v.Year}-{v.Month}-{v.Day} {v.Hour}:{v.Minute}:00'");
-                            break;
-                        default:
-                            sql += " " + valor;
-                            break;
+                        var propiedad = Ttypo.GetProperty(campos[i].Name);
+                        var valor = propiedad.GetValue(entidad);
+                        sql += propiedad.Name + "=";
+                        switch (propiedad.PropertyType.Name)
+                        {
+                            case "String":
+                                sql += "'" + valor + "'";
+                                break;
+                            case "DateTime":
+                                DateTime v = (DateTime)valor;
+                                sql += string.Format($"'{v.Year}-{v.Month}-{v.Day} {v.Hour}:{v.Minute}:00'");
+                                break;
+                            default:
+                                sql += " " + valor;
+                                break;
+                        }
+                        if (i == 0)
+                        {
+                            sql2 += sql;
+                        }
+                        if (i != campos.Length - 1)
+                        {
+                            sql += " ,";
+                        }
+                        sql1 += sql;
+                        sql = "";
                     }
-                    if (i == 0)
-                    {
-                        sql2 += sql;
-                    }
-                    if (i != campos.Length - 1)
-                    {
-                        sql += " ,";
-                    }
-                    sql1 += sql;
-                    sql = "";
-                }
 
-                if (db.Comando(sql1 + sql2))
-                {
-                    Error = "";
-                    return true;
+                    if (db.Comando(sql1 + sql2))
+                    {
+                        Error = "";
+                        return true;
+                    }
+                    else
+                    {
+                        Error = db.Error;
+                        return false;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Error = db.Error;
+                    Error = ex.Message;
                     return false;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                Error = ex.Message;
+                Error = "Error de validación:";
+                foreach (var item in resultadoDeValidacion.Errors)
+                {
+                    Error += item.ErrorMessage + ". ";
+                }
                 return false;
             }
+            
         }
 
     }

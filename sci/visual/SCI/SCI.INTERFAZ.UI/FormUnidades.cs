@@ -117,5 +117,10 @@ namespace SCI.INTERFAZ.UI
         {
             filaSeleccionada = e.RowIndex;
         }
+
+        private void FormUnidades_Load(object sender, EventArgs e)
+        {
+            cargarTodasUnidades();
+        }
     }
 }

@@ -13,6 +13,6 @@ namespace SCI.COMMON.Entidades
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public string NombreContacto { get; set; }
-        public string Observaciones { get; set; }
+        public string Direccion { get; set; }
     }
 }
