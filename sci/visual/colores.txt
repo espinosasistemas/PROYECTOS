@@ -1,0 +1,6 @@
+verde #FF4CAF50, (76, 175, 80)
+tamaño formulario hijo: 734, 561
+Font: Century Gothic, 8.25pt
+Back Color: White
+
+AutoSizeCoumnsMode=AllCells

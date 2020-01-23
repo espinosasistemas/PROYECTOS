@@ -16,5 +16,6 @@ namespace SCI.BIZ
         {
             return repository.Query(r => r.Nombre.ToLower().Contains(nombre.ToLower()));
         }
+
     }
 }

@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarCliente));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textGiro = new System.Windows.Forms.TextBox();
+            this.textContacto = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textCorreo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.textDireccion = new System.Windows.Forms.TextBox();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,11 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textRazonSocial = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textCorreo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textContacto = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textGiro = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,12 +68,57 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textRazonSocial);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(4, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(396, 351);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos del Operador";
+            // 
+            // textGiro
+            // 
+            this.textGiro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textGiro.Location = new System.Drawing.Point(134, 93);
+            this.textGiro.Name = "textGiro";
+            this.textGiro.Size = new System.Drawing.Size(231, 26);
+            this.textGiro.TabIndex = 3;
+            // 
+            // textContacto
+            // 
+            this.textContacto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textContacto.Location = new System.Drawing.Point(133, 189);
+            this.textContacto.Name = "textContacto";
+            this.textContacto.Size = new System.Drawing.Size(231, 26);
+            this.textContacto.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(53, 195);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Contacto";
+            // 
+            // textCorreo
+            // 
+            this.textCorreo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCorreo.Location = new System.Drawing.Point(133, 157);
+            this.textCorreo.Name = "textCorreo";
+            this.textCorreo.Size = new System.Drawing.Size(231, 26);
+            this.textCorreo.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(72, 163);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Correo";
             // 
             // textDireccion
             // 
@@ -177,50 +222,6 @@
             this.label1.Size = new System.Drawing.Size(90, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Razón Social";
-            // 
-            // textCorreo
-            // 
-            this.textCorreo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCorreo.Location = new System.Drawing.Point(133, 157);
-            this.textCorreo.Name = "textCorreo";
-            this.textCorreo.Size = new System.Drawing.Size(231, 26);
-            this.textCorreo.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(72, 163);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 17);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Correo";
-            // 
-            // textContacto
-            // 
-            this.textContacto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textContacto.Location = new System.Drawing.Point(133, 189);
-            this.textContacto.Name = "textContacto";
-            this.textContacto.Size = new System.Drawing.Size(231, 26);
-            this.textContacto.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(53, 195);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Contacto";
-            // 
-            // textGiro
-            // 
-            this.textGiro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textGiro.Location = new System.Drawing.Point(134, 93);
-            this.textGiro.Name = "textGiro";
-            this.textGiro.Size = new System.Drawing.Size(231, 26);
-            this.textGiro.TabIndex = 3;
             // 
             // FormAgregarCliente
             // 

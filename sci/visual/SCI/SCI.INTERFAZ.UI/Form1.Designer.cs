@@ -41,7 +41,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.btnViajes = new System.Windows.Forms.Button();
             this.panelCatalogoSubMenu = new System.Windows.Forms.Panel();
-            this.btnStatusViajes = new System.Windows.Forms.Button();
             this.btnGastos = new System.Windows.Forms.Button();
             this.btnRutas = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
@@ -49,10 +48,10 @@
             this.btnUnidades = new System.Windows.Forms.Button();
             this.btnCatalogos = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelDashBoard = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelSideMenu.SuspendLayout();
             this.panelReportesSubMenu.SuspendLayout();
             this.panelViajesSubMenu.SuspendLayout();
@@ -87,7 +86,7 @@
             this.panelReportesSubMenu.Controls.Add(this.button11);
             this.panelReportesSubMenu.Controls.Add(this.button12);
             this.panelReportesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 587);
+            this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 545);
             this.panelReportesSubMenu.Name = "panelReportesSubMenu";
             this.panelReportesSubMenu.Size = new System.Drawing.Size(233, 132);
             this.panelReportesSubMenu.TabIndex = 5;
@@ -143,7 +142,7 @@
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnReportes.Location = new System.Drawing.Point(0, 542);
+            this.btnReportes.Location = new System.Drawing.Point(0, 500);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReportes.Size = new System.Drawing.Size(233, 45);
@@ -159,7 +158,7 @@
             this.panelViajesSubMenu.Controls.Add(this.button7);
             this.panelViajesSubMenu.Controls.Add(this.button8);
             this.panelViajesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelViajesSubMenu.Location = new System.Drawing.Point(0, 410);
+            this.panelViajesSubMenu.Location = new System.Drawing.Point(0, 368);
             this.panelViajesSubMenu.Name = "panelViajesSubMenu";
             this.panelViajesSubMenu.Size = new System.Drawing.Size(233, 132);
             this.panelViajesSubMenu.TabIndex = 3;
@@ -215,7 +214,7 @@
             this.btnViajes.FlatAppearance.BorderSize = 0;
             this.btnViajes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViajes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnViajes.Location = new System.Drawing.Point(0, 365);
+            this.btnViajes.Location = new System.Drawing.Point(0, 323);
             this.btnViajes.Name = "btnViajes";
             this.btnViajes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnViajes.Size = new System.Drawing.Size(233, 45);
@@ -227,7 +226,6 @@
             // panelCatalogoSubMenu
             // 
             this.panelCatalogoSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(244)))));
-            this.panelCatalogoSubMenu.Controls.Add(this.btnStatusViajes);
             this.panelCatalogoSubMenu.Controls.Add(this.btnGastos);
             this.panelCatalogoSubMenu.Controls.Add(this.btnRutas);
             this.panelCatalogoSubMenu.Controls.Add(this.btnClientes);
@@ -236,26 +234,8 @@
             this.panelCatalogoSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCatalogoSubMenu.Location = new System.Drawing.Point(0, 114);
             this.panelCatalogoSubMenu.Name = "panelCatalogoSubMenu";
-            this.panelCatalogoSubMenu.Size = new System.Drawing.Size(233, 251);
+            this.panelCatalogoSubMenu.Size = new System.Drawing.Size(233, 209);
             this.panelCatalogoSubMenu.TabIndex = 1;
-            // 
-            // btnStatusViajes
-            // 
-            this.btnStatusViajes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStatusViajes.FlatAppearance.BorderSize = 0;
-            this.btnStatusViajes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnStatusViajes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatusViajes.ForeColor = System.Drawing.Color.LightGray;
-            this.btnStatusViajes.Image = ((System.Drawing.Image)(resources.GetObject("btnStatusViajes.Image")));
-            this.btnStatusViajes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatusViajes.Location = new System.Drawing.Point(0, 200);
-            this.btnStatusViajes.Name = "btnStatusViajes";
-            this.btnStatusViajes.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnStatusViajes.Size = new System.Drawing.Size(233, 40);
-            this.btnStatusViajes.TabIndex = 5;
-            this.btnStatusViajes.Text = "          Estados Viaje";
-            this.btnStatusViajes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatusViajes.UseVisualStyleBackColor = true;
             // 
             // btnGastos
             // 
@@ -271,7 +251,7 @@
             this.btnGastos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnGastos.Size = new System.Drawing.Size(233, 40);
             this.btnGastos.TabIndex = 4;
-            this.btnGastos.Text = "          Gastos";
+            this.btnGastos.Text = "          Otro Catálogos";
             this.btnGastos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGastos.UseVisualStyleBackColor = true;
             // 
@@ -292,6 +272,7 @@
             this.btnRutas.Text = "          Rutas";
             this.btnRutas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRutas.UseVisualStyleBackColor = true;
+            this.btnRutas.Click += new System.EventHandler(this.btnRutas_Click);
             // 
             // btnClientes
             // 
@@ -378,6 +359,17 @@
             this.panel1.Size = new System.Drawing.Size(233, 69);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(163, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 41);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "S C I";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -409,17 +401,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(163, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 41);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "S C I";
             // 
             // FormPrincipal
             // 
@@ -471,7 +452,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnRutas;
         private System.Windows.Forms.Button btnGastos;
-        private System.Windows.Forms.Button btnStatusViajes;
         private System.Windows.Forms.Button btnOperadores;
         private System.Windows.Forms.Label label1;
     }

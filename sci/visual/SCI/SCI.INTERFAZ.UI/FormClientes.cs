@@ -23,6 +23,11 @@ namespace SCI.INTERFAZ.UI
             managerClientes = Tools.FabricManager.ClienteManager();
         }
 
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
+            cargarTodosLosCliente();
+        }
+
         private void btnBuscarTodosClientes_Click(object sender, EventArgs e)
         {
             cargarTodosLosCliente();
@@ -81,6 +86,7 @@ namespace SCI.INTERFAZ.UI
             }
         }
 
+        
         public void cargarTodosLosCliente()
         {
             IEnumerable<cliente> TodosClientes = managerClientes.ObtenerTodos;
@@ -107,19 +113,18 @@ namespace SCI.INTERFAZ.UI
             else panelResultado.BackColor = Color.FromArgb(255, 87, 34);
         }
 
-        private void btnClose_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             filaSeleccionada = e.RowIndex;
         }
 
-        private void FormClientes_Load(object sender, EventArgs e)
+        
+
+        private void btnClose_Click_1(object sender, EventArgs e)
         {
-            cargarTodosLosCliente();
+            this.Close();
         }
     }
 }
