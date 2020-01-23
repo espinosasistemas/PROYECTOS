@@ -1,0 +1,121 @@
+﻿using SCI.COMMON.Entidades;
+using SCI.COMMON.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SCI.INTERFAZ.UI
+{
+    public partial class FormOtros : Form
+    {
+        ITipoDeGastoManager managerGasto;
+        IStatusViajeManager managerStatus;
+        int filaSeleccionadaGasto = -1;
+        int filaSeleccionadaStatus = -1;
+
+        public FormOtros()
+        {
+            InitializeComponent();
+            managerGasto = Tools.FabricManager.TipoDeGastoManager();
+            managerStatus = Tools.FabricManager.StatusViajeManager();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvGastos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionadaGasto = e.RowIndex;
+        }
+
+        private void dataEstados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionadaStatus = e.RowIndex;
+        }
+
+        private void btnBuscarTodosGastos_Click(object sender, EventArgs e)
+        {
+            cargarTodosLosGastos();
+        }
+
+        public void cargarTodosLosGastos()
+        {
+            IEnumerable<tipogasto> TodosLosTipos = managerGasto.ObtenerTodos;
+            dgvGastos.DataSource = TodosLosTipos;
+            if (dgvGastos.Rows.Count > 0)
+            {
+                mostrarLabelStatus("Se han cargado toda las unidades dadas de alta.", true);
+                filaSeleccionadaGasto = 0;
+            }
+            else
+            {
+                mostrarLabelStatus("Por el momento no se tienen unidades registradas.", false);
+                filaSeleccionadaGasto = -1;
+            }
+        }
+
+        public void cargarTodosLosStatus()
+        {
+            IEnumerable<statusviaje> TodosLosStatus = managerStatus.ObtenerTodos;
+            dgvStatus.DataSource = TodosLosStatus;
+            if (dgvStatus.Rows.Count > 0)
+            {
+                mostrarLabelStatus("Se han cargado toda las unidades dadas de alta.", true);
+                filaSeleccionadaStatus = 0;
+            }
+            else
+            {
+                mostrarLabelStatus("Por el momento no se tienen unidades registradas.", false);
+                filaSeleccionadaStatus = -1;
+            }
+        }
+
+        private void mostrarLabelStatus(string mensaje, bool color)
+        {
+            panelResultado.Visible = true;
+            if (mensaje == string.Empty)
+                mensaje = "Sin Resultado.";
+            labelResultado.Text = mensaje;
+            if (color == true) panelResultado.BackColor = Color.FromArgb(76, 175, 80);
+            else panelResultado.BackColor = Color.FromArgb(255, 87, 34);
+        }
+
+        private void btnMostrarEstados_Click(object sender, EventArgs e)
+        {
+            cargarTodosLosStatus();
+        }
+
+        private void btnCrearTipoGasto_Click(object sender, EventArgs e)
+        {
+            FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto("agregar", -1);
+            DialogResult DialogForm = fm.ShowDialog();
+            if (fm.Valor != string.Empty)
+            {
+                cargarTodosLosGastos();
+                mostrarLabelStatus(fm.Valor, true);
+            }
+        }
+
+        private void btnEditarGasto_Click(object sender, EventArgs e)
+        {
+            if (filaSeleccionadaGasto >= 0)
+            {
+                FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto("editar", int.Parse(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    cargarTodosLosGastos();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
+            }
+        }
+    }
+}

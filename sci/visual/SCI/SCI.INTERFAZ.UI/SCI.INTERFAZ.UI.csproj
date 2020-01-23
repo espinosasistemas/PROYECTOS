@@ -98,6 +98,12 @@
     <Compile Include="FormAgregarRutas.Designer.cs">
       <DependentUpon>FormAgregarRutas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAgregarTipoDeGasto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarTipoDeGasto.Designer.cs">
+      <DependentUpon>FormAgregarTipoDeGasto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAgregarUnidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
     </Compile>
     <Compile Include="FormOperadores.Designer.cs">
       <DependentUpon>FormOperadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOtros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOtros.Designer.cs">
+      <DependentUpon>FormOtros.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRutas.cs">
       <SubType>Form</SubType>
@@ -143,6 +155,9 @@
     <EmbeddedResource Include="FormAgregarRutas.resx">
       <DependentUpon>FormAgregarRutas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAgregarTipoDeGasto.resx">
+      <DependentUpon>FormAgregarTipoDeGasto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAgregarUnidad.resx">
       <DependentUpon>FormAgregarUnidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormOperadores.resx">
       <DependentUpon>FormOperadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOtros.resx">
+      <DependentUpon>FormOtros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRutas.resx">
       <DependentUpon>FormRutas.cs</DependentUpon>

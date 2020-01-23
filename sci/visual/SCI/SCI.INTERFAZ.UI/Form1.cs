@@ -73,6 +73,11 @@ namespace SCI.INTERFAZ.UI
             openDashBoardForm(new FormRutas());
         }
 
+        private void btnGastos_Click(object sender, EventArgs e)
+        {
+            openDashBoardForm(new FormOtros());
+        }
+
         private void openDashBoardForm(Form childForm)
         {
             if (activeForm != null)
@@ -86,7 +91,5 @@ namespace SCI.INTERFAZ.UI
             childForm.BringToFront();
             childForm.Show();
         }
-
-        
     }
 }
