@@ -117,5 +117,94 @@ namespace SCI.INTERFAZ.UI
                 }
             }
         }
+
+        private void btnEliminarGasto_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogEliminar = new DialogResult();
+            if (filaSeleccionadaGasto >= 0)
+            {
+                string nombre = dgvGastos["concepto", filaSeleccionadaGasto].Value.ToString();
+                dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el tipo de gasto: {nombre}?", "Eliminar Gasto.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogEliminar == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (managerGasto.Eliminar(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()))
+                        {
+                            cargarTodosLosGastos();
+                            mostrarLabelStatus("Se ha eliminado Correctamente el tipo de Gasto. " + nombre, true);
+                        }
+                        else
+                            mostrarLabelStatus("No se ha podido Eliminar el tipo de Gasto. " + managerGasto.Error, false);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        mostrarLabelStatus("No se ha podido Eliminar el tipo de gasto. " + ex.Message, false);
+                    }
+                }
+
+            }
+        }
+
+        private void FormOtros_Load(object sender, EventArgs e)
+        {
+            cargarTodosLosGastos();
+            cargarTodosLosStatus();
+        }
+
+        private void btnAgregarEstado_Click(object sender, EventArgs e)
+        {
+            FormAgregarStatus fm = new FormAgregarStatus("agregar", -1);
+            DialogResult DialogForm = fm.ShowDialog();
+            if (fm.Valor != string.Empty)
+            {
+                cargarTodosLosStatus();
+                mostrarLabelStatus(fm.Valor, true);
+            }
+        }
+
+        private void btnEditarEstado_Click(object sender, EventArgs e)
+        {
+            if (filaSeleccionadaGasto >= 0)
+            {
+                FormAgregarStatus fm = new FormAgregarStatus("editar", int.Parse(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    cargarTodosLosStatus();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
+            }
+        }
+
+        private void btnEliminarEstado_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogEliminar = new DialogResult();
+            if (filaSeleccionadaStatus >= 0)
+            {
+                string nombre = dgvStatus["nombre", filaSeleccionadaStatus].Value.ToString();
+                dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el status: {nombre}?", "Eliminar Status.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogEliminar == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (managerStatus.Eliminar(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()))
+                        {
+                            cargarTodosLosStatus();
+                            mostrarLabelStatus("Se ha eliminado Correctamente el Status. " + nombre, true);
+                        }
+                        else
+                            mostrarLabelStatus("No se ha podido Eliminar el status. " + managerStatus.Error, false);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        mostrarLabelStatus("No se ha podido Eliminar el status. " + ex.Message, false);
+                    }
+                }
+
+            }
+        }
     }
 }

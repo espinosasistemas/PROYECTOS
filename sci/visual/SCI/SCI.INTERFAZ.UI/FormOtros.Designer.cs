@@ -143,6 +143,7 @@
             this.btnEliminarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminarGasto.UseVisualStyleBackColor = false;
+            this.btnEliminarGasto.Click += new System.EventHandler(this.btnEliminarGasto_Click);
             // 
             // btnEditarGasto
             // 
@@ -294,6 +295,7 @@
             this.btnEliminarEstado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarEstado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminarEstado.UseVisualStyleBackColor = false;
+            this.btnEliminarEstado.Click += new System.EventHandler(this.btnEliminarEstado_Click);
             // 
             // btnEditarEstado
             // 
@@ -312,6 +314,7 @@
             this.btnEditarEstado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarEstado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditarEstado.UseVisualStyleBackColor = false;
+            this.btnEditarEstado.Click += new System.EventHandler(this.btnEditarEstado_Click);
             // 
             // btnAgregarEstado
             // 
@@ -330,6 +333,7 @@
             this.btnAgregarEstado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarEstado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarEstado.UseVisualStyleBackColor = false;
+            this.btnAgregarEstado.Click += new System.EventHandler(this.btnAgregarEstado_Click);
             // 
             // btnMostrarEstados
             // 
@@ -380,6 +384,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormOtros";
             this.Text = "FormOtros";
+            this.Load += new System.EventHandler(this.FormOtros_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

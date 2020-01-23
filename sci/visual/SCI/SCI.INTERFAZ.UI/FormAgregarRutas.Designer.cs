@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarRutas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboUnidades = new System.Windows.Forms.ComboBox();
             this.btnAgregarRuta = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textCosto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboUnidades = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,15 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos de la Ruta";
+            // 
+            // comboUnidades
+            // 
+            this.comboUnidades.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboUnidades.FormattingEnabled = true;
+            this.comboUnidades.Location = new System.Drawing.Point(105, 97);
+            this.comboUnidades.Name = "comboUnidades";
+            this.comboUnidades.Size = new System.Drawing.Size(308, 29);
+            this.comboUnidades.TabIndex = 11;
             // 
             // btnAgregarRuta
             // 
@@ -82,11 +91,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(42, 104);
+            this.label3.Location = new System.Drawing.Point(29, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.Size = new System.Drawing.Size(67, 17);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Unidad";
+            this.label3.Text = "Unidades";
             // 
             // textCosto
             // 
@@ -124,15 +133,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // comboUnidades
-            // 
-            this.comboUnidades.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboUnidades.FormattingEnabled = true;
-            this.comboUnidades.Location = new System.Drawing.Point(105, 97);
-            this.comboUnidades.Name = "comboUnidades";
-            this.comboUnidades.Size = new System.Drawing.Size(308, 29);
-            this.comboUnidades.TabIndex = 11;
-            // 
             // FormAgregarRutas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -142,6 +142,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "FormAgregarRutas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormAgregarRutas";

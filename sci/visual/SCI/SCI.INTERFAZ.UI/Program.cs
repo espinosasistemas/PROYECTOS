@@ -17,6 +17,7 @@ namespace SCI.INTERFAZ.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormPrincipal());
+            //Application.Run(new FormAgregarOperador("agregar",-1));
         }
     }
 }
