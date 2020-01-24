@@ -52,12 +52,12 @@ namespace SCI.INTERFAZ.UI
             dgvGastos.DataSource = TodosLosTipos;
             if (dgvGastos.Rows.Count > 0)
             {
-                mostrarLabelStatus("Se han cargado toda las unidades dadas de alta.", true);
+                mostrarLabelStatus("Se han cargado todos los Tipos de Gastos.", true);
                 filaSeleccionadaGasto = 0;
             }
             else
             {
-                mostrarLabelStatus("Por el momento no se tienen unidades registradas.", false);
+                mostrarLabelStatus("Por el momento no se tienen Tipos de Gastos registrados.", false);
                 filaSeleccionadaGasto = -1;
             }
         }
@@ -68,12 +68,12 @@ namespace SCI.INTERFAZ.UI
             dgvStatus.DataSource = TodosLosStatus;
             if (dgvStatus.Rows.Count > 0)
             {
-                mostrarLabelStatus("Se han cargado toda las unidades dadas de alta.", true);
+                mostrarLabelStatus("Se han cargado todos los status de los viajes.", true);
                 filaSeleccionadaStatus = 0;
             }
             else
             {
-                mostrarLabelStatus("Por el momento no se tienen unidades registradas.", false);
+                mostrarLabelStatus("Por el momento no se tiene registrados Status de los viajes.", false);
                 filaSeleccionadaStatus = -1;
             }
         }

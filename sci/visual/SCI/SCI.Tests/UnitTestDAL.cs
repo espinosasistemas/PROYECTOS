@@ -367,9 +367,9 @@ namespace SCI.Tests
             return new viaje
             {
                 IdViajeCliente = "axadad",
-                FechaInicioOps = DateTime.Now,
+                FechaInicioSci = DateTime.Now,
                 FechaInicioCliente = DateTime.Now,
-                FechaFinOps = DateTime.Now,
+                FechaFinSci = DateTime.Now,
                 FechaFinCliente = DateTime.Now,
                 IdStatus = idStatus,
                 IdRuta = idRuta,
@@ -423,7 +423,10 @@ namespace SCI.Tests
                 Apellidos = "Operador Apellido",
                 FechaIngreso = DateTime.Now.AddDays(-10),
                 Salarioporhora = 60.50,
-                Direccion = "San Bernardo #20, Puebla Puebla."
+                Direccion = "San Bernardo #20, Puebla Puebla.",
+                TelefonoDeCasa = "222 654 4899",
+                Celular = "222 589 6987",
+                Correo = "correo@gmail.com"
             };
         }
 

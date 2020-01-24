@@ -42,7 +42,10 @@ namespace SCI.INTERFAZ.UI
                 Apellidos = textApellidos.Text,
                 FechaIngreso = DateTime.Parse(dateTimeFechaIngreso.Text),
                 Salarioporhora = double.Parse(textSalarioXhora.Text),
-                Direccion = textDireccion.Text
+                Direccion = textDireccion.Text,
+                TelefonoDeCasa = textTelefonoDeCasa.Text,
+                Celular = textCelular.Text,
+                Correo = textCorreo.Text
             };
         }
 
@@ -108,6 +111,9 @@ namespace SCI.INTERFAZ.UI
                 dateTimeFechaIngreso.Value = operadorAeditar.FechaIngreso;
                 textSalarioXhora.Text = operadorAeditar.Salarioporhora.ToString();
                 textDireccion.Text = operadorAeditar.Direccion;
+                textTelefonoDeCasa.Text = operadorAeditar.TelefonoDeCasa;
+                textCelular.Text = operadorAeditar.Celular;
+                textCorreo.Text = operadorAeditar.Correo;
                 this.Text = "Actualizar los datos del Operador.";
             }
         }

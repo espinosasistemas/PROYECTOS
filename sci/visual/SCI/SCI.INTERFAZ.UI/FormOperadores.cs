@@ -33,12 +33,12 @@ namespace SCI.INTERFAZ.UI
             dgvOperadores.DataSource = TodosOperadores;
             if (dgvOperadores.Rows.Count > 0)
             {
-                mostrarLabelStatus("Se han cargado toda las unidades dadas de alta.", true);
+                mostrarLabelStatus("Se han cargado todos los operadores dados de alta.", true);
                 filaSeleccionada = 0;
             }
             else
             {
-                mostrarLabelStatus("Por el momento no se tienen unidades registradas.", false);
+                mostrarLabelStatus("Por el momento no se tienen operadores registrados.", false);
                 filaSeleccionada = -1;
             }
         }

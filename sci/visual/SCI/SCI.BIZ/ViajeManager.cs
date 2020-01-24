@@ -22,14 +22,14 @@ namespace SCI.BIZ
         {
             DateTime rInicio = new DateTime(fechaInicio.Year, fechaInicio.Month, fechaInicio.Day, 0, 0, 0);
             DateTime rFin = new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 0, 0, 0).AddDays(1);
-            return repository.Query(v => v.FechaInicioOps >= rInicio && v.FechaFinOps < rFin);
+            return repository.Query(v => v.FechaInicioSci >= rInicio && v.FechaFinSci < rFin);
         }
 
         public IEnumerable<viaje> BuscarViajesPorRuta(int idRuta, DateTime fechaInicio, DateTime fechaFinal)
         {
             DateTime rInicio = new DateTime(fechaInicio.Year, fechaInicio.Month, fechaInicio.Day, 0, 0, 0);
             DateTime rFin = new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 0, 0, 0).AddDays(1);
-            return repository.Query(v => v.FechaInicioOps >= rInicio && v.FechaFinOps < rFin && v.IdRuta==idRuta);
+            return repository.Query(v => v.FechaInicioSci >= rInicio && v.FechaFinSci < rFin && v.IdRuta==idRuta);
         }
     }
 }

@@ -85,7 +85,6 @@ namespace SCI.INTERFAZ.UI
 
             }
         }
-
         
         public void cargarTodosLosCliente()
         {
@@ -93,12 +92,12 @@ namespace SCI.INTERFAZ.UI
             dgvClientes.DataSource = TodosClientes;
             if (dgvClientes.Rows.Count > 0)
             {
-                mostrarLabelStatus("Se han cargado toda las unidades dadas de alta.", true);
+                mostrarLabelStatus("Se han cargado todos los clientes dados de alta.", true);
                 filaSeleccionada = 0;
             }
             else
             {
-                mostrarLabelStatus("Por el momento no se tienen unidades registradas.", false);
+                mostrarLabelStatus("Por el momento no se tienen clientes registrados.", false);
                 filaSeleccionada = -1;
             }
         }

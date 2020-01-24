@@ -12,5 +12,8 @@ namespace SCI.COMMON.Entidades
         public DateTime FechaIngreso { get; set; }
         public double Salarioporhora { get; set; }
         public string Direccion { get; set; }
+        public string TelefonoDeCasa { get; set; }
+        public string Celular { get; set; }
+        public string Correo { get; set; }
     }
 }

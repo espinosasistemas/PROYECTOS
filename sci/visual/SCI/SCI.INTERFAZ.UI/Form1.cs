@@ -23,7 +23,7 @@ namespace SCI.INTERFAZ.UI
         private void customizeDising()
         {
             panelCatalogoSubMenu.Visible = true;
-            panelViajesSubMenu.Visible = false;
+            panelViajesSubMenu.Visible = true;
             panelReportesSubMenu.Visible = false;
         }
 
@@ -78,6 +78,11 @@ namespace SCI.INTERFAZ.UI
             openDashBoardForm(new FormOtros());
         }
 
+        private void btnViajes_Click(object sender, EventArgs e)
+        {
+            openDashBoardForm(new FormViajes());
+        }
+
         private void openDashBoardForm(Form childForm)
         {
             if (activeForm != null)
@@ -90,6 +95,16 @@ namespace SCI.INTERFAZ.UI
             panelDashBoard.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void btnTransporte_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelViajesSubMenu);
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelReportesSubMenu);
         }
     }
 }

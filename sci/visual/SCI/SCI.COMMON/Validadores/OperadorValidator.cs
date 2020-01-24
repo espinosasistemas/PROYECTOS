@@ -15,6 +15,9 @@ namespace SCI.COMMON.Validadores
             RuleFor(o => o.FechaIngreso).NotEmpty().NotNull();
             RuleFor(o => o.Salarioporhora).NotEmpty().NotNull().GreaterThan(0);
             RuleFor(o => o.Direccion).NotEmpty().NotNull().Length(1, 500);
+            RuleFor(o => o.TelefonoDeCasa).NotNull().Length(1, 20);
+            RuleFor(o => o.Celular).NotNull().Length(1, 20);
+            RuleFor(o => o.Correo).NotNull().Length(1, 20);
         }
     }
 }

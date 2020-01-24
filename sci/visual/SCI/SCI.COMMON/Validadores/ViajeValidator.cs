@@ -11,9 +11,9 @@ namespace SCI.COMMON.Validadores
         public ViajeValidator()
         {
             RuleFor(v => v.IdViajeCliente).NotNull().NotEmpty().Length(1, 100);
-            RuleFor(v => v.FechaInicioOps).NotNull().NotEmpty();
+            RuleFor(v => v.FechaInicioSci).NotNull().NotEmpty();
             RuleFor(v => v.FechaInicioCliente).NotNull().NotEmpty();
-            RuleFor(v => v.FechaFinOps).NotNull().NotEmpty();
+            RuleFor(v => v.FechaFinSci).NotNull().NotEmpty();
             RuleFor(v => v.FechaFinCliente).NotNull().NotEmpty();
             RuleFor(v => v.IdStatus).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(v => v.IdRuta).NotNull().NotEmpty().GreaterThan(0);

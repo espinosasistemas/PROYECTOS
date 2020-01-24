@@ -10,5 +10,6 @@ namespace SCI.INTERFAZ.UI
     public static class Tools
     {
         public static FabricManager FabricManager = new FabricManager();
+        
     }
 }

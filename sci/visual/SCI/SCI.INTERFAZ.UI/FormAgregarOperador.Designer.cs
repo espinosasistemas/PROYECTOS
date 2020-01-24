@@ -41,6 +41,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textTelefonoDeCasa = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textCelular = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textCorreo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +55,12 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.textCorreo);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.textCelular);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textTelefonoDeCasa);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.dateTimeFechaIngreso);
             this.groupBox1.Controls.Add(this.textDireccion);
             this.groupBox1.Controls.Add(this.btnAgregarOperador);
@@ -62,7 +74,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(4, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(396, 279);
+            this.groupBox1.Size = new System.Drawing.Size(396, 396);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos del Operador";
@@ -81,7 +93,7 @@
             this.textDireccion.Location = new System.Drawing.Point(134, 158);
             this.textDireccion.Multiline = true;
             this.textDireccion.Name = "textDireccion";
-            this.textDireccion.Size = new System.Drawing.Size(231, 71);
+            this.textDireccion.Size = new System.Drawing.Size(231, 55);
             this.textDireccion.TabIndex = 5;
             // 
             // btnAgregarOperador
@@ -93,10 +105,10 @@
             this.btnAgregarOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarOperador.Image")));
             this.btnAgregarOperador.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarOperador.Location = new System.Drawing.Point(235, 240);
+            this.btnAgregarOperador.Location = new System.Drawing.Point(234, 337);
             this.btnAgregarOperador.Name = "btnAgregarOperador";
             this.btnAgregarOperador.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarOperador.TabIndex = 10;
+            this.btnAgregarOperador.TabIndex = 9;
             this.btnAgregarOperador.Text = "Add Operador";
             this.btnAgregarOperador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,11 +190,65 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
+            // textTelefonoDeCasa
+            // 
+            this.textTelefonoDeCasa.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTelefonoDeCasa.Location = new System.Drawing.Point(134, 219);
+            this.textTelefonoDeCasa.Name = "textTelefonoDeCasa";
+            this.textTelefonoDeCasa.Size = new System.Drawing.Size(231, 26);
+            this.textTelefonoDeCasa.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(25, 225);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Telefono Casa";
+            // 
+            // textCelular
+            // 
+            this.textCelular.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCelular.Location = new System.Drawing.Point(134, 251);
+            this.textCelular.Name = "textCelular";
+            this.textCelular.Size = new System.Drawing.Size(231, 26);
+            this.textCelular.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(71, 257);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Celular";
+            // 
+            // textCorreo
+            // 
+            this.textCorreo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCorreo.Location = new System.Drawing.Point(133, 283);
+            this.textCorreo.Name = "textCorreo";
+            this.textCorreo.Size = new System.Drawing.Size(231, 26);
+            this.textCorreo.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(74, 289);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Correo";
+            // 
             // FormAgregarOperador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 291);
+            this.ClientSize = new System.Drawing.Size(404, 408);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -212,5 +278,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textDireccion;
         private System.Windows.Forms.DateTimePicker dateTimeFechaIngreso;
+        private System.Windows.Forms.TextBox textCorreo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textCelular;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textTelefonoDeCasa;
+        private System.Windows.Forms.Label label6;
     }
 }

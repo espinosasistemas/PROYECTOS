@@ -101,12 +101,12 @@ namespace SCI.INTERFAZ.UI
                     dgvRutas["NombreUnidad", i].Value = unidad.Nombre;
                     dgvRutas["NumEconomico", i].Value = unidad.NumeroEconomico;
                 }
-                mostrarLabelStatus("Se han cargado toda las unidades dadas de alta.", true);
+                mostrarLabelStatus("Se han cargado toda las rutas.", true);
                 filaSeleccionada = 0;
             }
             else
             {
-                mostrarLabelStatus("Por el momento no se tienen unidades registradas.", false);
+                mostrarLabelStatus("Por el momento no se tienen rutas registradas.", false);
                 filaSeleccionada = -1;
             }
         }
