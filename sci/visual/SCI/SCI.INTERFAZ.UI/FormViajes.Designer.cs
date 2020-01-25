@@ -152,6 +152,7 @@
             this.btnEditarViaje.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarViaje.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditarViaje.UseVisualStyleBackColor = false;
+            this.btnEditarViaje.Click += new System.EventHandler(this.btnEditarViaje_Click);
             // 
             // panelResultado
             // 
@@ -237,6 +238,7 @@
             this.dgvViajes.ReadOnly = true;
             this.dgvViajes.Size = new System.Drawing.Size(685, 389);
             this.dgvViajes.TabIndex = 0;
+            this.dgvViajes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViajes_CellClick);
             // 
             // FormViajes
             // 

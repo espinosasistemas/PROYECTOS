@@ -23,7 +23,7 @@ namespace SCI.INTERFAZ.UI
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
-        ruta entidadAeditar;
+        viaje entidadAeditar;
 
         public string Valor
         {
@@ -49,15 +49,38 @@ namespace SCI.INTERFAZ.UI
             cargarComboClientes();
             cargarComboOperadores();
             cargarComboStatus();
-            /*if (accion == "editar")
+            if (accion == "editar")
             {
-                entidadAeditar = managerRutas.BuscarPorId(idAEditar.ToString());
-                unidades unidad = managerUnidades.BuscarPorId(entidadAeditar.IdUnidad.ToString());
-                textNombre.Text = entidadAeditar.Nombre;
-                textCosto.Text = entidadAeditar.Costo.ToString();
-                comboUnidades.Text = unidad.IdUnidad + "/" + unidad.Nombre + "/" + unidad.NumeroEconomico;
-                this.Text = "Actualizar los datos de la Ruta.";
-            }*/
+                entidadAeditar = managerViajes.BuscarPorId(idAEditar.ToString());
+                statusviaje entidadStatus = managerStatus.BuscarPorId(entidadAeditar.IdStatus.ToString());
+                ruta entidadRuta = managerRuta.BuscarPorId(entidadAeditar.IdRuta.ToString());
+                cliente entidadCliente = managerCliete.BuscarPorId(entidadAeditar.IdCliente.ToString());
+                operador entidadOperador = managerOperador.BuscarPorId(entidadAeditar.IdOperador.ToString());
+
+                textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
+                //dateTimeInicioSci.Value = entidadAeditar.FechaInicioSci;
+                //dateTimeInicioCliente.Value = entidadAeditar.FechaInicioCliente;
+                //dateTimeFinSci.Value = entidadAeditar.FechaFinSci;
+                //dateTimeFinCliente.Value = entidadAeditar.FechaFinCliente;
+
+                textDateInicioSci.Text = entidadAeditar.FechaInicioSci.ToString();
+                textDateInicioCliente.Text = entidadAeditar.FechaInicioCliente.ToString();
+                textDateFinSci.Text = entidadAeditar.FechaFinSci.ToString();
+                textDateFinCliente.Text = entidadAeditar.FechaFinCliente.ToString();
+
+                comboRutas.Text = entidadRuta.IdRuta.ToString() + "/" + entidadRuta.Nombre + "/" + entidadRuta.Costo.ToString();
+                comboClientes.Text = entidadCliente.IdCliente.ToString() + "/" + entidadCliente.RazonSocial + "/" + entidadCliente.Telefono;
+                comboOperadores.Text = entidadOperador.IdOperador.ToString() + "/" + entidadOperador.Nombre + "/" + entidadOperador.Salarioporhora.ToString();
+                comboStatus.Text = entidadStatus.IdStatus.ToString() + "/" + entidadStatus.Nombre;
+                comboStatus.Enabled = true;
+
+                this.Text = "Actualizar los datos del Viaje.";
+            }
+            else
+            {
+                statusviaje estado = managerStatus.BuscaPorStatus("En Planeación");
+                comboStatus.Text = estado.IdStatus + "/" + estado.Nombre;
+            }
         }
 
         private void cargarComboStatus()
@@ -87,5 +110,117 @@ namespace SCI.INTERFAZ.UI
             comboRutas.DataSource = rutas.Select(r => (r.IdRuta + "/ " + r.Nombre + "/" + r.Costo)).ToList();
             comboRutas.Text = string.Empty;
         }
+
+        private void btnAgregarViaje_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                string[] splitRutas;
+                splitRutas = comboRutas.Text.Split('/');
+                int idRuta = int.Parse(splitRutas[0]);
+
+                string[] splitClientes;
+                splitClientes = comboClientes.Text.Split('/');
+                int idCliente = int.Parse(splitClientes[0]);
+
+                string[] splitOperadores;
+                splitOperadores = comboOperadores.Text.Split('/');
+                int idOperador = int.Parse(splitOperadores[0]);
+
+                string[] splitStatus;
+                splitStatus = comboStatus.Text.Split('/');
+                int idStatus = int.Parse(splitStatus[0]);
+
+                if (accion == "agregar")
+                {
+                    try
+                    {
+                        viaje viajeNuevo = CrearViaje(idStatus, idRuta, idCliente, idOperador);
+                        if (managerViajes.Insertar(viajeNuevo))
+                        {
+                            resultado = "Se ha agregado correctamente el Viaje.";
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show(managerViajes.Error, "Error al ingresar el nuevo Viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " Revisa por favor que los campos tengan el tipo de dato correcto.", "Error al ingresar el nuevo Viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    if (accion == "editar")
+                    {
+                        try
+                        {
+                            entidadAeditar.IdViajeCliente = textClaveViajeCliente.Text;
+                            entidadAeditar.FechaInicioSci = dateTimeInicioSci.Value;
+                            entidadAeditar.FechaInicioCliente = dateTimeInicioCliente.Value;
+                            entidadAeditar.FechaFinSci = dateTimeFinSci.Value;
+                            entidadAeditar.FechaFinCliente = dateTimeFinCliente.Value;
+                            entidadAeditar.IdRuta = idRuta;
+                            entidadAeditar.IdCliente = idCliente;
+                            entidadAeditar.IdOperador = idOperador;
+                            entidadAeditar.IdStatus = idStatus;
+
+                            if (managerViajes.Actualizar(entidadAeditar))
+                            {
+                                resultado = "Se ha actualizado correctamente los datos del Viaje.";
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show(managerViajes.Error, "Error al actualizar los datos del Viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message + " Revisa por favor que los campos tengan el tipo de dato correcto.", "Error al ingresar los datos del Viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un Error al intentar Guardar El viaje. " + ex.Message, "Error al ingresar el Viaje",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
+
+            // MessageBox.Show("Fecha Inicio:" + cal1.SelectionStart + " Fecha de FIn:" + cal1.SelectionEnd);
+        }
+
+        private viaje CrearViaje(int idStatus, int idRuta, int idCliente, int idOperador)
+        {
+            return new viaje
+            {
+                IdViajeCliente = textClaveViajeCliente.Text,
+                FechaInicioSci = DateTime.Parse(textDateInicioSci.Text), //dateTimeInicioSci.Value,
+                FechaInicioCliente = DateTime.Parse(textDateInicioCliente.Text), //dateTimeInicioCliente.Value,
+                FechaFinSci = DateTime.Parse(textDateFinSci.Text),// dateTimeFinSci.Value,
+                FechaFinCliente = DateTime.Parse(textDateFinCliente.Text),// dateTimeFinCliente.Value,
+                IdStatus = idStatus,
+                IdRuta = idRuta,
+                IdCliente = idCliente,
+                IdOperador = idOperador
+            };
+        }
+
+        private void calendarSci_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            textDateInicioSci.Text = e.Start.ToString();
+            textDateFinSci.Text = e.End.ToString();
+        }
+
+        private void CalendarCliente_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            textDateInicioCliente.Text = e.Start.ToString();
+            textDateFinCliente.Text = e.End.ToString();
+        }
+
     }
 }

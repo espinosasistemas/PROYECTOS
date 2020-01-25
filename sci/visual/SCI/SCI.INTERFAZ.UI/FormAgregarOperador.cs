@@ -40,7 +40,7 @@ namespace SCI.INTERFAZ.UI
             {
                 Nombre = textNombre.Text,
                 Apellidos = textApellidos.Text,
-                FechaIngreso = DateTime.Parse(dateTimeFechaIngreso.Text),
+                FechaIngreso = dateTimeFechaIngreso.Value,
                 Salarioporhora = double.Parse(textSalarioXhora.Text),
                 Direccion = textDireccion.Text,
                 TelefonoDeCasa = textTelefonoDeCasa.Text,

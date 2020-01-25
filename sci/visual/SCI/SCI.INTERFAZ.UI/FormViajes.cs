@@ -74,5 +74,21 @@ namespace SCI.INTERFAZ.UI
         {
             CargarTodosLosViajes();
         }
+
+        private void btnEditarViaje_Click(object sender, EventArgs e)
+        {
+            FormAgregarViaje fm = new FormAgregarViaje("editar", int.Parse(dgvViajes["idViajeOps", filaSeleccionada].Value.ToString()));
+            DialogResult DialogForm = fm.ShowDialog();
+            if (fm.Valor != string.Empty)
+            {
+                CargarTodosLosViajes();
+                mostrarLabelStatus(fm.Valor, true);
+            }
+        }
+
+        private void dgvViajes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex;
+        }
     }
 }
