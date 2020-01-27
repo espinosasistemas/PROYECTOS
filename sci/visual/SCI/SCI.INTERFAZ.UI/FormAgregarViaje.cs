@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,17 @@ namespace SCI.INTERFAZ.UI
         IRutaManager managerRuta;
         IClienteManager managerCliete;
         IOperadorManager managerOperador;
+        ITipoDeGastoManager managerTiposDeGastos;
+        IGastoManager managerGastos;
 
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
         viaje entidadAeditar;
+        string nombreArchivoPdf = string.Empty;
+        string nombreArchivoXml = string.Empty;
+        string rutaArchivoPDF = string.Empty;
+        string rutaArchivoXml = string.Empty;
 
         public string Valor
         {
@@ -39,6 +46,8 @@ namespace SCI.INTERFAZ.UI
             managerRuta = Tools.FabricManager.RutaManager();
             managerCliete = Tools.FabricManager.ClienteManager();
             managerOperador = Tools.FabricManager.OperadorManager();
+            managerTiposDeGastos = Tools.FabricManager.TipoDeGastoManager();
+            managerGastos = Tools.FabricManager.GastoManager();
             accion = evento;
             idAEditar = id;
         }
@@ -49,6 +58,8 @@ namespace SCI.INTERFAZ.UI
             cargarComboClientes();
             cargarComboOperadores();
             cargarComboStatus();
+            cargarComboTipoDeGastos();
+            
             if (accion == "editar")
             {
                 entidadAeditar = managerViajes.BuscarPorId(idAEditar.ToString());
@@ -58,21 +69,25 @@ namespace SCI.INTERFAZ.UI
                 operador entidadOperador = managerOperador.BuscarPorId(entidadAeditar.IdOperador.ToString());
 
                 textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
-                //dateTimeInicioSci.Value = entidadAeditar.FechaInicioSci;
-                //dateTimeInicioCliente.Value = entidadAeditar.FechaInicioCliente;
-                //dateTimeFinSci.Value = entidadAeditar.FechaFinSci;
-                //dateTimeFinCliente.Value = entidadAeditar.FechaFinCliente;
+
+                calendarSci.SelectionStart = entidadAeditar.FechaInicioSci;
+                calendarSci.SelectionEnd = entidadAeditar.FechaFinSci;
+                CalendarCliente.SelectionStart = entidadAeditar.FechaInicioCliente;
+                CalendarCliente.SelectionEnd = entidadAeditar.FechaFinCliente;
 
                 textDateInicioSci.Text = entidadAeditar.FechaInicioSci.ToString();
                 textDateInicioCliente.Text = entidadAeditar.FechaInicioCliente.ToString();
                 textDateFinSci.Text = entidadAeditar.FechaFinSci.ToString();
                 textDateFinCliente.Text = entidadAeditar.FechaFinCliente.ToString();
 
+
                 comboRutas.Text = entidadRuta.IdRuta.ToString() + "/" + entidadRuta.Nombre + "/" + entidadRuta.Costo.ToString();
                 comboClientes.Text = entidadCliente.IdCliente.ToString() + "/" + entidadCliente.RazonSocial + "/" + entidadCliente.Telefono;
                 comboOperadores.Text = entidadOperador.IdOperador.ToString() + "/" + entidadOperador.Nombre + "/" + entidadOperador.Salarioporhora.ToString();
                 comboStatus.Text = entidadStatus.IdStatus.ToString() + "/" + entidadStatus.Nombre;
                 comboStatus.Enabled = true;
+
+                cargarTodosLosGastosDelViaje(entidadAeditar.IdViajeOps);
 
                 this.Text = "Actualizar los datos del Viaje.";
             }
@@ -83,31 +98,45 @@ namespace SCI.INTERFAZ.UI
             }
         }
 
+        public void cargarTodosLosGastosDelViaje(int idViajeOps)
+        {
+            IEnumerable<gasto> TodosLosGastos = managerGastos.BuscarPorIdViajeOps(idViajeOps);
+            dgvGastos.DataSource = TodosLosGastos.ToArray();
+            labelTotalDeGastos.Text = TodosLosGastos.Sum(g => g.Costo).ToString();
+        }
+
         private void cargarComboStatus()
         {
             IEnumerable<statusviaje> StatusViaje = managerStatus.ObtenerTodos;
-            comboStatus.DataSource = StatusViaje.Select(r => (r.IdStatus + "/ " + r.Nombre)).ToList();
+            comboStatus.DataSource = StatusViaje.Select(r => (r.IdStatus + "/" + r.Nombre)).ToList();
             comboStatus.Text = string.Empty;
         }
 
         private void cargarComboOperadores()
         {
             IEnumerable<operador> operadores = managerOperador.ObtenerTodos;
-            comboOperadores.DataSource = operadores.Select(r => (r.IdOperador + "/ " + r.Nombre + "/" + r.Salarioporhora)).ToList();
+            comboOperadores.DataSource = operadores.Select(r => (r.IdOperador + "/" + r.Nombre + "/" + r.Salarioporhora)).ToList();
             comboOperadores.Text = string.Empty;
+        }
+
+        private void cargarComboTipoDeGastos()
+        {
+            IEnumerable<tipogasto> tiposDeGastos = managerTiposDeGastos.ObtenerTodos;
+            comboTipoGastos.DataSource = tiposDeGastos.Select(r => (r.IdTipoGasto + "/" + r.Concepto)).ToList();
+            comboTipoGastos.Text = string.Empty;
         }
 
         private void cargarComboClientes()
         {
             IEnumerable<cliente> cliente = managerCliete.ObtenerTodos;
-            comboClientes.DataSource = cliente.Select(r => (r.IdCliente + "/ " + r.RazonSocial + "/" + r.Telefono)).ToList();
+            comboClientes.DataSource = cliente.Select(r => (r.IdCliente + "/" + r.RazonSocial + "/" + r.Telefono)).ToList();
             comboClientes.Text = string.Empty;
         }
 
         private void cargarComboRutas()
         {
             IEnumerable<ruta> rutas = managerRuta.ObtenerTodos;
-            comboRutas.DataSource = rutas.Select(r => (r.IdRuta + "/ " + r.Nombre + "/" + r.Costo)).ToList();
+            comboRutas.DataSource = rutas.Select(r => (r.IdRuta + "/" + r.Nombre + "/" + r.Costo)).ToList();
             comboRutas.Text = string.Empty;
         }
 
@@ -159,10 +188,10 @@ namespace SCI.INTERFAZ.UI
                         try
                         {
                             entidadAeditar.IdViajeCliente = textClaveViajeCliente.Text;
-                            entidadAeditar.FechaInicioSci = dateTimeInicioSci.Value;
-                            entidadAeditar.FechaInicioCliente = dateTimeInicioCliente.Value;
-                            entidadAeditar.FechaFinSci = dateTimeFinSci.Value;
-                            entidadAeditar.FechaFinCliente = dateTimeFinCliente.Value;
+                            entidadAeditar.FechaInicioSci = DateTime.Parse(textDateInicioSci.Text); //dateTimeInicioSci.Value;
+                            entidadAeditar.FechaInicioCliente = DateTime.Parse(textDateInicioCliente.Text); //dateTimeInicioCliente.Value;
+                            entidadAeditar.FechaFinSci = DateTime.Parse(textDateFinSci.Text); //dateTimeFinSci.Value;
+                            entidadAeditar.FechaFinCliente = DateTime.Parse(textDateFinCliente.Text); //dateTimeFinCliente.Value;
                             entidadAeditar.IdRuta = idRuta;
                             entidadAeditar.IdCliente = idCliente;
                             entidadAeditar.IdOperador = idOperador;
@@ -171,7 +200,7 @@ namespace SCI.INTERFAZ.UI
                             if (managerViajes.Actualizar(entidadAeditar))
                             {
                                 resultado = "Se ha actualizado correctamente los datos del Viaje.";
-                                this.Close();
+                                //this.Close();
                             }
                             else
                             {
@@ -222,5 +251,154 @@ namespace SCI.INTERFAZ.UI
             textDateFinCliente.Text = e.End.ToString();
         }
 
+        private void comboStatus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboStatus.Text == "6/En Planeación")
+                habilitarComponentes(true);
+            else
+                habilitarComponentes(false);
+        }
+
+        private void habilitarComponentes(bool habilitar)
+        {
+            if (habilitar == false)
+            {
+                calendarSci.Enabled = false;
+                CalendarCliente.Enabled = false;
+                textDateInicioSci.Enabled = false;
+                textDateInicioCliente.Enabled = false;
+                textDateFinSci.Enabled = false;
+                textDateFinCliente.Enabled = false;
+                comboClientes.Enabled = false;
+                comboOperadores.Enabled = false;
+                comboRutas.Enabled = false;
+                textClaveViajeCliente.Enabled = false;
+            }
+            else
+            {
+                calendarSci.Enabled = true;
+                CalendarCliente.Enabled = true;
+                textDateInicioSci.Enabled = true;
+                textDateInicioCliente.Enabled = true;
+                textDateFinSci.Enabled = true;
+                textDateFinCliente.Enabled = true;
+                comboClientes.Enabled = true;
+                comboOperadores.Enabled = true;
+                comboRutas.Enabled = true;
+                textClaveViajeCliente.Enabled = true;
+            }
+        }
+
+        private void btnAgregarGasto_Click(object sender, EventArgs e)
+        {
+            if (comboTipoGastos.Text != string.Empty)
+            {
+                try
+                {
+                    string[] cadena = comboTipoGastos.Text.Split('/');
+                    int idTipoGasto = int.Parse(cadena.First());
+                    gasto nuevoGasto = new gasto();
+                    nuevoGasto.IdTipoGasto = idTipoGasto;
+                    nuevoGasto.Concepto = textConceptoGasto.Text;
+                    nuevoGasto.Costo = double.Parse(textMontoGasto.Text);
+                    subirFicherosPdfyXml();
+                    nuevoGasto.RutaPdf = rutaArchivoPDF;
+                    nuevoGasto.RutaXml = rutaArchivoXml;
+                    nuevoGasto.Fecha = dateTimeFechaGasto.Value;
+                    nuevoGasto.IdViajeOps = entidadAeditar.IdViajeOps;
+                    if (managerGastos.Insertar(nuevoGasto))
+                    {
+                        cargarTodosLosGastosDelViaje(entidadAeditar.IdViajeOps);
+                        limpiarFormularioRegistroDeGastos();
+                    }
+                    else
+                        MessageBox.Show("No Se ha podido ingresar el nuevo Gasto. " + managerGastos.Error, "Error al regitrar el nuevo Gasto.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No Se ha podido ingresar el nuevo Gasto. " + ex.Message, "Error al regitrar el nuevo Gasto.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void limpiarFormularioRegistroDeGastos()
+        {
+            comboTipoGastos.Text = "";
+            textConceptoGasto.Clear();
+            textMontoGasto.Clear();
+            textRutaPdf.Clear();
+            textRutaXml.Clear();
+        }
+
+        private void subirFicherosPdfyXml()
+        {
+            string directoryPath = Path.GetDirectoryName(@"\\Srvopssci\ops_sci\SCI\SISTEMA_SCI\COMPROBANTES\VALIDACION");
+            rutaArchivoPDF = string.Empty;
+            rutaArchivoXml = string.Empty;
+
+            if (Directory.Exists(directoryPath))
+            {
+                if (nombreArchivoPdf != string.Empty)
+                {
+                    try
+                    {
+                        rutaArchivoPDF = directoryPath + @"\" + getNuevoNombreDelGasto(nombreArchivoPdf);
+                        File.Copy(textRutaPdf.Text, rutaArchivoPDF);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ha ocurrido un problema al intentar guardar el archivo. " + ex.Message, "Erro al subir el archivo.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        rutaArchivoPDF = string.Empty;
+                    }
+                }
+                if (nombreArchivoXml != string.Empty)
+                {
+                    try
+                    {
+                        rutaArchivoXml = directoryPath + @"\" + getNuevoNombreDelGasto(nombreArchivoXml);
+                        File.Copy(textRutaXml.Text, rutaArchivoXml);
+                    }
+                    catch (Exception ex) {
+                        MessageBox.Show("Ha ocurrido un problema al intentar guardar el archivo. " + ex.Message, "Erro al subir el archivo.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        rutaArchivoXml = string.Empty;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: El directorio no existe.");
+            }
+        }
+
+
+        private string getNuevoNombreDelGasto(string nombreArchivo)
+        {
+            string[] cadenas;
+            DateTime fechaHora = DateTime.Now;
+            string nombre = "V" + entidadAeditar.IdViajeOps.ToString() + "-" + fechaHora.Year.ToString() + fechaHora.Month.ToString() + fechaHora.Day.ToString();
+            nombre += "-" + fechaHora.Hour.ToString() + fechaHora.Minute.ToString() + fechaHora.Second.ToString()+fechaHora.Millisecond.ToString();
+
+            cadenas = nombreArchivo.Split('.');
+            nombre += "."+cadenas.Last();
+            return nombre;
+        }
+
+        private void btnExaminarPdf_Click(object sender, EventArgs e)
+        {
+            nombreArchivoPdf = string.Empty;
+            DialogResult RutaArchivoPdf = new DialogResult();
+            RutaArchivoPdf = openFileDialog1.ShowDialog();
+            textRutaPdf.Text = openFileDialog1.FileName;
+            nombreArchivoPdf = openFileDialog1.SafeFileName;
+        }
+
+        private void btnExaminarXml_Click(object sender, EventArgs e)
+        {
+            nombreArchivoXml = string.Empty;
+            DialogResult RutaArchivoXml = new DialogResult();
+            RutaArchivoXml = openFileDialog1.ShowDialog();
+            textRutaXml.Text = openFileDialog1.FileName;
+            nombreArchivoXml = openFileDialog1.SafeFileName;
+        }
     }
 }
