@@ -134,6 +134,7 @@
             this.btnEliminarViaje.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarViaje.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminarViaje.UseVisualStyleBackColor = false;
+            this.btnEliminarViaje.Click += new System.EventHandler(this.btnEliminarViaje_Click);
             // 
             // btnEditarViaje
             // 

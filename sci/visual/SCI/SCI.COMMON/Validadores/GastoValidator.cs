@@ -13,8 +13,8 @@ namespace SCI.COMMON.Validadores
             RuleFor(g => g.IdTipoGasto).NotNull().NotEmpty();
             RuleFor(g => g.Concepto).NotNull().NotEmpty().Length(1, 100);
             RuleFor(g => g.Costo).NotNull().NotEmpty().GreaterThan(-1);
-            RuleFor(g => g.RutaPdf).NotNull().Length(0,300);
-            RuleFor(g => g.RutaXml).NotNull().Length(0, 300);
+            RuleFor(g => g.RutaPdf).NotNull().Length(0,100);
+            RuleFor(g => g.RutaXml).NotNull().Length(0, 100);
             RuleFor(g => g.Fecha).NotNull().NotEmpty();
             RuleFor(g => g.IdViajeOps).NotNull().NotEmpty().GreaterThan(0);
         }

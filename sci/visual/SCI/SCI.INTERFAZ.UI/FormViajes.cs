@@ -77,18 +77,50 @@ namespace SCI.INTERFAZ.UI
 
         private void btnEditarViaje_Click(object sender, EventArgs e)
         {
-            FormAgregarViaje fm = new FormAgregarViaje("editar", int.Parse(dgvViajes["idViajeOps", filaSeleccionada].Value.ToString()));
-            DialogResult DialogForm = fm.ShowDialog();
-            if (fm.Valor != string.Empty)
+            if (filaSeleccionada != -1)
             {
-                CargarTodosLosViajes();
-                mostrarLabelStatus(fm.Valor, true);
+                FormAgregarViaje fm = new FormAgregarViaje("editar", int.Parse(dgvViajes["idViajeOps", filaSeleccionada].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    CargarTodosLosViajes();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
             }
         }
 
         private void dgvViajes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             filaSeleccionada = e.RowIndex;
+        }
+
+        private void btnEliminarViaje_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogEliminar = new DialogResult();
+            if (filaSeleccionada >= 0)
+            {
+                string nombre = dgvViajes["idViajeCliente", filaSeleccionada].Value.ToString();
+                dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el viaje del Cliente: {nombre}?", "Eliminar Viaje.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogEliminar == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (managerViajes.Eliminar(dgvViajes["idViajeOps", filaSeleccionada].Value.ToString()))
+                        {
+                            CargarTodosLosViajes();
+                            mostrarLabelStatus("Se ha eliminado Correctamente el Viaje del cliente. " + nombre, true);
+                        }
+                        else
+                            mostrarLabelStatus("No se ha podido Eliminar el viaje. " + managerViajes.Error, false);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        mostrarLabelStatus("No se ha podido Eliminar el Viaje. " + ex.Message, false);
+                    }
+                }
+
+            }
         }
     }
 }

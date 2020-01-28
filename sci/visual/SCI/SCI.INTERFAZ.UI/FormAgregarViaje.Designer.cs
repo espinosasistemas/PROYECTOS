@@ -51,37 +51,60 @@
             this.btnAgregarViaje = new System.Windows.Forms.Button();
             this.textClaveViajeCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.dgvGastos = new System.Windows.Forms.DataGridView();
+            this.groupGastos = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textFechaGasto = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.labelTotalGastos = new System.Windows.Forms.Label();
+            this.labelTotalDeGastos = new System.Windows.Forms.Label();
+            this.btnExaminarXml = new System.Windows.Forms.Button();
+            this.textRutaPdf = new System.Windows.Forms.TextBox();
+            this.btnExaminarPdf = new System.Windows.Forms.Button();
             this.btnAgregarGasto = new System.Windows.Forms.Button();
+            this.dgvGastos = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimeFechaGasto = new System.Windows.Forms.DateTimePicker();
+            this.textRutaXml = new System.Windows.Forms.TextBox();
+            this.textMontoGasto = new System.Windows.Forms.TextBox();
+            this.textConceptoGasto = new System.Windows.Forms.TextBox();
+            this.comboTipoGastos = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGenerales = new System.Windows.Forms.TabPage();
-            this.tabPageGastos = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboTipoGastos = new System.Windows.Forms.ComboBox();
-            this.textConceptoGasto = new System.Windows.Forms.TextBox();
-            this.textMontoGasto = new System.Windows.Forms.TextBox();
-            this.textRutaXml = new System.Windows.Forms.TextBox();
-            this.dateTimeFechaGasto = new System.Windows.Forms.DateTimePicker();
-            this.btnExaminarPdf = new System.Windows.Forms.Button();
-            this.textRutaPdf = new System.Windows.Forms.TextBox();
-            this.btnExaminarXml = new System.Windows.Forms.Button();
+            this.tabPageGastos = new System.Windows.Forms.TabPage();
             this.tabPageCortes = new System.Windows.Forms.TabPage();
-            this.labelTotalDeGastos = new System.Windows.Forms.Label();
+            this.groupCortesOPerador = new System.Windows.Forms.GroupBox();
+            this.labelSueldoCortes = new System.Windows.Forms.Label();
+            this.labelSaldoTotalCortes = new System.Windows.Forms.Label();
+            this.btnRedondear = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textCostoTotal = new System.Windows.Forms.TextBox();
+            this.btnAgregarCorteOperador = new System.Windows.Forms.Button();
+            this.dgvCortesOperador = new System.Windows.Forms.DataGridView();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textCostoHoraOperador = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textTotalHoras = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textFechaHoraFinalOperador = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.groupBox2.SuspendLayout();
+            this.textFechaHoraInicialOperador = new System.Windows.Forms.TextBox();
+            this.calendarCortesOperador = new System.Windows.Forms.MonthCalendar();
+            this.groupGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGenerales.SuspendLayout();
-            this.tabPageGastos.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabPageGastos.SuspendLayout();
+            this.tabPageCortes.SuspendLayout();
+            this.groupCortesOPerador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -295,101 +318,112 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Clave Viaje Cliente";
             // 
-            // groupBox2
+            // groupGastos
             // 
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.labelTotalDeGastos);
-            this.groupBox2.Controls.Add(this.btnExaminarXml);
-            this.groupBox2.Controls.Add(this.textRutaPdf);
-            this.groupBox2.Controls.Add(this.btnExaminarPdf);
-            this.groupBox2.Controls.Add(this.btnAgregarGasto);
-            this.groupBox2.Controls.Add(this.dgvGastos);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.dateTimeFechaGasto);
-            this.groupBox2.Controls.Add(this.textRutaXml);
-            this.groupBox2.Controls.Add(this.textMontoGasto);
-            this.groupBox2.Controls.Add(this.textConceptoGasto);
-            this.groupBox2.Controls.Add(this.comboTipoGastos);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(645, 560);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Gastos";
+            this.groupGastos.Controls.Add(this.label17);
+            this.groupGastos.Controls.Add(this.textFechaGasto);
+            this.groupGastos.Controls.Add(this.label22);
+            this.groupGastos.Controls.Add(this.labelTotalGastos);
+            this.groupGastos.Controls.Add(this.labelTotalDeGastos);
+            this.groupGastos.Controls.Add(this.btnExaminarXml);
+            this.groupGastos.Controls.Add(this.textRutaPdf);
+            this.groupGastos.Controls.Add(this.btnExaminarPdf);
+            this.groupGastos.Controls.Add(this.btnAgregarGasto);
+            this.groupGastos.Controls.Add(this.dgvGastos);
+            this.groupGastos.Controls.Add(this.label15);
+            this.groupGastos.Controls.Add(this.label10);
+            this.groupGastos.Controls.Add(this.label5);
+            this.groupGastos.Controls.Add(this.label4);
+            this.groupGastos.Controls.Add(this.label3);
+            this.groupGastos.Controls.Add(this.dateTimeFechaGasto);
+            this.groupGastos.Controls.Add(this.textRutaXml);
+            this.groupGastos.Controls.Add(this.textMontoGasto);
+            this.groupGastos.Controls.Add(this.textConceptoGasto);
+            this.groupGastos.Controls.Add(this.comboTipoGastos);
+            this.groupGastos.Controls.Add(this.label2);
+            this.groupGastos.Location = new System.Drawing.Point(6, 6);
+            this.groupGastos.Name = "groupGastos";
+            this.groupGastos.Size = new System.Drawing.Size(680, 560);
+            this.groupGastos.TabIndex = 24;
+            this.groupGastos.TabStop = false;
+            this.groupGastos.Text = "Gastos";
             // 
-            // label2
+            // label17
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(168, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Tipo De Gasto";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(417, 92);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(47, 17);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "Fecha";
             // 
-            // label3
+            // textFechaGasto
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(191, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 17);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Concepto";
+            this.textFechaGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaGasto.Location = new System.Drawing.Point(470, 86);
+            this.textFechaGasto.Name = "textFechaGasto";
+            this.textFechaGasto.Size = new System.Drawing.Size(204, 26);
+            this.textFechaGasto.TabIndex = 41;
             // 
-            // label4
+            // label22
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(467, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 17);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Monto";
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(331, 523);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(108, 17);
+            this.label22.TabIndex = 40;
+            this.label22.Text = "Total de Gastos";
             // 
-            // label5
+            // labelTotalGastos
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(181, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 17);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Archivo PDF";
+            this.labelTotalGastos.AutoSize = true;
+            this.labelTotalGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalGastos.Location = new System.Drawing.Point(331, 525);
+            this.labelTotalGastos.Name = "labelTotalGastos";
+            this.labelTotalGastos.Size = new System.Drawing.Size(108, 17);
+            this.labelTotalGastos.TabIndex = 40;
+            this.labelTotalGastos.Text = "Total de Gastos";
             // 
-            // label10
+            // labelTotalDeGastos
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(181, 153);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 17);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "Archivo XML";
+            this.labelTotalDeGastos.AutoSize = true;
+            this.labelTotalDeGastos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalDeGastos.Location = new System.Drawing.Point(277, 519);
+            this.labelTotalDeGastos.Name = "labelTotalDeGastos";
+            this.labelTotalDeGastos.Size = new System.Drawing.Size(48, 23);
+            this.labelTotalDeGastos.TabIndex = 39;
+            this.labelTotalDeGastos.Text = "0.00";
+            this.labelTotalDeGastos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label15
+            // btnExaminarXml
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(219, 97);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(47, 17);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "Fecha";
+            this.btnExaminarXml.Location = new System.Drawing.Point(599, 151);
+            this.btnExaminarXml.Name = "btnExaminarXml";
+            this.btnExaminarXml.Size = new System.Drawing.Size(75, 23);
+            this.btnExaminarXml.TabIndex = 38;
+            this.btnExaminarXml.Text = "Examinar...";
+            this.btnExaminarXml.UseVisualStyleBackColor = true;
+            this.btnExaminarXml.Click += new System.EventHandler(this.btnExaminarXml_Click);
             // 
-            // dgvGastos
+            // textRutaPdf
             // 
-            this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGastos.Location = new System.Drawing.Point(6, 272);
-            this.dgvGastos.Name = "dgvGastos";
-            this.dgvGastos.Size = new System.Drawing.Size(633, 239);
-            this.dgvGastos.TabIndex = 35;
+            this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRutaPdf.Location = new System.Drawing.Point(235, 119);
+            this.textRutaPdf.Name = "textRutaPdf";
+            this.textRutaPdf.Size = new System.Drawing.Size(358, 26);
+            this.textRutaPdf.TabIndex = 37;
+            // 
+            // btnExaminarPdf
+            // 
+            this.btnExaminarPdf.Location = new System.Drawing.Point(599, 119);
+            this.btnExaminarPdf.Name = "btnExaminarPdf";
+            this.btnExaminarPdf.Size = new System.Drawing.Size(75, 23);
+            this.btnExaminarPdf.TabIndex = 36;
+            this.btnExaminarPdf.Text = "Examinar...";
+            this.btnExaminarPdf.UseVisualStyleBackColor = true;
+            this.btnExaminarPdf.Click += new System.EventHandler(this.btnExaminarPdf_Click);
             // 
             // btnAgregarGasto
             // 
@@ -400,7 +434,7 @@
             this.btnAgregarGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarGasto.Image")));
             this.btnAgregarGasto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarGasto.Location = new System.Drawing.Point(507, 185);
+            this.btnAgregarGasto.Location = new System.Drawing.Point(544, 183);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(130, 33);
             this.btnAgregarGasto.TabIndex = 25;
@@ -409,6 +443,123 @@
             this.btnAgregarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarGasto.UseVisualStyleBackColor = false;
             this.btnAgregarGasto.Click += new System.EventHandler(this.btnAgregarGasto_Click);
+            // 
+            // dgvGastos
+            // 
+            this.dgvGastos.AllowUserToAddRows = false;
+            this.dgvGastos.AllowUserToDeleteRows = false;
+            this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGastos.Location = new System.Drawing.Point(6, 247);
+            this.dgvGastos.Name = "dgvGastos";
+            this.dgvGastos.ReadOnly = true;
+            this.dgvGastos.Size = new System.Drawing.Size(668, 264);
+            this.dgvGastos.TabIndex = 35;
+            this.dgvGastos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGastos_CellMouseDoubleClick);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(129, 95);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(92, 17);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "Fecha y Hora";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(143, 151);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 17);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "Archivo XML";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(144, 125);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 17);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Archivo PDF";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(417, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 17);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Monto";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(153, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 17);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Concepto";
+            // 
+            // dateTimeFechaGasto
+            // 
+            this.dateTimeFechaGasto.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeFechaGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeFechaGasto.Location = new System.Drawing.Point(234, 90);
+            this.dateTimeFechaGasto.Name = "dateTimeFechaGasto";
+            this.dateTimeFechaGasto.Size = new System.Drawing.Size(177, 23);
+            this.dateTimeFechaGasto.TabIndex = 29;
+            this.dateTimeFechaGasto.ValueChanged += new System.EventHandler(this.dateTimeFechaGasto_ValueChanged);
+            // 
+            // textRutaXml
+            // 
+            this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRutaXml.Location = new System.Drawing.Point(235, 151);
+            this.textRutaXml.Name = "textRutaXml";
+            this.textRutaXml.Size = new System.Drawing.Size(358, 26);
+            this.textRutaXml.TabIndex = 28;
+            // 
+            // textMontoGasto
+            // 
+            this.textMontoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textMontoGasto.Location = new System.Drawing.Point(470, 21);
+            this.textMontoGasto.Name = "textMontoGasto";
+            this.textMontoGasto.Size = new System.Drawing.Size(204, 26);
+            this.textMontoGasto.TabIndex = 26;
+            // 
+            // textConceptoGasto
+            // 
+            this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textConceptoGasto.Location = new System.Drawing.Point(234, 55);
+            this.textConceptoGasto.Name = "textConceptoGasto";
+            this.textConceptoGasto.Size = new System.Drawing.Size(440, 26);
+            this.textConceptoGasto.TabIndex = 25;
+            // 
+            // comboTipoGastos
+            // 
+            this.comboTipoGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboTipoGastos.FormattingEnabled = true;
+            this.comboTipoGastos.Location = new System.Drawing.Point(234, 24);
+            this.comboTipoGastos.Name = "comboTipoGastos";
+            this.comboTipoGastos.Size = new System.Drawing.Size(177, 25);
+            this.comboTipoGastos.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(129, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 17);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Tipo De Gasto";
             // 
             // tabControl1
             // 
@@ -421,7 +572,7 @@
             this.tabControl1.Location = new System.Drawing.Point(2, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(663, 598);
+            this.tabControl1.Size = new System.Drawing.Size(700, 598);
             this.tabControl1.TabIndex = 25;
             // 
             // tabPageGenerales
@@ -430,21 +581,10 @@
             this.tabPageGenerales.Location = new System.Drawing.Point(4, 25);
             this.tabPageGenerales.Name = "tabPageGenerales";
             this.tabPageGenerales.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGenerales.Size = new System.Drawing.Size(655, 569);
+            this.tabPageGenerales.Size = new System.Drawing.Size(692, 569);
             this.tabPageGenerales.TabIndex = 0;
             this.tabPageGenerales.Text = "Datos Generales";
             this.tabPageGenerales.UseVisualStyleBackColor = true;
-            // 
-            // tabPageGastos
-            // 
-            this.tabPageGastos.Controls.Add(this.groupBox2);
-            this.tabPageGastos.Location = new System.Drawing.Point(4, 25);
-            this.tabPageGastos.Name = "tabPageGastos";
-            this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGastos.Size = new System.Drawing.Size(655, 569);
-            this.tabPageGastos.TabIndex = 1;
-            this.tabPageGastos.Text = "Gastos";
-            this.tabPageGastos.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -472,116 +612,222 @@
             this.groupBox3.Controls.Add(this.CalendarCliente);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(639, 554);
+            this.groupBox3.Size = new System.Drawing.Size(680, 554);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Completa los datos generales del Viaje";
             // 
-            // comboTipoGastos
+            // tabPageGastos
             // 
-            this.comboTipoGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboTipoGastos.FormattingEnabled = true;
-            this.comboTipoGastos.Location = new System.Drawing.Point(272, 26);
-            this.comboTipoGastos.Name = "comboTipoGastos";
-            this.comboTipoGastos.Size = new System.Drawing.Size(366, 25);
-            this.comboTipoGastos.TabIndex = 25;
-            // 
-            // textConceptoGasto
-            // 
-            this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textConceptoGasto.Location = new System.Drawing.Point(272, 57);
-            this.textConceptoGasto.Name = "textConceptoGasto";
-            this.textConceptoGasto.Size = new System.Drawing.Size(367, 26);
-            this.textConceptoGasto.TabIndex = 25;
-            // 
-            // textMontoGasto
-            // 
-            this.textMontoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMontoGasto.Location = new System.Drawing.Point(523, 88);
-            this.textMontoGasto.Name = "textMontoGasto";
-            this.textMontoGasto.Size = new System.Drawing.Size(114, 26);
-            this.textMontoGasto.TabIndex = 26;
-            // 
-            // textRutaXml
-            // 
-            this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaXml.Location = new System.Drawing.Point(272, 153);
-            this.textRutaXml.Name = "textRutaXml";
-            this.textRutaXml.Size = new System.Drawing.Size(284, 26);
-            this.textRutaXml.TabIndex = 28;
-            // 
-            // dateTimeFechaGasto
-            // 
-            this.dateTimeFechaGasto.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeFechaGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeFechaGasto.Location = new System.Drawing.Point(272, 92);
-            this.dateTimeFechaGasto.Name = "dateTimeFechaGasto";
-            this.dateTimeFechaGasto.Size = new System.Drawing.Size(178, 23);
-            this.dateTimeFechaGasto.TabIndex = 29;
-            // 
-            // btnExaminarPdf
-            // 
-            this.btnExaminarPdf.Location = new System.Drawing.Point(562, 121);
-            this.btnExaminarPdf.Name = "btnExaminarPdf";
-            this.btnExaminarPdf.Size = new System.Drawing.Size(75, 23);
-            this.btnExaminarPdf.TabIndex = 36;
-            this.btnExaminarPdf.Text = "Examinar...";
-            this.btnExaminarPdf.UseVisualStyleBackColor = true;
-            this.btnExaminarPdf.Click += new System.EventHandler(this.btnExaminarPdf_Click);
-            // 
-            // textRutaPdf
-            // 
-            this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaPdf.Location = new System.Drawing.Point(272, 121);
-            this.textRutaPdf.Name = "textRutaPdf";
-            this.textRutaPdf.Size = new System.Drawing.Size(284, 26);
-            this.textRutaPdf.TabIndex = 37;
-            // 
-            // btnExaminarXml
-            // 
-            this.btnExaminarXml.Location = new System.Drawing.Point(562, 153);
-            this.btnExaminarXml.Name = "btnExaminarXml";
-            this.btnExaminarXml.Size = new System.Drawing.Size(75, 23);
-            this.btnExaminarXml.TabIndex = 38;
-            this.btnExaminarXml.Text = "Examinar...";
-            this.btnExaminarXml.UseVisualStyleBackColor = true;
-            this.btnExaminarXml.Click += new System.EventHandler(this.btnExaminarXml_Click);
+            this.tabPageGastos.Controls.Add(this.groupGastos);
+            this.tabPageGastos.Location = new System.Drawing.Point(4, 25);
+            this.tabPageGastos.Name = "tabPageGastos";
+            this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGastos.Size = new System.Drawing.Size(692, 569);
+            this.tabPageGastos.TabIndex = 1;
+            this.tabPageGastos.Text = "Gastos";
+            this.tabPageGastos.UseVisualStyleBackColor = true;
             // 
             // tabPageCortes
             // 
+            this.tabPageCortes.Controls.Add(this.groupCortesOPerador);
             this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
             this.tabPageCortes.Name = "tabPageCortes";
-            this.tabPageCortes.Size = new System.Drawing.Size(655, 569);
+            this.tabPageCortes.Size = new System.Drawing.Size(692, 569);
             this.tabPageCortes.TabIndex = 2;
             this.tabPageCortes.Text = "Cortes";
             this.tabPageCortes.UseVisualStyleBackColor = true;
             // 
-            // labelTotalDeGastos
+            // groupCortesOPerador
             // 
-            this.labelTotalDeGastos.AutoSize = true;
-            this.labelTotalDeGastos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalDeGastos.Location = new System.Drawing.Point(558, 514);
-            this.labelTotalDeGastos.Name = "labelTotalDeGastos";
-            this.labelTotalDeGastos.Size = new System.Drawing.Size(48, 23);
-            this.labelTotalDeGastos.TabIndex = 39;
-            this.labelTotalDeGastos.Text = "0.00";
-            this.labelTotalDeGastos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.groupCortesOPerador.Controls.Add(this.labelSueldoCortes);
+            this.groupCortesOPerador.Controls.Add(this.labelSaldoTotalCortes);
+            this.groupCortesOPerador.Controls.Add(this.btnRedondear);
+            this.groupCortesOPerador.Controls.Add(this.label21);
+            this.groupCortesOPerador.Controls.Add(this.textCostoTotal);
+            this.groupCortesOPerador.Controls.Add(this.btnAgregarCorteOperador);
+            this.groupCortesOPerador.Controls.Add(this.dgvCortesOperador);
+            this.groupCortesOPerador.Controls.Add(this.label20);
+            this.groupCortesOPerador.Controls.Add(this.textCostoHoraOperador);
+            this.groupCortesOPerador.Controls.Add(this.label19);
+            this.groupCortesOPerador.Controls.Add(this.textTotalHoras);
+            this.groupCortesOPerador.Controls.Add(this.label18);
+            this.groupCortesOPerador.Controls.Add(this.textFechaHoraFinalOperador);
+            this.groupCortesOPerador.Controls.Add(this.label16);
+            this.groupCortesOPerador.Controls.Add(this.textFechaHoraInicialOperador);
+            this.groupCortesOPerador.Controls.Add(this.calendarCortesOperador);
+            this.groupCortesOPerador.Location = new System.Drawing.Point(3, 6);
+            this.groupCortesOPerador.Name = "groupCortesOPerador";
+            this.groupCortesOPerador.Size = new System.Drawing.Size(683, 557);
+            this.groupCortesOPerador.TabIndex = 0;
+            this.groupCortesOPerador.TabStop = false;
+            this.groupCortesOPerador.Text = "Corte de Tiempo por Operador";
+            // 
+            // labelSueldoCortes
+            // 
+            this.labelSueldoCortes.AutoSize = true;
+            this.labelSueldoCortes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSueldoCortes.Location = new System.Drawing.Point(588, 521);
+            this.labelSueldoCortes.Name = "labelSueldoCortes";
+            this.labelSueldoCortes.Size = new System.Drawing.Size(86, 17);
+            this.labelSueldoCortes.TabIndex = 42;
+            this.labelSueldoCortes.Text = "Sueldo Total";
+            // 
+            // labelSaldoTotalCortes
+            // 
+            this.labelSaldoTotalCortes.AutoSize = true;
+            this.labelSaldoTotalCortes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(481, 521);
+            this.labelSaldoTotalCortes.Name = "labelSaldoTotalCortes";
+            this.labelSaldoTotalCortes.Size = new System.Drawing.Size(48, 23);
+            this.labelSaldoTotalCortes.TabIndex = 41;
+            this.labelSaldoTotalCortes.Text = "0.00";
+            this.labelSaldoTotalCortes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRedondear
+            // 
+            this.btnRedondear.Location = new System.Drawing.Point(588, 125);
+            this.btnRedondear.Name = "btnRedondear";
+            this.btnRedondear.Size = new System.Drawing.Size(89, 27);
+            this.btnRedondear.TabIndex = 29;
+            this.btnRedondear.Text = "Redondear";
+            this.btnRedondear.UseVisualStyleBackColor = true;
+            this.btnRedondear.Click += new System.EventHandler(this.btnRedondear_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(309, 136);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 16);
+            this.label21.TabIndex = 28;
+            this.label21.Text = "Sueldo x Horas";
+            // 
+            // textCostoTotal
+            // 
+            this.textCostoTotal.Enabled = false;
+            this.textCostoTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCostoTotal.Location = new System.Drawing.Point(409, 125);
+            this.textCostoTotal.Name = "textCostoTotal";
+            this.textCostoTotal.Size = new System.Drawing.Size(173, 27);
+            this.textCostoTotal.TabIndex = 27;
+            // 
+            // btnAgregarCorteOperador
+            // 
+            this.btnAgregarCorteOperador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAgregarCorteOperador.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCorteOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnAgregarCorteOperador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCorteOperador.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAgregarCorteOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCorteOperador.Image")));
+            this.btnAgregarCorteOperador.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(547, 155);
+            this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
+            this.btnAgregarCorteOperador.Size = new System.Drawing.Size(130, 33);
+            this.btnAgregarCorteOperador.TabIndex = 26;
+            this.btnAgregarCorteOperador.Text = "Agregar Gasto";
+            this.btnAgregarCorteOperador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCorteOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarCorteOperador.UseVisualStyleBackColor = false;
+            this.btnAgregarCorteOperador.Click += new System.EventHandler(this.btnAgregarCorteOperador_Click);
+            // 
+            // dgvCortesOperador
+            // 
+            this.dgvCortesOperador.AllowUserToAddRows = false;
+            this.dgvCortesOperador.AllowUserToDeleteRows = false;
+            this.dgvCortesOperador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCortesOperador.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCortesOperador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCortesOperador.Location = new System.Drawing.Point(12, 228);
+            this.dgvCortesOperador.Name = "dgvCortesOperador";
+            this.dgvCortesOperador.ReadOnly = true;
+            this.dgvCortesOperador.Size = new System.Drawing.Size(665, 277);
+            this.dgvCortesOperador.TabIndex = 9;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(535, 97);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(70, 16);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "Costo/Hora";
+            // 
+            // textCostoHoraOperador
+            // 
+            this.textCostoHoraOperador.Enabled = false;
+            this.textCostoHoraOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCostoHoraOperador.Location = new System.Drawing.Point(615, 92);
+            this.textCostoHoraOperador.Name = "textCostoHoraOperador";
+            this.textCostoHoraOperador.Size = new System.Drawing.Size(62, 27);
+            this.textCostoHoraOperador.TabIndex = 7;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(329, 100);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(67, 16);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "Total Horas";
+            // 
+            // textTotalHoras
+            // 
+            this.textTotalHoras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalHoras.Location = new System.Drawing.Point(409, 92);
+            this.textTotalHoras.Name = "textTotalHoras";
+            this.textTotalHoras.Size = new System.Drawing.Size(120, 27);
+            this.textTotalHoras.TabIndex = 5;
+            this.textTotalHoras.Click += new System.EventHandler(this.textTotalHoras_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(289, 67);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(107, 16);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Fecha y Hora Final";
+            // 
+            // textFechaHoraFinalOperador
+            // 
+            this.textFechaHoraFinalOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(409, 59);
+            this.textFechaHoraFinalOperador.Name = "textFechaHoraFinalOperador";
+            this.textFechaHoraFinalOperador.Size = new System.Drawing.Size(268, 27);
+            this.textFechaHoraFinalOperador.TabIndex = 3;
+            this.textFechaHoraFinalOperador.Leave += new System.EventHandler(this.textFechaHoraFinalOperador_Leave);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(409, 520);
+            this.label16.Location = new System.Drawing.Point(289, 34);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 17);
-            this.label16.TabIndex = 40;
-            this.label16.Text = "Total de Gastos";
+            this.label16.Size = new System.Drawing.Size(114, 16);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Fecha y Hora Inicial";
+            // 
+            // textFechaHoraInicialOperador
+            // 
+            this.textFechaHoraInicialOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(409, 26);
+            this.textFechaHoraInicialOperador.Name = "textFechaHoraInicialOperador";
+            this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(268, 27);
+            this.textFechaHoraInicialOperador.TabIndex = 1;
+            this.textFechaHoraInicialOperador.Leave += new System.EventHandler(this.textFechaHoraInicialOperador_Leave);
+            // 
+            // calendarCortesOperador
+            // 
+            this.calendarCortesOperador.Location = new System.Drawing.Point(12, 26);
+            this.calendarCortesOperador.Name = "calendarCortesOperador";
+            this.calendarCortesOperador.TabIndex = 0;
+            this.calendarCortesOperador.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarCortesOperador_DateChanged);
             // 
             // FormAgregarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 596);
+            this.ClientSize = new System.Drawing.Size(714, 596);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -591,14 +837,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar un nuevo viaje";
             this.Load += new System.EventHandler(this.FormAgregarViaje_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupGastos.ResumeLayout(false);
+            this.groupGastos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPageGenerales.ResumeLayout(false);
-            this.tabPageGastos.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabPageGastos.ResumeLayout(false);
+            this.tabPageCortes.ResumeLayout(false);
+            this.groupCortesOPerador.ResumeLayout(false);
+            this.groupCortesOPerador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -626,7 +876,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupGastos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -649,7 +899,27 @@
         private System.Windows.Forms.TextBox textConceptoGasto;
         private System.Windows.Forms.ComboBox comboTipoGastos;
         private System.Windows.Forms.TabPage tabPageCortes;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label labelTotalGastos;
         private System.Windows.Forms.Label labelTotalDeGastos;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textFechaGasto;
+        private System.Windows.Forms.GroupBox groupCortesOPerador;
+        private System.Windows.Forms.MonthCalendar calendarCortesOperador;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textFechaHoraFinalOperador;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textFechaHoraInicialOperador;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textCostoHoraOperador;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textTotalHoras;
+        private System.Windows.Forms.DataGridView dgvCortesOperador;
+        private System.Windows.Forms.Button btnAgregarCorteOperador;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textCostoTotal;
+        private System.Windows.Forms.Button btnRedondear;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label labelSueldoCortes;
+        private System.Windows.Forms.Label labelSaldoTotalCortes;
     }
 }
