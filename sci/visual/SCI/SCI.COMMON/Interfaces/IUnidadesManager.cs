@@ -21,5 +21,7 @@ namespace SCI.COMMON.Interfaces
         /// <returns>Regresa una lista de unidades que usan cierto tipo de combustible</returns>
         IEnumerable<unidades> BuscaUnidadesPorTipoCombustible(string tipoCombustible);
 
+        IEnumerable<unidades> BuscarPorTipoDeUnidad(int idTipoDeUnidad);
+
     }
 }

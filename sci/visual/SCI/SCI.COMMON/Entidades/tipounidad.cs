@@ -4,11 +4,9 @@ using System.Text;
 
 namespace SCI.COMMON.Entidades
 {
-    public class ruta:BaseDTO
+    public class tipounidad : BaseDTO
     {
-        public int IdRuta { get; set; }
-        public string Nombre { get; set; }
-        public double Costo { get; set; }
         public int IdTipoDeUnidad { get; set; }
+        public string Descripcion { get; set; }
     }
 }

@@ -15,9 +15,12 @@ namespace SCI.INTERFAZ.UI
     public partial class FormAgregarUnidad : Form
     {
         IUnidadesManager managerUnidades;
+        ITipoDeUnidadManager managerTipoDeUnidades;
+
         string resultado = string.Empty;
         string accion = string.Empty;
         int idUnidadAEditar = 0;
+        int idTipoDeUnidad = 0;
         unidades unidadAeditar;
 
         public string Valor
@@ -30,12 +33,14 @@ namespace SCI.INTERFAZ.UI
         {
             InitializeComponent();
             managerUnidades = Tools.FabricManager.UnidadManager();
+            managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
             accion = evento;
             idUnidadAEditar = id;
         }
 
         private void FormAgregarUnidad_Load(object sender, EventArgs e)
         {
+            cargarTiposDeUnidades();
             if (accion == "editar")
             {
                 unidadAeditar = managerUnidades.BuscarPorId(idUnidadAEditar.ToString());
@@ -44,8 +49,18 @@ namespace SCI.INTERFAZ.UI
                 textPlacas.Text = unidadAeditar.Placas;
                 textNumSerie.Text = unidadAeditar.NumeroSerie;
                 comboTipoCombustible.Text = unidadAeditar.TipoCombustible;
+
+                tipounidad tUnidad = managerTipoDeUnidades.BuscarPorId(unidadAeditar.IdTipoDeUnidad.ToString());
+                idTipoDeUnidad = tUnidad.IdTipoDeUnidad;
+                comboTipoDeUnidad.Text = tUnidad.IdTipoDeUnidad.ToString() + "/" + tUnidad.Descripcion;
                 this.Text = "Actualizar los datos de la Unidad.";
             }
+        }
+
+        private void cargarTiposDeUnidades()
+        {
+            IEnumerable<tipounidad> tiposDeUnidades = managerTipoDeUnidades.ObtenerTodos;
+            comboTipoDeUnidad.DataSource = tiposDeUnidades.Select(u => (u.IdTipoDeUnidad + "/ " + u.Descripcion)).ToList();
         }
 
         private unidades CrearUnidad()
@@ -56,12 +71,16 @@ namespace SCI.INTERFAZ.UI
                 NumeroEconomico = int.Parse(textNumEco.Text),
                 Placas = textPlacas.Text,
                 NumeroSerie = textNumSerie.Text,
-                TipoCombustible = comboTipoCombustible.Text
+                TipoCombustible = comboTipoCombustible.Text,
+                IdTipoDeUnidad = idTipoDeUnidad
             };
         }
 
         private void btnCrearUnidad_Click(object sender, EventArgs e)
         {
+            string[] cadena = comboTipoDeUnidad.Text.Split('/');
+            idTipoDeUnidad = int.Parse(cadena.First());
+
             if (accion == "agregar")
             {
                 try
@@ -93,6 +112,7 @@ namespace SCI.INTERFAZ.UI
                         unidadAeditar.Placas = textPlacas.Text;
                         unidadAeditar.NumeroSerie = textNumSerie.Text;
                         unidadAeditar.TipoCombustible = comboTipoCombustible.Text;
+                        unidadAeditar.IdTipoDeUnidad = idTipoDeUnidad;
 
                         if (managerUnidades.Actualizar(unidadAeditar))
                         {
@@ -111,47 +131,6 @@ namespace SCI.INTERFAZ.UI
                 }
             }
         }
-
         
-
-        /* private bool ValidadFormulario()
-         {
-             if (textNombreUnidad.Text == string.Empty)
-             {
-                 textNombreUnidad.Focus();
-                 return false;
-             }
-             if (textNumEco.Text == string.Empty)
-             {
-                 textNumEco.Focus();
-                 return false;
-             }
-
-             if (textPlacas.Text == string.Empty)
-             {
-                 textPlacas.Focus();
-                 return false;
-             }
-             if (textNumSerie.Text == string.Empty)
-             {
-                 textNumSerie.Focus();
-                 return false;
-             }
-             if (comboTipoCombustible.Text == string.Empty)
-             {
-                 comboTipoCombustible.Focus();
-                 return false;
-             }
-             try
-             {
-                 int.Parse(textNumEco.Text);
-             }
-             catch (Exception)
-             {
-                 return false;
-             }
-
-             return true;
-         }*/
     }
 }

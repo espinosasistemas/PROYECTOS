@@ -15,14 +15,15 @@ namespace SCI.INTERFAZ.UI
     public partial class FormRutas : Form
     {
         IRutaManager managerRuta;
-        IUnidadesManager managerUnidad;
+        ITipoDeUnidadManager managerTipoDeUnidades;
+
         int filaSeleccionada = -1;
 
         public FormRutas()
         {
             InitializeComponent();
             managerRuta = Tools.FabricManager.RutaManager();
-            managerUnidad = Tools.FabricManager.UnidadManager();
+            managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
         }
 
         private void btnMostrarRutas_Click(object sender, EventArgs e)
@@ -92,14 +93,13 @@ namespace SCI.INTERFAZ.UI
             
             if (dgvRutas.Rows.Count > 0)
             {
-                dgvRutas.Columns.Add("NombreUnidad", "NombreUnidad");
-                dgvRutas.Columns.Add("NumEconomico", "NumEconomico");
-                unidades unidad;
+                dgvRutas.Columns.Add("nombreUnidad", "NombreUnidad");
+                //dgvRutas.Columns.Add("NumEconomico", "NumEconomico");
+                tipounidad tUnidad;
                 for (int i = 0; i < dgvRutas.Rows.Count; i++)
                 {
-                    unidad = managerUnidad.BuscarPorId(dgvRutas["idUnidad", i].Value.ToString());
-                    dgvRutas["NombreUnidad", i].Value = unidad.Nombre;
-                    dgvRutas["NumEconomico", i].Value = unidad.NumeroEconomico;
+                    tUnidad = managerTipoDeUnidades.BuscarPorId(dgvRutas["idTipoDeUnidad", i].Value.ToString());
+                    dgvRutas["nombreUnidad", i].Value = tUnidad.Descripcion;
                 }
                 mostrarLabelStatus("Se han cargado toda las rutas.", true);
                 filaSeleccionada = 0;
@@ -119,6 +119,7 @@ namespace SCI.INTERFAZ.UI
             if (color == true) panelResultado.BackColor = Color.FromArgb(76, 175, 80);
             else panelResultado.BackColor = Color.FromArgb(255, 87, 34);
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

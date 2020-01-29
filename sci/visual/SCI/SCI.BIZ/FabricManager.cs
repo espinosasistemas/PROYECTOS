@@ -10,6 +10,11 @@ namespace SCI.BIZ
 {
     public class FabricManager
     {
+        public ITipoDeUnidadManager TipoDeUnidadesManager()
+        {
+            return new TipoDeUnidadManager(new GenericRepository<tipounidad>(new TipoDeUnidadValidator()));
+        }
+
         public IUnidadesManager UnidadManager()
         {
             return new UnidadesManager(new GenericRepository<unidades>(new UnidadesValidator()));

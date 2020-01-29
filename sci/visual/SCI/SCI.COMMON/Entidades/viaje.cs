@@ -16,5 +16,6 @@ namespace SCI.COMMON.Entidades
         public int IdRuta { get; set; }
         public int IdCliente { get; set; }
         public int IdOperador { get; set; }
+        public int IdUnidad { get; set; }
     }
 }

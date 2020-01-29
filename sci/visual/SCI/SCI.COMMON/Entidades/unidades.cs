@@ -12,6 +12,6 @@ namespace SCI.COMMON.Entidades
         public string Placas { get; set; }
         public string NumeroSerie { get; set; }
         public string TipoCombustible { get; set; }
-
+        public int IdTipoDeUnidad { get; set; }
     }
 }

@@ -23,6 +23,8 @@ namespace SCI.INTERFAZ.UI
         ITipoDeGastoManager managerTiposDeGastos;
         IGastoManager managerGastos;
         ICortesOperadorManager managerCortes;
+        ITipoDeUnidadManager managerTipoDeUnidad;
+        IUnidadesManager managerUnidades;
 
         string resultado = string.Empty;
         string accion = string.Empty;
@@ -58,6 +60,8 @@ namespace SCI.INTERFAZ.UI
             managerTiposDeGastos = Tools.FabricManager.TipoDeGastoManager();
             managerGastos = Tools.FabricManager.GastoManager();
             managerCortes = Tools.FabricManager.CortesOperadorManager();
+            managerTipoDeUnidad = Tools.FabricManager.TipoDeUnidadesManager();
+            managerUnidades = Tools.FabricManager.UnidadManager();
 
             accion = evento;
             idAEditar = id;
@@ -65,7 +69,7 @@ namespace SCI.INTERFAZ.UI
 
         private void FormAgregarViaje_Load(object sender, EventArgs e)
         {
-            cargarComboRutas();
+            //cargarComboRutas();
             cargarComboClientes();
             cargarComboOperadores();
             cargarComboStatus();
@@ -169,7 +173,7 @@ namespace SCI.INTERFAZ.UI
         private void cargarComboRutas()
         {
             IEnumerable<ruta> rutas = managerRuta.ObtenerTodos;
-            comboRutas.DataSource = rutas.Select(r => (r.IdRuta + "/" + r.Nombre + "/" + r.Costo)).ToList();
+            comboRutas.DataSource = rutas.Select(r => (r.IdRuta + "/" + r.Nombre + "/" + r.Costo + "/" + r.IdTipoDeUnidad)).ToList();
             comboRutas.Text = string.Empty;
         }
 
@@ -180,25 +184,29 @@ namespace SCI.INTERFAZ.UI
             {
                 string[] splitRutas;
                 splitRutas = comboRutas.Text.Split('/');
-                int idRuta = int.Parse(splitRutas[0]);
+                int idRuta = int.Parse(splitRutas.First());
 
                 string[] splitClientes;
                 splitClientes = comboClientes.Text.Split('/');
-                int idCliente = int.Parse(splitClientes[0]);
+                int idCliente = int.Parse(splitClientes.First());
 
                 string[] splitOperadores;
                 splitOperadores = comboOperadores.Text.Split('/');
-                int idOperador = int.Parse(splitOperadores[0]);
+                int idOperador = int.Parse(splitOperadores.First());
 
                 string[] splitStatus;
                 splitStatus = comboStatus.Text.Split('/');
-                int idStatus = int.Parse(splitStatus[0]);
+                int idStatus = int.Parse(splitStatus.First());
+
+                string[] splitUnidades;
+                splitUnidades = comboUnidades.Text.Split('/');
+                int idUnidad = int.Parse(splitUnidades.First());
 
                 if (accion == "agregar")
                 {
                     try
                     {
-                        viaje viajeNuevo = CrearViaje(idStatus, idRuta, idCliente, idOperador);
+                        viaje viajeNuevo = CrearViaje(idStatus, idRuta, idCliente, idOperador, idUnidad);
                         if (managerViajes.Insertar(viajeNuevo))
                         {
                             resultado = "Se ha agregado correctamente el Viaje.";
@@ -229,12 +237,13 @@ namespace SCI.INTERFAZ.UI
                             entidadAeditar.IdCliente = idCliente;
                             entidadAeditar.IdOperador = idOperador;
                             entidadAeditar.IdStatus = idStatus;
+                            entidadAeditar.IdUnidad = idUnidad;
 
                             if (managerViajes.Actualizar(entidadAeditar))
                             {
                                 resultado = "Se ha actualizado correctamente los datos del Viaje.";
                                 MessageBox.Show("Se ha actualizado correctamente los datos del viaje.", "Actualización de Viaje", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                //this.Close();
+                                this.Close();
                             }
                             else
                             {
@@ -257,7 +266,7 @@ namespace SCI.INTERFAZ.UI
             // MessageBox.Show("Fecha Inicio:" + cal1.SelectionStart + " Fecha de FIn:" + cal1.SelectionEnd);
         }
 
-        private viaje CrearViaje(int idStatus, int idRuta, int idCliente, int idOperador)
+        private viaje CrearViaje(int idStatus, int idRuta, int idCliente, int idOperador, int idUni)
         {
             return new viaje
             {
@@ -269,7 +278,8 @@ namespace SCI.INTERFAZ.UI
                 IdStatus = idStatus,
                 IdRuta = idRuta,
                 IdCliente = idCliente,
-                IdOperador = idOperador
+                IdOperador = idOperador,
+                IdUnidad = idUni
             };
         }
 
@@ -569,6 +579,45 @@ namespace SCI.INTERFAZ.UI
                     default: break;
                 }
             }
+        }
+
+        private void cargarTodasLasUnidades(int tipoDeUnidad)
+        {
+            IEnumerable<unidades> TodasLasUnidades = managerUnidades.BuscarPorTipoDeUnidad(tipoDeUnidad);
+            comboUnidades.DataSource = TodasLasUnidades.Select(r => (r.IdUnidad + "/" + r.Nombre + "/" + r.NumeroEconomico + "/" +r.Placas + "/" +r.IdTipoDeUnidad)).ToList();
+            comboUnidades.Text = string.Empty;
+        }
+
+        private void comboRutas_TextChanged(object sender, EventArgs e)
+        {
+            if (comboRutas.Text != string.Empty)
+            {
+                string[] cadena = comboRutas.Text.Split('/');
+                cargarTodasLasUnidades(int.Parse(cadena.Last()));
+            }
+        }
+
+        private void comboRutas_Click(object sender, EventArgs e)
+        {
+            cargarComboRutas();
+            //(r.IdRuta + "/" + r.Nombre + "/" + r.Costo + "/" + r.IdTipoDeUnidad)).ToList();
+            string[] cadena = comboRutas.Text.Split('/');
+            labelNombreRuta.Text = cadena[1];
+            labelCosto.Text = cadena[2];
+            tipounidad tUnidad = managerTipoDeUnidad.BuscarPorId(cadena[3]);
+            labelTipoUnidad.Text = tUnidad.Descripcion;
+
+
+        }
+
+        private void comboUnidades_TextChanged(object sender, EventArgs e)
+        { 
+            //(r.IdUnidad + "/" + r.Nombre + "/" + r.NumeroEconomico + "/" +r.Placas + "/" +r.IdTipoDeUnidad)).ToList();
+            string[] cadena = comboUnidades.Text.Split('/');
+            labelNombreUnidad.Text = cadena[1];
+            labelNumEco.Text = cadena[2];
+            labelPlacas.Text = cadena[3];
+            //labelTipoUnidad
         }
     }
 }

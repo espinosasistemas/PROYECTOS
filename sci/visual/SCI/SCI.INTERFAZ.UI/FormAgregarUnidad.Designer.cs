@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textNombreUnidad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboTipoDeUnidad = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +51,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.comboTipoDeUnidad);
             this.groupBox1.Controls.Add(this.btnCrearUnidad);
             this.groupBox1.Controls.Add(this.comboTipoCombustible);
             this.groupBox1.Controls.Add(this.label5);
@@ -62,7 +66,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(3, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(396, 279);
+            this.groupBox1.Size = new System.Drawing.Size(396, 295);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos de la unidad";
@@ -76,7 +80,7 @@
             this.btnCrearUnidad.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCrearUnidad.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearUnidad.Image")));
             this.btnCrearUnidad.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnCrearUnidad.Location = new System.Drawing.Point(234, 213);
+            this.btnCrearUnidad.Location = new System.Drawing.Point(235, 241);
             this.btnCrearUnidad.Name = "btnCrearUnidad";
             this.btnCrearUnidad.Size = new System.Drawing.Size(130, 33);
             this.btnCrearUnidad.TabIndex = 10;
@@ -182,11 +186,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
+            // comboTipoDeUnidad
+            // 
+            this.comboTipoDeUnidad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboTipoDeUnidad.FormattingEnabled = true;
+            this.comboTipoDeUnidad.Location = new System.Drawing.Point(134, 197);
+            this.comboTipoDeUnidad.Name = "comboTipoDeUnidad";
+            this.comboTipoDeUnidad.Size = new System.Drawing.Size(231, 28);
+            this.comboTipoDeUnidad.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(20, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 17);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Tipo de Unidad";
+            // 
             // FormAgregarUnidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 291);
+            this.ClientSize = new System.Drawing.Size(404, 307);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -217,5 +240,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboTipoCombustible;
         private System.Windows.Forms.Button btnCrearUnidad;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboTipoDeUnidad;
     }
 }

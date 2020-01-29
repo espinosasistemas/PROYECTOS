@@ -23,6 +23,7 @@ namespace SCI.Tests
         IGenericRepository<viaje> viajeRepository;
         IGenericRepository<gasto> gastoRepository;
         IGenericRepository<cortesoperador> cortesRepository;
+        IGenericRepository<tipounidad> tipoUnidadRepository;
 
         Random r;
         public UnitTestDAL()
@@ -39,6 +40,7 @@ namespace SCI.Tests
             viajeRepository = new GenericRepository<viaje>(new ViajeValidator());
             gastoRepository = new GenericRepository<gasto>(new GastoValidator());
             cortesRepository = new GenericRepository<cortesoperador>(new CortesOperadorValidator());
+            tipoUnidadRepository = new GenericRepository<tipounidad>(new TipoDeUnidadValidator());
         }
 
         [TestMethod]
@@ -88,7 +90,7 @@ namespace SCI.Tests
             List<usuario> usuarios = usuarioRepository.Read.ToList();
             foreach (var item in usuarios)
             {
-                Assert.IsTrue(usuarioRepository.Delete(item.NombreUsuario),usuarioRepository.Error);
+                Assert.IsTrue(usuarioRepository.Delete(item.NombreUsuario), usuarioRepository.Error);
             }
 
         }
@@ -96,7 +98,7 @@ namespace SCI.Tests
         [TestMethod]
         public void TestClient()
         {
-            
+
             cliente c = CrearCliente();
             int cantidadClientes = clienteRepository.Read.Count();
             Assert.IsTrue(clienteRepository.Create(c), clienteRepository.Error);
@@ -104,15 +106,15 @@ namespace SCI.Tests
             int idClienteInsertado = clienteRepository.Read.Max(c1 => c1.IdCliente);
             cliente aModificar = clienteRepository.SearchById(idClienteInsertado.ToString());
             aModificar.RazonSocial = "Nueva razón social.";
-            Assert.IsTrue(clienteRepository.Update(aModificar),clienteRepository.Error);            
+            Assert.IsTrue(clienteRepository.Update(aModificar), clienteRepository.Error);
             Assert.IsTrue(clienteRepository.Delete("1"), clienteRepository.Error);
             List<cliente> clientesTotales = clienteRepository.Read.ToList();
             foreach (var item in clientesTotales)
             {
-                Assert.IsTrue(clienteRepository.Delete(item.IdCliente.ToString()),clienteRepository.Error);
+                Assert.IsTrue(clienteRepository.Delete(item.IdCliente.ToString()), clienteRepository.Error);
 
             }
-           
+
         }
 
         [TestMethod]
@@ -139,7 +141,7 @@ namespace SCI.Tests
             statusviaje status = CrearStatus();
             int CantidadStatus = statusRepository.Read.Count();
             Assert.IsTrue(statusRepository.Create(status), statusRepository.Error);
-            int idStatusInsertado = statusRepository.Read.Max(s=>s.IdStatus);
+            int idStatusInsertado = statusRepository.Read.Max(s => s.IdStatus);
             Assert.AreEqual(CantidadStatus + 1, statusRepository.Read.Count(), "No se pudo insertar, las cantidades no son iguales.");
             statusviaje aModificar = statusRepository.SearchById(idStatusInsertado.ToString());
             aModificar.Nombre = "Entregado";
@@ -150,6 +152,15 @@ namespace SCI.Tests
                 Assert.IsTrue(statusRepository.Delete(item.IdStatus.ToString()), statusRepository.Error);
             }
         }
+
+        [TestMethod]
+        public void TestTipoDeUnidad()
+        {
+            tipounidad tUnidad = new tipounidad();
+            tUnidad.Descripcion = "Camioneta Pickup";
+            Assert.IsTrue(tipoUnidadRepository.Create(tUnidad), tipoUnidadRepository.Error);
+        }
+
 
         [TestMethod]
         public void TestTipoGasto()

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarRutas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboUnidades = new System.Windows.Forms.ComboBox();
+            this.comboTipoDeUnidad = new System.Windows.Forms.ComboBox();
             this.btnAgregarRuta = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textCosto = new System.Windows.Forms.TextBox();
@@ -45,7 +45,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.comboUnidades);
+            this.groupBox1.Controls.Add(this.comboTipoDeUnidad);
             this.groupBox1.Controls.Add(this.btnAgregarRuta);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textCosto);
@@ -54,19 +54,19 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(4, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(459, 205);
+            this.groupBox1.Size = new System.Drawing.Size(459, 186);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos de la Ruta";
             // 
-            // comboUnidades
+            // comboTipoDeUnidad
             // 
-            this.comboUnidades.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboUnidades.FormattingEnabled = true;
-            this.comboUnidades.Location = new System.Drawing.Point(105, 97);
-            this.comboUnidades.Name = "comboUnidades";
-            this.comboUnidades.Size = new System.Drawing.Size(308, 29);
-            this.comboUnidades.TabIndex = 11;
+            this.comboTipoDeUnidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboTipoDeUnidad.FormattingEnabled = true;
+            this.comboTipoDeUnidad.Location = new System.Drawing.Point(131, 97);
+            this.comboTipoDeUnidad.Name = "comboTipoDeUnidad";
+            this.comboTipoDeUnidad.Size = new System.Drawing.Size(308, 29);
+            this.comboTipoDeUnidad.TabIndex = 11;
             // 
             // btnAgregarRuta
             // 
@@ -77,7 +77,7 @@
             this.btnAgregarRuta.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarRuta.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarRuta.Image")));
             this.btnAgregarRuta.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarRuta.Location = new System.Drawing.Point(284, 144);
+            this.btnAgregarRuta.Location = new System.Drawing.Point(309, 132);
             this.btnAgregarRuta.Name = "btnAgregarRuta";
             this.btnAgregarRuta.Size = new System.Drawing.Size(130, 33);
             this.btnAgregarRuta.TabIndex = 10;
@@ -91,16 +91,16 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 104);
+            this.label3.Location = new System.Drawing.Point(19, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 17);
+            this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Unidades";
+            this.label3.Text = "Tipo De Unidad";
             // 
             // textCosto
             // 
             this.textCosto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCosto.Location = new System.Drawing.Point(105, 64);
+            this.textCosto.Location = new System.Drawing.Point(131, 64);
             this.textCosto.Name = "textCosto";
             this.textCosto.Size = new System.Drawing.Size(309, 26);
             this.textCosto.TabIndex = 2;
@@ -109,7 +109,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 70);
+            this.label2.Location = new System.Drawing.Point(78, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 0;
@@ -118,7 +118,7 @@
             // textNombre
             // 
             this.textNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNombre.Location = new System.Drawing.Point(104, 32);
+            this.textNombre.Location = new System.Drawing.Point(130, 32);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(309, 26);
             this.textNombre.TabIndex = 1;
@@ -127,7 +127,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 38);
+            this.label1.Location = new System.Drawing.Point(64, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 0;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 217);
+            this.ClientSize = new System.Drawing.Size(467, 198);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -162,6 +162,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textNombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboUnidades;
+        private System.Windows.Forms.ComboBox comboTipoDeUnidad;
     }
 }

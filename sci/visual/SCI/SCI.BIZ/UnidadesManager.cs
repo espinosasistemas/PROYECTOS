@@ -18,6 +18,11 @@ namespace SCI.BIZ
             return repository.Query(u => u.NumeroEconomico == numero).SingleOrDefault();
         }
 
+        public IEnumerable<unidades> BuscarPorTipoDeUnidad(int idTipoDeUnidad)
+        {
+            return repository.Query(u => u.IdTipoDeUnidad == idTipoDeUnidad);
+        }
+
         public IEnumerable<unidades> BuscaUnidadesPorTipoCombustible(string tipoCombustible)
         {
             return repository.Query(u => u.TipoCombustible == tipoCombustible);

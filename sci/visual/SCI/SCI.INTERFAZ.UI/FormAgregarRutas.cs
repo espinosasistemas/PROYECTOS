@@ -14,8 +14,10 @@ namespace SCI.INTERFAZ.UI
 {
     public partial class FormAgregarRutas : Form
     {
-        IUnidadesManager managerUnidades;
+        //IUnidadesManager managerUnidades;
         IRutaManager managerRutas;
+        ITipoDeUnidadManager managerTipoDeUnidades;
+
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
@@ -30,43 +32,43 @@ namespace SCI.INTERFAZ.UI
         public FormAgregarRutas(string evento, int id)
         {
             InitializeComponent();
-            managerUnidades = Tools.FabricManager.UnidadManager();
+            managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
             managerRutas = Tools.FabricManager.RutaManager();
             accion = evento;
             idAEditar = id;
         }
 
-        public void cargarComboUnidades()
+        private void cargarTiposDeUnidades()
         {
-            IEnumerable<unidades> unidades = managerUnidades.ObtenerTodos;
-            comboUnidades.DataSource = unidades.Select(u=> (u.IdUnidad + "/ " +u.Nombre + "/" + u.NumeroEconomico)).ToList();
+            IEnumerable<tipounidad> tiposDeUnidades = managerTipoDeUnidades.ObtenerTodos;
+            comboTipoDeUnidad.DataSource = tiposDeUnidades.Select(u => (u.IdTipoDeUnidad + "/" + u.Descripcion)).ToList();
         }
 
         private void FormAgregarRutas_Load(object sender, EventArgs e)
         {
-            cargarComboUnidades();
+            cargarTiposDeUnidades();
             if (accion == "editar")
             {
                 entidadAeditar = managerRutas.BuscarPorId(idAEditar.ToString());
-                unidades unidad = managerUnidades.BuscarPorId(entidadAeditar.IdUnidad.ToString());
+                tipounidad Tunidad = managerTipoDeUnidades.BuscarPorId(entidadAeditar.IdTipoDeUnidad.ToString());
                 textNombre.Text = entidadAeditar.Nombre;
                 textCosto.Text = entidadAeditar.Costo.ToString();
-                comboUnidades.Text = unidad.IdUnidad + "/" + unidad.Nombre + "/" + unidad.NumeroEconomico;
+                comboTipoDeUnidad.Text = Tunidad.IdTipoDeUnidad + "/" + Tunidad.Descripcion;
                 this.Text = "Actualizar los datos de la Ruta.";
             }
         }
 
         private void btnAgregarRuta_Click(object sender, EventArgs e)
         {
-            string[] cadenaUnidades;
-            cadenaUnidades = comboUnidades.Text.Split('/');
-            int idUnidadSeleccionada = int.Parse(cadenaUnidades[0]);
+            string[] cadena;
+            cadena = comboTipoDeUnidad.Text.Split('/');
+            int idTipoUnidad = int.Parse(cadena.First());
 
             if (accion == "agregar")
             {
                 try
                 {
-                    ruta rutaNueva = CrearRuta(idUnidadSeleccionada);
+                    ruta rutaNueva = CrearRuta(idTipoUnidad);
                     if (managerRutas.Insertar(rutaNueva))
                     {
                         resultado = "Se ha agregado correctamente la nueva Ruta.";
@@ -90,7 +92,7 @@ namespace SCI.INTERFAZ.UI
                     {
                         entidadAeditar.Nombre = textNombre.Text;
                         entidadAeditar.Costo = double.Parse(textCosto.Text);
-                        entidadAeditar.IdUnidad = idUnidadSeleccionada;
+                        entidadAeditar.IdTipoDeUnidad = idTipoUnidad;
 
                         if (managerRutas.Actualizar(entidadAeditar))
                         {
@@ -111,13 +113,13 @@ namespace SCI.INTERFAZ.UI
 
         }
 
-        private ruta CrearRuta(int idUnidadSeleccionada)
+        private ruta CrearRuta(int idTipoDeUnidad)
         {
             return new ruta
             {
                 Nombre = textNombre.Text,
                 Costo = double.Parse(textCosto.Text),
-                IdUnidad = idUnidadSeleccionada
+                IdTipoDeUnidad = idTipoDeUnidad
             };
         }
     }
