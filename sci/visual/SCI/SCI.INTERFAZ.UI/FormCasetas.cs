@@ -34,8 +34,10 @@ namespace SCI.INTERFAZ.UI
         }
         public void cargarTodasLasCasetas()
         {
+            //dgvCasetas.Columns.Clear();
             IEnumerable<caseta> TodosClientes = managerCaseta.ObtenerTodos;
             dgvCasetas.DataSource = TodosClientes;
+
             if (dgvCasetas.Rows.Count > 0)
             {
                 mostrarLabelStatus("Se han cargado todas los casetas dadas de alta.", true);

@@ -254,6 +254,7 @@
             this.Name = "FormGasolinerias";
             this.Text = "FormGasolinerias";
             this.Load += new System.EventHandler(this.FormGasolinerias_Load);
+            this.Shown += new System.EventHandler(this.FormGasolinerias_Shown);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelResultado.ResumeLayout(false);

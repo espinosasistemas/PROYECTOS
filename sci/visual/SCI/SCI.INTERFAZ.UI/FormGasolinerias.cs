@@ -129,6 +129,11 @@ namespace SCI.INTERFAZ.UI
 
         private void FormGasolinerias_Load(object sender, EventArgs e)
         {
+            //cargarTodasLasGasolinerias();
+        }
+
+        private void FormGasolinerias_Shown(object sender, EventArgs e)
+        {
             cargarTodasLasGasolinerias();
         }
     }
