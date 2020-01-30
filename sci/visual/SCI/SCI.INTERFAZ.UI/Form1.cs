@@ -82,6 +82,15 @@ namespace SCI.INTERFAZ.UI
         {
             openDashBoardForm(new FormViajes());
         }
+        private void btnCasetas_Click(object sender, EventArgs e)
+        {
+            openDashBoardForm(new FormCasetas());
+        }
+
+        private void btnGasolineria_Click(object sender, EventArgs e)
+        {
+            openDashBoardForm(new FormGasolinerias());
+        }
 
         private void openDashBoardForm(Form childForm)
         {
@@ -106,5 +115,7 @@ namespace SCI.INTERFAZ.UI
         {
             showSubMenu(panelReportesSubMenu);
         }
+
+        
     }
 }

@@ -10,6 +10,16 @@ namespace SCI.BIZ
 {
     public class FabricManager
     {
+        public IGasolineriaManager GasolineriaManager()
+        {
+            return new GasolineriaManager(new GenericRepository<gasolineria>(new GasolineriaValidator()));
+        }
+
+        public ICasetaManager CasetaManager()
+        {
+            return new CasetaManager(new GenericRepository<caseta>(new CasetaValidator()));
+        }
+
         public ITipoDeUnidadManager TipoDeUnidadesManager()
         {
             return new TipoDeUnidadManager(new GenericRepository<tipounidad>(new TipoDeUnidadValidator()));

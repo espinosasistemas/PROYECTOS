@@ -13,7 +13,7 @@ namespace SCI.COMMON.Validadores
             RuleFor(u => u.Nombre).NotNull().NotEmpty().Length(1, 50);
             RuleFor(u => u.NumeroEconomico).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(u => u.Placas).NotNull().NotEmpty().Length(1, 15);
-            RuleFor(u => u.NumeroSerie).NotNull().NotEmpty().Length(1, 15);
+            RuleFor(u => u.NumeroSerie).NotNull().NotEmpty().Length(1, 50);
             RuleFor(u => u.TipoCombustible).NotNull().NotEmpty().Length(1,50);
         }
     }

@@ -15,12 +15,14 @@ namespace SCI.INTERFAZ.UI
     public partial class FormUnidades : Form
     {
         IUnidadesManager managerUnidades;
+        ITipoDeUnidadManager managerTipoDeUnidad;
         int filaSeleccionada = -1;
 
         public FormUnidades()
         {
             InitializeComponent();
             managerUnidades = Tools.FabricManager.UnidadManager();
+            managerTipoDeUnidad = Tools.FabricManager.TipoDeUnidadesManager();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -30,10 +32,20 @@ namespace SCI.INTERFAZ.UI
 
         public void cargarTodasUnidades()
         {
+            dgvUnidades.Columns.Clear();
             IEnumerable<unidades> TodasUnidades = managerUnidades.ObtenerTodos;
             dgvUnidades.DataSource = TodasUnidades;
             if (dgvUnidades.Rows.Count > 0)
             {
+                dgvUnidades.Columns.Add("tipoDeUnidad", "tipoDeUnidad");
+                
+                tipounidad tUnidad = new tipounidad();
+                for (int i = 0; i < dgvUnidades.Rows.Count; i++)
+                {
+                    tUnidad = managerTipoDeUnidad.BuscarPorId(dgvUnidades["idTipoDeUnidad", i].Value.ToString());
+                    dgvUnidades["tipoDeUnidad", i].Value = tUnidad.Descripcion;
+                }
+                dgvUnidades.Columns["idTipoDeUnidad"].Visible = false;
                 mostrarLabelStatus("Se han cargado toda las unidades dadas de alta.", true);
                 filaSeleccionada = 0;
             }
@@ -119,6 +131,11 @@ namespace SCI.INTERFAZ.UI
         }
 
         private void FormUnidades_Load(object sender, EventArgs e)
+        {
+            //cargarTodasUnidades();
+        }
+
+        private void FormUnidades_Shown(object sender, EventArgs e)
         {
             cargarTodasUnidades();
         }

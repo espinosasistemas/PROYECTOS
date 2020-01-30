@@ -41,6 +41,8 @@
             this.btnViajes = new System.Windows.Forms.Button();
             this.btnTransporte = new System.Windows.Forms.Button();
             this.panelCatalogoSubMenu = new System.Windows.Forms.Panel();
+            this.btnGasolineria = new System.Windows.Forms.Button();
+            this.btnCasetas = new System.Windows.Forms.Button();
             this.btnGastos = new System.Windows.Forms.Button();
             this.btnRutas = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
@@ -85,7 +87,7 @@
             this.panelReportesSubMenu.Controls.Add(this.button11);
             this.panelReportesSubMenu.Controls.Add(this.button12);
             this.panelReportesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 545);
+            this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 629);
             this.panelReportesSubMenu.Name = "panelReportesSubMenu";
             this.panelReportesSubMenu.Size = new System.Drawing.Size(233, 132);
             this.panelReportesSubMenu.TabIndex = 5;
@@ -144,7 +146,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 500);
+            this.btnReportes.Location = new System.Drawing.Point(0, 584);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(233, 45);
             this.btnReportes.TabIndex = 4;
@@ -160,7 +162,7 @@
             this.panelViajesSubMenu.Controls.Add(this.button7);
             this.panelViajesSubMenu.Controls.Add(this.btnViajes);
             this.panelViajesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelViajesSubMenu.Location = new System.Drawing.Point(0, 368);
+            this.panelViajesSubMenu.Location = new System.Drawing.Point(0, 452);
             this.panelViajesSubMenu.Name = "panelViajesSubMenu";
             this.panelViajesSubMenu.Size = new System.Drawing.Size(233, 132);
             this.panelViajesSubMenu.TabIndex = 3;
@@ -225,7 +227,7 @@
             this.btnTransporte.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnTransporte.Image = ((System.Drawing.Image)(resources.GetObject("btnTransporte.Image")));
             this.btnTransporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransporte.Location = new System.Drawing.Point(0, 323);
+            this.btnTransporte.Location = new System.Drawing.Point(0, 407);
             this.btnTransporte.Name = "btnTransporte";
             this.btnTransporte.Size = new System.Drawing.Size(233, 45);
             this.btnTransporte.TabIndex = 2;
@@ -237,6 +239,8 @@
             // panelCatalogoSubMenu
             // 
             this.panelCatalogoSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(244)))));
+            this.panelCatalogoSubMenu.Controls.Add(this.btnGasolineria);
+            this.panelCatalogoSubMenu.Controls.Add(this.btnCasetas);
             this.panelCatalogoSubMenu.Controls.Add(this.btnGastos);
             this.panelCatalogoSubMenu.Controls.Add(this.btnRutas);
             this.panelCatalogoSubMenu.Controls.Add(this.btnClientes);
@@ -245,8 +249,46 @@
             this.panelCatalogoSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCatalogoSubMenu.Location = new System.Drawing.Point(0, 114);
             this.panelCatalogoSubMenu.Name = "panelCatalogoSubMenu";
-            this.panelCatalogoSubMenu.Size = new System.Drawing.Size(233, 209);
+            this.panelCatalogoSubMenu.Size = new System.Drawing.Size(233, 293);
             this.panelCatalogoSubMenu.TabIndex = 1;
+            // 
+            // btnGasolineria
+            // 
+            this.btnGasolineria.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGasolineria.FlatAppearance.BorderSize = 0;
+            this.btnGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnGasolineria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGasolineria.ForeColor = System.Drawing.Color.LightGray;
+            this.btnGasolineria.Image = ((System.Drawing.Image)(resources.GetObject("btnGasolineria.Image")));
+            this.btnGasolineria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGasolineria.Location = new System.Drawing.Point(0, 240);
+            this.btnGasolineria.Name = "btnGasolineria";
+            this.btnGasolineria.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnGasolineria.Size = new System.Drawing.Size(233, 40);
+            this.btnGasolineria.TabIndex = 6;
+            this.btnGasolineria.Text = "          Gasolinerías";
+            this.btnGasolineria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGasolineria.UseVisualStyleBackColor = true;
+            this.btnGasolineria.Click += new System.EventHandler(this.btnGasolineria_Click);
+            // 
+            // btnCasetas
+            // 
+            this.btnCasetas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCasetas.FlatAppearance.BorderSize = 0;
+            this.btnCasetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCasetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCasetas.ForeColor = System.Drawing.Color.LightGray;
+            this.btnCasetas.Image = ((System.Drawing.Image)(resources.GetObject("btnCasetas.Image")));
+            this.btnCasetas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCasetas.Location = new System.Drawing.Point(0, 200);
+            this.btnCasetas.Name = "btnCasetas";
+            this.btnCasetas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnCasetas.Size = new System.Drawing.Size(233, 40);
+            this.btnCasetas.TabIndex = 5;
+            this.btnCasetas.Text = "          Casetas";
+            this.btnCasetas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCasetas.UseVisualStyleBackColor = true;
+            this.btnCasetas.Click += new System.EventHandler(this.btnCasetas_Click);
             // 
             // btnGastos
             // 
@@ -262,7 +304,7 @@
             this.btnGastos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnGastos.Size = new System.Drawing.Size(233, 40);
             this.btnGastos.TabIndex = 4;
-            this.btnGastos.Text = "          Otro Catálogos";
+            this.btnGastos.Text = "          Tipos Gastos y Status";
             this.btnGastos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGastos.UseVisualStyleBackColor = true;
             this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
@@ -452,6 +494,8 @@
         private System.Windows.Forms.Button btnRutas;
         private System.Windows.Forms.Button btnGastos;
         private System.Windows.Forms.Button btnOperadores;
+        private System.Windows.Forms.Button btnGasolineria;
+        private System.Windows.Forms.Button btnCasetas;
     }
 }
 

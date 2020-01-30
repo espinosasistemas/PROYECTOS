@@ -44,6 +44,8 @@ namespace SCI.INTERFAZ.UI
             comboTipoDeUnidad.DataSource = tiposDeUnidades.Select(u => (u.IdTipoDeUnidad + "/" + u.Descripcion)).ToList();
         }
 
+        
+
         private void FormAgregarRutas_Load(object sender, EventArgs e)
         {
             cargarTiposDeUnidades();
@@ -55,6 +57,7 @@ namespace SCI.INTERFAZ.UI
                 textCosto.Text = entidadAeditar.Costo.ToString();
                 comboTipoDeUnidad.Text = Tunidad.IdTipoDeUnidad + "/" + Tunidad.Descripcion;
                 this.Text = "Actualizar los datos de la Ruta.";
+                btnAgregarRuta.Text = "Editar Ruta";
             }
         }
 

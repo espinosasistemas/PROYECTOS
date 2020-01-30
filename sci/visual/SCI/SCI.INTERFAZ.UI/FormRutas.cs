@@ -93,13 +93,12 @@ namespace SCI.INTERFAZ.UI
             
             if (dgvRutas.Rows.Count > 0)
             {
-                dgvRutas.Columns.Add("nombreUnidad", "NombreUnidad");
-                //dgvRutas.Columns.Add("NumEconomico", "NumEconomico");
+                dgvRutas.Columns.Add("tipoDeUnidad", "TipoDeUnidad");
                 tipounidad tUnidad;
                 for (int i = 0; i < dgvRutas.Rows.Count; i++)
                 {
                     tUnidad = managerTipoDeUnidades.BuscarPorId(dgvRutas["idTipoDeUnidad", i].Value.ToString());
-                    dgvRutas["nombreUnidad", i].Value = tUnidad.Descripcion;
+                    dgvRutas["tipoDeUnidad", i].Value = tUnidad.Descripcion;
                 }
                 mostrarLabelStatus("Se han cargado toda las rutas.", true);
                 filaSeleccionada = 0;

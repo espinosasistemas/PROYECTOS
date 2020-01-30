@@ -19,6 +19,7 @@ namespace SCI.INTERFAZ.UI
             Application.Run(new FormPrincipal());
             //Application.Run(new FormAgregarViaje("agregar",-1));
             //Application.Run(new FormAgregarViaje("editar", 1));
+            //Application.Run(new FormAgregarCasetas("agregar", 1));
         }
     }
 }

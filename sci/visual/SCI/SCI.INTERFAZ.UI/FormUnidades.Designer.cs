@@ -254,6 +254,7 @@
             this.Name = "FormUnidades";
             this.Text = "FormUnidades";
             this.Load += new System.EventHandler(this.FormUnidades_Load);
+            this.Shown += new System.EventHandler(this.FormUnidades_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

@@ -83,11 +83,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAgregarCasetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarCasetas.Designer.cs">
+      <DependentUpon>FormAgregarCasetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAgregarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAgregarCliente.Designer.cs">
       <DependentUpon>FormAgregarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgregarGasolineria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarGasolineria.Designer.cs">
+      <DependentUpon>FormAgregarGasolineria.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAgregarOperador.cs">
       <SubType>Form</SubType>
@@ -125,11 +137,23 @@
     <Compile Include="FormAgregarViaje.Designer.cs">
       <DependentUpon>FormAgregarViaje.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCasetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCasetas.Designer.cs">
+      <DependentUpon>FormCasetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGasolinerias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGasolinerias.Designer.cs">
+      <DependentUpon>FormGasolinerias.cs</DependentUpon>
     </Compile>
     <Compile Include="FormOperadores.cs">
       <SubType>Form</SubType>
@@ -167,8 +191,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAgregarCasetas.resx">
+      <DependentUpon>FormAgregarCasetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAgregarCliente.resx">
       <DependentUpon>FormAgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAgregarGasolineria.resx">
+      <DependentUpon>FormAgregarGasolineria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAgregarOperador.resx">
       <DependentUpon>FormAgregarOperador.cs</DependentUpon>
@@ -188,8 +218,14 @@
     <EmbeddedResource Include="FormAgregarViaje.resx">
       <DependentUpon>FormAgregarViaje.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCasetas.resx">
+      <DependentUpon>FormCasetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGasolinerias.resx">
+      <DependentUpon>FormGasolinerias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOperadores.resx">
       <DependentUpon>FormOperadores.cs</DependentUpon>
