@@ -10,6 +10,11 @@ namespace SCI.BIZ
 {
     public class FabricManager
     {
+        public IOperadoresEnViajeManager OperadoresEnViajeManager()
+        {
+            return new OperadoresEnViajeManager(new GenericRepository<operadoresenviaje>(new OperadoresEnViajeValidator()));
+        }
+
         public IGasolineriaManager GasolineriaManager()
         {
             return new GasolineriaManager(new GenericRepository<gasolineria>(new GasolineriaValidator()));

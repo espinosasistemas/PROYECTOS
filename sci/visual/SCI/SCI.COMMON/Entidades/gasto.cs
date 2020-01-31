@@ -14,5 +14,10 @@ namespace SCI.COMMON.Entidades
         public string RutaXml { get; set; }
         public DateTime Fecha { get; set; }
         public int IdViajeOps { get; set; }
+
+        public int NumeroDePoliza  { get; set; }
+        public string FolioFactura { get; set; }
+        public string NumTicket { get; set; }
+        public string FormaDePago { get; set; }
     }
 }

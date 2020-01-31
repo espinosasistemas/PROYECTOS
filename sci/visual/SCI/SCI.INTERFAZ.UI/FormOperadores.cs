@@ -125,5 +125,6 @@ namespace SCI.INTERFAZ.UI
         {
             cargarTodosOperadores();
         }
+       
     }
 }

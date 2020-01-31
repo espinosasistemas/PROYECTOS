@@ -51,10 +51,19 @@
             this.textClaveViajeCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupGastos = new System.Windows.Forms.GroupBox();
+            this.textPoliza = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.comboFormaPago = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.textTicket = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.textNumFactura = new System.Windows.Forms.TextBox();
+            this.btnEliminarGasto = new System.Windows.Forms.Button();
             this.comboGasolinerias = new System.Windows.Forms.ComboBox();
             this.comboCasetas = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textFechaGasto = new System.Windows.Forms.TextBox();
+            this.textFechaDelGasto = new System.Windows.Forms.TextBox();
             this.labelTotalGastos = new System.Windows.Forms.Label();
             this.labelTotalDeGastos = new System.Windows.Forms.Label();
             this.btnExaminarXml = new System.Windows.Forms.Button();
@@ -71,7 +80,7 @@
             this.textRutaXml = new System.Windows.Forms.TextBox();
             this.textMontoGasto = new System.Windows.Forms.TextBox();
             this.textConceptoGasto = new System.Windows.Forms.TextBox();
-            this.comboTipoGastos2 = new System.Windows.Forms.ComboBox();
+            this.comboTipoGastos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -79,6 +88,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelRfcCliente = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.labelTelOperador = new System.Windows.Forms.Label();
             this.labelNombreOperador = new System.Windows.Forms.Label();
             this.labelTelCliente = new System.Windows.Forms.Label();
@@ -122,7 +133,15 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textFechaHoraInicialOperador = new System.Windows.Forms.TextBox();
             this.calendarCortesOperador = new System.Windows.Forms.MonthCalendar();
-            this.btnEliminarGasto = new System.Windows.Forms.Button();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listTotalOperadores = new System.Windows.Forms.ListBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.listOperadoresAsignados = new System.Windows.Forms.ListBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -133,13 +152,18 @@
             this.tabPageCortes.SuspendLayout();
             this.groupCortesOPerador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).BeginInit();
+            this.tabControl2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(67, 255);
+            this.label14.Location = new System.Drawing.Point(85, 255);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(88, 16);
             this.label14.TabIndex = 22;
@@ -149,7 +173,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(59, 226);
+            this.label13.Location = new System.Drawing.Point(77, 226);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 16);
             this.label13.TabIndex = 21;
@@ -158,7 +182,7 @@
             // textDateFinCliente
             // 
             this.textDateFinCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDateFinCliente.Location = new System.Drawing.Point(438, 252);
+            this.textDateFinCliente.Location = new System.Drawing.Point(456, 252);
             this.textDateFinCliente.Name = "textDateFinCliente";
             this.textDateFinCliente.Size = new System.Drawing.Size(248, 26);
             this.textDateFinCliente.TabIndex = 20;
@@ -166,7 +190,7 @@
             // textDateInicioCliente
             // 
             this.textDateInicioCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDateInicioCliente.Location = new System.Drawing.Point(438, 220);
+            this.textDateInicioCliente.Location = new System.Drawing.Point(456, 220);
             this.textDateInicioCliente.Name = "textDateInicioCliente";
             this.textDateInicioCliente.Size = new System.Drawing.Size(248, 26);
             this.textDateInicioCliente.TabIndex = 19;
@@ -174,7 +198,7 @@
             // textDateFinSci
             // 
             this.textDateFinSci.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDateFinSci.Location = new System.Drawing.Point(166, 255);
+            this.textDateFinSci.Location = new System.Drawing.Point(184, 255);
             this.textDateFinSci.Name = "textDateFinSci";
             this.textDateFinSci.Size = new System.Drawing.Size(247, 26);
             this.textDateFinSci.TabIndex = 18;
@@ -182,7 +206,7 @@
             // textDateInicioSci
             // 
             this.textDateInicioSci.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDateInicioSci.Location = new System.Drawing.Point(165, 220);
+            this.textDateInicioSci.Location = new System.Drawing.Point(183, 220);
             this.textDateInicioSci.Name = "textDateInicioSci";
             this.textDateInicioSci.Size = new System.Drawing.Size(247, 26);
             this.textDateInicioSci.TabIndex = 17;
@@ -191,7 +215,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(498, 20);
+            this.label12.Location = new System.Drawing.Point(516, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(128, 16);
             this.label12.TabIndex = 16;
@@ -201,7 +225,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(249, 20);
+            this.label11.Location = new System.Drawing.Point(267, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 16);
             this.label11.TabIndex = 15;
@@ -209,7 +233,7 @@
             // 
             // CalendarCliente
             // 
-            this.CalendarCliente.Location = new System.Drawing.Point(438, 46);
+            this.CalendarCliente.Location = new System.Drawing.Point(456, 46);
             this.CalendarCliente.MaxSelectionCount = 30;
             this.CalendarCliente.Name = "CalendarCliente";
             this.CalendarCliente.TabIndex = 13;
@@ -217,7 +241,7 @@
             // 
             // calendarSci
             // 
-            this.calendarSci.Location = new System.Drawing.Point(165, 46);
+            this.calendarSci.Location = new System.Drawing.Point(183, 46);
             this.calendarSci.MaxSelectionCount = 30;
             this.calendarSci.Name = "calendarSci";
             this.calendarSci.TabIndex = 11;
@@ -227,7 +251,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(114, 507);
+            this.label9.Location = new System.Drawing.Point(115, 174);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 17);
             this.label9.TabIndex = 0;
@@ -238,7 +262,7 @@
             this.comboStatus.Enabled = false;
             this.comboStatus.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Location = new System.Drawing.Point(166, 502);
+            this.comboStatus.Location = new System.Drawing.Point(167, 169);
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(247, 25);
             this.comboStatus.TabIndex = 9;
@@ -248,27 +272,29 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 469);
+            this.label8.Location = new System.Drawing.Point(41, 562);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(149, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "Seleccionar Operador";
+            this.label8.Visible = false;
             // 
             // comboOperadores
             // 
             this.comboOperadores.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadores.FormattingEnabled = true;
-            this.comboOperadores.Location = new System.Drawing.Point(166, 464);
+            this.comboOperadores.Location = new System.Drawing.Point(10, 582);
             this.comboOperadores.Name = "comboOperadores";
             this.comboOperadores.Size = new System.Drawing.Size(247, 25);
             this.comboOperadores.TabIndex = 8;
+            this.comboOperadores.Visible = false;
             this.comboOperadores.TextChanged += new System.EventHandler(this.comboOperadores_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(28, 430);
+            this.label7.Location = new System.Drawing.Point(30, 139);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 17);
             this.label7.TabIndex = 0;
@@ -278,7 +304,7 @@
             // 
             this.comboClientes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboClientes.FormattingEnabled = true;
-            this.comboClientes.Location = new System.Drawing.Point(166, 426);
+            this.comboClientes.Location = new System.Drawing.Point(168, 135);
             this.comboClientes.Name = "comboClientes";
             this.comboClientes.Size = new System.Drawing.Size(247, 25);
             this.comboClientes.TabIndex = 7;
@@ -288,7 +314,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(44, 355);
+            this.label6.Location = new System.Drawing.Point(46, 64);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 17);
             this.label6.TabIndex = 0;
@@ -298,7 +324,7 @@
             // 
             this.comboRutas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRutas.FormattingEnabled = true;
-            this.comboRutas.Location = new System.Drawing.Point(166, 350);
+            this.comboRutas.Location = new System.Drawing.Point(168, 59);
             this.comboRutas.Name = "comboRutas";
             this.comboRutas.Size = new System.Drawing.Size(247, 25);
             this.comboRutas.TabIndex = 6;
@@ -314,7 +340,7 @@
             this.btnAgregarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarViaje.Image")));
             this.btnAgregarViaje.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarViaje.Location = new System.Drawing.Point(278, 562);
+            this.btnAgregarViaje.Location = new System.Drawing.Point(445, 578);
             this.btnAgregarViaje.Name = "btnAgregarViaje";
             this.btnAgregarViaje.Size = new System.Drawing.Size(130, 33);
             this.btnAgregarViaje.TabIndex = 10;
@@ -327,7 +353,7 @@
             // textClaveViajeCliente
             // 
             this.textClaveViajeCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textClaveViajeCliente.Location = new System.Drawing.Point(166, 311);
+            this.textClaveViajeCliente.Location = new System.Drawing.Point(168, 20);
             this.textClaveViajeCliente.Name = "textClaveViajeCliente";
             this.textClaveViajeCliente.Size = new System.Drawing.Size(247, 26);
             this.textClaveViajeCliente.TabIndex = 1;
@@ -336,19 +362,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 316);
+            this.label1.Location = new System.Drawing.Point(30, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 17);
+            this.label1.Size = new System.Drawing.Size(129, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Clave Viaje Cliente";
+            this.label1.Text = "Núm. Viaje Cliente";
             // 
             // groupGastos
             // 
+            this.groupGastos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupGastos.Controls.Add(this.textPoliza);
+            this.groupGastos.Controls.Add(this.label38);
+            this.groupGastos.Controls.Add(this.label37);
+            this.groupGastos.Controls.Add(this.comboFormaPago);
+            this.groupGastos.Controls.Add(this.label36);
+            this.groupGastos.Controls.Add(this.textTicket);
+            this.groupGastos.Controls.Add(this.label34);
+            this.groupGastos.Controls.Add(this.textNumFactura);
             this.groupGastos.Controls.Add(this.btnEliminarGasto);
             this.groupGastos.Controls.Add(this.comboGasolinerias);
             this.groupGastos.Controls.Add(this.comboCasetas);
             this.groupGastos.Controls.Add(this.label17);
-            this.groupGastos.Controls.Add(this.textFechaGasto);
+            this.groupGastos.Controls.Add(this.textFechaDelGasto);
             this.groupGastos.Controls.Add(this.labelTotalGastos);
             this.groupGastos.Controls.Add(this.labelTotalDeGastos);
             this.groupGastos.Controls.Add(this.btnExaminarXml);
@@ -365,33 +401,129 @@
             this.groupGastos.Controls.Add(this.textRutaXml);
             this.groupGastos.Controls.Add(this.textMontoGasto);
             this.groupGastos.Controls.Add(this.textConceptoGasto);
-            this.groupGastos.Controls.Add(this.comboTipoGastos2);
+            this.groupGastos.Controls.Add(this.comboTipoGastos);
             this.groupGastos.Controls.Add(this.label2);
             this.groupGastos.Location = new System.Drawing.Point(6, 6);
             this.groupGastos.Name = "groupGastos";
-            this.groupGastos.Size = new System.Drawing.Size(739, 632);
+            this.groupGastos.Size = new System.Drawing.Size(780, 632);
             this.groupGastos.TabIndex = 24;
             this.groupGastos.TabStop = false;
             this.groupGastos.Text = "Gastos";
+            // 
+            // textPoliza
+            // 
+            this.textPoliza.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPoliza.Location = new System.Drawing.Point(594, 51);
+            this.textPoliza.Name = "textPoliza";
+            this.textPoliza.Size = new System.Drawing.Size(175, 26);
+            this.textPoliza.TabIndex = 10;
+            this.textPoliza.Text = "0";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(13, 120);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(92, 17);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "Fecha y Hora";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(478, 151);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(110, 17);
+            this.label37.TabIndex = 0;
+            this.label37.Text = "Forma De Pago";
+            // 
+            // comboFormaPago
+            // 
+            this.comboFormaPago.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboFormaPago.FormattingEnabled = true;
+            this.comboFormaPago.Items.AddRange(new object[] {
+            "Transferencia",
+            "Crédito"});
+            this.comboFormaPago.Location = new System.Drawing.Point(594, 145);
+            this.comboFormaPago.Name = "comboFormaPago";
+            this.comboFormaPago.Size = new System.Drawing.Size(175, 25);
+            this.comboFormaPago.TabIndex = 13;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(544, 88);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(44, 17);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "Ticket";
+            // 
+            // textTicket
+            // 
+            this.textTicket.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTicket.Location = new System.Drawing.Point(594, 82);
+            this.textTicket.Name = "textTicket";
+            this.textTicket.Size = new System.Drawing.Size(175, 26);
+            this.textTicket.TabIndex = 11;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(492, 118);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(96, 17);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Núm. Factura";
+            // 
+            // textNumFactura
+            // 
+            this.textNumFactura.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNumFactura.Location = new System.Drawing.Point(594, 112);
+            this.textNumFactura.Name = "textNumFactura";
+            this.textNumFactura.Size = new System.Drawing.Size(175, 26);
+            this.textNumFactura.TabIndex = 12;
+            // 
+            // btnEliminarGasto
+            // 
+            this.btnEliminarGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.btnEliminarGasto.FlatAppearance.BorderSize = 0;
+            this.btnEliminarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarGasto.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarGasto.Image")));
+            this.btnEliminarGasto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnEliminarGasto.Location = new System.Drawing.Point(6, 582);
+            this.btnEliminarGasto.Name = "btnEliminarGasto";
+            this.btnEliminarGasto.Size = new System.Drawing.Size(130, 33);
+            this.btnEliminarGasto.TabIndex = 45;
+            this.btnEliminarGasto.Text = "Eliminar Gasto";
+            this.btnEliminarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarGasto.UseVisualStyleBackColor = false;
+            this.btnEliminarGasto.Click += new System.EventHandler(this.btnEliminarGasto_Click);
             // 
             // comboGasolinerias
             // 
             this.comboGasolinerias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboGasolinerias.FormattingEnabled = true;
-            this.comboGasolinerias.Location = new System.Drawing.Point(265, 59);
+            this.comboGasolinerias.Location = new System.Drawing.Point(110, 54);
             this.comboGasolinerias.Name = "comboGasolinerias";
-            this.comboGasolinerias.Size = new System.Drawing.Size(467, 25);
-            this.comboGasolinerias.TabIndex = 44;
+            this.comboGasolinerias.Size = new System.Drawing.Size(333, 25);
+            this.comboGasolinerias.TabIndex = 2;
             this.comboGasolinerias.Visible = false;
             // 
             // comboCasetas
             // 
             this.comboCasetas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCasetas.FormattingEnabled = true;
-            this.comboCasetas.Location = new System.Drawing.Point(265, 60);
+            this.comboCasetas.Location = new System.Drawing.Point(111, 55);
             this.comboCasetas.Name = "comboCasetas";
-            this.comboCasetas.Size = new System.Drawing.Size(467, 25);
-            this.comboCasetas.TabIndex = 43;
+            this.comboCasetas.Size = new System.Drawing.Size(332, 25);
+            this.comboCasetas.TabIndex = 2;
             this.comboCasetas.Visible = false;
             this.comboCasetas.TextChanged += new System.EventHandler(this.comboCasetas_TextChanged);
             // 
@@ -399,19 +531,19 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(482, 96);
+            this.label17.Location = new System.Drawing.Point(542, 57);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(47, 17);
-            this.label17.TabIndex = 42;
-            this.label17.Text = "Fecha";
+            this.label17.Size = new System.Drawing.Size(46, 17);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Póliza";
             // 
-            // textFechaGasto
+            // textFechaDelGasto
             // 
-            this.textFechaGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaGasto.Location = new System.Drawing.Point(529, 90);
-            this.textFechaGasto.Name = "textFechaGasto";
-            this.textFechaGasto.Size = new System.Drawing.Size(204, 26);
-            this.textFechaGasto.TabIndex = 41;
+            this.textFechaDelGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaDelGasto.Location = new System.Drawing.Point(111, 115);
+            this.textFechaDelGasto.Name = "textFechaDelGasto";
+            this.textFechaDelGasto.Size = new System.Drawing.Size(333, 26);
+            this.textFechaDelGasto.TabIndex = 4;
             // 
             // labelTotalGastos
             // 
@@ -436,28 +568,28 @@
             // 
             // btnExaminarXml
             // 
-            this.btnExaminarXml.Location = new System.Drawing.Point(658, 155);
+            this.btnExaminarXml.Location = new System.Drawing.Point(368, 177);
             this.btnExaminarXml.Name = "btnExaminarXml";
             this.btnExaminarXml.Size = new System.Drawing.Size(75, 23);
-            this.btnExaminarXml.TabIndex = 38;
+            this.btnExaminarXml.TabIndex = 8;
             this.btnExaminarXml.Text = "Examinar...";
             this.btnExaminarXml.UseVisualStyleBackColor = true;
             this.btnExaminarXml.Click += new System.EventHandler(this.btnExaminarXml_Click);
             // 
             // textRutaPdf
             // 
-            this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaPdf.Location = new System.Drawing.Point(266, 123);
+            this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRutaPdf.Location = new System.Drawing.Point(111, 147);
             this.textRutaPdf.Name = "textRutaPdf";
-            this.textRutaPdf.Size = new System.Drawing.Size(386, 26);
-            this.textRutaPdf.TabIndex = 37;
+            this.textRutaPdf.Size = new System.Drawing.Size(251, 23);
+            this.textRutaPdf.TabIndex = 5;
             // 
             // btnExaminarPdf
             // 
-            this.btnExaminarPdf.Location = new System.Drawing.Point(658, 123);
+            this.btnExaminarPdf.Location = new System.Drawing.Point(368, 147);
             this.btnExaminarPdf.Name = "btnExaminarPdf";
             this.btnExaminarPdf.Size = new System.Drawing.Size(75, 23);
-            this.btnExaminarPdf.TabIndex = 36;
+            this.btnExaminarPdf.TabIndex = 6;
             this.btnExaminarPdf.Text = "Examinar...";
             this.btnExaminarPdf.UseVisualStyleBackColor = true;
             this.btnExaminarPdf.Click += new System.EventHandler(this.btnExaminarPdf_Click);
@@ -471,10 +603,10 @@
             this.btnAgregarGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarGasto.Image")));
             this.btnAgregarGasto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarGasto.Location = new System.Drawing.Point(603, 187);
+            this.btnAgregarGasto.Location = new System.Drawing.Point(639, 177);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarGasto.TabIndex = 25;
+            this.btnAgregarGasto.TabIndex = 14;
             this.btnAgregarGasto.Text = "Agregar Gasto";
             this.btnAgregarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -485,119 +617,120 @@
             // 
             this.dgvGastos.AllowUserToAddRows = false;
             this.dgvGastos.AllowUserToDeleteRows = false;
-            this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
             this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGastos.Location = new System.Drawing.Point(6, 247);
+            this.dgvGastos.Location = new System.Drawing.Point(6, 241);
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
-            this.dgvGastos.Size = new System.Drawing.Size(727, 327);
+            this.dgvGastos.Size = new System.Drawing.Size(763, 333);
             this.dgvGastos.TabIndex = 35;
             this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellClick);
+            this.dgvGastos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellDoubleClick);
             this.dgvGastos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGastos_CellMouseDoubleClick);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(169, 96);
+            this.label15.Location = new System.Drawing.Point(15, 88);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(92, 17);
-            this.label15.TabIndex = 34;
+            this.label15.TabIndex = 0;
             this.label15.Text = "Fecha y Hora";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(175, 158);
+            this.label10.Location = new System.Drawing.Point(23, 179);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 17);
-            this.label10.TabIndex = 33;
+            this.label10.TabIndex = 0;
             this.label10.Text = "Archivo XML";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(176, 129);
+            this.label5.Location = new System.Drawing.Point(24, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 17);
-            this.label5.TabIndex = 32;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Archivo PDF";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(478, 31);
+            this.label4.Location = new System.Drawing.Point(538, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 17);
-            this.label4.TabIndex = 31;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Monto";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(178, 65);
+            this.label3.Location = new System.Drawing.Point(32, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 17);
-            this.label3.TabIndex = 30;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Concepto";
             // 
             // dateTimeFechaGasto
             // 
             this.dateTimeFechaGasto.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeFechaGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeFechaGasto.Location = new System.Drawing.Point(266, 90);
+            this.dateTimeFechaGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeFechaGasto.Location = new System.Drawing.Point(112, 85);
             this.dateTimeFechaGasto.Name = "dateTimeFechaGasto";
-            this.dateTimeFechaGasto.Size = new System.Drawing.Size(210, 26);
-            this.dateTimeFechaGasto.TabIndex = 29;
+            this.dateTimeFechaGasto.Size = new System.Drawing.Size(332, 23);
+            this.dateTimeFechaGasto.TabIndex = 3;
             this.dateTimeFechaGasto.ValueChanged += new System.EventHandler(this.dateTimeFechaGasto_ValueChanged);
             // 
             // textRutaXml
             // 
-            this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaXml.Location = new System.Drawing.Point(266, 155);
+            this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRutaXml.Location = new System.Drawing.Point(111, 179);
             this.textRutaXml.Name = "textRutaXml";
-            this.textRutaXml.Size = new System.Drawing.Size(386, 26);
-            this.textRutaXml.TabIndex = 28;
+            this.textRutaXml.Size = new System.Drawing.Size(251, 23);
+            this.textRutaXml.TabIndex = 7;
             // 
             // textMontoGasto
             // 
             this.textMontoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMontoGasto.Location = new System.Drawing.Point(529, 25);
+            this.textMontoGasto.Location = new System.Drawing.Point(594, 20);
             this.textMontoGasto.Name = "textMontoGasto";
-            this.textMontoGasto.Size = new System.Drawing.Size(204, 26);
-            this.textMontoGasto.TabIndex = 26;
+            this.textMontoGasto.Size = new System.Drawing.Size(175, 26);
+            this.textMontoGasto.TabIndex = 9;
             // 
             // textConceptoGasto
             // 
             this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textConceptoGasto.Location = new System.Drawing.Point(265, 59);
+            this.textConceptoGasto.Location = new System.Drawing.Point(111, 54);
             this.textConceptoGasto.Name = "textConceptoGasto";
-            this.textConceptoGasto.Size = new System.Drawing.Size(468, 26);
-            this.textConceptoGasto.TabIndex = 25;
+            this.textConceptoGasto.Size = new System.Drawing.Size(333, 26);
+            this.textConceptoGasto.TabIndex = 2;
             // 
-            // comboTipoGastos2
+            // comboTipoGastos
             // 
-            this.comboTipoGastos2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboTipoGastos2.FormattingEnabled = true;
-            this.comboTipoGastos2.Location = new System.Drawing.Point(265, 28);
-            this.comboTipoGastos2.Name = "comboTipoGastos2";
-            this.comboTipoGastos2.Size = new System.Drawing.Size(205, 25);
-            this.comboTipoGastos2.TabIndex = 25;
-            this.comboTipoGastos2.TextChanged += new System.EventHandler(this.comboTipoGastos2_TextChanged);
+            this.comboTipoGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboTipoGastos.FormattingEnabled = true;
+            this.comboTipoGastos.Location = new System.Drawing.Point(111, 23);
+            this.comboTipoGastos.Name = "comboTipoGastos";
+            this.comboTipoGastos.Size = new System.Drawing.Size(333, 25);
+            this.comboTipoGastos.TabIndex = 1;
+            this.comboTipoGastos.TextChanged += new System.EventHandler(this.comboTipoGastos2_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(161, 31);
+            this.label2.Location = new System.Drawing.Point(8, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 17);
-            this.label2.TabIndex = 25;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Tipo De Gasto";
             // 
             // tabControl1
@@ -611,7 +744,7 @@
             this.tabControl1.Location = new System.Drawing.Point(2, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(759, 670);
+            this.tabControl1.Size = new System.Drawing.Size(800, 670);
             this.tabControl1.TabIndex = 25;
             // 
             // tabPageGenerales
@@ -620,7 +753,7 @@
             this.tabPageGenerales.Location = new System.Drawing.Point(4, 25);
             this.tabPageGenerales.Name = "tabPageGenerales";
             this.tabPageGenerales.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGenerales.Size = new System.Drawing.Size(751, 641);
+            this.tabPageGenerales.Size = new System.Drawing.Size(792, 641);
             this.tabPageGenerales.TabIndex = 0;
             this.tabPageGenerales.Text = "Datos Generales";
             this.tabPageGenerales.UseVisualStyleBackColor = true;
@@ -630,34 +763,24 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.tabControl2);
+            this.groupBox3.Controls.Add(this.comboOperadores);
+            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.groupBox1);
-            this.groupBox3.Controls.Add(this.comboUnidades);
-            this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.calendarSci);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textClaveViajeCliente);
             this.groupBox3.Controls.Add(this.btnAgregarViaje);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.comboRutas);
             this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.textDateFinCliente);
-            this.groupBox3.Controls.Add(this.comboClientes);
             this.groupBox3.Controls.Add(this.textDateInicioCliente);
-            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.textDateFinSci);
-            this.groupBox3.Controls.Add(this.comboOperadores);
             this.groupBox3.Controls.Add(this.textDateInicioSci);
-            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.comboStatus);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.CalendarCliente);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(739, 626);
+            this.groupBox3.Size = new System.Drawing.Size(780, 626);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Completa los datos generales del Viaje";
@@ -671,7 +794,7 @@
             this.button1.ForeColor = System.Drawing.Color.Gainsboro;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button1.Location = new System.Drawing.Point(434, 562);
+            this.button1.Location = new System.Drawing.Point(581, 578);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 33);
             this.button1.TabIndex = 27;
@@ -683,6 +806,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelRfcCliente);
+            this.groupBox1.Controls.Add(this.label35);
             this.groupBox1.Controls.Add(this.labelTelOperador);
             this.groupBox1.Controls.Add(this.labelNombreOperador);
             this.groupBox1.Controls.Add(this.labelTelCliente);
@@ -705,17 +830,35 @@
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Location = new System.Drawing.Point(438, 304);
+            this.groupBox1.Location = new System.Drawing.Point(432, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(248, 224);
+            this.groupBox1.Size = new System.Drawing.Size(262, 224);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de La Ruta y La Unidad";
             // 
+            // labelRfcCliente
+            // 
+            this.labelRfcCliente.AutoSize = true;
+            this.labelRfcCliente.Location = new System.Drawing.Point(110, 151);
+            this.labelRfcCliente.Name = "labelRfcCliente";
+            this.labelRfcCliente.Size = new System.Drawing.Size(16, 16);
+            this.labelRfcCliente.TabIndex = 23;
+            this.labelRfcCliente.Text = "--";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(78, 151);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(28, 16);
+            this.label35.TabIndex = 22;
+            this.label35.Text = "Rfc:";
+            // 
             // labelTelOperador
             // 
             this.labelTelOperador.AutoSize = true;
-            this.labelTelOperador.Location = new System.Drawing.Point(110, 185);
+            this.labelTelOperador.Location = new System.Drawing.Point(110, 200);
             this.labelTelOperador.Name = "labelTelOperador";
             this.labelTelOperador.Size = new System.Drawing.Size(16, 16);
             this.labelTelOperador.TabIndex = 21;
@@ -724,7 +867,7 @@
             // labelNombreOperador
             // 
             this.labelNombreOperador.AutoSize = true;
-            this.labelNombreOperador.Location = new System.Drawing.Point(110, 169);
+            this.labelNombreOperador.Location = new System.Drawing.Point(110, 184);
             this.labelNombreOperador.Name = "labelNombreOperador";
             this.labelNombreOperador.Size = new System.Drawing.Size(16, 16);
             this.labelNombreOperador.TabIndex = 20;
@@ -733,7 +876,7 @@
             // labelTelCliente
             // 
             this.labelTelCliente.AutoSize = true;
-            this.labelTelCliente.Location = new System.Drawing.Point(110, 151);
+            this.labelTelCliente.Location = new System.Drawing.Point(110, 169);
             this.labelTelCliente.Name = "labelTelCliente";
             this.labelTelCliente.Size = new System.Drawing.Size(16, 16);
             this.labelTelCliente.TabIndex = 19;
@@ -751,7 +894,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(21, 183);
+            this.label33.Location = new System.Drawing.Point(21, 198);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(85, 16);
             this.label33.TabIndex = 17;
@@ -760,7 +903,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(41, 167);
+            this.label32.Location = new System.Drawing.Point(41, 182);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(65, 16);
             this.label32.TabIndex = 16;
@@ -769,7 +912,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(37, 151);
+            this.label31.Location = new System.Drawing.Point(37, 169);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(69, 16);
             this.label31.TabIndex = 15;
@@ -914,7 +1057,7 @@
             // 
             this.comboUnidades.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboUnidades.FormattingEnabled = true;
-            this.comboUnidades.Location = new System.Drawing.Point(166, 388);
+            this.comboUnidades.Location = new System.Drawing.Point(168, 97);
             this.comboUnidades.Name = "comboUnidades";
             this.comboUnidades.Size = new System.Drawing.Size(247, 25);
             this.comboUnidades.TabIndex = 25;
@@ -924,7 +1067,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(28, 392);
+            this.label22.Location = new System.Drawing.Point(30, 101);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(132, 17);
             this.label22.TabIndex = 24;
@@ -936,7 +1079,7 @@
             this.tabPageGastos.Location = new System.Drawing.Point(4, 25);
             this.tabPageGastos.Name = "tabPageGastos";
             this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGastos.Size = new System.Drawing.Size(751, 641);
+            this.tabPageGastos.Size = new System.Drawing.Size(792, 641);
             this.tabPageGastos.TabIndex = 1;
             this.tabPageGastos.Text = "Gastos";
             this.tabPageGastos.UseVisualStyleBackColor = true;
@@ -946,7 +1089,7 @@
             this.tabPageCortes.Controls.Add(this.groupCortesOPerador);
             this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
             this.tabPageCortes.Name = "tabPageCortes";
-            this.tabPageCortes.Size = new System.Drawing.Size(751, 641);
+            this.tabPageCortes.Size = new System.Drawing.Size(792, 641);
             this.tabPageCortes.TabIndex = 2;
             this.tabPageCortes.Text = "Cortes";
             this.tabPageCortes.UseVisualStyleBackColor = true;
@@ -971,7 +1114,7 @@
             this.groupCortesOPerador.Controls.Add(this.calendarCortesOperador);
             this.groupCortesOPerador.Location = new System.Drawing.Point(3, 6);
             this.groupCortesOPerador.Name = "groupCortesOPerador";
-            this.groupCortesOPerador.Size = new System.Drawing.Size(683, 557);
+            this.groupCortesOPerador.Size = new System.Drawing.Size(774, 557);
             this.groupCortesOPerador.TabIndex = 0;
             this.groupCortesOPerador.TabStop = false;
             this.groupCortesOPerador.Text = "Corte de Tiempo por Operador";
@@ -1048,13 +1191,15 @@
             // 
             this.dgvCortesOperador.AllowUserToAddRows = false;
             this.dgvCortesOperador.AllowUserToDeleteRows = false;
+            this.dgvCortesOperador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCortesOperador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCortesOperador.BackgroundColor = System.Drawing.Color.White;
             this.dgvCortesOperador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCortesOperador.Location = new System.Drawing.Point(12, 228);
             this.dgvCortesOperador.Name = "dgvCortesOperador";
             this.dgvCortesOperador.ReadOnly = true;
-            this.dgvCortesOperador.Size = new System.Drawing.Size(665, 277);
+            this.dgvCortesOperador.Size = new System.Drawing.Size(756, 277);
             this.dgvCortesOperador.TabIndex = 9;
             // 
             // label20
@@ -1136,30 +1281,116 @@
             this.calendarCortesOperador.TabIndex = 0;
             this.calendarCortesOperador.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarCortesOperador_DateChanged);
             // 
-            // btnEliminarGasto
+            // tabControl2
             // 
-            this.btnEliminarGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
-            this.btnEliminarGasto.FlatAppearance.BorderSize = 0;
-            this.btnEliminarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnEliminarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarGasto.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEliminarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarGasto.Image")));
-            this.btnEliminarGasto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEliminarGasto.Location = new System.Drawing.Point(6, 582);
-            this.btnEliminarGasto.Name = "btnEliminarGasto";
-            this.btnEliminarGasto.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarGasto.TabIndex = 45;
-            this.btnEliminarGasto.Text = "Eliminar Gasto";
-            this.btnEliminarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminarGasto.UseVisualStyleBackColor = false;
-            this.btnEliminarGasto.Click += new System.EventHandler(this.btnEliminarGasto_Click);
+            this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage2);
+            this.tabControl2.Location = new System.Drawing.Point(6, 281);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(709, 278);
+            this.tabControl2.TabIndex = 28;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(701, 249);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Datos Del Viaje";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.listTotalOperadores);
+            this.tabPage2.Controls.Add(this.listOperadoresAsignados);
+            this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.label40);
+            this.tabPage2.Controls.Add(this.label39);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(701, 249);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Operadores";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textClaveViajeCliente);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.comboUnidades);
+            this.groupBox2.Controls.Add(this.comboStatus);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.comboClientes);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.comboRutas);
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(420, 233);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Generales del Viaje";
+            // 
+            // listTotalOperadores
+            // 
+            this.listTotalOperadores.FormattingEnabled = true;
+            this.listTotalOperadores.ItemHeight = 16;
+            this.listTotalOperadores.Location = new System.Drawing.Point(166, 33);
+            this.listTotalOperadores.Name = "listTotalOperadores";
+            this.listTotalOperadores.Size = new System.Drawing.Size(193, 212);
+            this.listTotalOperadores.TabIndex = 9;
+            this.listTotalOperadores.DoubleClick += new System.EventHandler(this.listTotalOperadores_DoubleClick);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(163, 14);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(211, 16);
+            this.label39.TabIndex = 29;
+            this.label39.Text = "Operadores Registrados en SCI";
+            // 
+            // listOperadoresAsignados
+            // 
+            this.listOperadoresAsignados.FormattingEnabled = true;
+            this.listOperadoresAsignados.ItemHeight = 16;
+            this.listOperadoresAsignados.Location = new System.Drawing.Point(457, 31);
+            this.listOperadoresAsignados.Name = "listOperadoresAsignados";
+            this.listOperadoresAsignados.Size = new System.Drawing.Size(193, 212);
+            this.listOperadoresAsignados.TabIndex = 30;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(443, 11);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(214, 16);
+            this.label40.TabIndex = 31;
+            this.label40.Text = "Operadores Asignados al Viaje";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(349, 93);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(119, 107);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
             // 
             // FormAgregarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 668);
+            this.ClientSize = new System.Drawing.Size(814, 668);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -1183,6 +1414,13 @@
             this.groupCortesOPerador.ResumeLayout(false);
             this.groupCortesOPerador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).EndInit();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1230,12 +1468,12 @@
         private System.Windows.Forms.TextBox textRutaXml;
         private System.Windows.Forms.TextBox textMontoGasto;
         private System.Windows.Forms.TextBox textConceptoGasto;
-        private System.Windows.Forms.ComboBox comboTipoGastos2;
+        private System.Windows.Forms.ComboBox comboTipoGastos;
         private System.Windows.Forms.TabPage tabPageCortes;
         private System.Windows.Forms.Label labelTotalGastos;
         private System.Windows.Forms.Label labelTotalDeGastos;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textFechaGasto;
+        private System.Windows.Forms.TextBox textFechaDelGasto;
         private System.Windows.Forms.GroupBox groupCortesOPerador;
         private System.Windows.Forms.MonthCalendar calendarCortesOperador;
         private System.Windows.Forms.Label label18;
@@ -1282,5 +1520,24 @@
         private System.Windows.Forms.ComboBox comboGasolinerias;
         private System.Windows.Forms.ComboBox comboCasetas;
         private System.Windows.Forms.Button btnEliminarGasto;
+        private System.Windows.Forms.Label labelRfcCliente;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox textTicket;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox textNumFactura;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.ComboBox comboFormaPago;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox textPoliza;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ListBox listTotalOperadores;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ListBox listOperadoresAsignados;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label40;
     }
 }

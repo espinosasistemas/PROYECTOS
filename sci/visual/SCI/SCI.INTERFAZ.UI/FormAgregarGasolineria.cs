@@ -45,6 +45,10 @@ namespace SCI.INTERFAZ.UI
                 tipogasto Tgasto = managerTipoDeGasto.BuscarPorId(entidadAeditar.IdTipoGasto.ToString());
                 textNombre.Text = entidadAeditar.Nombre;
                 textDireccion.Text = entidadAeditar.Direccion.ToString();
+                textRfc.Text = entidadAeditar.Rfc;
+                textRazonSocial.Text = entidadAeditar.RazonSocial;
+                textTelefono.Text = entidadAeditar.Telefono;
+                textCorreo.Text = entidadAeditar.Correo;
 
                 comboTipoDeGasto.Text = Tgasto.IdTipoGasto + "/" + Tgasto.Concepto;
                 this.Text = "Actualizar los datos de la Gasolinería.";
@@ -53,8 +57,9 @@ namespace SCI.INTERFAZ.UI
         }
         private void cargarTipoGasto()
         {
-            tipogasto tiposDeGastoGasolina = managerTipoDeGasto.BuscaPorConcepto("Gasolina");
-            comboTipoDeGasto.Text = tiposDeGastoGasolina.IdTipoGasto.ToString() + "/" + tiposDeGastoGasolina.Concepto;
+            tipogasto tiposDeGastoGasolina = managerTipoDeGasto.BuscaPorConcepto("Combustible");
+            if(tiposDeGastoGasolina != null)
+                comboTipoDeGasto.Text = tiposDeGastoGasolina.IdTipoGasto.ToString() + "/" + tiposDeGastoGasolina.Concepto;
         }
 
         private gasolineria CrearGasolineria(int idTipoGasto)
@@ -63,6 +68,10 @@ namespace SCI.INTERFAZ.UI
             {
                 Nombre = textNombre.Text,
                 Direccion = textDireccion.Text,
+                Rfc = textRfc.Text,
+                RazonSocial = textRazonSocial.Text,
+                Telefono = textTelefono.Text,
+                Correo = textCorreo.Text,
                 IdTipoGasto = idTipoGasto
             };
         }
@@ -101,6 +110,10 @@ namespace SCI.INTERFAZ.UI
                     {
                         entidadAeditar.Nombre = textNombre.Text;
                         entidadAeditar.Direccion = textDireccion.Text;
+                        entidadAeditar.Rfc = textRfc.Text;
+                        entidadAeditar.RazonSocial = textRazonSocial.Text;
+                        entidadAeditar.Telefono = textTelefono.Text;
+                        entidadAeditar.Correo = textCorreo.Text;
                         entidadAeditar.IdTipoGasto = idTipoGasto;
 
                         if (managerGasolineria.Actualizar(entidadAeditar))

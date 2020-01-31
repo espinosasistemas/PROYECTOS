@@ -45,7 +45,10 @@ namespace SCI.INTERFAZ.UI
                 Direccion = textDireccion.Text,
                 TelefonoDeCasa = textTelefonoDeCasa.Text,
                 Celular = textCelular.Text,
-                Correo = textCorreo.Text
+                Correo = textCorreo.Text,
+                FechaDeExamenMedico = dateTimeExamenMedico.Value,
+                NumeroDeLicencia = textNumDeLicencia.Text,
+                FechaDeVencimientoLicencia = dateTimeVencimientoLicencia.Value
             };
         }
 
@@ -79,9 +82,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         operadorAeditar.Nombre = textNombre.Text;
                         operadorAeditar.Apellidos = textApellidos.Text;
-                        operadorAeditar.FechaIngreso = DateTime.Parse(dateTimeFechaIngreso.Text);
+                        operadorAeditar.FechaIngreso = dateTimeFechaIngreso.Value;
                         operadorAeditar.Salarioporhora = double.Parse(textSalarioXhora.Text);
                         operadorAeditar.Direccion = textDireccion.Text;
+                        operadorAeditar.TelefonoDeCasa = textTelefonoDeCasa.Text;
+                        operadorAeditar.Celular = textCelular.Text;
+                        operadorAeditar.Correo = textCorreo.Text;
+                        operadorAeditar.FechaDeExamenMedico = dateTimeExamenMedico.Value;
+                        operadorAeditar.NumeroDeLicencia = textNumDeLicencia.Text;
+                        operadorAeditar.FechaDeVencimientoLicencia = dateTimeVencimientoLicencia.Value;
 
                         if (managerOperador.Actualizar(operadorAeditar))
                         {
@@ -114,7 +123,11 @@ namespace SCI.INTERFAZ.UI
                 textTelefonoDeCasa.Text = operadorAeditar.TelefonoDeCasa;
                 textCelular.Text = operadorAeditar.Celular;
                 textCorreo.Text = operadorAeditar.Correo;
+                dateTimeExamenMedico.Value = operadorAeditar.FechaDeExamenMedico;
+                textNumDeLicencia.Text = operadorAeditar.NumeroDeLicencia;
+                dateTimeVencimientoLicencia.Value = operadorAeditar.FechaDeVencimientoLicencia;
                 this.Text = "Actualizar los datos del Operador.";
+                btnAgregarOperador.Text = "Actualizar";
             }
         }
     }

@@ -15,5 +15,8 @@ namespace SCI.COMMON.Entidades
         public string TelefonoDeCasa { get; set; }
         public string Celular { get; set; }
         public string Correo { get; set; }
+        public DateTime FechaDeExamenMedico { get; set; }
+        public string NumeroDeLicencia { get; set; }
+        public DateTime FechaDeVencimientoLicencia { get; set; }
     }
 }
