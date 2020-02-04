@@ -16,9 +16,9 @@ namespace SCI.INTERFAZ.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormPrincipal());
+            Application.Run(new FormPrincipal());
             //Application.Run(new FormAgregarViaje("agregar",-1));
-            Application.Run(new FormAgregarViaje("editar", 3));
+            //Application.Run(new FormAgregarViaje("editar", 3));
             //Application.Run(new FormAgregarCasetas("agregar", 1));
         }
     }

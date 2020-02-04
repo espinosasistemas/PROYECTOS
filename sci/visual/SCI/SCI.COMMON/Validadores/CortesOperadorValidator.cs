@@ -14,6 +14,8 @@ namespace SCI.COMMON.Validadores
             RuleFor(c => c.FechaFin).NotNull().NotEmpty();
             RuleFor(c => c.Costo).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(c => c.IdViajeOps).NotNull().NotEmpty().GreaterThan(0);
+            RuleFor(c => c.IdOperador).NotNull().NotEmpty().GreaterThan(0);
+            RuleFor(c => c.IdStatus).NotNull().NotEmpty().GreaterThan(0);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace SCI.BIZ
 
         public IEnumerable<cortesoperador> BuscarCortesPorIdViaje(int idViajeOps)
         {
-            return repository.Query(c => c.IdViajeOps == idViajeOps);
+            return repository.Query(v => v.IdViajeOps == idViajeOps);
         }
     }
 }

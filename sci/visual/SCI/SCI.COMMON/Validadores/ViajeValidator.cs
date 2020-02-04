@@ -18,7 +18,7 @@ namespace SCI.COMMON.Validadores
             RuleFor(v => v.IdStatus).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(v => v.IdRuta).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(v => v.IdCliente).NotNull().NotEmpty().GreaterThan(0);
-            RuleFor(v => v.IdOperador).NotNull().NotEmpty().GreaterThan(0);
+            //RuleFor(v => v.IdOperador).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(v => v.IdUnidad).NotNull().NotEmpty().GreaterThan(0);
         }
     }

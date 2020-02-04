@@ -41,8 +41,6 @@
             this.calendarSci = new System.Windows.Forms.MonthCalendar();
             this.label9 = new System.Windows.Forms.Label();
             this.comboStatus = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboOperadores = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboClientes = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -86,16 +84,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGenerales = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboUnidades = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelRfcCliente = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.labelTelOperador = new System.Windows.Forms.Label();
-            this.labelNombreOperador = new System.Windows.Forms.Label();
             this.labelTelCliente = new System.Windows.Forms.Label();
             this.labelNombreCliente = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.labelCombustible = new System.Windows.Forms.Label();
@@ -112,8 +110,12 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.comboUnidades = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.Operadores = new System.Windows.Forms.TabPage();
+            this.listTotalOperadores = new System.Windows.Forms.ListBox();
+            this.listOperadoresAsignados = new System.Windows.Forms.ListBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
             this.tabPageGastos = new System.Windows.Forms.TabPage();
             this.tabPageCortes = new System.Windows.Forms.TabPage();
             this.groupCortesOPerador = new System.Windows.Forms.GroupBox();
@@ -133,30 +135,34 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textFechaHoraInicialOperador = new System.Windows.Forms.TextBox();
             this.calendarCortesOperador = new System.Windows.Forms.MonthCalendar();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listTotalOperadores = new System.Windows.Forms.ListBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.listOperadoresAsignados = new System.Windows.Forms.ListBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupOperadores = new System.Windows.Forms.GroupBox();
+            this.labelTelOperador = new System.Windows.Forms.Label();
+            this.labelNombreOperador = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.labelSalarioPorHora = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.labelCorreoOperador = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.comboOperadoresCortes = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnEliminarCorte = new System.Windows.Forms.Button();
             this.groupGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGenerales.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.Operadores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPageGastos.SuspendLayout();
             this.tabPageCortes.SuspendLayout();
             this.groupCortesOPerador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).BeginInit();
-            this.tabControl2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupOperadores.SuspendLayout();
             this.SuspendLayout();
             // 
             // label14
@@ -268,28 +274,6 @@
             this.comboStatus.TabIndex = 9;
             this.comboStatus.SelectedValueChanged += new System.EventHandler(this.comboStatus_SelectedValueChanged);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(41, 562);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(149, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Seleccionar Operador";
-            this.label8.Visible = false;
-            // 
-            // comboOperadores
-            // 
-            this.comboOperadores.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboOperadores.FormattingEnabled = true;
-            this.comboOperadores.Location = new System.Drawing.Point(10, 582);
-            this.comboOperadores.Name = "comboOperadores";
-            this.comboOperadores.Size = new System.Drawing.Size(247, 25);
-            this.comboOperadores.TabIndex = 8;
-            this.comboOperadores.Visible = false;
-            this.comboOperadores.TextChanged += new System.EventHandler(this.comboOperadores_TextChanged);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -340,7 +324,7 @@
             this.btnAgregarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarViaje.Image")));
             this.btnAgregarViaje.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarViaje.Location = new System.Drawing.Point(445, 578);
+            this.btnAgregarViaje.Location = new System.Drawing.Point(284, 259);
             this.btnAgregarViaje.Name = "btnAgregarViaje";
             this.btnAgregarViaje.Size = new System.Drawing.Size(130, 33);
             this.btnAgregarViaje.TabIndex = 10;
@@ -764,11 +748,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.tabControl2);
-            this.groupBox3.Controls.Add(this.comboOperadores);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.calendarSci);
-            this.groupBox3.Controls.Add(this.btnAgregarViaje);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.textDateFinCliente);
@@ -785,35 +765,74 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Completa los datos generales del Viaje";
             // 
-            // button1
+            // tabControl2
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button1.Location = new System.Drawing.Point(581, 578);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 33);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Cencelar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.Operadores);
+            this.tabControl2.Location = new System.Drawing.Point(6, 281);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(768, 339);
+            this.tabControl2.TabIndex = 28;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(760, 310);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Datos Del Viaje";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textClaveViajeCliente);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.btnAgregarViaje);
+            this.groupBox2.Controls.Add(this.comboUnidades);
+            this.groupBox2.Controls.Add(this.comboStatus);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.comboClientes);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.comboRutas);
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(420, 298);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Generales del Viaje";
+            // 
+            // comboUnidades
+            // 
+            this.comboUnidades.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboUnidades.FormattingEnabled = true;
+            this.comboUnidades.Location = new System.Drawing.Point(168, 97);
+            this.comboUnidades.Name = "comboUnidades";
+            this.comboUnidades.Size = new System.Drawing.Size(247, 25);
+            this.comboUnidades.TabIndex = 25;
+            this.comboUnidades.TextChanged += new System.EventHandler(this.comboUnidades_TextChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(30, 101);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(132, 17);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "Seleccionar Unidad";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.labelRfcCliente);
             this.groupBox1.Controls.Add(this.label35);
-            this.groupBox1.Controls.Add(this.labelTelOperador);
-            this.groupBox1.Controls.Add(this.labelNombreOperador);
             this.groupBox1.Controls.Add(this.labelTelCliente);
             this.groupBox1.Controls.Add(this.labelNombreCliente);
-            this.groupBox1.Controls.Add(this.label33);
-            this.groupBox1.Controls.Add(this.label32);
             this.groupBox1.Controls.Add(this.label31);
             this.groupBox1.Controls.Add(this.label30);
             this.groupBox1.Controls.Add(this.labelCombustible);
@@ -832,7 +851,7 @@
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Location = new System.Drawing.Point(432, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(262, 224);
+            this.groupBox1.Size = new System.Drawing.Size(322, 289);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de La Ruta y La Unidad";
@@ -855,24 +874,6 @@
             this.label35.TabIndex = 22;
             this.label35.Text = "Rfc:";
             // 
-            // labelTelOperador
-            // 
-            this.labelTelOperador.AutoSize = true;
-            this.labelTelOperador.Location = new System.Drawing.Point(110, 200);
-            this.labelTelOperador.Name = "labelTelOperador";
-            this.labelTelOperador.Size = new System.Drawing.Size(16, 16);
-            this.labelTelOperador.TabIndex = 21;
-            this.labelTelOperador.Text = "--";
-            // 
-            // labelNombreOperador
-            // 
-            this.labelNombreOperador.AutoSize = true;
-            this.labelNombreOperador.Location = new System.Drawing.Point(110, 184);
-            this.labelNombreOperador.Name = "labelNombreOperador";
-            this.labelNombreOperador.Size = new System.Drawing.Size(16, 16);
-            this.labelNombreOperador.TabIndex = 20;
-            this.labelNombreOperador.Text = "--";
-            // 
             // labelTelCliente
             // 
             this.labelTelCliente.AutoSize = true;
@@ -890,24 +891,6 @@
             this.labelNombreCliente.Size = new System.Drawing.Size(16, 16);
             this.labelNombreCliente.TabIndex = 18;
             this.labelNombreCliente.Text = "--";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(21, 198);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(85, 16);
-            this.label33.TabIndex = 17;
-            this.label33.Text = "Tel. Operador:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(41, 182);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(65, 16);
-            this.label32.TabIndex = 16;
-            this.label32.Text = "Operador:";
             // 
             // label31
             // 
@@ -1053,25 +1036,67 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "Nombre:";
             // 
-            // comboUnidades
+            // Operadores
             // 
-            this.comboUnidades.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboUnidades.FormattingEnabled = true;
-            this.comboUnidades.Location = new System.Drawing.Point(168, 97);
-            this.comboUnidades.Name = "comboUnidades";
-            this.comboUnidades.Size = new System.Drawing.Size(247, 25);
-            this.comboUnidades.TabIndex = 25;
-            this.comboUnidades.TextChanged += new System.EventHandler(this.comboUnidades_TextChanged);
+            this.Operadores.Controls.Add(this.groupOperadores);
+            this.Operadores.Location = new System.Drawing.Point(4, 25);
+            this.Operadores.Name = "Operadores";
+            this.Operadores.Padding = new System.Windows.Forms.Padding(3);
+            this.Operadores.Size = new System.Drawing.Size(760, 310);
+            this.Operadores.TabIndex = 1;
+            this.Operadores.Text = "Operadores";
+            this.Operadores.UseVisualStyleBackColor = true;
             // 
-            // label22
+            // listTotalOperadores
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(30, 101);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(132, 17);
-            this.label22.TabIndex = 24;
-            this.label22.Text = "Seleccionar Unidad";
+            this.listTotalOperadores.FormattingEnabled = true;
+            this.listTotalOperadores.ItemHeight = 16;
+            this.listTotalOperadores.Location = new System.Drawing.Point(9, 52);
+            this.listTotalOperadores.Name = "listTotalOperadores";
+            this.listTotalOperadores.Size = new System.Drawing.Size(193, 196);
+            this.listTotalOperadores.TabIndex = 9;
+            this.listTotalOperadores.DoubleClick += new System.EventHandler(this.listTotalOperadores_DoubleClick);
+            // 
+            // listOperadoresAsignados
+            // 
+            this.listOperadoresAsignados.FormattingEnabled = true;
+            this.listOperadoresAsignados.ItemHeight = 16;
+            this.listOperadoresAsignados.Location = new System.Drawing.Point(300, 50);
+            this.listOperadoresAsignados.Name = "listOperadoresAsignados";
+            this.listOperadoresAsignados.Size = new System.Drawing.Size(193, 196);
+            this.listOperadoresAsignados.TabIndex = 30;
+            this.listOperadoresAsignados.Click += new System.EventHandler(this.listOperadoresAsignados_Click);
+            this.listOperadoresAsignados.DoubleClick += new System.EventHandler(this.listOperadoresAsignados_DoubleClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(192, 112);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(119, 107);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(286, 30);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(214, 16);
+            this.label40.TabIndex = 31;
+            this.label40.Text = "Operadores Asignados al Viaje";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(6, 33);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(211, 16);
+            this.label39.TabIndex = 29;
+            this.label39.Text = "Operadores Registrados en SCI";
             // 
             // tabPageGastos
             // 
@@ -1096,6 +1121,9 @@
             // 
             // groupCortesOPerador
             // 
+            this.groupCortesOPerador.Controls.Add(this.btnEliminarCorte);
+            this.groupCortesOPerador.Controls.Add(this.label8);
+            this.groupCortesOPerador.Controls.Add(this.comboOperadoresCortes);
             this.groupCortesOPerador.Controls.Add(this.labelSueldoCortes);
             this.groupCortesOPerador.Controls.Add(this.labelSaldoTotalCortes);
             this.groupCortesOPerador.Controls.Add(this.btnRedondear);
@@ -1114,7 +1142,7 @@
             this.groupCortesOPerador.Controls.Add(this.calendarCortesOperador);
             this.groupCortesOPerador.Location = new System.Drawing.Point(3, 6);
             this.groupCortesOPerador.Name = "groupCortesOPerador";
-            this.groupCortesOPerador.Size = new System.Drawing.Size(774, 557);
+            this.groupCortesOPerador.Size = new System.Drawing.Size(774, 626);
             this.groupCortesOPerador.TabIndex = 0;
             this.groupCortesOPerador.TabStop = false;
             this.groupCortesOPerador.Text = "Corte de Tiempo por Operador";
@@ -1123,17 +1151,17 @@
             // 
             this.labelSueldoCortes.AutoSize = true;
             this.labelSueldoCortes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSueldoCortes.Location = new System.Drawing.Point(588, 525);
+            this.labelSueldoCortes.Location = new System.Drawing.Point(466, 582);
             this.labelSueldoCortes.Name = "labelSueldoCortes";
-            this.labelSueldoCortes.Size = new System.Drawing.Size(86, 17);
+            this.labelSueldoCortes.Size = new System.Drawing.Size(124, 17);
             this.labelSueldoCortes.TabIndex = 42;
-            this.labelSueldoCortes.Text = "Sueldo Total";
+            this.labelSueldoCortes.Text = "Gastos en Sueldos";
             // 
             // labelSaldoTotalCortes
             // 
             this.labelSaldoTotalCortes.AutoSize = true;
             this.labelSaldoTotalCortes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(481, 521);
+            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(359, 578);
             this.labelSaldoTotalCortes.Name = "labelSaldoTotalCortes";
             this.labelSaldoTotalCortes.Size = new System.Drawing.Size(48, 23);
             this.labelSaldoTotalCortes.TabIndex = 41;
@@ -1142,7 +1170,7 @@
             // 
             // btnRedondear
             // 
-            this.btnRedondear.Location = new System.Drawing.Point(588, 125);
+            this.btnRedondear.Location = new System.Drawing.Point(679, 156);
             this.btnRedondear.Name = "btnRedondear";
             this.btnRedondear.Size = new System.Drawing.Size(89, 27);
             this.btnRedondear.TabIndex = 29;
@@ -1153,7 +1181,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(309, 136);
+            this.label21.Location = new System.Drawing.Point(376, 164);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(87, 16);
             this.label21.TabIndex = 28;
@@ -1163,7 +1191,7 @@
             // 
             this.textCostoTotal.Enabled = false;
             this.textCostoTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoTotal.Location = new System.Drawing.Point(409, 125);
+            this.textCostoTotal.Location = new System.Drawing.Point(500, 156);
             this.textCostoTotal.Name = "textCostoTotal";
             this.textCostoTotal.Size = new System.Drawing.Size(173, 27);
             this.textCostoTotal.TabIndex = 27;
@@ -1177,7 +1205,7 @@
             this.btnAgregarCorteOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarCorteOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCorteOperador.Image")));
             this.btnAgregarCorteOperador.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(547, 155);
+            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(638, 203);
             this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
             this.btnAgregarCorteOperador.Size = new System.Drawing.Size(130, 33);
             this.btnAgregarCorteOperador.TabIndex = 26;
@@ -1196,16 +1224,17 @@
             this.dgvCortesOperador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCortesOperador.BackgroundColor = System.Drawing.Color.White;
             this.dgvCortesOperador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCortesOperador.Location = new System.Drawing.Point(12, 228);
+            this.dgvCortesOperador.Location = new System.Drawing.Point(9, 254);
             this.dgvCortesOperador.Name = "dgvCortesOperador";
             this.dgvCortesOperador.ReadOnly = true;
-            this.dgvCortesOperador.Size = new System.Drawing.Size(756, 277);
+            this.dgvCortesOperador.Size = new System.Drawing.Size(756, 304);
             this.dgvCortesOperador.TabIndex = 9;
+            this.dgvCortesOperador.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellClick);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(535, 97);
+            this.label20.Location = new System.Drawing.Point(626, 128);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(70, 16);
             this.label20.TabIndex = 8;
@@ -1215,15 +1244,16 @@
             // 
             this.textCostoHoraOperador.Enabled = false;
             this.textCostoHoraOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoHoraOperador.Location = new System.Drawing.Point(615, 92);
+            this.textCostoHoraOperador.Location = new System.Drawing.Point(706, 123);
             this.textCostoHoraOperador.Name = "textCostoHoraOperador";
             this.textCostoHoraOperador.Size = new System.Drawing.Size(62, 27);
             this.textCostoHoraOperador.TabIndex = 7;
+            this.textCostoHoraOperador.TextChanged += new System.EventHandler(this.textCostoHoraOperador_TextChanged);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(329, 100);
+            this.label19.Location = new System.Drawing.Point(396, 128);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(67, 16);
             this.label19.TabIndex = 6;
@@ -1232,7 +1262,7 @@
             // textTotalHoras
             // 
             this.textTotalHoras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTotalHoras.Location = new System.Drawing.Point(409, 92);
+            this.textTotalHoras.Location = new System.Drawing.Point(500, 123);
             this.textTotalHoras.Name = "textTotalHoras";
             this.textTotalHoras.Size = new System.Drawing.Size(120, 27);
             this.textTotalHoras.TabIndex = 5;
@@ -1241,7 +1271,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(289, 67);
+            this.label18.Location = new System.Drawing.Point(356, 95);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(107, 16);
             this.label18.TabIndex = 4;
@@ -1250,7 +1280,7 @@
             // textFechaHoraFinalOperador
             // 
             this.textFechaHoraFinalOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(409, 59);
+            this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(500, 90);
             this.textFechaHoraFinalOperador.Name = "textFechaHoraFinalOperador";
             this.textFechaHoraFinalOperador.Size = new System.Drawing.Size(268, 27);
             this.textFechaHoraFinalOperador.TabIndex = 3;
@@ -1259,7 +1289,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(289, 34);
+            this.label16.Location = new System.Drawing.Point(349, 62);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(114, 16);
             this.label16.TabIndex = 2;
@@ -1268,7 +1298,7 @@
             // textFechaHoraInicialOperador
             // 
             this.textFechaHoraInicialOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(409, 26);
+            this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(500, 57);
             this.textFechaHoraInicialOperador.Name = "textFechaHoraInicialOperador";
             this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(268, 27);
             this.textFechaHoraInicialOperador.TabIndex = 1;
@@ -1281,110 +1311,137 @@
             this.calendarCortesOperador.TabIndex = 0;
             this.calendarCortesOperador.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarCortesOperador_DateChanged);
             // 
-            // tabControl2
+            // groupOperadores
             // 
-            this.tabControl2.Controls.Add(this.tabPage1);
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Location = new System.Drawing.Point(6, 281);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(709, 278);
-            this.tabControl2.TabIndex = 28;
+            this.groupOperadores.Controls.Add(this.labelCorreoOperador);
+            this.groupOperadores.Controls.Add(this.label42);
+            this.groupOperadores.Controls.Add(this.labelSalarioPorHora);
+            this.groupOperadores.Controls.Add(this.label41);
+            this.groupOperadores.Controls.Add(this.labelTelOperador);
+            this.groupOperadores.Controls.Add(this.labelNombreOperador);
+            this.groupOperadores.Controls.Add(this.label33);
+            this.groupOperadores.Controls.Add(this.label32);
+            this.groupOperadores.Controls.Add(this.listTotalOperadores);
+            this.groupOperadores.Controls.Add(this.listOperadoresAsignados);
+            this.groupOperadores.Controls.Add(this.label39);
+            this.groupOperadores.Controls.Add(this.pictureBox1);
+            this.groupOperadores.Controls.Add(this.label40);
+            this.groupOperadores.Enabled = false;
+            this.groupOperadores.Location = new System.Drawing.Point(7, 6);
+            this.groupOperadores.Name = "groupOperadores";
+            this.groupOperadores.Size = new System.Drawing.Size(747, 298);
+            this.groupOperadores.TabIndex = 33;
+            this.groupOperadores.TabStop = false;
             // 
-            // tabPage1
+            // labelTelOperador
             // 
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(701, 249);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Datos Del Viaje";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.labelTelOperador.AutoSize = true;
+            this.labelTelOperador.Location = new System.Drawing.Point(591, 70);
+            this.labelTelOperador.Name = "labelTelOperador";
+            this.labelTelOperador.Size = new System.Drawing.Size(16, 16);
+            this.labelTelOperador.TabIndex = 36;
+            this.labelTelOperador.Text = "--";
             // 
-            // tabPage2
+            // labelNombreOperador
             // 
-            this.tabPage2.Controls.Add(this.listTotalOperadores);
-            this.tabPage2.Controls.Add(this.listOperadoresAsignados);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.label40);
-            this.tabPage2.Controls.Add(this.label39);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(701, 249);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Operadores";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.labelNombreOperador.AutoSize = true;
+            this.labelNombreOperador.Location = new System.Drawing.Point(591, 54);
+            this.labelNombreOperador.Name = "labelNombreOperador";
+            this.labelNombreOperador.Size = new System.Drawing.Size(16, 16);
+            this.labelNombreOperador.TabIndex = 35;
+            this.labelNombreOperador.Text = "--";
             // 
-            // groupBox2
+            // label33
             // 
-            this.groupBox2.Controls.Add(this.textClaveViajeCliente);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.comboUnidades);
-            this.groupBox2.Controls.Add(this.comboStatus);
-            this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.comboClientes);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.comboRutas);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(420, 233);
-            this.groupBox2.TabIndex = 27;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Generales del Viaje";
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(502, 68);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(85, 16);
+            this.label33.TabIndex = 34;
+            this.label33.Text = "Tel. Operador:";
             // 
-            // listTotalOperadores
+            // label32
             // 
-            this.listTotalOperadores.FormattingEnabled = true;
-            this.listTotalOperadores.ItemHeight = 16;
-            this.listTotalOperadores.Location = new System.Drawing.Point(166, 33);
-            this.listTotalOperadores.Name = "listTotalOperadores";
-            this.listTotalOperadores.Size = new System.Drawing.Size(193, 212);
-            this.listTotalOperadores.TabIndex = 9;
-            this.listTotalOperadores.DoubleClick += new System.EventHandler(this.listTotalOperadores_DoubleClick);
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(522, 52);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(65, 16);
+            this.label32.TabIndex = 33;
+            this.label32.Text = "Operador:";
             // 
-            // label39
+            // labelSalarioPorHora
             // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(163, 14);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(211, 16);
-            this.label39.TabIndex = 29;
-            this.label39.Text = "Operadores Registrados en SCI";
+            this.labelSalarioPorHora.AutoSize = true;
+            this.labelSalarioPorHora.Location = new System.Drawing.Point(591, 86);
+            this.labelSalarioPorHora.Name = "labelSalarioPorHora";
+            this.labelSalarioPorHora.Size = new System.Drawing.Size(16, 16);
+            this.labelSalarioPorHora.TabIndex = 38;
+            this.labelSalarioPorHora.Text = "--";
             // 
-            // listOperadoresAsignados
+            // label41
             // 
-            this.listOperadoresAsignados.FormattingEnabled = true;
-            this.listOperadoresAsignados.ItemHeight = 16;
-            this.listOperadoresAsignados.Location = new System.Drawing.Point(457, 31);
-            this.listOperadoresAsignados.Name = "listOperadoresAsignados";
-            this.listOperadoresAsignados.Size = new System.Drawing.Size(193, 212);
-            this.listOperadoresAsignados.TabIndex = 30;
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(510, 84);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(77, 16);
+            this.label41.TabIndex = 37;
+            this.label41.Text = "Salario/hora:";
             // 
-            // label40
+            // labelCorreoOperador
             // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(443, 11);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(214, 16);
-            this.label40.TabIndex = 31;
-            this.label40.Text = "Operadores Asignados al Viaje";
+            this.labelCorreoOperador.AutoSize = true;
+            this.labelCorreoOperador.Location = new System.Drawing.Point(591, 102);
+            this.labelCorreoOperador.Name = "labelCorreoOperador";
+            this.labelCorreoOperador.Size = new System.Drawing.Size(16, 16);
+            this.labelCorreoOperador.TabIndex = 40;
+            this.labelCorreoOperador.Text = "--";
             // 
-            // pictureBox1
+            // label42
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(349, 93);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(119, 107);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(538, 102);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(47, 16);
+            this.label42.TabIndex = 39;
+            this.label42.Text = "Correo:";
+            // 
+            // comboOperadoresCortes
+            // 
+            this.comboOperadoresCortes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOperadoresCortes.FormattingEnabled = true;
+            this.comboOperadoresCortes.Location = new System.Drawing.Point(500, 20);
+            this.comboOperadoresCortes.Name = "comboOperadoresCortes";
+            this.comboOperadoresCortes.Size = new System.Drawing.Size(268, 29);
+            this.comboOperadoresCortes.TabIndex = 43;
+            this.comboOperadoresCortes.SelectedValueChanged += new System.EventHandler(this.comboOperadoresCortes_SelectedValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(390, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 16);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Operadores";
+            // 
+            // btnEliminarCorte
+            // 
+            this.btnEliminarCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.btnEliminarCorte.FlatAppearance.BorderSize = 0;
+            this.btnEliminarCorte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarCorte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCorte.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminarCorte.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarCorte.Image")));
+            this.btnEliminarCorte.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnEliminarCorte.Location = new System.Drawing.Point(6, 582);
+            this.btnEliminarCorte.Name = "btnEliminarCorte";
+            this.btnEliminarCorte.Size = new System.Drawing.Size(130, 33);
+            this.btnEliminarCorte.TabIndex = 46;
+            this.btnEliminarCorte.Text = "Eliminar Corte";
+            this.btnEliminarCorte.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarCorte.UseVisualStyleBackColor = false;
+            this.btnEliminarCorte.Click += new System.EventHandler(this.btnEliminarCorte_Click);
             // 
             // FormAgregarViaje
             // 
@@ -1407,20 +1464,21 @@
             this.tabPageGenerales.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.Operadores.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPageGastos.ResumeLayout(false);
             this.tabPageCortes.ResumeLayout(false);
             this.groupCortesOPerador.ResumeLayout(false);
             this.groupCortesOPerador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).EndInit();
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupOperadores.ResumeLayout(false);
+            this.groupOperadores.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1433,8 +1491,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboClientes;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboOperadores;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboStatus;
         private System.Windows.Forms.MonthCalendar calendarSci;
@@ -1508,13 +1564,8 @@
         private System.Windows.Forms.Label labelTipoUnidad;
         private System.Windows.Forms.Label labelCostoRuta;
         private System.Windows.Forms.Label labelNombreRuta;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label labelTelOperador;
-        private System.Windows.Forms.Label labelNombreOperador;
         private System.Windows.Forms.Label labelTelCliente;
         private System.Windows.Forms.Label labelNombreCliente;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox comboGasolinerias;
@@ -1533,11 +1584,23 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage Operadores;
         private System.Windows.Forms.ListBox listTotalOperadores;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.ListBox listOperadoresAsignados;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.GroupBox groupOperadores;
+        private System.Windows.Forms.Label labelTelOperador;
+        private System.Windows.Forms.Label labelNombreOperador;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label labelSalarioPorHora;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label labelCorreoOperador;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboOperadoresCortes;
+        private System.Windows.Forms.Button btnEliminarCorte;
     }
 }

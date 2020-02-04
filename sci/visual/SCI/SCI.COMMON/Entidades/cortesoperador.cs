@@ -11,5 +11,7 @@ namespace SCI.COMMON.Entidades
         public DateTime FechaFin { get; set; }
         public double Costo { get; set; }
         public int IdViajeOps { get; set; }
+        public int IdOperador { get; set; }
+        public int IdStatus { get; set; }
     }
 }
