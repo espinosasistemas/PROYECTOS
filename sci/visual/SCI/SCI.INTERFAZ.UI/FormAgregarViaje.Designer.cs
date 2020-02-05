@@ -725,22 +725,28 @@
             this.tabControl1.Controls.Add(this.tabPageGenerales);
             this.tabControl1.Controls.Add(this.tabPageGastos);
             this.tabControl1.Controls.Add(this.tabPageCortes);
+            this.tabControl1.HotTrack = true;
             this.tabControl1.Location = new System.Drawing.Point(2, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 670);
             this.tabControl1.TabIndex = 25;
+            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
+            this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
             // tabPageGenerales
             // 
+            this.tabPageGenerales.BackColor = System.Drawing.Color.Transparent;
             this.tabPageGenerales.Controls.Add(this.groupBox3);
+            this.tabPageGenerales.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tabPageGenerales.ImageKey = "(ninguno)";
             this.tabPageGenerales.Location = new System.Drawing.Point(4, 25);
             this.tabPageGenerales.Name = "tabPageGenerales";
             this.tabPageGenerales.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageGenerales.Size = new System.Drawing.Size(792, 641);
             this.tabPageGenerales.TabIndex = 0;
             this.tabPageGenerales.Text = "Datos Generales";
-            this.tabPageGenerales.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -1071,7 +1077,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(192, 112);
+            this.pictureBox1.Location = new System.Drawing.Point(192, 89);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(119, 107);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1106,7 +1112,7 @@
             this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageGastos.Size = new System.Drawing.Size(792, 641);
             this.tabPageGastos.TabIndex = 1;
-            this.tabPageGastos.Text = "Gastos";
+            this.tabPageGastos.Text = "Gastos del Viaje";
             this.tabPageGastos.UseVisualStyleBackColor = true;
             // 
             // tabPageCortes
@@ -1116,7 +1122,7 @@
             this.tabPageCortes.Name = "tabPageCortes";
             this.tabPageCortes.Size = new System.Drawing.Size(792, 641);
             this.tabPageCortes.TabIndex = 2;
-            this.tabPageCortes.Text = "Cortes";
+            this.tabPageCortes.Text = "Cortes de Operadores";
             this.tabPageCortes.UseVisualStyleBackColor = true;
             // 
             // groupCortesOPerador
@@ -1170,7 +1176,7 @@
             // 
             // btnRedondear
             // 
-            this.btnRedondear.Location = new System.Drawing.Point(679, 156);
+            this.btnRedondear.Location = new System.Drawing.Point(676, 156);
             this.btnRedondear.Name = "btnRedondear";
             this.btnRedondear.Size = new System.Drawing.Size(89, 27);
             this.btnRedondear.TabIndex = 29;
@@ -1181,7 +1187,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(376, 164);
+            this.label21.Location = new System.Drawing.Point(373, 164);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(87, 16);
             this.label21.TabIndex = 28;
@@ -1191,7 +1197,7 @@
             // 
             this.textCostoTotal.Enabled = false;
             this.textCostoTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoTotal.Location = new System.Drawing.Point(500, 156);
+            this.textCostoTotal.Location = new System.Drawing.Point(497, 156);
             this.textCostoTotal.Name = "textCostoTotal";
             this.textCostoTotal.Size = new System.Drawing.Size(173, 27);
             this.textCostoTotal.TabIndex = 27;
@@ -1205,7 +1211,7 @@
             this.btnAgregarCorteOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarCorteOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCorteOperador.Image")));
             this.btnAgregarCorteOperador.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(638, 203);
+            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(635, 205);
             this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
             this.btnAgregarCorteOperador.Size = new System.Drawing.Size(130, 33);
             this.btnAgregarCorteOperador.TabIndex = 26;
@@ -1234,7 +1240,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(626, 128);
+            this.label20.Location = new System.Drawing.Point(623, 128);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(70, 16);
             this.label20.TabIndex = 8;
@@ -1244,7 +1250,7 @@
             // 
             this.textCostoHoraOperador.Enabled = false;
             this.textCostoHoraOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoHoraOperador.Location = new System.Drawing.Point(706, 123);
+            this.textCostoHoraOperador.Location = new System.Drawing.Point(703, 123);
             this.textCostoHoraOperador.Name = "textCostoHoraOperador";
             this.textCostoHoraOperador.Size = new System.Drawing.Size(62, 27);
             this.textCostoHoraOperador.TabIndex = 7;
@@ -1253,7 +1259,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(396, 128);
+            this.label19.Location = new System.Drawing.Point(393, 128);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(67, 16);
             this.label19.TabIndex = 6;
@@ -1262,7 +1268,7 @@
             // textTotalHoras
             // 
             this.textTotalHoras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTotalHoras.Location = new System.Drawing.Point(500, 123);
+            this.textTotalHoras.Location = new System.Drawing.Point(497, 123);
             this.textTotalHoras.Name = "textTotalHoras";
             this.textTotalHoras.Size = new System.Drawing.Size(120, 27);
             this.textTotalHoras.TabIndex = 5;
@@ -1271,7 +1277,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(356, 95);
+            this.label18.Location = new System.Drawing.Point(353, 95);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(107, 16);
             this.label18.TabIndex = 4;
@@ -1280,7 +1286,7 @@
             // textFechaHoraFinalOperador
             // 
             this.textFechaHoraFinalOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(500, 90);
+            this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(497, 90);
             this.textFechaHoraFinalOperador.Name = "textFechaHoraFinalOperador";
             this.textFechaHoraFinalOperador.Size = new System.Drawing.Size(268, 27);
             this.textFechaHoraFinalOperador.TabIndex = 3;
@@ -1289,7 +1295,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(349, 62);
+            this.label16.Location = new System.Drawing.Point(346, 62);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(114, 16);
             this.label16.TabIndex = 2;
@@ -1298,7 +1304,7 @@
             // textFechaHoraInicialOperador
             // 
             this.textFechaHoraInicialOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(500, 57);
+            this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(497, 57);
             this.textFechaHoraInicialOperador.Name = "textFechaHoraInicialOperador";
             this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(268, 27);
             this.textFechaHoraInicialOperador.TabIndex = 1;
@@ -1409,7 +1415,7 @@
             // 
             this.comboOperadoresCortes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadoresCortes.FormattingEnabled = true;
-            this.comboOperadoresCortes.Location = new System.Drawing.Point(500, 20);
+            this.comboOperadoresCortes.Location = new System.Drawing.Point(497, 20);
             this.comboOperadoresCortes.Name = "comboOperadoresCortes";
             this.comboOperadoresCortes.Size = new System.Drawing.Size(268, 29);
             this.comboOperadoresCortes.TabIndex = 43;
@@ -1418,7 +1424,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(390, 25);
+            this.label8.Location = new System.Drawing.Point(387, 25);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 16);
             this.label8.TabIndex = 44;

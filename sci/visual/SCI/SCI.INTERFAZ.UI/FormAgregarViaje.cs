@@ -82,6 +82,7 @@ namespace SCI.INTERFAZ.UI
         private void FormAgregarViaje_Load(object sender, EventArgs e)
         {
             //tabControl2.SelectedTab = tabControl2.TabPages[1];
+            
             cargarComboRutas();
             cargarComboClientes();
             //cargarComboOperadores();
@@ -1125,6 +1126,44 @@ namespace SCI.INTERFAZ.UI
         private void dgvCortesOperador_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             filaCorteSeleccionado = e.RowIndex;
+        }
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            
+            /*
+            switch (e.Index)
+            {
+                case 0:
+                    e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(76, 175, 80)), e.Bounds);
+                    break;
+                case 1:
+                    e.Graphics.FillRectangle(new SolidBrush(Color.Transparent), e.Bounds);
+                    break;
+                case 2:
+                    e.Graphics.FillRectangle(new SolidBrush(Color.Transparent), e.Bounds);
+                    break;
+                    
+                default:
+                    break;
+            }
+
+            // Then draw the current tab button text 
+            Rectangle paddedBounds = e.Bounds;
+            paddedBounds.Inflate(-2, -2);
+            e.Graphics.DrawString(tabControl1.TabPages[e.Index].Text, this.Font, SystemBrushes.ControlText, paddedBounds);
+            */
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            //tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            
         }
     }
 }

@@ -254,6 +254,7 @@
             this.Name = "FormViajes";
             this.Text = "FormViajes";
             this.Load += new System.EventHandler(this.FormViajes_Load);
+            this.Shown += new System.EventHandler(this.FormViajes_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

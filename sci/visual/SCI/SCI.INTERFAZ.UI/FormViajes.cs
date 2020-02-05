@@ -15,20 +15,61 @@ namespace SCI.INTERFAZ.UI
     public partial class FormViajes : Form
     {
         IViajeManager managerViajes;
+        IStatusViajeManager managerStatus;
+        IRutaManager managerRuta;
+        IClienteManager managerCliente;
+        IUnidadesManager managerUnidades;
+
         int filaSeleccionada = -1;
 
         public FormViajes()
         {
             InitializeComponent();
             managerViajes = Tools.FabricManager.ViajeManager();
+            managerStatus = Tools.FabricManager.StatusViajeManager();
+            managerRuta = Tools.FabricManager.RutaManager();
+            managerCliente = Tools.FabricManager.ClienteManager();
+            managerUnidades = Tools.FabricManager.UnidadManager();
         }
 
         public void CargarTodosLosViajes()
         {
             IEnumerable<viaje> TodosViajes = managerViajes.ObtenerTodos;
             dgvViajes.DataSource = TodosViajes;
+
             if (dgvViajes.Rows.Count > 0)
             {
+                dgvViajes.Columns["idStatus"].Visible = false;
+                dgvViajes.Columns["idRuta"].Visible = false;
+                dgvViajes.Columns["idCliente"].Visible = false;
+                dgvViajes.Columns["idUnidad"].Visible = false;
+
+                dgvViajes.Columns.Add("Economico", "Economico");
+                dgvViajes.Columns.Add("Status", "Status");
+                dgvViajes.Columns.Add("Ruta", "Ruta");
+                dgvViajes.Columns.Add("Cliente", "Cliente");
+                
+
+                statusviaje edos = new statusviaje();
+                ruta rut = new ruta();
+                cliente client = new cliente();
+                unidades unidad = new unidades();
+
+                for(int i=0;i<dgvViajes.Rows.Count;i++)
+                {
+                    edos = managerStatus.BuscarPorId(dgvViajes["idStatus", i].Value.ToString());
+                    dgvViajes["Status", i].Value = edos.Nombre;
+
+                    rut = managerRuta.BuscarPorId(dgvViajes["idRuta", i].Value.ToString());
+                    dgvViajes["Ruta", i].Value = rut.Nombre;
+
+                    client = managerCliente.BuscarPorId(dgvViajes["idCliente", i].Value.ToString());
+                    dgvViajes["Cliente", i].Value = client.RazonSocial;
+
+                    unidad = managerUnidades.BuscarPorId(dgvViajes["idUnidad", i].Value.ToString());
+                    dgvViajes["Economico", i].Value = unidad.NumeroEconomico;
+                }
+
                 mostrarLabelStatus("Se han cargado todos los viajes dados de alta.", true);
                 filaSeleccionada = 0;
             }
@@ -72,7 +113,7 @@ namespace SCI.INTERFAZ.UI
 
         private void FormViajes_Load(object sender, EventArgs e)
         {
-            CargarTodosLosViajes();
+            //CargarTodosLosViajes();
         }
 
         private void btnEditarViaje_Click(object sender, EventArgs e)
@@ -121,6 +162,11 @@ namespace SCI.INTERFAZ.UI
                 }
 
             }
+        }
+
+        private void FormViajes_Shown(object sender, EventArgs e)
+        {
+            CargarTodosLosViajes();
         }
     }
 }

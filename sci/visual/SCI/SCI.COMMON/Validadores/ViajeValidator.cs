@@ -10,7 +10,7 @@ namespace SCI.COMMON.Validadores
     {
         public ViajeValidator()
         {
-            RuleFor(v => v.IdViajeCliente).NotNull().Length(1, 100);
+            RuleFor(v => v.IdViajeCliente).NotNull().Length(0, 100);
             RuleFor(v => v.FechaInicioSci).NotNull().NotEmpty();
             RuleFor(v => v.FechaInicioCliente).NotNull().NotEmpty();
             RuleFor(v => v.FechaFinSci).NotNull().NotEmpty();

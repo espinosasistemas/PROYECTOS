@@ -36,8 +36,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panelViajesSubMenu = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.btnViajes = new System.Windows.Forms.Button();
             this.btnTransporte = new System.Windows.Forms.Button();
             this.panelCatalogoSubMenu = new System.Windows.Forms.Panel();
@@ -87,7 +85,7 @@
             this.panelReportesSubMenu.Controls.Add(this.button11);
             this.panelReportesSubMenu.Controls.Add(this.button12);
             this.panelReportesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 629);
+            this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 546);
             this.panelReportesSubMenu.Name = "panelReportesSubMenu";
             this.panelReportesSubMenu.Size = new System.Drawing.Size(233, 132);
             this.panelReportesSubMenu.TabIndex = 5;
@@ -146,7 +144,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 584);
+            this.btnReportes.Location = new System.Drawing.Point(0, 501);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(233, 45);
             this.btnReportes.TabIndex = 4;
@@ -158,46 +156,12 @@
             // panelViajesSubMenu
             // 
             this.panelViajesSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(244)))));
-            this.panelViajesSubMenu.Controls.Add(this.button6);
-            this.panelViajesSubMenu.Controls.Add(this.button7);
             this.panelViajesSubMenu.Controls.Add(this.btnViajes);
             this.panelViajesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelViajesSubMenu.Location = new System.Drawing.Point(0, 452);
             this.panelViajesSubMenu.Name = "panelViajesSubMenu";
-            this.panelViajesSubMenu.Size = new System.Drawing.Size(233, 132);
+            this.panelViajesSubMenu.Size = new System.Drawing.Size(233, 49);
             this.panelViajesSubMenu.TabIndex = 3;
-            // 
-            // button6
-            // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.LightGray;
-            this.button6.Location = new System.Drawing.Point(0, 80);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(233, 40);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "button6";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.LightGray;
-            this.button7.Location = new System.Drawing.Point(0, 40);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(233, 40);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "button7";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // btnViajes
             // 
@@ -479,8 +443,6 @@
         private System.Windows.Forms.Button btnUnidades;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel panelViajesSubMenu;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnViajes;
         private System.Windows.Forms.Button btnTransporte;
         private System.Windows.Forms.Panel panelReportesSubMenu;
