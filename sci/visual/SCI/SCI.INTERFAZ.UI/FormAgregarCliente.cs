@@ -117,5 +117,10 @@ namespace SCI.INTERFAZ.UI
                 }
             }
         }
+
+        private void textRfc_Leave(object sender, EventArgs e)
+        {
+            textRfc.Text = textRfc.Text.ToUpper();
+        }
     }
 }

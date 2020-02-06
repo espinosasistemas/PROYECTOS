@@ -46,9 +46,10 @@ namespace SCI.INTERFAZ.UI
                 TelefonoDeCasa = textTelefonoDeCasa.Text,
                 Celular = textCelular.Text,
                 Correo = textCorreo.Text,
-                FechaDeExamenMedico = dateTimeExamenMedico.Value,
+                FechaDeVencimientoExamenMedico = dateTimeExamenMedico.Value,
                 NumeroDeLicencia = textNumDeLicencia.Text,
-                FechaDeVencimientoLicencia = dateTimeVencimientoLicencia.Value
+                FechaDeVencimientoLicencia = dateTimeVencimientoLicencia.Value,
+                NumSeguroSocial = textNumSeguroSocial.Text
             };
         }
 
@@ -88,9 +89,10 @@ namespace SCI.INTERFAZ.UI
                         operadorAeditar.TelefonoDeCasa = textTelefonoDeCasa.Text;
                         operadorAeditar.Celular = textCelular.Text;
                         operadorAeditar.Correo = textCorreo.Text;
-                        operadorAeditar.FechaDeExamenMedico = dateTimeExamenMedico.Value;
+                        operadorAeditar.FechaDeVencimientoExamenMedico = dateTimeExamenMedico.Value;
                         operadorAeditar.NumeroDeLicencia = textNumDeLicencia.Text;
                         operadorAeditar.FechaDeVencimientoLicencia = dateTimeVencimientoLicencia.Value;
+                        operadorAeditar.NumSeguroSocial = textNumSeguroSocial.Text;
 
                         if (managerOperador.Actualizar(operadorAeditar))
                         {
@@ -123,9 +125,11 @@ namespace SCI.INTERFAZ.UI
                 textTelefonoDeCasa.Text = operadorAeditar.TelefonoDeCasa;
                 textCelular.Text = operadorAeditar.Celular;
                 textCorreo.Text = operadorAeditar.Correo;
-                dateTimeExamenMedico.Value = operadorAeditar.FechaDeExamenMedico;
+                dateTimeExamenMedico.Value = operadorAeditar.FechaDeVencimientoExamenMedico;
                 textNumDeLicencia.Text = operadorAeditar.NumeroDeLicencia;
                 dateTimeVencimientoLicencia.Value = operadorAeditar.FechaDeVencimientoLicencia;
+                textNumSeguroSocial.Text = operadorAeditar.NumSeguroSocial;
+
                 this.Text = "Actualizar los datos del Operador.";
                 btnAgregarOperador.Text = "Actualizar";
             }

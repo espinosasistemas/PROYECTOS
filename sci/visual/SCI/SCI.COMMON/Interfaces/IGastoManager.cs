@@ -9,6 +9,8 @@ namespace SCI.COMMON.Interfaces
     {
         IEnumerable<gasto>BuscarPorIdViajeOps(int idViajeOps);
 
+        IEnumerable<gasto> BuscarPorIdViajeyOperador(int idViajeOps, int idOperador);
+
         IEnumerable<gasto> BuscarGastosPorRangoFechas(DateTime fechaInicio, DateTime fechaFinal);
 
         IEnumerable<gasto> BuscarPorTipoGasto(int idTipoGasto, DateTime fechaInicio, DateTime fechaFinal);

@@ -104,7 +104,7 @@ namespace SCI.DAL
             }
             else
             {
-                Error = "Error de validación:";
+                Error = "Error de validación: ";
                 foreach (var item in resultadoDeValidacion.Errors)
                 {
                     Error += item.ErrorMessage + ". ";
@@ -276,7 +276,7 @@ namespace SCI.DAL
             }
             else
             {
-                Error = "Error de validación:";
+                Error = "Error de validación: ";
                 foreach (var item in resultadoDeValidacion.Errors)
                 {
                     Error += item.ErrorMessage + ". ";

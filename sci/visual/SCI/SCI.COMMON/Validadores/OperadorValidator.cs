@@ -17,11 +17,12 @@ namespace SCI.COMMON.Validadores
             RuleFor(o => o.Direccion).NotEmpty().NotNull().Length(1, 500);
             RuleFor(o => o.TelefonoDeCasa).NotNull().Length(1, 20);
             RuleFor(o => o.Celular).NotNull().Length(1, 20);
-            RuleFor(o => o.Correo).NotNull().Length(1, 20);
+            RuleFor(o => o.Correo).NotNull().EmailAddress().Length(1, 20);
 
-            RuleFor(o => o.FechaDeExamenMedico).NotNull().NotEmpty();
+            RuleFor(o => o.FechaDeVencimientoExamenMedico).NotNull().NotEmpty();
             RuleFor(o => o.NumeroDeLicencia).NotNull().NotEmpty().Length(1, 15);
             RuleFor(o => o.FechaDeVencimientoLicencia).NotNull().NotEmpty();
+            RuleFor(o => o.NumSeguroSocial).NotNull().NotEmpty().Length(0, 15);
         }
     }
 }

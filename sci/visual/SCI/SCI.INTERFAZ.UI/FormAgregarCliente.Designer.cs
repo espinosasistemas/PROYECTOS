@@ -194,6 +194,7 @@
             this.textRfc.Name = "textRfc";
             this.textRfc.Size = new System.Drawing.Size(231, 26);
             this.textRfc.TabIndex = 2;
+            this.textRfc.Leave += new System.EventHandler(this.textRfc_Leave);
             // 
             // label2
             // 

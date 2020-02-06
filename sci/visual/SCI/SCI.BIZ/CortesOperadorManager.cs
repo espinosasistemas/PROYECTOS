@@ -12,9 +12,14 @@ namespace SCI.BIZ
         {
         }
 
-        public IEnumerable<cortesoperador> BuscarCortesPorIdViaje(int idViajeOps)
+        public IEnumerable<cortesoperador> BuscarCortesPorIdViaje(int idViajeSci)
         {
-            return repository.Query(v => v.IdViajeOps == idViajeOps);
+            return repository.Query(v => v.IdViajeSci == idViajeSci);
+        }
+
+        public IEnumerable<cortesoperador> BuscarCortesPorOperadorEnViaje(int idViajeSci, int idOperador)
+        {
+            return repository.Query(c=>c.IdViajeSci==idViajeSci && c.IdOperador == idOperador);
         }
     }
 }

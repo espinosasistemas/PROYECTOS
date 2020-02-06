@@ -13,7 +13,8 @@ namespace SCI.COMMON.Validadores
             RuleFor(c => c.FechaInicio).NotNull().NotEmpty();
             RuleFor(c => c.FechaFin).NotNull().NotEmpty();
             RuleFor(c => c.Costo).NotNull().NotEmpty().GreaterThan(0);
-            RuleFor(c => c.IdViajeOps).NotNull().NotEmpty().GreaterThan(0);
+            RuleFor(c => c.Horas).NotNull().NotEmpty().GreaterThan(0);
+            RuleFor(c => c.IdViajeSci).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(c => c.IdOperador).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(c => c.IdStatus).NotNull().NotEmpty().GreaterThan(0);
         }

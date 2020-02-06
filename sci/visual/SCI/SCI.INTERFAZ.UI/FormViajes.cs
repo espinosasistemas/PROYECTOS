@@ -34,6 +34,8 @@ namespace SCI.INTERFAZ.UI
 
         public void CargarTodosLosViajes()
         {
+            dgvViajes.Columns.Clear();
+
             IEnumerable<viaje> TodosViajes = managerViajes.ObtenerTodos;
             dgvViajes.DataSource = TodosViajes;
 
@@ -120,7 +122,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (filaSeleccionada != -1)
             {
-                FormAgregarViaje fm = new FormAgregarViaje("editar", int.Parse(dgvViajes["idViajeOps", filaSeleccionada].Value.ToString()));
+                FormAgregarViaje fm = new FormAgregarViaje("editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -146,7 +148,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (managerViajes.Eliminar(dgvViajes["idViajeOps", filaSeleccionada].Value.ToString()))
+                        if (managerViajes.Eliminar(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()))
                         {
                             CargarTodosLosViajes();
                             mostrarLabelStatus("Se ha eliminado Correctamente el Viaje del cliente. " + nombre, true);

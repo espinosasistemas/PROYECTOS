@@ -11,6 +11,10 @@ namespace SCI.COMMON.Entidades
         public int NumeroEconomico { get; set; }
         public string Placas { get; set; }
         public string NumeroSerie { get; set; }
+
+        public string PolizaSeguro { get; set; }
+        public DateTime FechaVencimientoSeguro { get; set; }
+
         public string TipoCombustible { get; set; }
         public int IdTipoDeUnidad { get; set; }
     }

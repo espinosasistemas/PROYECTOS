@@ -84,6 +84,12 @@ namespace SCI.INTERFAZ.UI
 
             if (accion == "agregar")
             {
+                if (rfcEstaDadoDeAlta() == true)
+                {
+                    MessageBox.Show("El Rfc de la Gaslinería ya esta dado de alta.", "No se pudo agregar La Gasolinería.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 try
                 {
                     gasolineria gasolineriaNueva = CrearGasolineria(idTipoGasto);
@@ -132,6 +138,18 @@ namespace SCI.INTERFAZ.UI
                     }
                 }
             }
+        }
+
+        private bool rfcEstaDadoDeAlta()
+        {
+            gasolineria gasNueva = managerGasolineria.BuscarPorRfc(textRfc.Text);
+            if (gasNueva != null) return true;
+            else return false; //ya esta agregada
+        }
+
+        private void textRfc_Leave(object sender, EventArgs e)
+        {
+            textRfc.Text = textRfc.Text.ToUpper();
         }
     }
 }

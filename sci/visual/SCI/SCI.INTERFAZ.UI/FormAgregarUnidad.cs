@@ -48,6 +48,8 @@ namespace SCI.INTERFAZ.UI
                 textNumEco.Text = unidadAeditar.NumeroEconomico.ToString();
                 textPlacas.Text = unidadAeditar.Placas;
                 textNumSerie.Text = unidadAeditar.NumeroSerie;
+                textPolizaSeguro.Text = unidadAeditar.PolizaSeguro;
+                dateVencimientoSeguro.Value = unidadAeditar.FechaVencimientoSeguro;
                 comboTipoCombustible.Text = unidadAeditar.TipoCombustible;
 
                 tipounidad tUnidad = managerTipoDeUnidades.BuscarPorId(unidadAeditar.IdTipoDeUnidad.ToString());
@@ -71,6 +73,8 @@ namespace SCI.INTERFAZ.UI
                 NumeroEconomico = int.Parse(textNumEco.Text),
                 Placas = textPlacas.Text,
                 NumeroSerie = textNumSerie.Text,
+                PolizaSeguro = textPolizaSeguro.Text,
+                FechaVencimientoSeguro = dateVencimientoSeguro.Value,
                 TipoCombustible = comboTipoCombustible.Text,
                 IdTipoDeUnidad = idTipoDeUnidad
             };
@@ -111,6 +115,8 @@ namespace SCI.INTERFAZ.UI
                         unidadAeditar.NumeroEconomico = int.Parse(textNumEco.Text);
                         unidadAeditar.Placas = textPlacas.Text;
                         unidadAeditar.NumeroSerie = textNumSerie.Text;
+                        unidadAeditar.PolizaSeguro = textPolizaSeguro.Text;
+                        unidadAeditar.FechaVencimientoSeguro = dateVencimientoSeguro.Value;
                         unidadAeditar.TipoCombustible = comboTipoCombustible.Text;
                         unidadAeditar.IdTipoDeUnidad = idTipoDeUnidad;
 

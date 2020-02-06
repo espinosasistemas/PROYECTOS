@@ -6,7 +6,7 @@ namespace SCI.COMMON.Entidades
 {
     public class viaje:BaseDTO
     {
-        public int IdViajeOps { get; set; }
+        public int IdViajeSci { get; set; }
         public string IdViajeCliente { get; set; }
         public DateTime FechaInicioSci { get; set; }
         public DateTime FechaInicioCliente { get; set; }

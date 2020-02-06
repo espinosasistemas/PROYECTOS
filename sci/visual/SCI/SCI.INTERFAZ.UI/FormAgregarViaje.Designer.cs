@@ -49,6 +49,8 @@
             this.textClaveViajeCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupGastos = new System.Windows.Forms.GroupBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.comboOperadoresGasto = new System.Windows.Forms.ComboBox();
             this.textPoliza = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -111,14 +113,26 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.Operadores = new System.Windows.Forms.TabPage();
+            this.groupOperadores = new System.Windows.Forms.GroupBox();
+            this.labelCorreoOperador = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.labelSalarioPorHora = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.labelTelOperador = new System.Windows.Forms.Label();
+            this.labelNombreOperador = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.listTotalOperadores = new System.Windows.Forms.ListBox();
             this.listOperadoresAsignados = new System.Windows.Forms.ListBox();
+            this.label39 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
             this.tabPageGastos = new System.Windows.Forms.TabPage();
             this.tabPageCortes = new System.Windows.Forms.TabPage();
             this.groupCortesOPerador = new System.Windows.Forms.GroupBox();
+            this.btnEliminarCorte = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboOperadoresCortes = new System.Windows.Forms.ComboBox();
             this.labelSueldoCortes = new System.Windows.Forms.Label();
             this.labelSaldoTotalCortes = new System.Windows.Forms.Label();
             this.btnRedondear = new System.Windows.Forms.Button();
@@ -135,18 +149,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textFechaHoraInicialOperador = new System.Windows.Forms.TextBox();
             this.calendarCortesOperador = new System.Windows.Forms.MonthCalendar();
-            this.groupOperadores = new System.Windows.Forms.GroupBox();
-            this.labelTelOperador = new System.Windows.Forms.Label();
-            this.labelNombreOperador = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.labelSalarioPorHora = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.labelCorreoOperador = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.comboOperadoresCortes = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnEliminarCorte = new System.Windows.Forms.Button();
             this.groupGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -157,12 +159,12 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.Operadores.SuspendLayout();
+            this.groupOperadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPageGastos.SuspendLayout();
             this.tabPageCortes.SuspendLayout();
             this.groupCortesOPerador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).BeginInit();
-            this.groupOperadores.SuspendLayout();
             this.SuspendLayout();
             // 
             // label14
@@ -313,7 +315,6 @@
             this.comboRutas.Size = new System.Drawing.Size(247, 25);
             this.comboRutas.TabIndex = 6;
             this.comboRutas.TextChanged += new System.EventHandler(this.comboRutas_TextChanged);
-            this.comboRutas.Click += new System.EventHandler(this.comboRutas_Click);
             // 
             // btnAgregarViaje
             // 
@@ -356,6 +357,8 @@
             // 
             this.groupGastos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupGastos.Controls.Add(this.label43);
+            this.groupGastos.Controls.Add(this.comboOperadoresGasto);
             this.groupGastos.Controls.Add(this.textPoliza);
             this.groupGastos.Controls.Add(this.label38);
             this.groupGastos.Controls.Add(this.label37);
@@ -394,6 +397,25 @@
             this.groupGastos.TabStop = false;
             this.groupGastos.Text = "Gastos";
             // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(30, 21);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(84, 17);
+            this.label43.TabIndex = 47;
+            this.label43.Text = "Operadores";
+            // 
+            // comboOperadoresGasto
+            // 
+            this.comboOperadoresGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOperadoresGasto.FormattingEnabled = true;
+            this.comboOperadoresGasto.Location = new System.Drawing.Point(120, 18);
+            this.comboOperadoresGasto.Name = "comboOperadoresGasto";
+            this.comboOperadoresGasto.Size = new System.Drawing.Size(330, 25);
+            this.comboOperadoresGasto.TabIndex = 46;
+            // 
             // textPoliza
             // 
             this.textPoliza.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -407,7 +429,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(13, 120);
+            this.label38.Location = new System.Drawing.Point(22, 146);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(92, 17);
             this.label38.TabIndex = 0;
@@ -494,9 +516,9 @@
             // 
             this.comboGasolinerias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboGasolinerias.FormattingEnabled = true;
-            this.comboGasolinerias.Location = new System.Drawing.Point(110, 54);
+            this.comboGasolinerias.Location = new System.Drawing.Point(120, 80);
             this.comboGasolinerias.Name = "comboGasolinerias";
-            this.comboGasolinerias.Size = new System.Drawing.Size(333, 25);
+            this.comboGasolinerias.Size = new System.Drawing.Size(332, 25);
             this.comboGasolinerias.TabIndex = 2;
             this.comboGasolinerias.Visible = false;
             // 
@@ -504,9 +526,9 @@
             // 
             this.comboCasetas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCasetas.FormattingEnabled = true;
-            this.comboCasetas.Location = new System.Drawing.Point(111, 55);
+            this.comboCasetas.Location = new System.Drawing.Point(121, 81);
             this.comboCasetas.Name = "comboCasetas";
-            this.comboCasetas.Size = new System.Drawing.Size(332, 25);
+            this.comboCasetas.Size = new System.Drawing.Size(331, 25);
             this.comboCasetas.TabIndex = 2;
             this.comboCasetas.Visible = false;
             this.comboCasetas.TextChanged += new System.EventHandler(this.comboCasetas_TextChanged);
@@ -524,7 +546,7 @@
             // textFechaDelGasto
             // 
             this.textFechaDelGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaDelGasto.Location = new System.Drawing.Point(111, 115);
+            this.textFechaDelGasto.Location = new System.Drawing.Point(120, 141);
             this.textFechaDelGasto.Name = "textFechaDelGasto";
             this.textFechaDelGasto.Size = new System.Drawing.Size(333, 26);
             this.textFechaDelGasto.TabIndex = 4;
@@ -552,9 +574,9 @@
             // 
             // btnExaminarXml
             // 
-            this.btnExaminarXml.Location = new System.Drawing.Point(368, 177);
+            this.btnExaminarXml.Location = new System.Drawing.Point(377, 203);
             this.btnExaminarXml.Name = "btnExaminarXml";
-            this.btnExaminarXml.Size = new System.Drawing.Size(75, 23);
+            this.btnExaminarXml.Size = new System.Drawing.Size(76, 23);
             this.btnExaminarXml.TabIndex = 8;
             this.btnExaminarXml.Text = "Examinar...";
             this.btnExaminarXml.UseVisualStyleBackColor = true;
@@ -563,16 +585,16 @@
             // textRutaPdf
             // 
             this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaPdf.Location = new System.Drawing.Point(111, 147);
+            this.textRutaPdf.Location = new System.Drawing.Point(120, 173);
             this.textRutaPdf.Name = "textRutaPdf";
             this.textRutaPdf.Size = new System.Drawing.Size(251, 23);
             this.textRutaPdf.TabIndex = 5;
             // 
             // btnExaminarPdf
             // 
-            this.btnExaminarPdf.Location = new System.Drawing.Point(368, 147);
+            this.btnExaminarPdf.Location = new System.Drawing.Point(377, 173);
             this.btnExaminarPdf.Name = "btnExaminarPdf";
-            this.btnExaminarPdf.Size = new System.Drawing.Size(75, 23);
+            this.btnExaminarPdf.Size = new System.Drawing.Size(76, 23);
             this.btnExaminarPdf.TabIndex = 6;
             this.btnExaminarPdf.Text = "Examinar...";
             this.btnExaminarPdf.UseVisualStyleBackColor = true;
@@ -587,7 +609,7 @@
             this.btnAgregarGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarGasto.Image")));
             this.btnAgregarGasto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarGasto.Location = new System.Drawing.Point(639, 177);
+            this.btnAgregarGasto.Location = new System.Drawing.Point(639, 198);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(130, 33);
             this.btnAgregarGasto.TabIndex = 14;
@@ -604,10 +626,10 @@
             this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
             this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGastos.Location = new System.Drawing.Point(6, 241);
+            this.dgvGastos.Location = new System.Drawing.Point(6, 262);
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
-            this.dgvGastos.Size = new System.Drawing.Size(763, 333);
+            this.dgvGastos.Size = new System.Drawing.Size(763, 312);
             this.dgvGastos.TabIndex = 35;
             this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellClick);
             this.dgvGastos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellDoubleClick);
@@ -617,7 +639,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(15, 88);
+            this.label15.Location = new System.Drawing.Point(24, 114);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(92, 17);
             this.label15.TabIndex = 0;
@@ -627,7 +649,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(23, 179);
+            this.label10.Location = new System.Drawing.Point(32, 205);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 17);
             this.label10.TabIndex = 0;
@@ -637,7 +659,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 148);
+            this.label5.Location = new System.Drawing.Point(33, 174);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 17);
             this.label5.TabIndex = 0;
@@ -657,7 +679,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(32, 57);
+            this.label3.Location = new System.Drawing.Point(41, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 17);
             this.label3.TabIndex = 0;
@@ -667,7 +689,7 @@
             // 
             this.dateTimeFechaGasto.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFechaGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeFechaGasto.Location = new System.Drawing.Point(112, 85);
+            this.dateTimeFechaGasto.Location = new System.Drawing.Point(121, 111);
             this.dateTimeFechaGasto.Name = "dateTimeFechaGasto";
             this.dateTimeFechaGasto.Size = new System.Drawing.Size(332, 23);
             this.dateTimeFechaGasto.TabIndex = 3;
@@ -676,7 +698,7 @@
             // textRutaXml
             // 
             this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaXml.Location = new System.Drawing.Point(111, 179);
+            this.textRutaXml.Location = new System.Drawing.Point(120, 205);
             this.textRutaXml.Name = "textRutaXml";
             this.textRutaXml.Size = new System.Drawing.Size(251, 23);
             this.textRutaXml.TabIndex = 7;
@@ -692,18 +714,18 @@
             // textConceptoGasto
             // 
             this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textConceptoGasto.Location = new System.Drawing.Point(111, 54);
+            this.textConceptoGasto.Location = new System.Drawing.Point(121, 80);
             this.textConceptoGasto.Name = "textConceptoGasto";
-            this.textConceptoGasto.Size = new System.Drawing.Size(333, 26);
+            this.textConceptoGasto.Size = new System.Drawing.Size(332, 26);
             this.textConceptoGasto.TabIndex = 2;
             // 
             // comboTipoGastos
             // 
             this.comboTipoGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTipoGastos.FormattingEnabled = true;
-            this.comboTipoGastos.Location = new System.Drawing.Point(111, 23);
+            this.comboTipoGastos.Location = new System.Drawing.Point(120, 49);
             this.comboTipoGastos.Name = "comboTipoGastos";
-            this.comboTipoGastos.Size = new System.Drawing.Size(333, 25);
+            this.comboTipoGastos.Size = new System.Drawing.Size(331, 25);
             this.comboTipoGastos.TabIndex = 1;
             this.comboTipoGastos.TextChanged += new System.EventHandler(this.comboTipoGastos2_TextChanged);
             // 
@@ -711,7 +733,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 26);
+            this.label2.Location = new System.Drawing.Point(17, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 17);
             this.label2.TabIndex = 0;
@@ -731,8 +753,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 670);
             this.tabControl1.TabIndex = 25;
-            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
-            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
             // tabPageGenerales
@@ -1053,270 +1073,6 @@
             this.Operadores.Text = "Operadores";
             this.Operadores.UseVisualStyleBackColor = true;
             // 
-            // listTotalOperadores
-            // 
-            this.listTotalOperadores.FormattingEnabled = true;
-            this.listTotalOperadores.ItemHeight = 16;
-            this.listTotalOperadores.Location = new System.Drawing.Point(9, 52);
-            this.listTotalOperadores.Name = "listTotalOperadores";
-            this.listTotalOperadores.Size = new System.Drawing.Size(193, 196);
-            this.listTotalOperadores.TabIndex = 9;
-            this.listTotalOperadores.DoubleClick += new System.EventHandler(this.listTotalOperadores_DoubleClick);
-            // 
-            // listOperadoresAsignados
-            // 
-            this.listOperadoresAsignados.FormattingEnabled = true;
-            this.listOperadoresAsignados.ItemHeight = 16;
-            this.listOperadoresAsignados.Location = new System.Drawing.Point(300, 50);
-            this.listOperadoresAsignados.Name = "listOperadoresAsignados";
-            this.listOperadoresAsignados.Size = new System.Drawing.Size(193, 196);
-            this.listOperadoresAsignados.TabIndex = 30;
-            this.listOperadoresAsignados.Click += new System.EventHandler(this.listOperadoresAsignados_Click);
-            this.listOperadoresAsignados.DoubleClick += new System.EventHandler(this.listOperadoresAsignados_DoubleClick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(192, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(119, 107);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(286, 30);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(214, 16);
-            this.label40.TabIndex = 31;
-            this.label40.Text = "Operadores Asignados al Viaje";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(6, 33);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(211, 16);
-            this.label39.TabIndex = 29;
-            this.label39.Text = "Operadores Registrados en SCI";
-            // 
-            // tabPageGastos
-            // 
-            this.tabPageGastos.Controls.Add(this.groupGastos);
-            this.tabPageGastos.Location = new System.Drawing.Point(4, 25);
-            this.tabPageGastos.Name = "tabPageGastos";
-            this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGastos.Size = new System.Drawing.Size(792, 641);
-            this.tabPageGastos.TabIndex = 1;
-            this.tabPageGastos.Text = "Gastos del Viaje";
-            this.tabPageGastos.UseVisualStyleBackColor = true;
-            // 
-            // tabPageCortes
-            // 
-            this.tabPageCortes.Controls.Add(this.groupCortesOPerador);
-            this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
-            this.tabPageCortes.Name = "tabPageCortes";
-            this.tabPageCortes.Size = new System.Drawing.Size(792, 641);
-            this.tabPageCortes.TabIndex = 2;
-            this.tabPageCortes.Text = "Cortes de Operadores";
-            this.tabPageCortes.UseVisualStyleBackColor = true;
-            // 
-            // groupCortesOPerador
-            // 
-            this.groupCortesOPerador.Controls.Add(this.btnEliminarCorte);
-            this.groupCortesOPerador.Controls.Add(this.label8);
-            this.groupCortesOPerador.Controls.Add(this.comboOperadoresCortes);
-            this.groupCortesOPerador.Controls.Add(this.labelSueldoCortes);
-            this.groupCortesOPerador.Controls.Add(this.labelSaldoTotalCortes);
-            this.groupCortesOPerador.Controls.Add(this.btnRedondear);
-            this.groupCortesOPerador.Controls.Add(this.label21);
-            this.groupCortesOPerador.Controls.Add(this.textCostoTotal);
-            this.groupCortesOPerador.Controls.Add(this.btnAgregarCorteOperador);
-            this.groupCortesOPerador.Controls.Add(this.dgvCortesOperador);
-            this.groupCortesOPerador.Controls.Add(this.label20);
-            this.groupCortesOPerador.Controls.Add(this.textCostoHoraOperador);
-            this.groupCortesOPerador.Controls.Add(this.label19);
-            this.groupCortesOPerador.Controls.Add(this.textTotalHoras);
-            this.groupCortesOPerador.Controls.Add(this.label18);
-            this.groupCortesOPerador.Controls.Add(this.textFechaHoraFinalOperador);
-            this.groupCortesOPerador.Controls.Add(this.label16);
-            this.groupCortesOPerador.Controls.Add(this.textFechaHoraInicialOperador);
-            this.groupCortesOPerador.Controls.Add(this.calendarCortesOperador);
-            this.groupCortesOPerador.Location = new System.Drawing.Point(3, 6);
-            this.groupCortesOPerador.Name = "groupCortesOPerador";
-            this.groupCortesOPerador.Size = new System.Drawing.Size(774, 626);
-            this.groupCortesOPerador.TabIndex = 0;
-            this.groupCortesOPerador.TabStop = false;
-            this.groupCortesOPerador.Text = "Corte de Tiempo por Operador";
-            // 
-            // labelSueldoCortes
-            // 
-            this.labelSueldoCortes.AutoSize = true;
-            this.labelSueldoCortes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSueldoCortes.Location = new System.Drawing.Point(466, 582);
-            this.labelSueldoCortes.Name = "labelSueldoCortes";
-            this.labelSueldoCortes.Size = new System.Drawing.Size(124, 17);
-            this.labelSueldoCortes.TabIndex = 42;
-            this.labelSueldoCortes.Text = "Gastos en Sueldos";
-            // 
-            // labelSaldoTotalCortes
-            // 
-            this.labelSaldoTotalCortes.AutoSize = true;
-            this.labelSaldoTotalCortes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(359, 578);
-            this.labelSaldoTotalCortes.Name = "labelSaldoTotalCortes";
-            this.labelSaldoTotalCortes.Size = new System.Drawing.Size(48, 23);
-            this.labelSaldoTotalCortes.TabIndex = 41;
-            this.labelSaldoTotalCortes.Text = "0.00";
-            this.labelSaldoTotalCortes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnRedondear
-            // 
-            this.btnRedondear.Location = new System.Drawing.Point(676, 156);
-            this.btnRedondear.Name = "btnRedondear";
-            this.btnRedondear.Size = new System.Drawing.Size(89, 27);
-            this.btnRedondear.TabIndex = 29;
-            this.btnRedondear.Text = "Redondear";
-            this.btnRedondear.UseVisualStyleBackColor = true;
-            this.btnRedondear.Click += new System.EventHandler(this.btnRedondear_Click);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(373, 164);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 16);
-            this.label21.TabIndex = 28;
-            this.label21.Text = "Sueldo x Horas";
-            // 
-            // textCostoTotal
-            // 
-            this.textCostoTotal.Enabled = false;
-            this.textCostoTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoTotal.Location = new System.Drawing.Point(497, 156);
-            this.textCostoTotal.Name = "textCostoTotal";
-            this.textCostoTotal.Size = new System.Drawing.Size(173, 27);
-            this.textCostoTotal.TabIndex = 27;
-            // 
-            // btnAgregarCorteOperador
-            // 
-            this.btnAgregarCorteOperador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAgregarCorteOperador.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCorteOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnAgregarCorteOperador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCorteOperador.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAgregarCorteOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCorteOperador.Image")));
-            this.btnAgregarCorteOperador.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(635, 205);
-            this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
-            this.btnAgregarCorteOperador.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarCorteOperador.TabIndex = 26;
-            this.btnAgregarCorteOperador.Text = "Agregar Gasto";
-            this.btnAgregarCorteOperador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarCorteOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregarCorteOperador.UseVisualStyleBackColor = false;
-            this.btnAgregarCorteOperador.Click += new System.EventHandler(this.btnAgregarCorteOperador_Click);
-            // 
-            // dgvCortesOperador
-            // 
-            this.dgvCortesOperador.AllowUserToAddRows = false;
-            this.dgvCortesOperador.AllowUserToDeleteRows = false;
-            this.dgvCortesOperador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCortesOperador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCortesOperador.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCortesOperador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCortesOperador.Location = new System.Drawing.Point(9, 254);
-            this.dgvCortesOperador.Name = "dgvCortesOperador";
-            this.dgvCortesOperador.ReadOnly = true;
-            this.dgvCortesOperador.Size = new System.Drawing.Size(756, 304);
-            this.dgvCortesOperador.TabIndex = 9;
-            this.dgvCortesOperador.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellClick);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(623, 128);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 16);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "Costo/Hora";
-            // 
-            // textCostoHoraOperador
-            // 
-            this.textCostoHoraOperador.Enabled = false;
-            this.textCostoHoraOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoHoraOperador.Location = new System.Drawing.Point(703, 123);
-            this.textCostoHoraOperador.Name = "textCostoHoraOperador";
-            this.textCostoHoraOperador.Size = new System.Drawing.Size(62, 27);
-            this.textCostoHoraOperador.TabIndex = 7;
-            this.textCostoHoraOperador.TextChanged += new System.EventHandler(this.textCostoHoraOperador_TextChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(393, 128);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 16);
-            this.label19.TabIndex = 6;
-            this.label19.Text = "Total Horas";
-            // 
-            // textTotalHoras
-            // 
-            this.textTotalHoras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTotalHoras.Location = new System.Drawing.Point(497, 123);
-            this.textTotalHoras.Name = "textTotalHoras";
-            this.textTotalHoras.Size = new System.Drawing.Size(120, 27);
-            this.textTotalHoras.TabIndex = 5;
-            this.textTotalHoras.Click += new System.EventHandler(this.textTotalHoras_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(353, 95);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(107, 16);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Fecha y Hora Final";
-            // 
-            // textFechaHoraFinalOperador
-            // 
-            this.textFechaHoraFinalOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(497, 90);
-            this.textFechaHoraFinalOperador.Name = "textFechaHoraFinalOperador";
-            this.textFechaHoraFinalOperador.Size = new System.Drawing.Size(268, 27);
-            this.textFechaHoraFinalOperador.TabIndex = 3;
-            this.textFechaHoraFinalOperador.Leave += new System.EventHandler(this.textFechaHoraFinalOperador_Leave);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(346, 62);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(114, 16);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Fecha y Hora Inicial";
-            // 
-            // textFechaHoraInicialOperador
-            // 
-            this.textFechaHoraInicialOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(497, 57);
-            this.textFechaHoraInicialOperador.Name = "textFechaHoraInicialOperador";
-            this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(268, 27);
-            this.textFechaHoraInicialOperador.TabIndex = 1;
-            this.textFechaHoraInicialOperador.Leave += new System.EventHandler(this.textFechaHoraInicialOperador_Leave);
-            // 
-            // calendarCortesOperador
-            // 
-            this.calendarCortesOperador.Location = new System.Drawing.Point(12, 26);
-            this.calendarCortesOperador.Name = "calendarCortesOperador";
-            this.calendarCortesOperador.TabIndex = 0;
-            this.calendarCortesOperador.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarCortesOperador_DateChanged);
-            // 
             // groupOperadores
             // 
             this.groupOperadores.Controls.Add(this.labelCorreoOperador);
@@ -1338,6 +1094,42 @@
             this.groupOperadores.Size = new System.Drawing.Size(747, 298);
             this.groupOperadores.TabIndex = 33;
             this.groupOperadores.TabStop = false;
+            // 
+            // labelCorreoOperador
+            // 
+            this.labelCorreoOperador.AutoSize = true;
+            this.labelCorreoOperador.Location = new System.Drawing.Point(591, 102);
+            this.labelCorreoOperador.Name = "labelCorreoOperador";
+            this.labelCorreoOperador.Size = new System.Drawing.Size(16, 16);
+            this.labelCorreoOperador.TabIndex = 40;
+            this.labelCorreoOperador.Text = "--";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(538, 102);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(47, 16);
+            this.label42.TabIndex = 39;
+            this.label42.Text = "Correo:";
+            // 
+            // labelSalarioPorHora
+            // 
+            this.labelSalarioPorHora.AutoSize = true;
+            this.labelSalarioPorHora.Location = new System.Drawing.Point(591, 86);
+            this.labelSalarioPorHora.Name = "labelSalarioPorHora";
+            this.labelSalarioPorHora.Size = new System.Drawing.Size(16, 16);
+            this.labelSalarioPorHora.TabIndex = 38;
+            this.labelSalarioPorHora.Text = "--";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(510, 84);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(77, 16);
+            this.label41.TabIndex = 37;
+            this.label41.Text = "Salario/hora:";
             // 
             // labelTelOperador
             // 
@@ -1375,60 +1167,105 @@
             this.label32.TabIndex = 33;
             this.label32.Text = "Operador:";
             // 
-            // labelSalarioPorHora
+            // listTotalOperadores
             // 
-            this.labelSalarioPorHora.AutoSize = true;
-            this.labelSalarioPorHora.Location = new System.Drawing.Point(591, 86);
-            this.labelSalarioPorHora.Name = "labelSalarioPorHora";
-            this.labelSalarioPorHora.Size = new System.Drawing.Size(16, 16);
-            this.labelSalarioPorHora.TabIndex = 38;
-            this.labelSalarioPorHora.Text = "--";
+            this.listTotalOperadores.FormattingEnabled = true;
+            this.listTotalOperadores.ItemHeight = 16;
+            this.listTotalOperadores.Location = new System.Drawing.Point(9, 52);
+            this.listTotalOperadores.Name = "listTotalOperadores";
+            this.listTotalOperadores.Size = new System.Drawing.Size(193, 196);
+            this.listTotalOperadores.TabIndex = 9;
+            this.listTotalOperadores.DoubleClick += new System.EventHandler(this.listTotalOperadores_DoubleClick);
             // 
-            // label41
+            // listOperadoresAsignados
             // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(510, 84);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(77, 16);
-            this.label41.TabIndex = 37;
-            this.label41.Text = "Salario/hora:";
+            this.listOperadoresAsignados.FormattingEnabled = true;
+            this.listOperadoresAsignados.ItemHeight = 16;
+            this.listOperadoresAsignados.Location = new System.Drawing.Point(300, 50);
+            this.listOperadoresAsignados.Name = "listOperadoresAsignados";
+            this.listOperadoresAsignados.Size = new System.Drawing.Size(193, 196);
+            this.listOperadoresAsignados.TabIndex = 30;
+            this.listOperadoresAsignados.Click += new System.EventHandler(this.listOperadoresAsignados_Click);
+            this.listOperadoresAsignados.DoubleClick += new System.EventHandler(this.listOperadoresAsignados_DoubleClick);
             // 
-            // labelCorreoOperador
+            // label39
             // 
-            this.labelCorreoOperador.AutoSize = true;
-            this.labelCorreoOperador.Location = new System.Drawing.Point(591, 102);
-            this.labelCorreoOperador.Name = "labelCorreoOperador";
-            this.labelCorreoOperador.Size = new System.Drawing.Size(16, 16);
-            this.labelCorreoOperador.TabIndex = 40;
-            this.labelCorreoOperador.Text = "--";
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(6, 33);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(211, 16);
+            this.label39.TabIndex = 29;
+            this.label39.Text = "Operadores Registrados en SCI";
             // 
-            // label42
+            // pictureBox1
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(538, 102);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(47, 16);
-            this.label42.TabIndex = 39;
-            this.label42.Text = "Correo:";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(192, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(119, 107);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
             // 
-            // comboOperadoresCortes
+            // label40
             // 
-            this.comboOperadoresCortes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboOperadoresCortes.FormattingEnabled = true;
-            this.comboOperadoresCortes.Location = new System.Drawing.Point(497, 20);
-            this.comboOperadoresCortes.Name = "comboOperadoresCortes";
-            this.comboOperadoresCortes.Size = new System.Drawing.Size(268, 29);
-            this.comboOperadoresCortes.TabIndex = 43;
-            this.comboOperadoresCortes.SelectedValueChanged += new System.EventHandler(this.comboOperadoresCortes_SelectedValueChanged);
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(286, 30);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(214, 16);
+            this.label40.TabIndex = 31;
+            this.label40.Text = "Operadores Asignados al Viaje";
             // 
-            // label8
+            // tabPageGastos
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(387, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 16);
-            this.label8.TabIndex = 44;
-            this.label8.Text = "Operadores";
+            this.tabPageGastos.Controls.Add(this.groupGastos);
+            this.tabPageGastos.Location = new System.Drawing.Point(4, 25);
+            this.tabPageGastos.Name = "tabPageGastos";
+            this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGastos.Size = new System.Drawing.Size(792, 641);
+            this.tabPageGastos.TabIndex = 1;
+            this.tabPageGastos.Text = "Gastos del Viaje";
+            this.tabPageGastos.UseVisualStyleBackColor = true;
+            // 
+            // tabPageCortes
+            // 
+            this.tabPageCortes.Controls.Add(this.groupCortesOPerador);
+            this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
+            this.tabPageCortes.Name = "tabPageCortes";
+            this.tabPageCortes.Size = new System.Drawing.Size(792, 641);
+            this.tabPageCortes.TabIndex = 2;
+            this.tabPageCortes.Text = "Cortes de Operadores";
+            this.tabPageCortes.UseVisualStyleBackColor = true;
+            // 
+            // groupCortesOPerador
+            // 
+            this.groupCortesOPerador.Controls.Add(this.calendarCortesOperador);
+            this.groupCortesOPerador.Controls.Add(this.btnEliminarCorte);
+            this.groupCortesOPerador.Controls.Add(this.label8);
+            this.groupCortesOPerador.Controls.Add(this.comboOperadoresCortes);
+            this.groupCortesOPerador.Controls.Add(this.labelSueldoCortes);
+            this.groupCortesOPerador.Controls.Add(this.labelSaldoTotalCortes);
+            this.groupCortesOPerador.Controls.Add(this.btnRedondear);
+            this.groupCortesOPerador.Controls.Add(this.label21);
+            this.groupCortesOPerador.Controls.Add(this.textCostoTotal);
+            this.groupCortesOPerador.Controls.Add(this.btnAgregarCorteOperador);
+            this.groupCortesOPerador.Controls.Add(this.dgvCortesOperador);
+            this.groupCortesOPerador.Controls.Add(this.label20);
+            this.groupCortesOPerador.Controls.Add(this.textCostoHoraOperador);
+            this.groupCortesOPerador.Controls.Add(this.label19);
+            this.groupCortesOPerador.Controls.Add(this.textTotalHoras);
+            this.groupCortesOPerador.Controls.Add(this.label18);
+            this.groupCortesOPerador.Controls.Add(this.textFechaHoraFinalOperador);
+            this.groupCortesOPerador.Controls.Add(this.label16);
+            this.groupCortesOPerador.Controls.Add(this.textFechaHoraInicialOperador);
+            this.groupCortesOPerador.Location = new System.Drawing.Point(3, 6);
+            this.groupCortesOPerador.Name = "groupCortesOPerador";
+            this.groupCortesOPerador.Size = new System.Drawing.Size(774, 626);
+            this.groupCortesOPerador.TabIndex = 0;
+            this.groupCortesOPerador.TabStop = false;
+            this.groupCortesOPerador.Text = "Corte de Tiempo por Operador";
             // 
             // btnEliminarCorte
             // 
@@ -1449,6 +1286,190 @@
             this.btnEliminarCorte.UseVisualStyleBackColor = false;
             this.btnEliminarCorte.Click += new System.EventHandler(this.btnEliminarCorte_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(55, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 16);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Operadores";
+            // 
+            // comboOperadoresCortes
+            // 
+            this.comboOperadoresCortes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOperadoresCortes.FormattingEnabled = true;
+            this.comboOperadoresCortes.Location = new System.Drawing.Point(165, 25);
+            this.comboOperadoresCortes.Name = "comboOperadoresCortes";
+            this.comboOperadoresCortes.Size = new System.Drawing.Size(268, 29);
+            this.comboOperadoresCortes.TabIndex = 43;
+            this.comboOperadoresCortes.SelectedValueChanged += new System.EventHandler(this.comboOperadoresCortes_SelectedValueChanged);
+            // 
+            // labelSueldoCortes
+            // 
+            this.labelSueldoCortes.AutoSize = true;
+            this.labelSueldoCortes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSueldoCortes.Location = new System.Drawing.Point(411, 582);
+            this.labelSueldoCortes.Name = "labelSueldoCortes";
+            this.labelSueldoCortes.Size = new System.Drawing.Size(124, 17);
+            this.labelSueldoCortes.TabIndex = 42;
+            this.labelSueldoCortes.Text = "Gastos en Sueldos";
+            // 
+            // labelSaldoTotalCortes
+            // 
+            this.labelSaldoTotalCortes.AutoSize = true;
+            this.labelSaldoTotalCortes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(304, 578);
+            this.labelSaldoTotalCortes.Name = "labelSaldoTotalCortes";
+            this.labelSaldoTotalCortes.Size = new System.Drawing.Size(48, 23);
+            this.labelSaldoTotalCortes.TabIndex = 41;
+            this.labelSaldoTotalCortes.Text = "0.00";
+            this.labelSaldoTotalCortes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRedondear
+            // 
+            this.btnRedondear.Location = new System.Drawing.Point(344, 161);
+            this.btnRedondear.Name = "btnRedondear";
+            this.btnRedondear.Size = new System.Drawing.Size(89, 27);
+            this.btnRedondear.TabIndex = 29;
+            this.btnRedondear.Text = "Redondear";
+            this.btnRedondear.UseVisualStyleBackColor = true;
+            this.btnRedondear.Click += new System.EventHandler(this.btnRedondear_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(41, 169);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 16);
+            this.label21.TabIndex = 28;
+            this.label21.Text = "Sueldo x Horas";
+            // 
+            // textCostoTotal
+            // 
+            this.textCostoTotal.Enabled = false;
+            this.textCostoTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCostoTotal.Location = new System.Drawing.Point(165, 161);
+            this.textCostoTotal.Name = "textCostoTotal";
+            this.textCostoTotal.Size = new System.Drawing.Size(173, 27);
+            this.textCostoTotal.TabIndex = 27;
+            // 
+            // btnAgregarCorteOperador
+            // 
+            this.btnAgregarCorteOperador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAgregarCorteOperador.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCorteOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnAgregarCorteOperador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCorteOperador.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAgregarCorteOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCorteOperador.Image")));
+            this.btnAgregarCorteOperador.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(563, 197);
+            this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
+            this.btnAgregarCorteOperador.Size = new System.Drawing.Size(130, 33);
+            this.btnAgregarCorteOperador.TabIndex = 26;
+            this.btnAgregarCorteOperador.Text = "Agregar Gasto";
+            this.btnAgregarCorteOperador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCorteOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarCorteOperador.UseVisualStyleBackColor = false;
+            this.btnAgregarCorteOperador.Click += new System.EventHandler(this.btnAgregarCorteOperador_Click);
+            // 
+            // dgvCortesOperador
+            // 
+            this.dgvCortesOperador.AllowUserToAddRows = false;
+            this.dgvCortesOperador.AllowUserToDeleteRows = false;
+            this.dgvCortesOperador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCortesOperador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCortesOperador.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCortesOperador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCortesOperador.Location = new System.Drawing.Point(9, 254);
+            this.dgvCortesOperador.Name = "dgvCortesOperador";
+            this.dgvCortesOperador.ReadOnly = true;
+            this.dgvCortesOperador.Size = new System.Drawing.Size(756, 304);
+            this.dgvCortesOperador.TabIndex = 9;
+            this.dgvCortesOperador.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellClick);
+            this.dgvCortesOperador.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellDoubleClick);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(291, 133);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(70, 16);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "Costo/Hora";
+            // 
+            // textCostoHoraOperador
+            // 
+            this.textCostoHoraOperador.Enabled = false;
+            this.textCostoHoraOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCostoHoraOperador.Location = new System.Drawing.Point(371, 128);
+            this.textCostoHoraOperador.Name = "textCostoHoraOperador";
+            this.textCostoHoraOperador.Size = new System.Drawing.Size(62, 27);
+            this.textCostoHoraOperador.TabIndex = 7;
+            this.textCostoHoraOperador.TextChanged += new System.EventHandler(this.textCostoHoraOperador_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(61, 133);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(67, 16);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "Total Horas";
+            // 
+            // textTotalHoras
+            // 
+            this.textTotalHoras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalHoras.Location = new System.Drawing.Point(165, 128);
+            this.textTotalHoras.Name = "textTotalHoras";
+            this.textTotalHoras.Size = new System.Drawing.Size(120, 27);
+            this.textTotalHoras.TabIndex = 5;
+            this.textTotalHoras.Click += new System.EventHandler(this.textTotalHoras_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(21, 100);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(107, 16);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Fecha y Hora Final";
+            // 
+            // textFechaHoraFinalOperador
+            // 
+            this.textFechaHoraFinalOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(165, 95);
+            this.textFechaHoraFinalOperador.Name = "textFechaHoraFinalOperador";
+            this.textFechaHoraFinalOperador.Size = new System.Drawing.Size(268, 27);
+            this.textFechaHoraFinalOperador.TabIndex = 3;
+            this.textFechaHoraFinalOperador.Leave += new System.EventHandler(this.textFechaHoraFinalOperador_Leave);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 67);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(114, 16);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Fecha y Hora Inicial";
+            // 
+            // textFechaHoraInicialOperador
+            // 
+            this.textFechaHoraInicialOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(165, 62);
+            this.textFechaHoraInicialOperador.Name = "textFechaHoraInicialOperador";
+            this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(268, 27);
+            this.textFechaHoraInicialOperador.TabIndex = 1;
+            this.textFechaHoraInicialOperador.Leave += new System.EventHandler(this.textFechaHoraInicialOperador_Leave);
+            // 
+            // calendarCortesOperador
+            // 
+            this.calendarCortesOperador.Location = new System.Drawing.Point(445, 23);
+            this.calendarCortesOperador.Name = "calendarCortesOperador";
+            this.calendarCortesOperador.TabIndex = 0;
+            this.calendarCortesOperador.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarCortesOperador_DateChanged);
+            // 
             // FormAgregarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1463,6 +1484,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar un nuevo viaje";
             this.Load += new System.EventHandler(this.FormAgregarViaje_Load);
+            this.Shown += new System.EventHandler(this.FormAgregarViaje_Shown);
             this.groupGastos.ResumeLayout(false);
             this.groupGastos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
@@ -1477,14 +1499,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.Operadores.ResumeLayout(false);
+            this.groupOperadores.ResumeLayout(false);
+            this.groupOperadores.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPageGastos.ResumeLayout(false);
             this.tabPageCortes.ResumeLayout(false);
             this.groupCortesOPerador.ResumeLayout(false);
             this.groupCortesOPerador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).EndInit();
-            this.groupOperadores.ResumeLayout(false);
-            this.groupOperadores.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1608,5 +1630,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboOperadoresCortes;
         private System.Windows.Forms.Button btnEliminarCorte;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.ComboBox comboOperadoresGasto;
     }
 }

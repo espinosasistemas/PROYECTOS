@@ -7,5 +7,6 @@ namespace SCI.COMMON.Interfaces
 {
     public interface IGasolineriaManager:IGenericManager<gasolineria>
     {
+        gasolineria BuscarPorRfc(string rfc);
     }
 }
