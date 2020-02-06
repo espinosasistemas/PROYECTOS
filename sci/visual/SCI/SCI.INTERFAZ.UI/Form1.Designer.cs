@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelReportesSubMenu = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panelViajesSubMenu = new System.Windows.Forms.Panel();
             this.btnViajes = new System.Windows.Forms.Button();
@@ -52,7 +49,6 @@
             this.panelDashBoard = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
-            this.panelReportesSubMenu.SuspendLayout();
             this.panelViajesSubMenu.SuspendLayout();
             this.panelCatalogoSubMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,59 +77,11 @@
             // panelReportesSubMenu
             // 
             this.panelReportesSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(244)))));
-            this.panelReportesSubMenu.Controls.Add(this.button10);
-            this.panelReportesSubMenu.Controls.Add(this.button11);
-            this.panelReportesSubMenu.Controls.Add(this.button12);
             this.panelReportesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 546);
             this.panelReportesSubMenu.Name = "panelReportesSubMenu";
             this.panelReportesSubMenu.Size = new System.Drawing.Size(233, 132);
             this.panelReportesSubMenu.TabIndex = 5;
-            // 
-            // button10
-            // 
-            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.Color.LightGray;
-            this.button10.Location = new System.Drawing.Point(0, 80);
-            this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(233, 40);
-            this.button10.TabIndex = 2;
-            this.button10.Text = "button10";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.Color.LightGray;
-            this.button11.Location = new System.Drawing.Point(0, 40);
-            this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(233, 40);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "button11";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.Color.LightGray;
-            this.button12.Location = new System.Drawing.Point(0, 0);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(233, 40);
-            this.button12.TabIndex = 0;
-            this.button12.Text = "button12";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = true;
             // 
             // btnReportes
             // 
@@ -148,7 +96,7 @@
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(233, 45);
             this.btnReportes.TabIndex = 4;
-            this.btnReportes.Text = "          Reportes";
+            this.btnReportes.Text = "             Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.UseVisualStyleBackColor = true;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
@@ -177,7 +125,7 @@
             this.btnViajes.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnViajes.Size = new System.Drawing.Size(233, 40);
             this.btnViajes.TabIndex = 0;
-            this.btnViajes.Text = "          Viajes";
+            this.btnViajes.Text = "             Viajes";
             this.btnViajes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViajes.UseVisualStyleBackColor = true;
             this.btnViajes.Click += new System.EventHandler(this.btnViajes_Click);
@@ -195,7 +143,7 @@
             this.btnTransporte.Name = "btnTransporte";
             this.btnTransporte.Size = new System.Drawing.Size(233, 45);
             this.btnTransporte.TabIndex = 2;
-            this.btnTransporte.Text = "          Transportes";
+            this.btnTransporte.Text = "             Transportes";
             this.btnTransporte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTransporte.UseVisualStyleBackColor = true;
             this.btnTransporte.Click += new System.EventHandler(this.btnTransporte_Click);
@@ -230,7 +178,7 @@
             this.btnGasolineria.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnGasolineria.Size = new System.Drawing.Size(233, 40);
             this.btnGasolineria.TabIndex = 6;
-            this.btnGasolineria.Text = "          Gasolinerías";
+            this.btnGasolineria.Text = "             Gasolinerías";
             this.btnGasolineria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGasolineria.UseVisualStyleBackColor = true;
             this.btnGasolineria.Click += new System.EventHandler(this.btnGasolineria_Click);
@@ -249,7 +197,7 @@
             this.btnCasetas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnCasetas.Size = new System.Drawing.Size(233, 40);
             this.btnCasetas.TabIndex = 5;
-            this.btnCasetas.Text = "          Casetas";
+            this.btnCasetas.Text = "             Casetas";
             this.btnCasetas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCasetas.UseVisualStyleBackColor = true;
             this.btnCasetas.Click += new System.EventHandler(this.btnCasetas_Click);
@@ -268,7 +216,7 @@
             this.btnGastos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnGastos.Size = new System.Drawing.Size(233, 40);
             this.btnGastos.TabIndex = 4;
-            this.btnGastos.Text = "          Tipos Gastos y Status";
+            this.btnGastos.Text = "             Tipos Gastos y Status";
             this.btnGastos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGastos.UseVisualStyleBackColor = true;
             this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
@@ -287,7 +235,7 @@
             this.btnRutas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnRutas.Size = new System.Drawing.Size(233, 40);
             this.btnRutas.TabIndex = 3;
-            this.btnRutas.Text = "          Rutas";
+            this.btnRutas.Text = "             Rutas";
             this.btnRutas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRutas.UseVisualStyleBackColor = true;
             this.btnRutas.Click += new System.EventHandler(this.btnRutas_Click);
@@ -306,7 +254,7 @@
             this.btnClientes.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnClientes.Size = new System.Drawing.Size(233, 40);
             this.btnClientes.TabIndex = 2;
-            this.btnClientes.Text = "          Clientes";
+            this.btnClientes.Text = "             Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.button4_Click);
@@ -325,7 +273,7 @@
             this.btnOperadores.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnOperadores.Size = new System.Drawing.Size(233, 40);
             this.btnOperadores.TabIndex = 1;
-            this.btnOperadores.Text = "          Operadores";
+            this.btnOperadores.Text = "             Operadores";
             this.btnOperadores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOperadores.UseVisualStyleBackColor = true;
             this.btnOperadores.Click += new System.EventHandler(this.button3_Click);
@@ -344,7 +292,7 @@
             this.btnUnidades.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnUnidades.Size = new System.Drawing.Size(233, 40);
             this.btnUnidades.TabIndex = 0;
-            this.btnUnidades.Text = "          Unidades";
+            this.btnUnidades.Text = "             Unidades";
             this.btnUnidades.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUnidades.UseVisualStyleBackColor = true;
             this.btnUnidades.Click += new System.EventHandler(this.button2_Click);
@@ -362,7 +310,7 @@
             this.btnCatalogos.Name = "btnCatalogos";
             this.btnCatalogos.Size = new System.Drawing.Size(233, 45);
             this.btnCatalogos.TabIndex = 0;
-            this.btnCatalogos.Text = "          Catalogos";
+            this.btnCatalogos.Text = "             Catalogos";
             this.btnCatalogos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCatalogos.UseVisualStyleBackColor = true;
             this.btnCatalogos.Click += new System.EventHandler(this.btnCatalogos_Click);
@@ -417,13 +365,13 @@
             this.Controls.Add(this.panelDashBoard);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "FormPrincipal";
             this.Text = "Sistema de Control de Servicios Corporativos Integrales";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelSideMenu.ResumeLayout(false);
-            this.panelReportesSubMenu.ResumeLayout(false);
             this.panelViajesSubMenu.ResumeLayout(false);
             this.panelCatalogoSubMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -446,9 +394,6 @@
         private System.Windows.Forms.Button btnViajes;
         private System.Windows.Forms.Button btnTransporte;
         private System.Windows.Forms.Panel panelReportesSubMenu;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Panel panelDashBoard;
         private System.Windows.Forms.PictureBox pictureBox1;

@@ -40,6 +40,7 @@ namespace SCI.INTERFAZ.UI
             dgvGasolinerias.Columns.Clear();
             IEnumerable<gasolineria> TodosClientes = managerGasolineria.ObtenerTodos;
             dgvGasolinerias.DataSource = TodosClientes;
+            dgvGasolinerias.Columns["idTipoGasto"].Visible = false;
 
             if (dgvGasolinerias.Rows.Count > 0)
             {

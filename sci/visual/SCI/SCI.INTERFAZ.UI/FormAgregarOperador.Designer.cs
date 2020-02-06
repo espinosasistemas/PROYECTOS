@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarOperador));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textNumSeguroSocial = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textNumSeguroSocial = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,16 +90,34 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(4, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(433, 496);
+            this.groupBox1.Size = new System.Drawing.Size(456, 502);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos del Operador";
+            // 
+            // textNumSeguroSocial
+            // 
+            this.textNumSeguroSocial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNumSeguroSocial.Location = new System.Drawing.Point(158, 398);
+            this.textNumSeguroSocial.Name = "textNumSeguroSocial";
+            this.textNumSeguroSocial.Size = new System.Drawing.Size(256, 26);
+            this.textNumSeguroSocial.TabIndex = 14;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(30, 401);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 17);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Núm. Seguro Social";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(37, 336);
+            this.label11.Location = new System.Drawing.Point(39, 333);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 17);
             this.label11.TabIndex = 0;
@@ -109,21 +127,21 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(21, 362);
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(36, 359);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(128, 34);
+            this.label10.Size = new System.Drawing.Size(115, 32);
             this.label10.TabIndex = 0;
             this.label10.Text = "Fecha Vencimiento \r\nLicencia";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(24, 298);
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(38, 298);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 34);
+            this.label9.Size = new System.Drawing.Size(112, 32);
             this.label9.TabIndex = 0;
             this.label9.Text = "Fecha Vencimiento\r\nExamen Medico";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -132,7 +150,7 @@
             // 
             this.dateTimeVencimientoLicencia.CalendarFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeVencimientoLicencia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeVencimientoLicencia.Location = new System.Drawing.Point(155, 362);
+            this.dateTimeVencimientoLicencia.Location = new System.Drawing.Point(157, 359);
             this.dateTimeVencimientoLicencia.Name = "dateTimeVencimientoLicencia";
             this.dateTimeVencimientoLicencia.Size = new System.Drawing.Size(255, 23);
             this.dateTimeVencimientoLicencia.TabIndex = 11;
@@ -140,7 +158,7 @@
             // textNumDeLicencia
             // 
             this.textNumDeLicencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNumDeLicencia.Location = new System.Drawing.Point(154, 330);
+            this.textNumDeLicencia.Location = new System.Drawing.Point(156, 327);
             this.textNumDeLicencia.Name = "textNumDeLicencia";
             this.textNumDeLicencia.Size = new System.Drawing.Size(256, 26);
             this.textNumDeLicencia.TabIndex = 10;
@@ -149,7 +167,7 @@
             // 
             this.dateTimeExamenMedico.CalendarFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeExamenMedico.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeExamenMedico.Location = new System.Drawing.Point(155, 298);
+            this.dateTimeExamenMedico.Location = new System.Drawing.Point(156, 298);
             this.dateTimeExamenMedico.Name = "dateTimeExamenMedico";
             this.dateTimeExamenMedico.Size = new System.Drawing.Size(255, 23);
             this.dateTimeExamenMedico.TabIndex = 9;
@@ -320,29 +338,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // textNumSeguroSocial
-            // 
-            this.textNumSeguroSocial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNumSeguroSocial.Location = new System.Drawing.Point(154, 409);
-            this.textNumSeguroSocial.Name = "textNumSeguroSocial";
-            this.textNumSeguroSocial.Size = new System.Drawing.Size(256, 26);
-            this.textNumSeguroSocial.TabIndex = 14;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(26, 412);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 17);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "Núm. Seguro Social";
-            // 
             // FormAgregarOperador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 508);
+            this.ClientSize = new System.Drawing.Size(464, 514);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

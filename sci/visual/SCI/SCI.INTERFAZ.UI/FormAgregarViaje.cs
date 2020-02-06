@@ -826,27 +826,7 @@ namespace SCI.INTERFAZ.UI
 
         private void dgvGastos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                switch (e.ColumnIndex)
-                {
-                    case 4:
-                        if (dgvGastos[e.ColumnIndex, e.RowIndex].Value.ToString() != string.Empty)
-                        {
-                            try { System.Diagnostics.Process.Start(@"\\Srvopssci\ops_sci\SCI\SISTEMA_SCI\COMPROBANTES\" + dgvGastos[e.ColumnIndex, e.RowIndex].Value.ToString()); }
-                            catch { }
-                        }
-                        break;
-                    case 5:
-                        if (dgvGastos[e.ColumnIndex, e.RowIndex].Value.ToString() != string.Empty)
-                        {
-                            try { System.Diagnostics.Process.Start(@"\\Srvopssci\ops_sci\SCI\SISTEMA_SCI\COMPROBANTES\" + dgvGastos[e.ColumnIndex, e.RowIndex].Value.ToString()); }
-                            catch { }
-                        }
-                        break;
-                    default: break;
-                }
-            }
+            
         }
 
         private void cargarTodasLasUnidades(int tipoDeUnidad)
@@ -1021,13 +1001,38 @@ namespace SCI.INTERFAZ.UI
 
         private void dgvGastos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            /*if (e.RowIndex >= 0)
             {
-                filaGastoSeleccionado = e.RowIndex;
-                idGastoAeditar = int.Parse(dgvGastos["idGasto",filaGastoSeleccionado].Value.ToString());
-                cargarDatosGastoAeditar();
-                editarGasto = true;
+                
+            }*/
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                switch (e.ColumnIndex)
+                {
+                    case 3:
+                        if (dgvGastos[e.ColumnIndex, e.RowIndex].Value.ToString() != string.Empty)
+                        {
+                            try { System.Diagnostics.Process.Start(@"\\Srvopssci\ops_sci\SCI\SISTEMA_SCI\COMPROBANTES\" + dgvGastos[e.ColumnIndex, e.RowIndex].Value.ToString()); }
+                            catch { }
+                        }
+                        break;
+                    case 4:
+                        if (dgvGastos[e.ColumnIndex, e.RowIndex].Value.ToString() != string.Empty)
+                        {
+                            try { System.Diagnostics.Process.Start(@"\\Srvopssci\ops_sci\SCI\SISTEMA_SCI\COMPROBANTES\" + dgvGastos[e.ColumnIndex, e.RowIndex].Value.ToString()); }
+                            catch { }
+                        }
+                        break;
+                    default:
+                        filaGastoSeleccionado = e.RowIndex;
+                        idGastoAeditar = int.Parse(dgvGastos["idGasto", filaGastoSeleccionado].Value.ToString());
+                        cargarDatosGastoAeditar();
+                        editarGasto = true;
+                        break;
+                }
             }
+
         }
 
         private void cargarDatosGastoAeditar()

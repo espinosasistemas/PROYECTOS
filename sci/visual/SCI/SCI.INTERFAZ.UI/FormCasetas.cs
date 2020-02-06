@@ -15,12 +15,16 @@ namespace SCI.INTERFAZ.UI
     public partial class FormCasetas : Form
     {
         ICasetaManager managerCaseta;
+        ITipoDeUnidadManager managerTipoDeUnidad;
+        ITipoDeGastoManager managerTipoDeGasto;
         int filaSeleccionada = -1;
 
         public FormCasetas()
         {
             InitializeComponent();
             managerCaseta = Tools.FabricManager.CasetaManager();
+            managerTipoDeUnidad = Tools.FabricManager.TipoDeUnidadesManager();
+            managerTipoDeGasto = Tools.FabricManager.TipoDeGastoManager();
         }
 
         private void mostrarLabelStatus(string mensaje, bool color)
@@ -34,12 +38,28 @@ namespace SCI.INTERFAZ.UI
         }
         public void cargarTodasLasCasetas()
         {
-            //dgvCasetas.Columns.Clear();
+            dgvCasetas.Columns.Clear();
             IEnumerable<caseta> TodosClientes = managerCaseta.ObtenerTodos;
             dgvCasetas.DataSource = TodosClientes;
 
+            dgvCasetas.Columns["idTipoDeUnidad"].Visible = false;
+            dgvCasetas.Columns["idTipoDeGasto"].Visible = false;
+
             if (dgvCasetas.Rows.Count > 0)
             {
+                dgvCasetas.Columns.Add("TipoDeUnidad", "TipoDeUnidad");
+                dgvCasetas.Columns.Add("TipoDeGasto", "TipoDeGasto");
+                tipounidad tUnidad = new tipounidad();
+                tipogasto tGasto = new tipogasto();
+                for (int i = 0; i < dgvCasetas.Rows.Count; i++)
+                {
+                    tUnidad = managerTipoDeUnidad.BuscarPorId(dgvCasetas["idTipoDeUnidad", i].Value.ToString());
+                    tGasto = managerTipoDeGasto.BuscarPorId(dgvCasetas["idTipoDeGasto", i].Value.ToString());
+
+                    dgvCasetas["TipoDeUnidad", i].Value = tUnidad.Descripcion;
+                    dgvCasetas["TipoDeGasto", i].Value = tGasto.Concepto;
+                }
+
                 mostrarLabelStatus("Se han cargado todas los casetas dadas de alta.", true);
                 filaSeleccionada = 0;
             }
@@ -110,7 +130,7 @@ namespace SCI.INTERFAZ.UI
 
         private void FormCasetas_Load(object sender, EventArgs e)
         {
-            cargarTodasLasCasetas();
+            
         }
 
         private void dgvCasetas_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -121,6 +141,11 @@ namespace SCI.INTERFAZ.UI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormCasetas_Shown(object sender, EventArgs e)
+        {
+            cargarTodasLasCasetas();
         }
     }
 }

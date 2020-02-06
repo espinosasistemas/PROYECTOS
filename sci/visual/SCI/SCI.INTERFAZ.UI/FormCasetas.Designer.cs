@@ -255,6 +255,7 @@
             this.Name = "FormCasetas";
             this.Text = "FormCasetas";
             this.Load += new System.EventHandler(this.FormCasetas_Load);
+            this.Shown += new System.EventHandler(this.FormCasetas_Shown);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelResultado.ResumeLayout(false);
