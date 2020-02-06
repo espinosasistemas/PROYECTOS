@@ -156,7 +156,7 @@
             this.comboTipoDeGasto.Location = new System.Drawing.Point(130, 224);
             this.comboTipoDeGasto.Name = "comboTipoDeGasto";
             this.comboTipoDeGasto.Size = new System.Drawing.Size(308, 29);
-            this.comboTipoDeGasto.TabIndex = 0;
+            this.comboTipoDeGasto.TabIndex = 7;
             // 
             // label4
             // 
@@ -180,7 +180,7 @@
             this.btnAgregarRuta.Location = new System.Drawing.Point(310, 267);
             this.btnAgregarRuta.Name = "btnAgregarRuta";
             this.btnAgregarRuta.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarRuta.TabIndex = 7;
+            this.btnAgregarRuta.TabIndex = 8;
             this.btnAgregarRuta.Text = "Add Gasolinería";
             this.btnAgregarRuta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarRuta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

@@ -130,6 +130,7 @@
             this.tabPageGastos = new System.Windows.Forms.TabPage();
             this.tabPageCortes = new System.Windows.Forms.TabPage();
             this.groupCortesOPerador = new System.Windows.Forms.GroupBox();
+            this.calendarCortesOperador = new System.Windows.Forms.MonthCalendar();
             this.btnEliminarCorte = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.comboOperadoresCortes = new System.Windows.Forms.ComboBox();
@@ -148,7 +149,6 @@
             this.textFechaHoraFinalOperador = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textFechaHoraInicialOperador = new System.Windows.Forms.TextBox();
-            this.calendarCortesOperador = new System.Windows.Forms.MonthCalendar();
             this.groupGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -174,7 +174,7 @@
             this.label14.Location = new System.Drawing.Point(85, 255);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(88, 16);
-            this.label14.TabIndex = 22;
+            this.label14.TabIndex = 0;
             this.label14.Text = "Fechas Final";
             // 
             // label13
@@ -184,7 +184,7 @@
             this.label13.Location = new System.Drawing.Point(77, 226);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 16);
-            this.label13.TabIndex = 21;
+            this.label13.TabIndex = 0;
             this.label13.Text = "Fechas Inicial";
             // 
             // textDateFinCliente
@@ -273,7 +273,7 @@
             this.comboStatus.Location = new System.Drawing.Point(167, 169);
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(247, 25);
-            this.comboStatus.TabIndex = 9;
+            this.comboStatus.TabIndex = 5;
             this.comboStatus.SelectedValueChanged += new System.EventHandler(this.comboStatus_SelectedValueChanged);
             // 
             // label7
@@ -293,7 +293,7 @@
             this.comboClientes.Location = new System.Drawing.Point(168, 135);
             this.comboClientes.Name = "comboClientes";
             this.comboClientes.Size = new System.Drawing.Size(247, 25);
-            this.comboClientes.TabIndex = 7;
+            this.comboClientes.TabIndex = 4;
             this.comboClientes.TextChanged += new System.EventHandler(this.comboClientes_TextChanged);
             // 
             // label6
@@ -313,7 +313,7 @@
             this.comboRutas.Location = new System.Drawing.Point(168, 59);
             this.comboRutas.Name = "comboRutas";
             this.comboRutas.Size = new System.Drawing.Size(247, 25);
-            this.comboRutas.TabIndex = 6;
+            this.comboRutas.TabIndex = 2;
             this.comboRutas.TextChanged += new System.EventHandler(this.comboRutas_TextChanged);
             // 
             // btnAgregarViaje
@@ -325,10 +325,10 @@
             this.btnAgregarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarViaje.Image")));
             this.btnAgregarViaje.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarViaje.Location = new System.Drawing.Point(284, 259);
+            this.btnAgregarViaje.Location = new System.Drawing.Point(284, 239);
             this.btnAgregarViaje.Name = "btnAgregarViaje";
             this.btnAgregarViaje.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarViaje.TabIndex = 10;
+            this.btnAgregarViaje.TabIndex = 6;
             this.btnAgregarViaje.Text = "Agregar Viaje";
             this.btnAgregarViaje.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarViaje.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -414,7 +414,7 @@
             this.comboOperadoresGasto.Location = new System.Drawing.Point(120, 18);
             this.comboOperadoresGasto.Name = "comboOperadoresGasto";
             this.comboOperadoresGasto.Size = new System.Drawing.Size(330, 25);
-            this.comboOperadoresGasto.TabIndex = 46;
+            this.comboOperadoresGasto.TabIndex = 10;
             // 
             // textPoliza
             // 
@@ -519,17 +519,17 @@
             this.comboGasolinerias.Location = new System.Drawing.Point(120, 80);
             this.comboGasolinerias.Name = "comboGasolinerias";
             this.comboGasolinerias.Size = new System.Drawing.Size(332, 25);
-            this.comboGasolinerias.TabIndex = 2;
+            this.comboGasolinerias.TabIndex = 12;
             this.comboGasolinerias.Visible = false;
             // 
             // comboCasetas
             // 
             this.comboCasetas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCasetas.FormattingEnabled = true;
-            this.comboCasetas.Location = new System.Drawing.Point(121, 81);
+            this.comboCasetas.Location = new System.Drawing.Point(119, 81);
             this.comboCasetas.Name = "comboCasetas";
             this.comboCasetas.Size = new System.Drawing.Size(331, 25);
-            this.comboCasetas.TabIndex = 2;
+            this.comboCasetas.TabIndex = 12;
             this.comboCasetas.Visible = false;
             this.comboCasetas.TextChanged += new System.EventHandler(this.comboCasetas_TextChanged);
             // 
@@ -549,7 +549,7 @@
             this.textFechaDelGasto.Location = new System.Drawing.Point(120, 141);
             this.textFechaDelGasto.Name = "textFechaDelGasto";
             this.textFechaDelGasto.Size = new System.Drawing.Size(333, 26);
-            this.textFechaDelGasto.TabIndex = 4;
+            this.textFechaDelGasto.TabIndex = 14;
             // 
             // labelTotalGastos
             // 
@@ -577,7 +577,7 @@
             this.btnExaminarXml.Location = new System.Drawing.Point(377, 203);
             this.btnExaminarXml.Name = "btnExaminarXml";
             this.btnExaminarXml.Size = new System.Drawing.Size(76, 23);
-            this.btnExaminarXml.TabIndex = 8;
+            this.btnExaminarXml.TabIndex = 18;
             this.btnExaminarXml.Text = "Examinar...";
             this.btnExaminarXml.UseVisualStyleBackColor = true;
             this.btnExaminarXml.Click += new System.EventHandler(this.btnExaminarXml_Click);
@@ -588,14 +588,14 @@
             this.textRutaPdf.Location = new System.Drawing.Point(120, 173);
             this.textRutaPdf.Name = "textRutaPdf";
             this.textRutaPdf.Size = new System.Drawing.Size(251, 23);
-            this.textRutaPdf.TabIndex = 5;
+            this.textRutaPdf.TabIndex = 15;
             // 
             // btnExaminarPdf
             // 
             this.btnExaminarPdf.Location = new System.Drawing.Point(377, 173);
             this.btnExaminarPdf.Name = "btnExaminarPdf";
             this.btnExaminarPdf.Size = new System.Drawing.Size(76, 23);
-            this.btnExaminarPdf.TabIndex = 6;
+            this.btnExaminarPdf.TabIndex = 16;
             this.btnExaminarPdf.Text = "Examinar...";
             this.btnExaminarPdf.UseVisualStyleBackColor = true;
             this.btnExaminarPdf.Click += new System.EventHandler(this.btnExaminarPdf_Click);
@@ -692,7 +692,7 @@
             this.dateTimeFechaGasto.Location = new System.Drawing.Point(121, 111);
             this.dateTimeFechaGasto.Name = "dateTimeFechaGasto";
             this.dateTimeFechaGasto.Size = new System.Drawing.Size(332, 23);
-            this.dateTimeFechaGasto.TabIndex = 3;
+            this.dateTimeFechaGasto.TabIndex = 13;
             this.dateTimeFechaGasto.ValueChanged += new System.EventHandler(this.dateTimeFechaGasto_ValueChanged);
             // 
             // textRutaXml
@@ -701,7 +701,7 @@
             this.textRutaXml.Location = new System.Drawing.Point(120, 205);
             this.textRutaXml.Name = "textRutaXml";
             this.textRutaXml.Size = new System.Drawing.Size(251, 23);
-            this.textRutaXml.TabIndex = 7;
+            this.textRutaXml.TabIndex = 17;
             // 
             // textMontoGasto
             // 
@@ -717,7 +717,7 @@
             this.textConceptoGasto.Location = new System.Drawing.Point(121, 80);
             this.textConceptoGasto.Name = "textConceptoGasto";
             this.textConceptoGasto.Size = new System.Drawing.Size(332, 26);
-            this.textConceptoGasto.TabIndex = 2;
+            this.textConceptoGasto.TabIndex = 12;
             // 
             // comboTipoGastos
             // 
@@ -726,7 +726,7 @@
             this.comboTipoGastos.Location = new System.Drawing.Point(120, 49);
             this.comboTipoGastos.Name = "comboTipoGastos";
             this.comboTipoGastos.Size = new System.Drawing.Size(331, 25);
-            this.comboTipoGastos.TabIndex = 1;
+            this.comboTipoGastos.TabIndex = 11;
             this.comboTipoGastos.TextChanged += new System.EventHandler(this.comboTipoGastos2_TextChanged);
             // 
             // label2
@@ -752,7 +752,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 670);
-            this.tabControl1.TabIndex = 25;
+            this.tabControl1.TabIndex = 9;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
             // tabPageGenerales
@@ -799,7 +799,7 @@
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(768, 339);
-            this.tabControl2.TabIndex = 28;
+            this.tabControl2.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -829,7 +829,7 @@
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(420, 298);
-            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Generales del Viaje";
             // 
@@ -840,7 +840,7 @@
             this.comboUnidades.Location = new System.Drawing.Point(168, 97);
             this.comboUnidades.Name = "comboUnidades";
             this.comboUnidades.Size = new System.Drawing.Size(247, 25);
-            this.comboUnidades.TabIndex = 25;
+            this.comboUnidades.TabIndex = 3;
             this.comboUnidades.TextChanged += new System.EventHandler(this.comboUnidades_TextChanged);
             // 
             // label22
@@ -850,7 +850,7 @@
             this.label22.Location = new System.Drawing.Point(30, 101);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(132, 17);
-            this.label22.TabIndex = 24;
+            this.label22.TabIndex = 0;
             this.label22.Text = "Seleccionar Unidad";
             // 
             // groupBox1
@@ -888,7 +888,7 @@
             this.labelRfcCliente.Location = new System.Drawing.Point(110, 151);
             this.labelRfcCliente.Name = "labelRfcCliente";
             this.labelRfcCliente.Size = new System.Drawing.Size(16, 16);
-            this.labelRfcCliente.TabIndex = 23;
+            this.labelRfcCliente.TabIndex = 0;
             this.labelRfcCliente.Text = "--";
             // 
             // label35
@@ -897,7 +897,7 @@
             this.label35.Location = new System.Drawing.Point(78, 151);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(28, 16);
-            this.label35.TabIndex = 22;
+            this.label35.TabIndex = 0;
             this.label35.Text = "Rfc:";
             // 
             // labelTelCliente
@@ -906,7 +906,7 @@
             this.labelTelCliente.Location = new System.Drawing.Point(110, 169);
             this.labelTelCliente.Name = "labelTelCliente";
             this.labelTelCliente.Size = new System.Drawing.Size(16, 16);
-            this.labelTelCliente.TabIndex = 19;
+            this.labelTelCliente.TabIndex = 0;
             this.labelTelCliente.Text = "--";
             // 
             // labelNombreCliente
@@ -915,7 +915,7 @@
             this.labelNombreCliente.Location = new System.Drawing.Point(110, 135);
             this.labelNombreCliente.Name = "labelNombreCliente";
             this.labelNombreCliente.Size = new System.Drawing.Size(16, 16);
-            this.labelNombreCliente.TabIndex = 18;
+            this.labelNombreCliente.TabIndex = 0;
             this.labelNombreCliente.Text = "--";
             // 
             // label31
@@ -924,7 +924,7 @@
             this.label31.Location = new System.Drawing.Point(37, 169);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(69, 16);
-            this.label31.TabIndex = 15;
+            this.label31.TabIndex = 0;
             this.label31.Text = "Tél. Cliente:";
             // 
             // label30
@@ -933,7 +933,7 @@
             this.label30.Location = new System.Drawing.Point(57, 135);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(49, 16);
-            this.label30.TabIndex = 14;
+            this.label30.TabIndex = 0;
             this.label30.Text = "Cliente:";
             // 
             // labelCombustible
@@ -942,7 +942,7 @@
             this.labelCombustible.Location = new System.Drawing.Point(110, 119);
             this.labelCombustible.Name = "labelCombustible";
             this.labelCombustible.Size = new System.Drawing.Size(16, 16);
-            this.labelCombustible.TabIndex = 13;
+            this.labelCombustible.TabIndex = 0;
             this.labelCombustible.Text = "--";
             // 
             // labelPlacas
@@ -951,7 +951,7 @@
             this.labelPlacas.Location = new System.Drawing.Point(110, 103);
             this.labelPlacas.Name = "labelPlacas";
             this.labelPlacas.Size = new System.Drawing.Size(16, 16);
-            this.labelPlacas.TabIndex = 12;
+            this.labelPlacas.TabIndex = 0;
             this.labelPlacas.Text = "--";
             // 
             // labelNumEco
@@ -960,7 +960,7 @@
             this.labelNumEco.Location = new System.Drawing.Point(110, 87);
             this.labelNumEco.Name = "labelNumEco";
             this.labelNumEco.Size = new System.Drawing.Size(16, 16);
-            this.labelNumEco.TabIndex = 11;
+            this.labelNumEco.TabIndex = 0;
             this.labelNumEco.Text = "--";
             // 
             // labelNombreUnidad
@@ -969,7 +969,7 @@
             this.labelNombreUnidad.Location = new System.Drawing.Point(110, 71);
             this.labelNombreUnidad.Name = "labelNombreUnidad";
             this.labelNombreUnidad.Size = new System.Drawing.Size(16, 16);
-            this.labelNombreUnidad.TabIndex = 10;
+            this.labelNombreUnidad.TabIndex = 0;
             this.labelNombreUnidad.Text = "--";
             // 
             // labelTipoUnidad
@@ -978,7 +978,7 @@
             this.labelTipoUnidad.Location = new System.Drawing.Point(110, 55);
             this.labelTipoUnidad.Name = "labelTipoUnidad";
             this.labelTipoUnidad.Size = new System.Drawing.Size(16, 16);
-            this.labelTipoUnidad.TabIndex = 9;
+            this.labelTipoUnidad.TabIndex = 0;
             this.labelTipoUnidad.Text = "--";
             // 
             // labelCostoRuta
@@ -987,7 +987,7 @@
             this.labelCostoRuta.Location = new System.Drawing.Point(110, 39);
             this.labelCostoRuta.Name = "labelCostoRuta";
             this.labelCostoRuta.Size = new System.Drawing.Size(16, 16);
-            this.labelCostoRuta.TabIndex = 8;
+            this.labelCostoRuta.TabIndex = 0;
             this.labelCostoRuta.Text = "--";
             // 
             // labelNombreRuta
@@ -996,7 +996,7 @@
             this.labelNombreRuta.Location = new System.Drawing.Point(110, 23);
             this.labelNombreRuta.Name = "labelNombreRuta";
             this.labelNombreRuta.Size = new System.Drawing.Size(16, 16);
-            this.labelNombreRuta.TabIndex = 7;
+            this.labelNombreRuta.TabIndex = 0;
             this.labelNombreRuta.Text = "--";
             // 
             // label29
@@ -1005,7 +1005,7 @@
             this.label29.Location = new System.Drawing.Point(27, 119);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(79, 16);
-            this.label29.TabIndex = 6;
+            this.label29.TabIndex = 0;
             this.label29.Text = "Combustible:";
             // 
             // label28
@@ -1014,7 +1014,7 @@
             this.label28.Location = new System.Drawing.Point(59, 103);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(47, 16);
-            this.label28.TabIndex = 5;
+            this.label28.TabIndex = 0;
             this.label28.Text = "Placas:";
             // 
             // label27
@@ -1023,7 +1023,7 @@
             this.label27.Location = new System.Drawing.Point(4, 87);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(102, 16);
-            this.label27.TabIndex = 4;
+            this.label27.TabIndex = 0;
             this.label27.Text = "Núm. Economico:";
             // 
             // label26
@@ -1032,7 +1032,7 @@
             this.label26.Location = new System.Drawing.Point(8, 71);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(98, 16);
-            this.label26.TabIndex = 3;
+            this.label26.TabIndex = 0;
             this.label26.Text = "Nombre Unidad:";
             // 
             // label25
@@ -1041,7 +1041,7 @@
             this.label25.Location = new System.Drawing.Point(29, 55);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(77, 16);
-            this.label25.TabIndex = 2;
+            this.label25.TabIndex = 0;
             this.label25.Text = "Tipo Unidad:";
             // 
             // label24
@@ -1050,7 +1050,7 @@
             this.label24.Location = new System.Drawing.Point(64, 39);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(42, 16);
-            this.label24.TabIndex = 1;
+            this.label24.TabIndex = 0;
             this.label24.Text = "Costo:";
             // 
             // label23
@@ -1101,7 +1101,7 @@
             this.labelCorreoOperador.Location = new System.Drawing.Point(591, 102);
             this.labelCorreoOperador.Name = "labelCorreoOperador";
             this.labelCorreoOperador.Size = new System.Drawing.Size(16, 16);
-            this.labelCorreoOperador.TabIndex = 40;
+            this.labelCorreoOperador.TabIndex = 0;
             this.labelCorreoOperador.Text = "--";
             // 
             // label42
@@ -1110,7 +1110,7 @@
             this.label42.Location = new System.Drawing.Point(538, 102);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(47, 16);
-            this.label42.TabIndex = 39;
+            this.label42.TabIndex = 0;
             this.label42.Text = "Correo:";
             // 
             // labelSalarioPorHora
@@ -1119,7 +1119,7 @@
             this.labelSalarioPorHora.Location = new System.Drawing.Point(591, 86);
             this.labelSalarioPorHora.Name = "labelSalarioPorHora";
             this.labelSalarioPorHora.Size = new System.Drawing.Size(16, 16);
-            this.labelSalarioPorHora.TabIndex = 38;
+            this.labelSalarioPorHora.TabIndex = 0;
             this.labelSalarioPorHora.Text = "--";
             // 
             // label41
@@ -1128,7 +1128,7 @@
             this.label41.Location = new System.Drawing.Point(510, 84);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(77, 16);
-            this.label41.TabIndex = 37;
+            this.label41.TabIndex = 0;
             this.label41.Text = "Salario/hora:";
             // 
             // labelTelOperador
@@ -1137,7 +1137,7 @@
             this.labelTelOperador.Location = new System.Drawing.Point(591, 70);
             this.labelTelOperador.Name = "labelTelOperador";
             this.labelTelOperador.Size = new System.Drawing.Size(16, 16);
-            this.labelTelOperador.TabIndex = 36;
+            this.labelTelOperador.TabIndex = 0;
             this.labelTelOperador.Text = "--";
             // 
             // labelNombreOperador
@@ -1146,7 +1146,7 @@
             this.labelNombreOperador.Location = new System.Drawing.Point(591, 54);
             this.labelNombreOperador.Name = "labelNombreOperador";
             this.labelNombreOperador.Size = new System.Drawing.Size(16, 16);
-            this.labelNombreOperador.TabIndex = 35;
+            this.labelNombreOperador.TabIndex = 0;
             this.labelNombreOperador.Text = "--";
             // 
             // label33
@@ -1155,7 +1155,7 @@
             this.label33.Location = new System.Drawing.Point(502, 68);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(85, 16);
-            this.label33.TabIndex = 34;
+            this.label33.TabIndex = 0;
             this.label33.Text = "Tel. Operador:";
             // 
             // label32
@@ -1164,7 +1164,7 @@
             this.label32.Location = new System.Drawing.Point(522, 52);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(65, 16);
-            this.label32.TabIndex = 33;
+            this.label32.TabIndex = 0;
             this.label32.Text = "Operador:";
             // 
             // listTotalOperadores
@@ -1174,7 +1174,7 @@
             this.listTotalOperadores.Location = new System.Drawing.Point(9, 52);
             this.listTotalOperadores.Name = "listTotalOperadores";
             this.listTotalOperadores.Size = new System.Drawing.Size(193, 196);
-            this.listTotalOperadores.TabIndex = 9;
+            this.listTotalOperadores.TabIndex = 7;
             this.listTotalOperadores.DoubleClick += new System.EventHandler(this.listTotalOperadores_DoubleClick);
             // 
             // listOperadoresAsignados
@@ -1184,7 +1184,7 @@
             this.listOperadoresAsignados.Location = new System.Drawing.Point(300, 50);
             this.listOperadoresAsignados.Name = "listOperadoresAsignados";
             this.listOperadoresAsignados.Size = new System.Drawing.Size(193, 196);
-            this.listOperadoresAsignados.TabIndex = 30;
+            this.listOperadoresAsignados.TabIndex = 8;
             this.listOperadoresAsignados.Click += new System.EventHandler(this.listOperadoresAsignados_Click);
             this.listOperadoresAsignados.DoubleClick += new System.EventHandler(this.listOperadoresAsignados_DoubleClick);
             // 
@@ -1267,6 +1267,13 @@
             this.groupCortesOPerador.TabStop = false;
             this.groupCortesOPerador.Text = "Corte de Tiempo por Operador";
             // 
+            // calendarCortesOperador
+            // 
+            this.calendarCortesOperador.Location = new System.Drawing.Point(445, 23);
+            this.calendarCortesOperador.Name = "calendarCortesOperador";
+            this.calendarCortesOperador.TabIndex = 21;
+            this.calendarCortesOperador.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarCortesOperador_DateChanged);
+            // 
             // btnEliminarCorte
             // 
             this.btnEliminarCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
@@ -1279,7 +1286,7 @@
             this.btnEliminarCorte.Location = new System.Drawing.Point(6, 582);
             this.btnEliminarCorte.Name = "btnEliminarCorte";
             this.btnEliminarCorte.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarCorte.TabIndex = 46;
+            this.btnEliminarCorte.TabIndex = 24;
             this.btnEliminarCorte.Text = "Eliminar Corte";
             this.btnEliminarCorte.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1292,7 +1299,7 @@
             this.label8.Location = new System.Drawing.Point(55, 30);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 16);
-            this.label8.TabIndex = 44;
+            this.label8.TabIndex = 0;
             this.label8.Text = "Operadores";
             // 
             // comboOperadoresCortes
@@ -1302,7 +1309,7 @@
             this.comboOperadoresCortes.Location = new System.Drawing.Point(165, 25);
             this.comboOperadoresCortes.Name = "comboOperadoresCortes";
             this.comboOperadoresCortes.Size = new System.Drawing.Size(268, 29);
-            this.comboOperadoresCortes.TabIndex = 43;
+            this.comboOperadoresCortes.TabIndex = 15;
             this.comboOperadoresCortes.SelectedValueChanged += new System.EventHandler(this.comboOperadoresCortes_SelectedValueChanged);
             // 
             // labelSueldoCortes
@@ -1342,7 +1349,7 @@
             this.label21.Location = new System.Drawing.Point(41, 169);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(87, 16);
-            this.label21.TabIndex = 28;
+            this.label21.TabIndex = 0;
             this.label21.Text = "Sueldo x Horas";
             // 
             // textCostoTotal
@@ -1352,7 +1359,7 @@
             this.textCostoTotal.Location = new System.Drawing.Point(165, 161);
             this.textCostoTotal.Name = "textCostoTotal";
             this.textCostoTotal.Size = new System.Drawing.Size(173, 27);
-            this.textCostoTotal.TabIndex = 27;
+            this.textCostoTotal.TabIndex = 20;
             // 
             // btnAgregarCorteOperador
             // 
@@ -1366,7 +1373,7 @@
             this.btnAgregarCorteOperador.Location = new System.Drawing.Point(563, 197);
             this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
             this.btnAgregarCorteOperador.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarCorteOperador.TabIndex = 26;
+            this.btnAgregarCorteOperador.TabIndex = 22;
             this.btnAgregarCorteOperador.Text = "Agregar Gasto";
             this.btnAgregarCorteOperador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarCorteOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1386,7 +1393,7 @@
             this.dgvCortesOperador.Name = "dgvCortesOperador";
             this.dgvCortesOperador.ReadOnly = true;
             this.dgvCortesOperador.Size = new System.Drawing.Size(756, 304);
-            this.dgvCortesOperador.TabIndex = 9;
+            this.dgvCortesOperador.TabIndex = 23;
             this.dgvCortesOperador.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellClick);
             this.dgvCortesOperador.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellDoubleClick);
             // 
@@ -1406,7 +1413,7 @@
             this.textCostoHoraOperador.Location = new System.Drawing.Point(371, 128);
             this.textCostoHoraOperador.Name = "textCostoHoraOperador";
             this.textCostoHoraOperador.Size = new System.Drawing.Size(62, 27);
-            this.textCostoHoraOperador.TabIndex = 7;
+            this.textCostoHoraOperador.TabIndex = 19;
             this.textCostoHoraOperador.TextChanged += new System.EventHandler(this.textCostoHoraOperador_TextChanged);
             // 
             // label19
@@ -1415,7 +1422,7 @@
             this.label19.Location = new System.Drawing.Point(61, 133);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(67, 16);
-            this.label19.TabIndex = 6;
+            this.label19.TabIndex = 0;
             this.label19.Text = "Total Horas";
             // 
             // textTotalHoras
@@ -1424,7 +1431,7 @@
             this.textTotalHoras.Location = new System.Drawing.Point(165, 128);
             this.textTotalHoras.Name = "textTotalHoras";
             this.textTotalHoras.Size = new System.Drawing.Size(120, 27);
-            this.textTotalHoras.TabIndex = 5;
+            this.textTotalHoras.TabIndex = 18;
             this.textTotalHoras.Click += new System.EventHandler(this.textTotalHoras_Click);
             // 
             // label18
@@ -1433,7 +1440,7 @@
             this.label18.Location = new System.Drawing.Point(21, 100);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(107, 16);
-            this.label18.TabIndex = 4;
+            this.label18.TabIndex = 0;
             this.label18.Text = "Fecha y Hora Final";
             // 
             // textFechaHoraFinalOperador
@@ -1442,7 +1449,7 @@
             this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(165, 95);
             this.textFechaHoraFinalOperador.Name = "textFechaHoraFinalOperador";
             this.textFechaHoraFinalOperador.Size = new System.Drawing.Size(268, 27);
-            this.textFechaHoraFinalOperador.TabIndex = 3;
+            this.textFechaHoraFinalOperador.TabIndex = 17;
             this.textFechaHoraFinalOperador.Leave += new System.EventHandler(this.textFechaHoraFinalOperador_Leave);
             // 
             // label16
@@ -1451,7 +1458,7 @@
             this.label16.Location = new System.Drawing.Point(14, 67);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(114, 16);
-            this.label16.TabIndex = 2;
+            this.label16.TabIndex = 0;
             this.label16.Text = "Fecha y Hora Inicial";
             // 
             // textFechaHoraInicialOperador
@@ -1460,15 +1467,8 @@
             this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(165, 62);
             this.textFechaHoraInicialOperador.Name = "textFechaHoraInicialOperador";
             this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(268, 27);
-            this.textFechaHoraInicialOperador.TabIndex = 1;
+            this.textFechaHoraInicialOperador.TabIndex = 16;
             this.textFechaHoraInicialOperador.Leave += new System.EventHandler(this.textFechaHoraInicialOperador_Leave);
-            // 
-            // calendarCortesOperador
-            // 
-            this.calendarCortesOperador.Location = new System.Drawing.Point(445, 23);
-            this.calendarCortesOperador.Name = "calendarCortesOperador";
-            this.calendarCortesOperador.TabIndex = 0;
-            this.calendarCortesOperador.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarCortesOperador_DateChanged);
             // 
             // FormAgregarViaje
             // 

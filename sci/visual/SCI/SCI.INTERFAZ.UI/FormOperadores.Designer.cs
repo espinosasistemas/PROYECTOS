@@ -91,7 +91,7 @@
             this.btnEliminarOperador.Location = new System.Drawing.Point(414, 20);
             this.btnEliminarOperador.Name = "btnEliminarOperador";
             this.btnEliminarOperador.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarOperador.TabIndex = 5;
+            this.btnEliminarOperador.TabIndex = 4;
             this.btnEliminarOperador.Text = "Elim Operador";
             this.btnEliminarOperador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -110,7 +110,7 @@
             this.btnEditarOperador.Location = new System.Drawing.Point(278, 20);
             this.btnEditarOperador.Name = "btnEditarOperador";
             this.btnEditarOperador.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarOperador.TabIndex = 4;
+            this.btnEditarOperador.TabIndex = 3;
             this.btnEditarOperador.Text = "Edit Operador";
             this.btnEditarOperador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

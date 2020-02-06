@@ -138,7 +138,7 @@
             this.btnEliminarGasto.Location = new System.Drawing.Point(414, 20);
             this.btnEliminarGasto.Name = "btnEliminarGasto";
             this.btnEliminarGasto.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarGasto.TabIndex = 5;
+            this.btnEliminarGasto.TabIndex = 4;
             this.btnEliminarGasto.Text = "Eliminar Gasto";
             this.btnEliminarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -157,7 +157,7 @@
             this.btnEditarGasto.Location = new System.Drawing.Point(278, 20);
             this.btnEditarGasto.Name = "btnEditarGasto";
             this.btnEditarGasto.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarGasto.TabIndex = 4;
+            this.btnEditarGasto.TabIndex = 3;
             this.btnEditarGasto.Text = "Editar Gasto";
             this.btnEditarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -290,7 +290,7 @@
             this.btnEliminarEstado.Location = new System.Drawing.Point(414, 20);
             this.btnEliminarEstado.Name = "btnEliminarEstado";
             this.btnEliminarEstado.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarEstado.TabIndex = 5;
+            this.btnEliminarEstado.TabIndex = 8;
             this.btnEliminarEstado.Text = "Eliminar Estado";
             this.btnEliminarEstado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarEstado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -309,7 +309,7 @@
             this.btnEditarEstado.Location = new System.Drawing.Point(278, 20);
             this.btnEditarEstado.Name = "btnEditarEstado";
             this.btnEditarEstado.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarEstado.TabIndex = 4;
+            this.btnEditarEstado.TabIndex = 7;
             this.btnEditarEstado.Text = "Editar Estado";
             this.btnEditarEstado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarEstado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -328,7 +328,7 @@
             this.btnAgregarEstado.Location = new System.Drawing.Point(142, 20);
             this.btnAgregarEstado.Name = "btnAgregarEstado";
             this.btnAgregarEstado.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarEstado.TabIndex = 2;
+            this.btnAgregarEstado.TabIndex = 6;
             this.btnAgregarEstado.Text = "Agregar Estado";
             this.btnAgregarEstado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarEstado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -347,7 +347,7 @@
             this.btnMostrarEstados.Location = new System.Drawing.Point(6, 20);
             this.btnMostrarEstados.Name = "btnMostrarEstados";
             this.btnMostrarEstados.Size = new System.Drawing.Size(130, 33);
-            this.btnMostrarEstados.TabIndex = 1;
+            this.btnMostrarEstados.TabIndex = 5;
             this.btnMostrarEstados.Text = "Mostrar Todos";
             this.btnMostrarEstados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMostrarEstados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

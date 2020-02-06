@@ -129,7 +129,7 @@
             this.btnEliminarViaje.Location = new System.Drawing.Point(414, 20);
             this.btnEliminarViaje.Name = "btnEliminarViaje";
             this.btnEliminarViaje.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarViaje.TabIndex = 5;
+            this.btnEliminarViaje.TabIndex = 4;
             this.btnEliminarViaje.Text = "Eliminar Viaje";
             this.btnEliminarViaje.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarViaje.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -148,7 +148,7 @@
             this.btnEditarViaje.Location = new System.Drawing.Point(278, 20);
             this.btnEditarViaje.Name = "btnEditarViaje";
             this.btnEditarViaje.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarViaje.TabIndex = 4;
+            this.btnEditarViaje.TabIndex = 3;
             this.btnEditarViaje.Text = "Editar Viaje";
             this.btnEditarViaje.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarViaje.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

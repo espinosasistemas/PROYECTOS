@@ -19,6 +19,8 @@ namespace SCI.INTERFAZ.UI
         IRutaManager managerRuta;
         IClienteManager managerCliente;
         IUnidadesManager managerUnidades;
+        IGastoManager managerGasto;
+        ICortesOperadorManager managerCortes;
 
         int filaSeleccionada = -1;
 
@@ -30,6 +32,8 @@ namespace SCI.INTERFAZ.UI
             managerRuta = Tools.FabricManager.RutaManager();
             managerCliente = Tools.FabricManager.ClienteManager();
             managerUnidades = Tools.FabricManager.UnidadManager();
+            managerGasto = Tools.FabricManager.GastoManager();
+            managerCortes = Tools.FabricManager.CortesOperadorManager();
         }
 
         public void CargarTodosLosViajes()
@@ -46,16 +50,19 @@ namespace SCI.INTERFAZ.UI
                 dgvViajes.Columns["idCliente"].Visible = false;
                 dgvViajes.Columns["idUnidad"].Visible = false;
 
+                dgvViajes.Columns.Add("Gastos", "Gastos");
+                dgvViajes.Columns.Add("Cortes", "Cortes");
                 dgvViajes.Columns.Add("Economico", "Economico");
                 dgvViajes.Columns.Add("Status", "Status");
                 dgvViajes.Columns.Add("Ruta", "Ruta");
                 dgvViajes.Columns.Add("Cliente", "Cliente");
-                
 
                 statusviaje edos = new statusviaje();
                 ruta rut = new ruta();
                 cliente client = new cliente();
                 unidades unidad = new unidades();
+                IEnumerable<gasto> todoLosGastos;
+                IEnumerable<cortesoperador> todosLosCortes;
 
                 for(int i=0;i<dgvViajes.Rows.Count;i++)
                 {
@@ -70,6 +77,12 @@ namespace SCI.INTERFAZ.UI
 
                     unidad = managerUnidades.BuscarPorId(dgvViajes["idUnidad", i].Value.ToString());
                     dgvViajes["Economico", i].Value = unidad.NumeroEconomico;
+
+                    todoLosGastos = managerGasto.BuscarPorIdViajeOps(int.Parse(dgvViajes["idViajeSci", i].Value.ToString()));
+                    dgvViajes["Gastos", i].Value = "$"+todoLosGastos.Sum(g => g.Costo).ToString();
+
+                    todosLosCortes = managerCortes.BuscarCortesPorIdViaje(int.Parse(dgvViajes["idViajeSci", i].Value.ToString()));
+                    dgvViajes["Cortes", i].Value = "$"+todosLosCortes.Sum(g => g.Costo).ToString();
                 }
 
                 mostrarLabelStatus("Se han cargado todos los viajes dados de alta.", true);

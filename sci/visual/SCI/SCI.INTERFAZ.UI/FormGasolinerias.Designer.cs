@@ -91,7 +91,7 @@
             this.btnElminarGasolineria.Location = new System.Drawing.Point(414, 20);
             this.btnElminarGasolineria.Name = "btnElminarGasolineria";
             this.btnElminarGasolineria.Size = new System.Drawing.Size(130, 33);
-            this.btnElminarGasolineria.TabIndex = 5;
+            this.btnElminarGasolineria.TabIndex = 4;
             this.btnElminarGasolineria.Text = "Elim Gasolinería";
             this.btnElminarGasolineria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnElminarGasolineria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -110,7 +110,7 @@
             this.btnEditarGasolineria.Location = new System.Drawing.Point(278, 20);
             this.btnEditarGasolineria.Name = "btnEditarGasolineria";
             this.btnEditarGasolineria.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarGasolineria.TabIndex = 4;
+            this.btnEditarGasolineria.TabIndex = 3;
             this.btnEditarGasolineria.Text = "Edit Gasolinería";
             this.btnEditarGasolineria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarGasolineria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

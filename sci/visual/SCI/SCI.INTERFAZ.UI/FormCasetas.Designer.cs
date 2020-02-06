@@ -91,7 +91,7 @@
             this.btnElminarCaseta.Location = new System.Drawing.Point(414, 20);
             this.btnElminarCaseta.Name = "btnElminarCaseta";
             this.btnElminarCaseta.Size = new System.Drawing.Size(130, 33);
-            this.btnElminarCaseta.TabIndex = 5;
+            this.btnElminarCaseta.TabIndex = 4;
             this.btnElminarCaseta.Text = "Eliminar Caseta";
             this.btnElminarCaseta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnElminarCaseta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -110,7 +110,7 @@
             this.btnEditarCaseta.Location = new System.Drawing.Point(278, 20);
             this.btnEditarCaseta.Name = "btnEditarCaseta";
             this.btnEditarCaseta.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarCaseta.TabIndex = 4;
+            this.btnEditarCaseta.TabIndex = 3;
             this.btnEditarCaseta.Text = "Editar Caseta";
             this.btnEditarCaseta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarCaseta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

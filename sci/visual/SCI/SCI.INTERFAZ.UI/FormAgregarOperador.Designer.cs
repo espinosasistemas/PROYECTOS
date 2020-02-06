@@ -101,7 +101,7 @@
             this.textNumSeguroSocial.Location = new System.Drawing.Point(158, 398);
             this.textNumSeguroSocial.Name = "textNumSeguroSocial";
             this.textNumSeguroSocial.Size = new System.Drawing.Size(256, 26);
-            this.textNumSeguroSocial.TabIndex = 14;
+            this.textNumSeguroSocial.TabIndex = 12;
             // 
             // label12
             // 
@@ -110,7 +110,7 @@
             this.label12.Location = new System.Drawing.Point(30, 401);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(123, 17);
-            this.label12.TabIndex = 13;
+            this.label12.TabIndex = 0;
             this.label12.Text = "Núm. Seguro Social";
             // 
             // label11
@@ -256,7 +256,7 @@
             this.btnAgregarOperador.Location = new System.Drawing.Point(280, 457);
             this.btnAgregarOperador.Name = "btnAgregarOperador";
             this.btnAgregarOperador.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarOperador.TabIndex = 12;
+            this.btnAgregarOperador.TabIndex = 13;
             this.btnAgregarOperador.Text = "Add Operador";
             this.btnAgregarOperador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

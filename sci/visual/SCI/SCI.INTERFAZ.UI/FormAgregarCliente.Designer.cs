@@ -141,7 +141,7 @@
             this.btnAgregarCliente.Location = new System.Drawing.Point(234, 307);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarCliente.TabIndex = 10;
+            this.btnAgregarCliente.TabIndex = 8;
             this.btnAgregarCliente.Text = "Agregar Cliente";
             this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

@@ -129,7 +129,7 @@
             this.btnEliminarUnidad.Location = new System.Drawing.Point(414, 20);
             this.btnEliminarUnidad.Name = "btnEliminarUnidad";
             this.btnEliminarUnidad.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarUnidad.TabIndex = 5;
+            this.btnEliminarUnidad.TabIndex = 4;
             this.btnEliminarUnidad.Text = "Eliminar Unidad";
             this.btnEliminarUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarUnidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -148,7 +148,7 @@
             this.btnEditarUnidad.Location = new System.Drawing.Point(278, 20);
             this.btnEditarUnidad.Name = "btnEditarUnidad";
             this.btnEditarUnidad.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarUnidad.TabIndex = 4;
+            this.btnEditarUnidad.TabIndex = 3;
             this.btnEditarUnidad.Text = "Editar Unidad";
             this.btnEditarUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarUnidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

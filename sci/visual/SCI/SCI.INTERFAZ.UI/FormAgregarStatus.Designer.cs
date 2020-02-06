@@ -63,7 +63,7 @@
             this.btnAgregarTipoGasto.Location = new System.Drawing.Point(283, 64);
             this.btnAgregarTipoGasto.Name = "btnAgregarTipoGasto";
             this.btnAgregarTipoGasto.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarTipoGasto.TabIndex = 10;
+            this.btnAgregarTipoGasto.TabIndex = 2;
             this.btnAgregarTipoGasto.Text = "Agregar Status";
             this.btnAgregarTipoGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarTipoGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

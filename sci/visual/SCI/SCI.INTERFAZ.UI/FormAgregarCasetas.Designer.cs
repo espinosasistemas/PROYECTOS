@@ -71,7 +71,7 @@
             this.comboTipoDeGasto.Location = new System.Drawing.Point(132, 132);
             this.comboTipoDeGasto.Name = "comboTipoDeGasto";
             this.comboTipoDeGasto.Size = new System.Drawing.Size(308, 29);
-            this.comboTipoDeGasto.TabIndex = 15;
+            this.comboTipoDeGasto.TabIndex = 4;
             // 
             // label4
             // 
@@ -80,7 +80,7 @@
             this.label4.Location = new System.Drawing.Point(26, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 17);
-            this.label4.TabIndex = 14;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Tipo De Gasto";
             // 
             // comboTipoDeUnidad
@@ -90,7 +90,7 @@
             this.comboTipoDeUnidad.Location = new System.Drawing.Point(131, 97);
             this.comboTipoDeUnidad.Name = "comboTipoDeUnidad";
             this.comboTipoDeUnidad.Size = new System.Drawing.Size(308, 29);
-            this.comboTipoDeUnidad.TabIndex = 11;
+            this.comboTipoDeUnidad.TabIndex = 3;
             // 
             // btnAgregarRuta
             // 
@@ -104,7 +104,7 @@
             this.btnAgregarRuta.Location = new System.Drawing.Point(309, 176);
             this.btnAgregarRuta.Name = "btnAgregarRuta";
             this.btnAgregarRuta.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarRuta.TabIndex = 10;
+            this.btnAgregarRuta.TabIndex = 5;
             this.btnAgregarRuta.Text = "Agregar Caseta";
             this.btnAgregarRuta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarRuta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

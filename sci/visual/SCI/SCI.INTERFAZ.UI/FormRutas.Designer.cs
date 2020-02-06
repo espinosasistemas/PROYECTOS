@@ -91,7 +91,7 @@
             this.btnEliminarRuta.Location = new System.Drawing.Point(414, 20);
             this.btnEliminarRuta.Name = "btnEliminarRuta";
             this.btnEliminarRuta.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarRuta.TabIndex = 5;
+            this.btnEliminarRuta.TabIndex = 4;
             this.btnEliminarRuta.Text = "Eliminar Ruta";
             this.btnEliminarRuta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarRuta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -110,7 +110,7 @@
             this.btnEditarRuta.Location = new System.Drawing.Point(278, 20);
             this.btnEditarRuta.Name = "btnEditarRuta";
             this.btnEditarRuta.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarRuta.TabIndex = 4;
+            this.btnEditarRuta.TabIndex = 3;
             this.btnEditarRuta.Text = "Editar Ruta";
             this.btnEditarRuta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarRuta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
