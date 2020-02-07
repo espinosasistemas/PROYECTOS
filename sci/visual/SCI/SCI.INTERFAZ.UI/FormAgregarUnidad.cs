@@ -16,26 +16,29 @@ namespace SCI.INTERFAZ.UI
     {
         IUnidadesManager managerUnidades;
         ITipoDeUnidadManager managerTipoDeUnidades;
+        ILogManager managerLog;
 
         string resultado = string.Empty;
         string accion = string.Empty;
         int idUnidadAEditar = 0;
         int idTipoDeUnidad = 0;
         unidades unidadAeditar;
-
+        usuario user;
         public string Valor
         {
             get { return resultado; }
             set { resultado = value; }
         }
 
-        public FormAgregarUnidad(string evento, int id)
+        public FormAgregarUnidad(usuario u,string evento, int id)
         {
             InitializeComponent();
             managerUnidades = Tools.FabricManager.UnidadManager();
             managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
+            managerLog = Tools.FabricManager.LogManager();
             accion = evento;
             idUnidadAEditar = id;
+            user = u;
         }
 
         private void FormAgregarUnidad_Load(object sender, EventArgs e)
@@ -93,6 +96,14 @@ namespace SCI.INTERFAZ.UI
                     if (managerUnidades.Insertar(nuevaUnidad))
                     {
                         resultado = "Se ha agregado correctamente la nueva unidad.";
+                        unidades lastUnidad = managerUnidades.BuscarUltimoIngresado();
+                        log registro = new log {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "unidades-id:" + lastUnidad.IdUnidad
+                        };
+                        managerLog.Insertar(registro);
                         this.Close();
                     }
                     else
@@ -104,6 +115,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     MessageBox.Show(ex.Message + " Revisa por favor que los campos tengan el tipo de dato correcto.", "Error al ingresar la nueva Unidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
             else
             {
@@ -123,6 +135,14 @@ namespace SCI.INTERFAZ.UI
                         if (managerUnidades.Actualizar(unidadAeditar))
                         {
                             resultado = "Se han actualizado correctamente los datos de la unidad.";
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "unidades-id:" + unidadAeditar.IdUnidad
+                            };
+                            managerLog.Insertar(registro);
                             this.Close();
                         }
                         else

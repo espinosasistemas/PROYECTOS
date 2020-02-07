@@ -371,6 +371,8 @@
             this.Name = "FormPrincipal";
             this.Text = "Sistema de Control de Servicios Corporativos Integrales";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPrincipal_FormClosed);
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelViajesSubMenu.ResumeLayout(false);
             this.panelCatalogoSubMenu.ResumeLayout(false);

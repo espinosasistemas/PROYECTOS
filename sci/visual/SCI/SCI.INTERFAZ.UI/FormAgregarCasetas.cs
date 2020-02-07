@@ -80,6 +80,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnAgregarRuta_Click(object sender, EventArgs e)
         {
+            
             string[] cadena;
             cadena = comboTipoDeUnidad.Text.Split('/');
             int idTipoUnidad = int.Parse(cadena.First());

@@ -1184,8 +1184,12 @@ namespace SCI.INTERFAZ.UI
 
         private void tabControl1_Click(object sender, EventArgs e)
         {
-            cargarTodosLosGastosDelViaje();
-            cargarTodosLosCortesDelViaje();
+            try
+            {
+                cargarTodosLosGastosDelViaje();
+                cargarTodosLosCortesDelViaje();
+            }
+            catch { }
         }
 
         private void dgvCortesOperador_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

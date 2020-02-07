@@ -16,13 +16,17 @@ namespace SCI.INTERFAZ.UI
     {
         IUnidadesManager managerUnidades;
         ITipoDeUnidadManager managerTipoDeUnidad;
+        ILogManager managerLog;
         int filaSeleccionada = -1;
+        usuario user;
 
-        public FormUnidades()
+        public FormUnidades(usuario u)
         {
             InitializeComponent();
             managerUnidades = Tools.FabricManager.UnidadManager();
             managerTipoDeUnidad = Tools.FabricManager.TipoDeUnidadesManager();
+            managerLog = Tools.FabricManager.LogManager();
+            user = u;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -63,7 +67,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearUnidad_Click(object sender, EventArgs e)
         {
-            FormAgregarUnidad fm = new FormAgregarUnidad("agregar",-1);
+            FormAgregarUnidad fm = new FormAgregarUnidad(user,"agregar",-1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -76,7 +80,7 @@ namespace SCI.INTERFAZ.UI
         {
             if(filaSeleccionada>=0)
             {
-                FormAgregarUnidad fm = new FormAgregarUnidad("editar", int.Parse(dgvUnidades["idUnidad",filaSeleccionada].Value.ToString()));
+                FormAgregarUnidad fm = new FormAgregarUnidad(user,"editar", int.Parse(dgvUnidades["idUnidad",filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -99,6 +103,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerUnidades.Eliminar(dgvUnidades["idUnidad", filaSeleccionada].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "unidades-id:" + dgvUnidades["idUnidad", filaSeleccionada].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodasUnidades();
                             mostrarLabelStatus("Se ha eliminado Correctamente la unidad. " + nombreUnidad, true);
                         }

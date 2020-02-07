@@ -50,5 +50,7 @@ namespace SCI.COMMON.Interfaces
         /// <returns>La entidad completa correspodiente al id proporcionado</returns>
         T BuscarPorId(string id);
 
+        T BuscarUltimoIngresado();
+
     }
 }

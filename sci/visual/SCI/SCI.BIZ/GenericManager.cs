@@ -2,6 +2,7 @@
 using SCI.COMMON.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SCI.BIZ
@@ -37,6 +38,11 @@ namespace SCI.BIZ
         public T BuscarPorId(string id)
         {
             return repository.SearchById(id);
+        }
+
+        public T BuscarUltimoIngresado()
+        {
+            return repository.Read.Last();
         }
 
         public bool Eliminar(string id)

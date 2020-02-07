@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SCI.COMMON.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,13 @@ namespace SCI.INTERFAZ.UI
     public partial class FormPrincipal : Form
     {
         private Form activeForm = null;
-
-        public FormPrincipal()
+        usuario user;
+        
+        public FormPrincipal(usuario u)
         {
             InitializeComponent();
             customizeDising();
+            user = u;
         }
 
         private void customizeDising()
@@ -55,7 +58,7 @@ namespace SCI.INTERFAZ.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            openDashBoardForm(new FormUnidades());
+            openDashBoardForm(new FormUnidades(user));
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -116,6 +119,15 @@ namespace SCI.INTERFAZ.UI
             showSubMenu(panelReportesSubMenu);
         }
 
-        
+        private void FormPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //this.Close();
+            Application.Exit();
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            this.Text = "Sistema de Control de Servicios Corporativos Integrales. - Bienvenido " + user.NombreCompleto;
+        }
     }
 }
