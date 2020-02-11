@@ -15,12 +15,17 @@ namespace SCI.INTERFAZ.UI
     public partial class FormOperadores : Form
     {
         IOperadorManager managerOperadores;
-        int filaSeleccionada = -1;
+        ILogManager managerLog;
 
-        public FormOperadores()
+        int filaSeleccionada = -1;
+        usuario user;
+
+        public FormOperadores(usuario u)
         {
             InitializeComponent();
             managerOperadores = Tools.FabricManager.OperadorManager();
+            managerLog = Tools.FabricManager.LogManager();
+            user = u;
         }
 
         private void btnMostrarOperadores_Click(object sender, EventArgs e)
@@ -51,7 +56,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearOperador_Click(object sender, EventArgs e)
         {
-            FormAgregarOperador fm = new FormAgregarOperador("agregar", -1);
+            FormAgregarOperador fm = new FormAgregarOperador(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -66,7 +71,7 @@ namespace SCI.INTERFAZ.UI
             
             if (filaSeleccionada >= 0)
             {
-                FormAgregarOperador fm = new FormAgregarOperador("editar", int.Parse(dgvOperadores["idOperador", filaSeleccionada].Value.ToString()));
+                FormAgregarOperador fm = new FormAgregarOperador(user,"editar", int.Parse(dgvOperadores["idOperador", filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -105,6 +110,14 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerOperadores.Eliminar(dgvOperadores["idoperador", filaSeleccionada].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "operador-id:" + dgvOperadores["idoperador", filaSeleccionada].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
                             cargarTodosOperadores();
                             mostrarLabelStatus("Se ha eliminado Correctamente al Operador. " + nombreOperador, true);
                         }

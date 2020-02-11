@@ -15,12 +15,16 @@ namespace SCI.INTERFAZ.UI
     public partial class FormClientes : Form
     {
         IClienteManager managerClientes;
+        ILogManager managerLog;
         int filaSeleccionada = -1;
+        usuario user;
 
-        public FormClientes()
+        public FormClientes(usuario u)
         {
             InitializeComponent();
             managerClientes = Tools.FabricManager.ClienteManager();
+            managerLog = Tools.FabricManager.LogManager();
+            user = u;
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
@@ -34,7 +38,7 @@ namespace SCI.INTERFAZ.UI
         }
         private void btnCrearCliente_Click(object sender, EventArgs e)
         {
-            FormAgregarCliente fm = new FormAgregarCliente("agregar", -1);
+            FormAgregarCliente fm = new FormAgregarCliente(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -47,7 +51,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (filaSeleccionada >= 0)
             {
-                FormAgregarCliente fm = new FormAgregarCliente("editar", int.Parse(dgvClientes["idcliente", filaSeleccionada].Value.ToString()));
+                FormAgregarCliente fm = new FormAgregarCliente(user,"editar", int.Parse(dgvClientes["idcliente", filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -70,6 +74,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerClientes.Eliminar(dgvClientes["idcliente", filaSeleccionada].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "cliente-id:" + dgvClientes["idcliente", filaSeleccionada].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodosLosCliente();
                             mostrarLabelStatus("Se ha eliminado Correctamente al Cliente. " + nombre, true);
                         }

@@ -16,14 +16,19 @@ namespace SCI.INTERFAZ.UI
     {
         ITipoDeGastoManager managerGasto;
         IStatusViajeManager managerStatus;
+        ILogManager managerLog;
+
         int filaSeleccionadaGasto = -1;
         int filaSeleccionadaStatus = -1;
+        usuario user;
 
-        public FormOtros()
+        public FormOtros(usuario u)
         {
             InitializeComponent();
             managerGasto = Tools.FabricManager.TipoDeGastoManager();
             managerStatus = Tools.FabricManager.StatusViajeManager();
+            managerLog = Tools.FabricManager.LogManager();
+            user = u;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -95,7 +100,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearTipoGasto_Click(object sender, EventArgs e)
         {
-            FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto("agregar", -1);
+            FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -108,7 +113,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (filaSeleccionadaGasto >= 0)
             {
-                FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto("editar", int.Parse(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()));
+                FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto(user,"editar", int.Parse(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -131,6 +136,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerGasto.Eliminar(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "tipogasto-id:" + dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodosLosGastos();
                             mostrarLabelStatus("Se ha eliminado Correctamente el tipo de Gasto. " + nombre, true);
                         }
@@ -155,7 +169,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnAgregarEstado_Click(object sender, EventArgs e)
         {
-            FormAgregarStatus fm = new FormAgregarStatus("agregar", -1);
+            FormAgregarStatus fm = new FormAgregarStatus(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -168,7 +182,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (filaSeleccionadaGasto >= 0)
             {
-                FormAgregarStatus fm = new FormAgregarStatus("editar", int.Parse(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()));
+                FormAgregarStatus fm = new FormAgregarStatus(user,"editar", int.Parse(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -191,6 +205,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerStatus.Eliminar(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "statusviaje-id:" + dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodosLosStatus();
                             mostrarLabelStatus("Se ha eliminado Correctamente el Status. " + nombre, true);
                         }

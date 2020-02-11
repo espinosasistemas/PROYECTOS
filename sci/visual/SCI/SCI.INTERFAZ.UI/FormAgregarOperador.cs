@@ -15,10 +15,12 @@ namespace SCI.INTERFAZ.UI
     public partial class FormAgregarOperador : Form
     {
         IOperadorManager managerOperador;
+        ILogManager managerLog;
         string resultado = string.Empty;
         string accion = string.Empty;
         int idOperadorAEditar = -1;
         operador operadorAeditar;
+        usuario user;
 
         public string Valor
         {
@@ -26,12 +28,14 @@ namespace SCI.INTERFAZ.UI
             set { resultado = value; }
         }
 
-        public FormAgregarOperador(string evento, int id)
+        public FormAgregarOperador(usuario u,string evento, int id)
         {
             InitializeComponent();
             managerOperador = Tools.FabricManager.OperadorManager();
+            managerLog = Tools.FabricManager.LogManager();
             accion = evento;
             idOperadorAEditar = id;
+            user = u;
         }
 
         private operador CrearOperador()
@@ -63,6 +67,15 @@ namespace SCI.INTERFAZ.UI
                     if (managerOperador.Insertar(operadorNuevo))
                     {
                         resultado = "Se ha agregado correctamente el nuevo Operador.";
+                        operador lastOperador = managerOperador.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "operador-id:" + lastOperador.IdOperador
+                        };
+                        managerLog.Insertar(registro);
                         this.Close();
                     }
                     else
@@ -97,6 +110,14 @@ namespace SCI.INTERFAZ.UI
                         if (managerOperador.Actualizar(operadorAeditar))
                         {
                             resultado = "Se ha actualizado correctamente los datos de la unidad.";
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "operador-id:" + operadorAeditar.IdOperador
+                            };
+                            managerLog.Insertar(registro);
                             this.Close();
                         }
                         else

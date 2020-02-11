@@ -21,10 +21,12 @@ namespace SCI.INTERFAZ.UI
         IUnidadesManager managerUnidades;
         IGastoManager managerGasto;
         ICortesOperadorManager managerCortes;
+        ILogManager managerLog;
 
         int filaSeleccionada = -1;
+        usuario user;
 
-        public FormViajes()
+        public FormViajes(usuario u)
         {
             InitializeComponent();
             managerViajes = Tools.FabricManager.ViajeManager();
@@ -34,6 +36,8 @@ namespace SCI.INTERFAZ.UI
             managerUnidades = Tools.FabricManager.UnidadManager();
             managerGasto = Tools.FabricManager.GastoManager();
             managerCortes = Tools.FabricManager.CortesOperadorManager();
+            managerLog = Tools.FabricManager.LogManager();
+            user = u;
         }
 
         public void CargarTodosLosViajes()
@@ -117,7 +121,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearViaje_Click(object sender, EventArgs e)
         {
-            FormAgregarViaje fm = new FormAgregarViaje("agregar", -1);
+            FormAgregarViaje fm = new FormAgregarViaje(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -135,7 +139,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (filaSeleccionada != -1)
             {
-                FormAgregarViaje fm = new FormAgregarViaje("editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
+                FormAgregarViaje fm = new FormAgregarViaje(user,"editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -163,6 +167,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerViajes.Eliminar(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "viaje-id:" + dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
+
                             CargarTodosLosViajes();
                             mostrarLabelStatus("Se ha eliminado Correctamente el Viaje del cliente. " + nombre, true);
                         }

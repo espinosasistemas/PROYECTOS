@@ -15,10 +15,12 @@ namespace SCI.INTERFAZ.UI
     public partial class FormAgregarCliente : Form
     {
         IClienteManager managerCliente;
+        ILogManager managerLog;
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
         cliente entidadAeditar;
+        usuario user;
 
         public string Valor
         {
@@ -26,12 +28,14 @@ namespace SCI.INTERFAZ.UI
             set { resultado = value; }
         }
 
-        public FormAgregarCliente(string evento, int id)
+        public FormAgregarCliente(usuario u,string evento, int id)
         {
             InitializeComponent();
             managerCliente = Tools.FabricManager.ClienteManager();
+            managerLog = Tools.FabricManager.LogManager();
             accion = evento;
             idAEditar = id;
+            user = u;
         }
 
         private cliente CrearCliente()
@@ -73,6 +77,15 @@ namespace SCI.INTERFAZ.UI
                     cliente clienteNuevo = CrearCliente();
                     if (managerCliente.Insertar(clienteNuevo))
                     {
+                        cliente lastCliente = managerCliente.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "cliente-id:" + lastCliente.IdCliente
+                        };
+                        managerLog.Insertar(registro);
                         resultado = "Se ha agregado correctamente el nuevo Cliente.";
                         this.Close();
                     }
@@ -103,6 +116,14 @@ namespace SCI.INTERFAZ.UI
                         if (managerCliente.Actualizar(entidadAeditar))
                         {
                             resultado = "Se ha actualizado correctamente los datos del Cliente.";
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "cliente-id:" + entidadAeditar.IdCliente
+                            };
+                            managerLog.Insertar(registro);
                             this.Close();
                         }
                         else

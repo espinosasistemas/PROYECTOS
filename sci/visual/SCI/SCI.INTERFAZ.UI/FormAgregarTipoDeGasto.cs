@@ -15,10 +15,13 @@ namespace SCI.INTERFAZ.UI
     public partial class FormAgregarTipoDeGasto : Form
     {
         ITipoDeGastoManager managerTipoDeGasto;
+        ILogManager managerLog;
+
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
         tipogasto entidadAeditar;
+        usuario user;
 
         public string Valor
         {
@@ -26,12 +29,14 @@ namespace SCI.INTERFAZ.UI
             set { resultado = value; }
         }
 
-        public FormAgregarTipoDeGasto(string evento, int id)
+        public FormAgregarTipoDeGasto(usuario u,string evento, int id)
         {
             InitializeComponent();
             managerTipoDeGasto = Tools.FabricManager.TipoDeGastoManager();
+            managerLog = Tools.FabricManager.LogManager();
             accion = evento;
             idAEditar = id;
+            user = u;
         }
 
         private void btnAgregarTipoGasto_Click(object sender, EventArgs e)
@@ -43,6 +48,16 @@ namespace SCI.INTERFAZ.UI
                     tipogasto nuevoTipoGasto = new tipogasto { Concepto = textConcepto.Text };
                     if (managerTipoDeGasto.Insertar(nuevoTipoGasto))
                     {
+                        tipogasto lastTipoGasto = managerTipoDeGasto.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "tipogasto-id:" + lastTipoGasto.IdTipoGasto
+                        };
+                        managerLog.Insertar(registro);
+
                         resultado = "Se ha agregado correctamente el nuevo tipo de Gasto.";
                         this.Close();
                     }
@@ -66,6 +81,15 @@ namespace SCI.INTERFAZ.UI
 
                         if (managerTipoDeGasto.Actualizar(entidadAeditar))
                         {
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "tipogasto-id:" + entidadAeditar.IdTipoGasto
+                            };
+                            managerLog.Insertar(registro);
+
                             resultado = "Se han actualizado correctamente el tipo de Gasto.";
                             this.Close();
                         }

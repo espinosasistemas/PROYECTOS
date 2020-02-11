@@ -17,14 +17,18 @@ namespace SCI.INTERFAZ.UI
         ICasetaManager managerCaseta;
         ITipoDeUnidadManager managerTipoDeUnidad;
         ITipoDeGastoManager managerTipoDeGasto;
+        ILogManager managerLog;
         int filaSeleccionada = -1;
+        usuario user;
 
-        public FormCasetas()
+        public FormCasetas(usuario u)
         {
             InitializeComponent();
             managerCaseta = Tools.FabricManager.CasetaManager();
             managerTipoDeUnidad = Tools.FabricManager.TipoDeUnidadesManager();
             managerTipoDeGasto = Tools.FabricManager.TipoDeGastoManager();
+            managerLog = Tools.FabricManager.LogManager();
+            user = u;
         }
 
         private void mostrarLabelStatus(string mensaje, bool color)
@@ -87,6 +91,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerCaseta.Eliminar(dgvCasetas["idCaseta", filaSeleccionada].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "caseta-id:" + dgvCasetas["idCaseta", filaSeleccionada].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodasLasCasetas();
                             mostrarLabelStatus("Se ha eliminado Correctamente La Caseta. " + nombre, true);
                         }
@@ -105,7 +118,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearCaseta_Click(object sender, EventArgs e)
         {
-            FormAgregarCasetas fm = new FormAgregarCasetas("agregar", -1);
+            FormAgregarCasetas fm = new FormAgregarCasetas(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -118,7 +131,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (filaSeleccionada >= 0)
             {
-                FormAgregarCasetas fm = new FormAgregarCasetas("editar", int.Parse(dgvCasetas["idCaseta", filaSeleccionada].Value.ToString()));
+                FormAgregarCasetas fm = new FormAgregarCasetas(user,"editar", int.Parse(dgvCasetas["idCaseta", filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {

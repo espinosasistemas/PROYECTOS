@@ -15,10 +15,13 @@ namespace SCI.INTERFAZ.UI
     public partial class FormAgregarStatus : Form
     {
         IStatusViajeManager managerStatus;
+        ILogManager managerLog;
+
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
         statusviaje entidadAeditar;
+        usuario user;
 
         public string Valor
         {
@@ -26,12 +29,14 @@ namespace SCI.INTERFAZ.UI
             set { resultado = value; }
         }
 
-        public FormAgregarStatus(string evento, int id)
+        public FormAgregarStatus(usuario u, string evento, int id)
         {
             InitializeComponent();
             managerStatus = Tools.FabricManager.StatusViajeManager();
+            managerLog = Tools.FabricManager.LogManager();
             accion = evento;
             idAEditar = id;
+            user = u;
         }
 
         private void btnAgregarTipoGasto_Click(object sender, EventArgs e)
@@ -43,6 +48,16 @@ namespace SCI.INTERFAZ.UI
                     statusviaje nuevoStatusViaje = new statusviaje { Nombre = textNombre.Text };
                     if (managerStatus.Insertar(nuevoStatusViaje))
                     {
+                        statusviaje lastStatusViaje = managerStatus.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "statusviaje-id:" + lastStatusViaje.IdStatus
+                        };
+                        managerLog.Insertar(registro);
+
                         resultado = "Se ha agregado correctamente el nuevo status del Viaje.";
                         this.Close();
                     }
@@ -66,6 +81,14 @@ namespace SCI.INTERFAZ.UI
 
                         if (managerStatus.Actualizar(entidadAeditar))
                         {
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "statusviaje-id:" + entidadAeditar.IdStatus
+                            };
+                            managerLog.Insertar(registro);
                             resultado = "Se han actualizado correctamente el status.";
                             this.Close();
                         }

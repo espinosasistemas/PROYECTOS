@@ -16,14 +16,18 @@ namespace SCI.INTERFAZ.UI
     {
         IRutaManager managerRuta;
         ITipoDeUnidadManager managerTipoDeUnidades;
+        ILogManager managerLog;
 
         int filaSeleccionada = -1;
+        usuario user;
 
-        public FormRutas()
+        public FormRutas(usuario u)
         {
             InitializeComponent();
             managerRuta = Tools.FabricManager.RutaManager();
             managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
+            managerLog = Tools.FabricManager.LogManager();
+            user = u;
         }
 
         private void btnMostrarRutas_Click(object sender, EventArgs e)
@@ -33,7 +37,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearRuta_Click(object sender, EventArgs e)
         {
-            FormAgregarRutas fm = new FormAgregarRutas("agregar", -1);
+            FormAgregarRutas fm = new FormAgregarRutas(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -45,7 +49,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (filaSeleccionada >= 0)
             {
-                FormAgregarRutas fm = new FormAgregarRutas("editar", int.Parse(dgvRutas["idruta", filaSeleccionada].Value.ToString()));
+                FormAgregarRutas fm = new FormAgregarRutas(user,"editar", int.Parse(dgvRutas["idruta", filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -67,6 +71,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerRuta.Eliminar(dgvRutas["idruta", filaSeleccionada].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "ruta-id:" + dgvRutas["idruta", filaSeleccionada].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodasLasRutas();
                             mostrarLabelStatus("Se ha eliminado Correctamente la ruta. " + nombre, true);
                         }

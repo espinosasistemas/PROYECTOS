@@ -16,10 +16,12 @@ namespace SCI.INTERFAZ.UI
     {
         IGasolineriaManager managerGasolineria;
         ITipoDeGastoManager managerTipoDeGasto;
+        ILogManager managerLog;
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
         gasolineria entidadAeditar;
+        usuario user;
 
         public string Valor
         {
@@ -27,13 +29,15 @@ namespace SCI.INTERFAZ.UI
             set { resultado = value; }
         }
 
-        public FormAgregarGasolineria(string evento, int id)
+        public FormAgregarGasolineria(usuario u, string evento, int id)
         {
             InitializeComponent();
             managerGasolineria = Tools.FabricManager.GasolineriaManager();
             managerTipoDeGasto = Tools.FabricManager.TipoDeGastoManager();
+            managerLog = Tools.FabricManager.LogManager();
             accion = evento;
             idAEditar = id;
+            user = u;
         }
 
         private void FormAgregarGasolineria_Load(object sender, EventArgs e)
@@ -95,6 +99,16 @@ namespace SCI.INTERFAZ.UI
                     gasolineria gasolineriaNueva = CrearGasolineria(idTipoGasto);
                     if (managerGasolineria.Insertar(gasolineriaNueva))
                     {
+                        gasolineria lastGasolineria = managerGasolineria.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "gasolineria-id:" + lastGasolineria.IdGasolineria
+                        };
+                        managerLog.Insertar(registro);
+
                         resultado = "Se ha agregado correctamente la nueva Gasolinería.";
                         this.Close();
                     }
@@ -124,6 +138,15 @@ namespace SCI.INTERFAZ.UI
 
                         if (managerGasolineria.Actualizar(entidadAeditar))
                         {
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "gasolineria-id:" + entidadAeditar.IdGasolineria
+                            };
+                            managerLog.Insertar(registro);
+
                             resultado = "Se ha actualizado correctamente los datos de la Gasolinería.";
                             this.Close();
                         }

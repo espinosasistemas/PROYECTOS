@@ -17,25 +17,28 @@ namespace SCI.INTERFAZ.UI
         //IUnidadesManager managerUnidades;
         IRutaManager managerRutas;
         ITipoDeUnidadManager managerTipoDeUnidades;
+        ILogManager managerLog;
 
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
         ruta entidadAeditar;
-
+        usuario user;
         public string Valor
         {
             get { return resultado; }
             set { resultado = value; }
         }
 
-        public FormAgregarRutas(string evento, int id)
+        public FormAgregarRutas(usuario u,string evento, int id)
         {
             InitializeComponent();
             managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
             managerRutas = Tools.FabricManager.RutaManager();
+            managerLog = Tools.FabricManager.LogManager();
             accion = evento;
             idAEditar = id;
+            user = u;
         }
 
         private void cargarTiposDeUnidades()
@@ -75,6 +78,15 @@ namespace SCI.INTERFAZ.UI
                     if (managerRutas.Insertar(rutaNueva))
                     {
                         resultado = "Se ha agregado correctamente la nueva Ruta.";
+                        ruta lastRuta = managerRutas.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "ruta-id:" + lastRuta.IdRuta
+                        };
+                        managerLog.Insertar(registro);
                         this.Close();
                     }
                     else
@@ -100,6 +112,14 @@ namespace SCI.INTERFAZ.UI
                         if (managerRutas.Actualizar(entidadAeditar))
                         {
                             resultado = "Se ha actualizado correctamente los datos de la ruta.";
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "ruta-id:" + entidadAeditar.IdRuta
+                            };
+                            managerLog.Insertar(registro);
                             this.Close();
                         }
                         else

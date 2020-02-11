@@ -16,13 +16,17 @@ namespace SCI.INTERFAZ.UI
     {
         IGasolineriaManager managerGasolineria;
         ITipoDeGastoManager managerTipoDeGasto;
+        ILogManager managerLog;
         int filaSeleccionada = -1;
+        usuario user;
 
-        public FormGasolinerias()
+        public FormGasolinerias(usuario u)
         {
             InitializeComponent();
             managerGasolineria = Tools.FabricManager.GasolineriaManager();
             managerTipoDeGasto = Tools.FabricManager.TipoDeGastoManager();
+            managerLog = Tools.FabricManager.LogManager();
+            user = u;
         }
 
         private void mostrarLabelStatus(string mensaje, bool color)
@@ -87,6 +91,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerGasolineria.Eliminar(dgvGasolinerias["idGasolineria", filaSeleccionada].Value.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "gasolineria-id:" + dgvGasolinerias["idGasolineria", filaSeleccionada].Value.ToString()
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodasLasGasolinerias();
                             mostrarLabelStatus("Se ha eliminado Correctamente La Gasolinería. " + nombre, true);
                         }
@@ -105,7 +118,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearGasolineria_Click(object sender, EventArgs e)
         {
-            FormAgregarGasolineria fm = new FormAgregarGasolineria("agregar", -1);
+            FormAgregarGasolineria fm = new FormAgregarGasolineria(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
@@ -118,7 +131,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (filaSeleccionada >= 0)
             {
-                FormAgregarGasolineria fm = new FormAgregarGasolineria("editar", int.Parse(dgvGasolinerias["idGasolineria", filaSeleccionada].Value.ToString()));
+                FormAgregarGasolineria fm = new FormAgregarGasolineria(user,"editar", int.Parse(dgvGasolinerias["idGasolineria", filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {

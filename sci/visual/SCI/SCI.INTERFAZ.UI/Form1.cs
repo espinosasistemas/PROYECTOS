@@ -63,36 +63,36 @@ namespace SCI.INTERFAZ.UI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            openDashBoardForm(new FormOperadores());
+            openDashBoardForm(new FormOperadores(user));
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            openDashBoardForm(new FormClientes());
+            openDashBoardForm(new FormClientes(user));
         }
 
         private void btnRutas_Click(object sender, EventArgs e)
         {
-            openDashBoardForm(new FormRutas());
+            openDashBoardForm(new FormRutas(user));
         }
 
         private void btnGastos_Click(object sender, EventArgs e)
         {
-            openDashBoardForm(new FormOtros());
+            openDashBoardForm(new FormOtros(user));
         }
 
         private void btnViajes_Click(object sender, EventArgs e)
         {
-            openDashBoardForm(new FormViajes());
+            openDashBoardForm(new FormViajes(user));
         }
         private void btnCasetas_Click(object sender, EventArgs e)
         {
-            openDashBoardForm(new FormCasetas());
+            openDashBoardForm(new FormCasetas(user));
         }
 
         private void btnGasolineria_Click(object sender, EventArgs e)
         {
-            openDashBoardForm(new FormGasolinerias());
+            openDashBoardForm(new FormGasolinerias(user));
         }
 
         private void openDashBoardForm(Form childForm)

@@ -28,6 +28,7 @@ namespace SCI.INTERFAZ.UI
         IGasolineriaManager managerGasolinerias;
         ICasetaManager managerCasetas;
         IOperadoresEnViajeManager managerOperadoresEnViaje;
+        ILogManager managerLog;
 
         string resultado = string.Empty;
         string accion = string.Empty;
@@ -48,9 +49,8 @@ namespace SCI.INTERFAZ.UI
         statusviaje entidadStatus;
         ruta entidadRuta;
         cliente entidadCliente;
-        //operador entidadOperador;
-        //cortesoperador entidadCortes;
         unidades entidadUnidad;
+        usuario user;
 
         public string Valor
         {
@@ -58,7 +58,7 @@ namespace SCI.INTERFAZ.UI
             set { resultado = value; }
         }
 
-        public FormAgregarViaje(string evento, int id)
+        public FormAgregarViaje(usuario u, string evento, int id)
         {
             InitializeComponent();
             managerViajes = Tools.FabricManager.ViajeManager();
@@ -74,9 +74,11 @@ namespace SCI.INTERFAZ.UI
             managerGasolinerias = Tools.FabricManager.GasolineriaManager();
             managerCasetas = Tools.FabricManager.CasetaManager();
             managerOperadoresEnViaje = Tools.FabricManager.OperadoresEnViajeManager();
+            managerLog = Tools.FabricManager.LogManager();
 
             accion = evento;
             idAEditar = id;
+            user = u;
         }
 
         private void FormAgregarViaje_Shown(object sender, EventArgs e)
@@ -298,6 +300,16 @@ namespace SCI.INTERFAZ.UI
                         viaje viajeNuevo = CrearViaje(idStatus, idRuta, idCliente, idUnidad);
                         if (managerViajes.Insertar(viajeNuevo))
                         {
+                            viaje lastViaje = managerViajes.BuscarUltimoIngresado();
+                            log registro = new log
+                            {
+                                Accion = "agregar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "viaje-id:" + lastViaje.IdViajeSci
+                            };
+                            managerLog.Insertar(registro);
+
                             resultado = "Se ha agregado correctamente el Viaje.";
                             this.Close();
                         }
@@ -329,6 +341,15 @@ namespace SCI.INTERFAZ.UI
 
                             if (managerViajes.Actualizar(entidadAeditar))
                             {
+                                log registro = new log
+                                {
+                                    Accion = "editar",
+                                    NombreUsuario = user.NombreUsuario,
+                                    Fecha = DateTime.Now,
+                                    ModuloAfectado = "viaje-id:" + entidadAeditar.IdViajeSci
+                                };
+                                managerLog.Insertar(registro);
+
                                 resultado = "Se ha actualizado correctamente los datos del Viaje.";
                                 MessageBox.Show("Se han actualizado correctamente los datos del viaje.", "Actualización de Viaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 //this.Close();
@@ -452,6 +473,16 @@ namespace SCI.INTERFAZ.UI
 
                         if (managerGastos.Insertar(nuevoGasto))
                         {
+                            gasto lastGasto = managerGastos.BuscarUltimoIngresado();
+                            log registro = new log
+                            {
+                                Accion = "agregar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "viaje-id:" + lastGasto.IdViajeSci + " -- gasto-id:" + lastGasto.IdGasto
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodosLosGastosDelViaje();
                             limpiarFormularioRegistroDeGastos();
                         }
@@ -514,6 +545,15 @@ namespace SCI.INTERFAZ.UI
 
                         if (managerGastos.Actualizar(gastoAEditar))
                         {
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "viaje-id:" + gastoAEditar.IdViajeSci + " -- gasto-id:" + gastoAEditar.IdGasto
+                            };
+                            managerLog.Insertar(registro);
+
                             cargarTodosLosGastosDelViaje();
                             limpiarFormularioRegistroDeGastos();
                         }
@@ -747,7 +787,16 @@ namespace SCI.INTERFAZ.UI
 
                     if (managerCortes.Insertar(nuevoCorte))
                     {
-                        //MessageBox.Show("Se ha ingresado un nuevo corte para este viaje operador.", "Dato Ingresado Correctamente.", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        cortesoperador lastCorte = managerCortes.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "viaje-id:" + lastCorte.IdViajeSci + " -- cortesoperador-id:" + lastCorte.IdCorte
+                        };
+                        managerLog.Insertar(registro);
+
                         cargarTodosLosCortesDelViaje();
                         limpiarFormularioCortes();
 
@@ -769,7 +818,6 @@ namespace SCI.INTERFAZ.UI
                     corteAEditar.FechaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
                     corteAEditar.FechaFin = DateTime.Parse(textFechaHoraFinalOperador.Text);
                     corteAEditar.Costo = double.Parse(textCostoTotal.Text);
-                    //corteAEditar.IdViajeSci = entidadAeditar.IdViajeSci;
                     corteAEditar.IdStatus = entidadAeditar.IdStatus;
                     corteAEditar.Horas = double.Parse(textTotalHoras.Text);
 
@@ -778,10 +826,17 @@ namespace SCI.INTERFAZ.UI
 
                     if (managerCortes.Actualizar(corteAEditar))
                     {
-                        //MessageBox.Show("Se ha ingresado un nuevo corte para este viaje operador.", "Dato Ingresado Correctamente.", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        log registro = new log
+                        {
+                            Accion = "editar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "viaje-id:" + corteAEditar.IdViajeSci + " -- cortesoperador-id:" + corteAEditar.IdCorte
+                        };
+                        managerLog.Insertar(registro);
+
                         cargarTodosLosCortesDelViaje();
                         limpiarFormularioCortes();
-
                     }
                     else
                         MessageBox.Show("Ha ocurrido un problema al intentar guardar el nuevo corte. " + managerCortes.Error, "No se pudo guardar el corte", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -987,9 +1042,19 @@ namespace SCI.INTERFAZ.UI
                 if (result == DialogResult.Yes)
                 {
                     string idGastoSeleccionado = dgvGastos["idGasto", filaGastoSeleccionado].Value.ToString();
+                    gasto gastoSeleccionado = managerGastos.BuscarPorId(idGastoSeleccionado);
+
                     if (managerGastos.Eliminar(idGastoSeleccionado))
                     {
-                        //MessageBox.Show("El gasto ha sido eliminado correctamente.", "Eliminar Gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        log registro = new log
+                        {
+                            Accion = "eliminar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "viaje-id:" + gastoSeleccionado.IdViajeSci.ToString() + " -- gasto-id:" + gastoSeleccionado.IdGasto.ToString()
+                        };
+                        managerLog.Insertar(registro);
+
                         cargarTodosLosGastosDelViaje();
                     }
                     else
@@ -1085,6 +1150,17 @@ namespace SCI.INTERFAZ.UI
                 {
                     if (managerOperadoresEnViaje.Insertar(opEnViaje))
                     {
+
+                        operadoresenviaje lastOperadorEnViaje = managerOperadoresEnViaje.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "viaje-id:" + lastOperadorEnViaje.idViajeOps+" -- operador-id:"+lastOperadorEnViaje.IdOperador
+                        };
+                        managerLog.Insertar(registro);
+
                         listOperadoresAsignados.Items.Clear();
                         cargarListaOperadoresAsignadosAlViaje();
                     }
@@ -1129,6 +1205,15 @@ namespace SCI.INTERFAZ.UI
                     {
                         if (managerOperadoresEnViaje.Eliminar(opYaAgregado.IdRegistro.ToString()))
                         {
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "viaje-id:" + opYaAgregado.idViajeOps + " -- operador-id:" + opYaAgregado.IdOperador
+                            };
+                            managerLog.Insertar(registro);
+
                             listOperadoresAsignados.Items.Clear();
                             cargarListaOperadoresAsignadosAlViaje();
                         }
@@ -1165,9 +1250,18 @@ namespace SCI.INTERFAZ.UI
                 if (result == DialogResult.Yes)
                 {
                     string idCorteSeleccionado = dgvCortesOperador["idCorte", filaCorteSeleccionado].Value.ToString();
+                    cortesoperador corteSeleccionado = managerCortes.BuscarPorId(idCorteSeleccionado);
                     if (managerCortes.Eliminar(idCorteSeleccionado))
                     {
-                        //MessageBox.Show("El gasto ha sido eliminado correctamente.", "Eliminar Gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        log registro = new log
+                        {
+                            Accion = "eliminar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "viaje-id:" + corteSeleccionado.IdViajeSci + " -- cortesoperador-id:" + corteSeleccionado.IdCorte
+                        };
+                        managerLog.Insertar(registro);
+
                         cargarTodosLosCortesDelViaje();
                     }
                     else

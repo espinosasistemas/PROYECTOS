@@ -17,11 +17,13 @@ namespace SCI.INTERFAZ.UI
         ICasetaManager managerCasetas;
         ITipoDeUnidadManager managerTipoDeUnidades;
         ITipoDeGastoManager managerTipoDeGasto;
+        ILogManager managerLog;
 
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
         caseta entidadAeditar;
+        usuario user;
 
         public string Valor
         {
@@ -29,14 +31,16 @@ namespace SCI.INTERFAZ.UI
             set { resultado = value; }
         }
 
-        public FormAgregarCasetas(string evento, int id)
+        public FormAgregarCasetas(usuario u,string evento, int id)
         {
             InitializeComponent();
             managerCasetas = Tools.FabricManager.CasetaManager();
             managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
             managerTipoDeGasto = Tools.FabricManager.TipoDeGastoManager();
+            managerLog = Tools.FabricManager.LogManager();
             accion = evento;
             idAEditar = id;
+            user = u;
         }
 
         private void FormAgregarCasetas_Load(object sender, EventArgs e)
@@ -96,6 +100,16 @@ namespace SCI.INTERFAZ.UI
                     caseta casetaNueva = CrearCaseta(idTipoUnidad, idTipoGasto);
                     if (managerCasetas.Insertar(casetaNueva))
                     {
+                        caseta lastCaseta = managerCasetas.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "caseta-id:" + lastCaseta.IdCaseta
+                        };
+                        managerLog.Insertar(registro);
+
                         resultado = "Se ha agregado correctamente la nueva Caseta.";
                         this.Close();
                     }
@@ -122,6 +136,15 @@ namespace SCI.INTERFAZ.UI
 
                         if (managerCasetas.Actualizar(entidadAeditar))
                         {
+                            log registro = new log
+                            {
+                                Accion = "editar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "caseta-id:" + entidadAeditar.IdCaseta
+                            };
+                            managerLog.Insertar(registro);
+
                             resultado = "Se ha actualizado correctamente los datos de la caseta.";
                             this.Close();
                         }
