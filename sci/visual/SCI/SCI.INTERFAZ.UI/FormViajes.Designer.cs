@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboStatus = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminarViaje = new System.Windows.Forms.Button();
             this.btnEditarViaje = new System.Windows.Forms.Button();
@@ -92,6 +93,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.comboStatus);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnEliminarViaje);
             this.groupBox1.Controls.Add(this.btnEditarViaje);
@@ -106,11 +108,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mostrar Todos los Viajes";
             // 
+            // comboStatus
+            // 
+            this.comboStatus.BackColor = System.Drawing.SystemColors.Window;
+            this.comboStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboStatus.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.comboStatus.FormattingEnabled = true;
+            this.comboStatus.Items.AddRange(new object[] {
+            "En Planeacion",
+            "En Transito"});
+            this.comboStatus.Location = new System.Drawing.Point(6, 24);
+            this.comboStatus.Name = "comboStatus";
+            this.comboStatus.Size = new System.Drawing.Size(130, 25);
+            this.comboStatus.TabIndex = 8;
+            this.comboStatus.Text = "En Planeación";
+            this.comboStatus.SelectedValueChanged += new System.EventHandler(this.comboStatus_SelectedValueChanged);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(621, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(621, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,7 +145,7 @@
             this.btnEliminarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEliminarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarViaje.Image")));
             this.btnEliminarViaje.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEliminarViaje.Location = new System.Drawing.Point(414, 20);
+            this.btnEliminarViaje.Location = new System.Drawing.Point(550, 20);
             this.btnEliminarViaje.Name = "btnEliminarViaje";
             this.btnEliminarViaje.Size = new System.Drawing.Size(130, 33);
             this.btnEliminarViaje.TabIndex = 4;
@@ -145,7 +164,7 @@
             this.btnEditarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEditarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarViaje.Image")));
             this.btnEditarViaje.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEditarViaje.Location = new System.Drawing.Point(278, 20);
+            this.btnEditarViaje.Location = new System.Drawing.Point(414, 20);
             this.btnEditarViaje.Name = "btnEditarViaje";
             this.btnEditarViaje.Size = new System.Drawing.Size(130, 33);
             this.btnEditarViaje.TabIndex = 3;
@@ -195,7 +214,7 @@
             this.btnCrearViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCrearViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearViaje.Image")));
             this.btnCrearViaje.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnCrearViaje.Location = new System.Drawing.Point(142, 20);
+            this.btnCrearViaje.Location = new System.Drawing.Point(278, 20);
             this.btnCrearViaje.Name = "btnCrearViaje";
             this.btnCrearViaje.Size = new System.Drawing.Size(130, 33);
             this.btnCrearViaje.TabIndex = 2;
@@ -214,7 +233,7 @@
             this.btnBuscarTodosViajes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnBuscarTodosViajes.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarTodosViajes.Image")));
             this.btnBuscarTodosViajes.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnBuscarTodosViajes.Location = new System.Drawing.Point(6, 20);
+            this.btnBuscarTodosViajes.Location = new System.Drawing.Point(142, 20);
             this.btnBuscarTodosViajes.Name = "btnBuscarTodosViajes";
             this.btnBuscarTodosViajes.Size = new System.Drawing.Size(130, 33);
             this.btnBuscarTodosViajes.TabIndex = 1;
@@ -228,18 +247,22 @@
             // 
             this.dgvViajes.AllowUserToAddRows = false;
             this.dgvViajes.AllowUserToDeleteRows = false;
+            this.dgvViajes.AllowUserToOrderColumns = true;
+            this.dgvViajes.AllowUserToResizeRows = false;
             this.dgvViajes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvViajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvViajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvViajes.BackgroundColor = System.Drawing.Color.White;
             this.dgvViajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvViajes.EnableHeadersVisualStyles = false;
             this.dgvViajes.Location = new System.Drawing.Point(6, 59);
             this.dgvViajes.Name = "dgvViajes";
             this.dgvViajes.ReadOnly = true;
             this.dgvViajes.Size = new System.Drawing.Size(685, 389);
             this.dgvViajes.TabIndex = 0;
             this.dgvViajes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViajes_CellClick);
+            this.dgvViajes.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvViajes_ColumnHeaderMouseClick);
             // 
             // FormViajes
             // 
@@ -281,5 +304,6 @@
         private System.Windows.Forms.Button btnCrearViaje;
         private System.Windows.Forms.Button btnBuscarTodosViajes;
         private System.Windows.Forms.DataGridView dgvViajes;
+        private System.Windows.Forms.ComboBox comboStatus;
     }
 }

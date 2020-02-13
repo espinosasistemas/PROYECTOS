@@ -875,9 +875,9 @@
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Location = new System.Drawing.Point(432, 15);
+            this.groupBox1.Location = new System.Drawing.Point(432, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(322, 289);
+            this.groupBox1.Size = new System.Drawing.Size(322, 298);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de La Ruta y La Unidad";

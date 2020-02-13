@@ -2,6 +2,7 @@
 using SCI.COMMON.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SCI.BIZ
@@ -35,5 +36,6 @@ namespace SCI.BIZ
         {
             return repository.Query(g => g.IdViajeSci == idViajeSci && g.IdOperador == idOperador);
         }
+
     }
 }

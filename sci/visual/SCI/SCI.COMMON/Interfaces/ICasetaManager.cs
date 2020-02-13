@@ -12,6 +12,8 @@ namespace SCI.COMMON.Interfaces
         /// </summary>
         /// <param name="nombre">Nombre de la caseta a buscar</param>
         /// <returns>regresa un objeto tipo caseta si es que lo encuentra</returns>
-        caseta BuscarCasetaPorNombre(string nombre);
+        caseta BuscarCasetaPorNombre(string nombre, int tipoUnidad);
+
+        IEnumerable<caseta> BuscarCasetaPorTipoDeUnidad(int tipoUnidad);
     }
 }

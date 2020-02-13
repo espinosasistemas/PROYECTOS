@@ -31,7 +31,8 @@ namespace SCI.INTERFAZ.UI
             usuario user = managerUsuario.Login(textUsuario.Text, textPassword.Text);
             if (user != null)
             {
-                FormPrincipal fp = new FormPrincipal(user);
+                //FormPrincipal fp = new FormPrincipal(user);
+                FormPrincipal fp = new FormPrincipal();
                 fp.Show();
                 this.Hide();
             }

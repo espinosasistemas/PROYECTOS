@@ -14,5 +14,6 @@ namespace SCI.COMMON.Interfaces
         IEnumerable<gasto> BuscarGastosPorRangoFechas(DateTime fechaInicio, DateTime fechaFinal);
 
         IEnumerable<gasto> BuscarPorTipoGasto(int idTipoGasto, DateTime fechaInicio, DateTime fechaFinal);
+
     }
 }

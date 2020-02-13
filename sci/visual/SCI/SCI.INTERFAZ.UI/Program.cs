@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SCI.COMMON.Entidades;
+using SCI.COMMON.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +10,7 @@ namespace SCI.INTERFAZ.UI
 {
     static class Program
     {
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -16,8 +19,8 @@ namespace SCI.INTERFAZ.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
-            //Application.Run(new FormPrincipal());
+            //Application.Run(new FormLogin());
+            Application.Run(new FormPrincipal());
             //Application.Run(new FormAgregarGasolineria("editar", 7));
             //Application.Run(new FormAgregarViaje("agregar",-1));
             //Application.Run(new FormAgregarViaje("editar", 13));

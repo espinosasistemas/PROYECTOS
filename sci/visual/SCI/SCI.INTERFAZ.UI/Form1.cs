@@ -1,4 +1,5 @@
 ﻿using SCI.COMMON.Entidades;
+using SCI.COMMON.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +14,17 @@ namespace SCI.INTERFAZ.UI
 {
     public partial class FormPrincipal : Form
     {
+        IUsuarioManager managerUsuario;
         private Form activeForm = null;
         usuario user;
         
-        public FormPrincipal(usuario u)
+        public FormPrincipal()//usuario u)
         {
             InitializeComponent();
             customizeDising();
-            user = u;
+            managerUsuario = Tools.FabricManager.UsuarioManager();
+            user = managerUsuario.Login("test","x");
+            //user = u;
         }
 
         private void customizeDising()

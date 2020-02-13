@@ -13,9 +13,14 @@ namespace SCI.BIZ
         {
         }
 
-        public caseta BuscarCasetaPorNombre(string nombre)
+        public caseta BuscarCasetaPorNombre(string nombre, int tipoDeUnidad)
         {
-            return repository.Query(c => c.Nombre == nombre).SingleOrDefault();
+            return repository.Query(c => c.Nombre == nombre && c.IdTipoDeUnidad==tipoDeUnidad).SingleOrDefault();
+        }
+
+        public IEnumerable<caseta> BuscarCasetaPorTipoDeUnidad(int tipoUnidad)
+        {
+            return repository.Query(u=>u.IdTipoDeUnidad==tipoUnidad);
         }
     }
 }

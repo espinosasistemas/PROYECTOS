@@ -12,5 +12,7 @@ namespace SCI.COMMON.Interfaces
         IEnumerable<viaje> BuscarViajesOps(DateTime fechaInicio, DateTime fechaFinal);
 
         IEnumerable<viaje> BuscarViajesPorRuta(int idRuta, DateTime fechaInicio, DateTime fechaFinal);
+
+        IEnumerable<viaje> BuscarViajesPorStatus(int idStatusViaje);
     }
 }

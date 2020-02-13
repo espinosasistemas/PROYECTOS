@@ -33,7 +33,6 @@ namespace SCI.INTERFAZ.UI
         string resultado = string.Empty;
         string accion = string.Empty;
         int idAEditar = -1;
-        viaje entidadAeditar;
         string nombreArchivoPdf = string.Empty;
         string nombreArchivoXml = string.Empty;
         string nombreArchivoNuevoPdf = string.Empty;
@@ -46,6 +45,7 @@ namespace SCI.INTERFAZ.UI
         int idGastoAeditar = 0;
         int idCorteAeditar = 0;
 
+        viaje entidadAeditar;
         statusviaje entidadStatus;
         ruta entidadRuta;
         cliente entidadCliente;
@@ -139,6 +139,18 @@ namespace SCI.INTERFAZ.UI
                 textMontoGasto.Text = string.Empty;
                 comboFormaPago.SelectedIndex = 0;
                 groupOperadores.Enabled = true;
+
+                if (comboStatus.Text.Contains("Planeac"))
+                {
+                    groupGastos.Enabled = false;
+                    groupCortesOPerador.Enabled = false;
+                }
+                else
+                {
+                    groupGastos.Enabled = true;
+                    groupCortesOPerador.Enabled = true;
+                }
+    
             }
             else
             {
@@ -149,12 +161,13 @@ namespace SCI.INTERFAZ.UI
                 comboClientes.Text = string.Empty;
                 comboUnidades.DataSource = null;
                 comboTipoGastos.Text = string.Empty;
-                groupGastos.Enabled = false;
-                groupCortesOPerador.Enabled = false;
                 labelTotalDeGastos.Visible = false;
                 labelTotalGastos.Visible = false;
                 labelSaldoTotalCortes.Visible = false;
                 labelSueldoCortes.Visible = false;
+
+                groupGastos.Enabled = false;
+                groupCortesOPerador.Enabled = false;
 
             }
 
@@ -1004,29 +1017,35 @@ namespace SCI.INTERFAZ.UI
 
         private void cargarTodasLasCasetas()
         {
-            IEnumerable<caseta> todasCasetas = managerCasetas.ObtenerTodos;
-            comboCasetas.DataSource = todasCasetas.Select(r => (r.Nombre)).ToList();
+            unidades UnidadEnViaje = managerUnidades.BuscarPorId(entidadAeditar.IdUnidad.ToString());
+            //IEnumerable<caseta> todasCasetas = managerCasetas.ObtenerTodos;
+            IEnumerable<caseta> todasCasetas = managerCasetas.BuscarCasetaPorTipoDeUnidad(UnidadEnViaje.IdTipoDeUnidad);
+            comboCasetas.DataSource = todasCasetas.Select(r => (r.Nombre) ).ToList();
             comboCasetas.Text = string.Empty;
         }
 
         private void comboCasetas_TextChanged(object sender, EventArgs e)
         {
             textMontoGasto.Text = string.Empty;
-            
-            if (comboCasetas.Text != string.Empty)
+            try
             {
-                caseta casetaN = managerCasetas.BuscarCasetaPorNombre(comboCasetas.Text);
-                if (casetaN != null)
+                if (comboCasetas.Text != string.Empty)
                 {
-                    textMontoGasto.Text = casetaN.Costo.ToString();
+                    unidades unidadSeleccionada = managerUnidades.BuscarPorId(entidadAeditar.IdUnidad.ToString());
+                    caseta casetaN = managerCasetas.BuscarCasetaPorNombre(comboCasetas.Text,unidadSeleccionada.IdTipoDeUnidad);
+                    if (casetaN != null)
+                    {
+                        textMontoGasto.Text = casetaN.Costo.ToString();
+                        textMontoGasto.Enabled = false;
+                    }
                     textMontoGasto.Enabled = false;
                 }
-                textMontoGasto.Enabled = false;
+                else
+                {
+                    textMontoGasto.Enabled = true;
+                }
             }
-            else
-            {
-                textMontoGasto.Enabled = true;
-            }
+            catch { }
         }
 
         private void dgvGastos_CellClick(object sender, DataGridViewCellEventArgs e)

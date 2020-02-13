@@ -31,5 +31,10 @@ namespace SCI.BIZ
             DateTime rFin = new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 0, 0, 0).AddDays(1);
             return repository.Query(v => v.FechaInicioSci >= rInicio && v.FechaFinSci < rFin && v.IdRuta==idRuta);
         }
+
+        public IEnumerable<viaje> BuscarViajesPorStatus(int idStatusViaje)
+        {
+            return repository.Query(v => v.IdStatus == idStatusViaje);
+        }
     }
 }
