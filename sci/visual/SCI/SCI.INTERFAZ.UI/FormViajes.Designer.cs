@@ -110,7 +110,7 @@
             // 
             // comboStatus
             // 
-            this.comboStatus.BackColor = System.Drawing.SystemColors.Window;
+            this.comboStatus.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboStatus.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
@@ -122,7 +122,6 @@
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(130, 25);
             this.comboStatus.TabIndex = 8;
-            this.comboStatus.Text = "En Planeación";
             this.comboStatus.SelectedValueChanged += new System.EventHandler(this.comboStatus_SelectedValueChanged);
             // 
             // pictureBox1

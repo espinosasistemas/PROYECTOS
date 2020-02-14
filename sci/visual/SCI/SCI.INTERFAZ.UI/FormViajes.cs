@@ -41,6 +41,8 @@ namespace SCI.INTERFAZ.UI
             user = u;
         }
 
+        
+
         public void CargarTodosLosViajes(string status)
         {
             IEnumerable<viaje> TodosViajes;
@@ -54,8 +56,7 @@ namespace SCI.INTERFAZ.UI
                 TodosViajes = managerViajes.BuscarViajesPorStatus(int.Parse(cadenaStatus.First())).ToList();
             }
 
-            
-            dgvViajes.DataSource = TodosViajes;
+            dgvViajes.DataSource = TodosViajes.OrderByDescending(s=>s.IdViajeSci).ToArray();
 
             if (dgvViajes.Rows.Count > 0)
             {
@@ -158,6 +159,7 @@ namespace SCI.INTERFAZ.UI
         private void btnBuscarTodosViajes_Click(object sender, EventArgs e)
         {
             CargarTodosLosViajes(string.Empty);
+            
         }
 
         private void btnCrearViaje_Click(object sender, EventArgs e)
@@ -268,11 +270,12 @@ namespace SCI.INTERFAZ.UI
 
         private void dgvViajes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            this.dgvViajes.Sort(this.dgvViajes.Columns["idViajeSci"], ListSortDirection.Ascending);
+            // dgvViajes.Sort(dgvViajes.Columns[0], ListSortDirection.Ascending);
 
             //MessageBox.Show("hola");
             //this.dgvViajes.Sort(this.dgvViajes.Columns["idViajeSci"], ListSortDirection.Ascending);
             //this.dgvViajes.Columns["idViajeSci"].SortMode = DataGridViewColumnSortMode.Automatic;
         }
+
     }
 }
