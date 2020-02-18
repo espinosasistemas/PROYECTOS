@@ -33,7 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboStatus = new System.Windows.Forms.ComboBox();
+            this.listBoxStatus = new System.Windows.Forms.ListBox();
+            this.btnStatus = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminarViaje = new System.Windows.Forms.Button();
             this.btnEditarViaje = new System.Windows.Forms.Button();
@@ -61,6 +62,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(718, 26);
             this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -93,7 +95,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.comboStatus);
+            this.groupBox1.Controls.Add(this.listBoxStatus);
+            this.groupBox1.Controls.Add(this.btnStatus);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnEliminarViaje);
             this.groupBox1.Controls.Add(this.btnEditarViaje);
@@ -107,22 +110,43 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mostrar Todos los Viajes";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // comboStatus
+            // listBoxStatus
             // 
-            this.comboStatus.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboStatus.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
-            this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Items.AddRange(new object[] {
-            "En Planeacion",
-            "En Transito"});
-            this.comboStatus.Location = new System.Drawing.Point(6, 24);
-            this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(130, 25);
-            this.comboStatus.TabIndex = 8;
-            this.comboStatus.SelectedValueChanged += new System.EventHandler(this.comboStatus_SelectedValueChanged);
+            this.listBoxStatus.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxStatus.FormattingEnabled = true;
+            this.listBoxStatus.ItemHeight = 17;
+            this.listBoxStatus.Items.AddRange(new object[] {
+            "Planeacion",
+            "Transito",
+            "Detenido",
+            "Entregado"});
+            this.listBoxStatus.Location = new System.Drawing.Point(6, 53);
+            this.listBoxStatus.Name = "listBoxStatus";
+            this.listBoxStatus.Size = new System.Drawing.Size(130, 89);
+            this.listBoxStatus.TabIndex = 9;
+            this.listBoxStatus.Visible = false;
+            this.listBoxStatus.SelectedValueChanged += new System.EventHandler(this.listBoxStatus_SelectedValueChanged);
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnStatus.FlatAppearance.BorderSize = 0;
+            this.btnStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatus.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnStatus.Image = ((System.Drawing.Image)(resources.GetObject("btnStatus.Image")));
+            this.btnStatus.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnStatus.Location = new System.Drawing.Point(6, 20);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(130, 33);
+            this.btnStatus.TabIndex = 8;
+            this.btnStatus.Text = "Mostrar Todos";
+            this.btnStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStatus.UseVisualStyleBackColor = false;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // pictureBox1
             // 
@@ -134,6 +158,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnEliminarViaje
             // 
@@ -261,7 +286,8 @@
             this.dgvViajes.Size = new System.Drawing.Size(685, 389);
             this.dgvViajes.TabIndex = 0;
             this.dgvViajes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViajes_CellClick);
-            this.dgvViajes.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvViajes_ColumnHeaderMouseClick);
+            this.dgvViajes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViajes_CellContentClick);
+            this.dgvViajes.Click += new System.EventHandler(this.dgvViajes_Click);
             // 
             // FormViajes
             // 
@@ -303,6 +329,7 @@
         private System.Windows.Forms.Button btnCrearViaje;
         private System.Windows.Forms.Button btnBuscarTodosViajes;
         private System.Windows.Forms.DataGridView dgvViajes;
-        private System.Windows.Forms.ComboBox comboStatus;
+        private System.Windows.Forms.ListBox listBoxStatus;
+        private System.Windows.Forms.Button btnStatus;
     }
 }

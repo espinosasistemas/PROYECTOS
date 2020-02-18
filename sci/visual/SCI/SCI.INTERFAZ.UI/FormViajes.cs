@@ -158,17 +158,20 @@ namespace SCI.INTERFAZ.UI
 
         private void btnBuscarTodosViajes_Click(object sender, EventArgs e)
         {
+            listBoxStatus.Visible = false;
             CargarTodosLosViajes(string.Empty);
             
         }
 
         private void btnCrearViaje_Click(object sender, EventArgs e)
         {
+            listBoxStatus.Visible = false;
             FormAgregarViaje fm = new FormAgregarViaje(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
             {
-                CargarTodosLosViajes(comboStatus.Text);
+                //CargarTodosLosViajes(comboStatus.Text);
+                CargarTodosLosViajes(btnStatus.Text);
                 mostrarLabelStatus(fm.Valor, true);
             }
         }
@@ -183,27 +186,29 @@ namespace SCI.INTERFAZ.UI
         {
             string statuInicial = string.Empty;
             IEnumerable <statusviaje> StatusViaje = managerStatus.ObtenerTodos;
-            comboStatus.DataSource = StatusViaje.Select(r => (r.IdStatus + "/" + r.Nombre)).ToList();
-            for(int i=0; i<comboStatus.Items.Count; i++)
+            listBoxStatus.DataSource = StatusViaje.Select(r => (r.IdStatus + "/" + r.Nombre)).ToList();
+            for (int i = 0; i < listBoxStatus.Items.Count; i++)
             {
-                if (comboStatus.Items[i].ToString().Contains("nsito"))
+                if (listBoxStatus.Items[i].ToString().Contains("nsito"))
                 {
-                    statuInicial = comboStatus.Items[i].ToString();
+                    statuInicial = listBoxStatus.Items[i].ToString();
                     break;
                 }
             }
-            comboStatus.Text = statuInicial;
+            btnStatus.Text = statuInicial;
         }
 
         private void btnEditarViaje_Click(object sender, EventArgs e)
         {
+            listBoxStatus.Visible = false;
             if (filaSeleccionada != -1)
             {
                 FormAgregarViaje fm = new FormAgregarViaje(user,"editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
-                    CargarTodosLosViajes(comboStatus.Text);
+                    //CargarTodosLosViajes(comboStatus.Text);
+                    CargarTodosLosViajes(btnStatus.Text);
                     mostrarLabelStatus(fm.Valor, true);
                 }
             }
@@ -212,10 +217,12 @@ namespace SCI.INTERFAZ.UI
         private void dgvViajes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             filaSeleccionada = e.RowIndex;
+            listBoxStatus.Visible = false;
         }
 
         private void btnEliminarViaje_Click(object sender, EventArgs e)
         {
+            listBoxStatus.Visible = false;
             DialogResult dialogEliminar = new DialogResult();
             if (filaSeleccionada >= 0)
             {
@@ -236,7 +243,8 @@ namespace SCI.INTERFAZ.UI
                             };
                             managerLog.Insertar(registro);
 
-                            CargarTodosLosViajes(comboStatus.Text);
+                            // CargarTodosLosViajes(comboStatus.Text);
+                            CargarTodosLosViajes(btnStatus.Text);
                             mostrarLabelStatus("Se ha eliminado Correctamente el Viaje del cliente. " + nombre, true);
                         }
                         else
@@ -254,7 +262,7 @@ namespace SCI.INTERFAZ.UI
 
         private void FormViajes_Shown(object sender, EventArgs e)
         {
-            CargarTodosLosViajes(comboStatus.Text);
+            CargarTodosLosViajes(btnStatus.Text);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -262,20 +270,45 @@ namespace SCI.INTERFAZ.UI
             this.Close();
         }
 
-        private void comboStatus_SelectedValueChanged(object sender, EventArgs e)
+        private void listBoxStatus_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(primeraCarga == false)
-                CargarTodosLosViajes(comboStatus.Text);
+            listBoxStatus.Visible = false;
+            btnStatus.Text = listBoxStatus.Text;
+            if (primeraCarga == false)
+                CargarTodosLosViajes(btnStatus.Text);
         }
 
-        private void dgvViajes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btnStatus_Click(object sender, EventArgs e)
         {
-            // dgvViajes.Sort(dgvViajes.Columns[0], ListSortDirection.Ascending);
-
-            //MessageBox.Show("hola");
-            //this.dgvViajes.Sort(this.dgvViajes.Columns["idViajeSci"], ListSortDirection.Ascending);
-            //this.dgvViajes.Columns["idViajeSci"].SortMode = DataGridViewColumnSortMode.Automatic;
+            if (listBoxStatus.Visible == true)
+                listBoxStatus.Visible = false;
+            else
+                listBoxStatus.Visible = true;
         }
 
+        private void dgvViajes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            listBoxStatus.Visible = false;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            listBoxStatus.Visible = false;
+        }
+
+        private void dgvViajes_Click(object sender, EventArgs e)
+        {
+            listBoxStatus.Visible = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            listBoxStatus.Visible = false;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            listBoxStatus.Visible = false;
+        }
     }
 }
