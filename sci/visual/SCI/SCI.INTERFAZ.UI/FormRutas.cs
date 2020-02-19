@@ -15,8 +15,9 @@ namespace SCI.INTERFAZ.UI
     public partial class FormRutas : Form
     {
         IRutaManager managerRuta;
-        ITipoDeUnidadManager managerTipoDeUnidades;
+        //ITipoDeUnidadManager managerTipoDeUnidades;
         ILogManager managerLog;
+        IClienteManager managerCliente;
 
         int filaSeleccionada = -1;
         usuario user;
@@ -25,7 +26,8 @@ namespace SCI.INTERFAZ.UI
         {
             InitializeComponent();
             managerRuta = Tools.FabricManager.RutaManager();
-            managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
+            //managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
+            managerCliente = Tools.FabricManager.ClienteManager();
             managerLog = Tools.FabricManager.LogManager();
             user = u;
         }
@@ -106,12 +108,14 @@ namespace SCI.INTERFAZ.UI
             
             if (dgvRutas.Rows.Count > 0)
             {
-                dgvRutas.Columns.Add("tipoDeUnidad", "TipoDeUnidad");
-                tipounidad tUnidad;
+                dgvRutas.Columns.Add("Cliente", "Cliente");
+                dgvRutas.Columns["idcliente"].Visible = false;
+                dgvRutas.Columns["idruta"].Visible = false;
+                cliente clienteSeleccionado;
                 for (int i = 0; i < dgvRutas.Rows.Count; i++)
                 {
-                    tUnidad = managerTipoDeUnidades.BuscarPorId(dgvRutas["idTipoDeUnidad", i].Value.ToString());
-                    dgvRutas["tipoDeUnidad", i].Value = tUnidad.Descripcion;
+                    clienteSeleccionado = managerCliente.BuscarPorId(dgvRutas["idcliente", i].Value.ToString());
+                    dgvRutas["Cliente", i].Value = clienteSeleccionado.RazonSocial;
                 }
                 mostrarLabelStatus("Se han cargado toda las rutas.", true);
                 filaSeleccionada = 0;
@@ -145,7 +149,6 @@ namespace SCI.INTERFAZ.UI
         {
             cargarTodasLasRutas();
         }
-
 
         /*-------------------*/
     }

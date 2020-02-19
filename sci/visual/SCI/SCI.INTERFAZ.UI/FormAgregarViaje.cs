@@ -88,11 +88,12 @@ namespace SCI.INTERFAZ.UI
 
         private void FormAgregarViaje_Load(object sender, EventArgs e)
         {
-            cargarComboRutas();
+            //cargarComboRutas();
             cargarComboClientes();
             cargarComboStatus();
             cargarComboTipoDeGastos();
             cargarListaOperadores();
+            cargarTodasLasUnidades();
 
             if (accion == "editar")
             {
@@ -103,25 +104,21 @@ namespace SCI.INTERFAZ.UI
                 //Se cargan las entidades ligadas con el viaje SCi
                 entidadStatus = managerStatus.BuscarPorId(entidadAeditar.IdStatus.ToString());
                 entidadRuta = managerRuta.BuscarPorId(entidadAeditar.IdRuta.ToString());
-                entidadCliente = managerCliete.BuscarPorId(entidadAeditar.IdCliente.ToString());
                 entidadUnidad = managerUnidades.BuscarPorId(entidadAeditar.IdUnidad.ToString());
+                entidadCliente = managerCliete.BuscarPorId(entidadRuta.IdCliente.ToString());
 
                 //Se cargan los valores del viaje a los componentes
                 textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
-                calendarSci.SelectionStart = entidadAeditar.FechaInicioSci;
-                calendarSci.SelectionEnd = entidadAeditar.FechaFinSci;
-                CalendarCliente.SelectionStart = entidadAeditar.FechaInicioCliente;
-                CalendarCliente.SelectionEnd = entidadAeditar.FechaFinCliente;
-                textDateInicioSci.Text = entidadAeditar.FechaInicioSci.ToString();
-                textDateInicioCliente.Text = entidadAeditar.FechaInicioCliente.ToString();
-                textDateFinSci.Text = entidadAeditar.FechaFinSci.ToString();
-                textDateFinCliente.Text = entidadAeditar.FechaFinCliente.ToString();
+                calendarSci.SelectionStart = entidadAeditar.FechaInicio;
+                calendarSci.SelectionEnd = entidadAeditar.FechaFin;
+                textDateInicioSci.Text = entidadAeditar.FechaInicio.ToString();
+                textDateFinSci.Text = entidadAeditar.FechaFin.ToString();
 
                 //Se inicializan los combos con los valores cargados del viaje
-                comboRutas.Text = entidadRuta.IdRuta.ToString() + "/" + entidadRuta.Nombre;
                 comboClientes.Text = entidadCliente.IdCliente.ToString() + "/" + entidadCliente.RazonSocial;
+                comboRutas.Text = entidadRuta.IdRuta.ToString() + "/" + entidadRuta.Nombre;
                 comboStatus.Text = entidadStatus.IdStatus.ToString() + "/" + entidadStatus.Nombre;
-                comboUnidades.Text = entidadUnidad.IdUnidad.ToString() + "/" + entidadUnidad.Nombre;
+                comboUnidades.Text = entidadUnidad.NumeroEconomico.ToString() + "/" + entidadUnidad.Nombre;
                 comboStatus.Enabled = true;
 
                 //Carga todos los gastos relacionados con el Viaje en el dgv Del TabControl = Gastos
@@ -140,7 +137,7 @@ namespace SCI.INTERFAZ.UI
                 comboFormaPago.SelectedIndex = 0;
                 groupOperadores.Enabled = true;
 
-                if (comboStatus.Text.Contains("Planeac"))
+                /*if (comboStatus.Text.Contains("Iniciado"))
                 {
                     groupGastos.Enabled = false;
                     groupCortesOPerador.Enabled = false;
@@ -149,17 +146,18 @@ namespace SCI.INTERFAZ.UI
                 {
                     groupGastos.Enabled = true;
                     groupCortesOPerador.Enabled = true;
-                }
+                }*/
     
             }
             else
             {
                 //datos iniciales la orden es Agregar nuevo Viaje
-                statusviaje estado = managerStatus.BuscaPorStatus("En Planeación");
+                statusviaje estado = managerStatus.BuscaPorStatus("Iniciado");
                 comboStatus.Text = estado.IdStatus + "/" + estado.Nombre;
                 comboRutas.Text = string.Empty;
                 comboClientes.Text = string.Empty;
-                comboUnidades.DataSource = null;
+                //comboUnidades.DataSource = null;
+                comboUnidades.Text = string.Empty;
                 comboTipoGastos.Text = string.Empty;
                 labelTotalDeGastos.Visible = false;
                 labelTotalGastos.Visible = false;
@@ -304,13 +302,17 @@ namespace SCI.INTERFAZ.UI
 
                 string[] splitUnidades;
                 splitUnidades = comboUnidades.Text.Split('/');
-                int idUnidad = int.Parse(splitUnidades.First());
+                int numEconomico = int.Parse(splitUnidades.First());
+                unidades Unidad = managerUnidades.BuscarPorNumEco(numEconomico);
+
 
                 if (accion == "agregar")
                 {
                     try
                     {
-                        viaje viajeNuevo = CrearViaje(idStatus, idRuta, idCliente, idUnidad);
+                        
+
+                        viaje viajeNuevo = CrearViaje(idStatus, idRuta, idCliente, Unidad.IdUnidad);
                         if (managerViajes.Insertar(viajeNuevo))
                         {
                             viaje lastViaje = managerViajes.BuscarUltimoIngresado();
@@ -343,14 +345,11 @@ namespace SCI.INTERFAZ.UI
                         try
                         {
                             entidadAeditar.IdViajeCliente = textClaveViajeCliente.Text;
-                            entidadAeditar.FechaInicioSci = DateTime.Parse(textDateInicioSci.Text); //dateTimeInicioSci.Value;
-                            entidadAeditar.FechaInicioCliente = DateTime.Parse(textDateInicioCliente.Text); //dateTimeInicioCliente.Value;
-                            entidadAeditar.FechaFinSci = DateTime.Parse(textDateFinSci.Text); //dateTimeFinSci.Value;
-                            entidadAeditar.FechaFinCliente = DateTime.Parse(textDateFinCliente.Text); //dateTimeFinCliente.Value;
+                            entidadAeditar.FechaInicio = DateTime.Parse(textDateInicioSci.Text); //dateTimeInicioSci.Value;
+                            entidadAeditar.FechaFin = DateTime.Parse(textDateFinSci.Text); //dateTimeFinSci.Value;
                             entidadAeditar.IdRuta = idRuta;
-                            entidadAeditar.IdCliente = idCliente;
                             entidadAeditar.IdStatus = idStatus;
-                            entidadAeditar.IdUnidad = idUnidad;
+                            entidadAeditar.IdUnidad = Unidad.IdUnidad;
 
                             if (managerViajes.Actualizar(entidadAeditar))
                             {
@@ -390,13 +389,12 @@ namespace SCI.INTERFAZ.UI
             return new viaje
             {
                 IdViajeCliente = textClaveViajeCliente.Text,
-                FechaInicioSci = DateTime.Parse(textDateInicioSci.Text), //dateTimeInicioSci.Value,
-                FechaInicioCliente = DateTime.Parse(textDateInicioCliente.Text), //dateTimeInicioCliente.Value,
-                FechaFinSci = DateTime.Parse(textDateFinSci.Text),// dateTimeFinSci.Value,
-                FechaFinCliente = DateTime.Parse(textDateFinCliente.Text),// dateTimeFinCliente.Value,
+                FechaInicio = DateTime.Parse(textDateInicioSci.Text), //dateTimeInicioSci.Value,
+                //FechaInicioCliente = DateTime.Parse(textDateInicioCliente.Text), //dateTimeInicioCliente.Value,
+                FechaFin = DateTime.Parse(textDateFinSci.Text),// dateTimeFinSci.Value,
+                //FechaFinCliente = DateTime.Parse(textDateFinCliente.Text),// dateTimeFinCliente.Value,
                 IdStatus = idStatus,
                 IdRuta = idRuta,
-                IdCliente = idCliente,
                 IdUnidad = idUni
             };
         }
@@ -407,15 +405,9 @@ namespace SCI.INTERFAZ.UI
             textDateFinSci.Text = e.End.ToString();
         }
 
-        private void CalendarCliente_DateSelected(object sender, DateRangeEventArgs e)
-        {
-            textDateInicioCliente.Text = e.Start.ToString();
-            textDateFinCliente.Text = e.End.ToString();
-        }
-
         private void comboStatus_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (comboStatus.Text == "6/En Planeación")
+            if (comboStatus.Text.Contains("Iniciado"))
                 habilitarComponentes(true);
             else
                 habilitarComponentes(false);
@@ -424,11 +416,8 @@ namespace SCI.INTERFAZ.UI
         private void habilitarComponentes(bool habilitar)
         {
             calendarSci.Enabled = habilitar;
-            CalendarCliente.Enabled = habilitar;
             textDateInicioSci.Enabled = habilitar;
-            textDateInicioCliente.Enabled = habilitar;
             textDateFinSci.Enabled = habilitar;
-            textDateFinCliente.Enabled = habilitar;
             comboClientes.Enabled = habilitar;
             comboRutas.Enabled = habilitar;
             textClaveViajeCliente.Enabled = habilitar;
@@ -589,7 +578,7 @@ namespace SCI.INTERFAZ.UI
         private bool validarFechaDelGasto()
         {
             DateTime fechayHora = DateTime.Parse(textFechaDelGasto.Text);
-            if (fechayHora < entidadAeditar.FechaFinSci && fechayHora >= entidadAeditar.FechaInicioSci)
+            if (fechayHora < entidadAeditar.FechaFin && fechayHora >= entidadAeditar.FechaInicio)
                 return true;
             else return false;
         }
@@ -869,7 +858,7 @@ namespace SCI.INTERFAZ.UI
             DateTime horaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
             DateTime horaFinal = DateTime.Parse(textFechaHoraFinalOperador.Text);
 
-            if (horaInicio>entidadAeditar.FechaInicioSci && horaInicio < entidadAeditar.FechaFinSci && horaFinal>horaInicio && horaFinal<entidadAeditar.FechaFinSci)
+            if (horaInicio>entidadAeditar.FechaInicio && horaInicio < entidadAeditar.FechaFin && horaFinal>horaInicio && horaFinal<entidadAeditar.FechaFin)
                 return true;
             else return false;
         }
@@ -897,16 +886,22 @@ namespace SCI.INTERFAZ.UI
             
         }
 
-        private void cargarTodasLasUnidades(int tipoDeUnidad)
+        private void cargarTodasLasUnidades()
         {
-            IEnumerable<unidades> TodasLasUnidades = managerUnidades.BuscarPorTipoDeUnidad(tipoDeUnidad);
-            comboUnidades.DataSource = TodasLasUnidades.Select(r => (r.IdUnidad + "/" + r.Nombre)).ToList();
+            IEnumerable<unidades> TodasLasUnidades = managerUnidades.ObtenerTodos;
+            comboUnidades.DataSource = TodasLasUnidades.Select(r => (r.NumeroEconomico + "/" + r.Nombre)).ToList();
         }
 
-        private void cargarComboRutas()
+        private void cargarComboRutas(int idCliente)
         {
-            IEnumerable<ruta> rutas = managerRuta.ObtenerTodos;
+            IEnumerable<ruta> rutas = managerRuta.BuscarPorIdCliente(idCliente);
             comboRutas.DataSource = rutas.Select(r => (r.IdRuta + "/" + r.Nombre)).ToList();
+            /*if (comboClientes.Text == string.Empty)
+            {
+                comboRutas.Items.Clear();
+                
+            }*/
+            comboRutas.Text = string.Empty;
         }
 
         private void comboRutas_TextChanged(object sender, EventArgs e)
@@ -917,10 +912,11 @@ namespace SCI.INTERFAZ.UI
                 ruta rutaSeleccionada = managerRuta.BuscarPorId(cadenaRutaSeleccionada.First());
                 labelNombreRuta.Text = rutaSeleccionada.Nombre;
                 labelCostoRuta.Text = "$" + rutaSeleccionada.Costo.ToString();
-                tipounidad tUnidad = managerTipoDeUnidad.BuscarPorId(rutaSeleccionada.IdTipoDeUnidad.ToString());
-                labelTipoUnidad.Text = tUnidad.Descripcion;
-                cargarTodasLasUnidades(tUnidad.IdTipoDeUnidad);
-                comboUnidades.Text = string.Empty;
+                //tipounidad tUnidad = managerTipoDeUnidad.BuscarPorId(rutaSeleccionada.IdTipoDeUnidad.ToString());
+               // labelTipoUnidad.Text = tUnidad.Descripcion;
+                //cargarTodasLasUnidades(tUnidad.IdTipoDeUnidad);
+                //
+                //comboUnidades.Text = string.Empty;
             }
             else
             {
@@ -932,7 +928,7 @@ namespace SCI.INTERFAZ.UI
 
         private void comboUnidades_TextChanged(object sender, EventArgs e)
         {
-            if (comboUnidades.Text != string.Empty)
+            /*if (comboUnidades.Text != string.Empty)
             {
                 string[] cadenaUnidades = comboUnidades.Text.Split('/');
                 unidades unidadSeleccionada = managerUnidades.BuscarPorId(cadenaUnidades.First());
@@ -947,7 +943,7 @@ namespace SCI.INTERFAZ.UI
                 labelNumEco.Text = "--";
                 labelPlacas.Text = "--";
                 labelCombustible.Text = "--";
-            }
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -960,13 +956,17 @@ namespace SCI.INTERFAZ.UI
             if (comboClientes.Text != string.Empty)
             {
                 string[] cadenaCliente = comboClientes.Text.Split('/');
+                cargarComboRutas(int.Parse(cadenaCliente.First()));
                 cliente clienteSeleccionado = managerCliete.BuscarPorId(cadenaCliente.First());
                 labelNombreCliente.Text = clienteSeleccionado.RazonSocial;
                 labelTelCliente.Text = clienteSeleccionado.Telefono;
                 labelRfcCliente.Text = clienteSeleccionado.Rfc;
+
             }
             else
             {
+                comboRutas.DataSource = null;
+                comboRutas.Text = string.Empty;
                 labelNombreCliente.Text = "--";
                 labelTelCliente.Text = "--";
                 labelRfcCliente.Text = "--";
@@ -1330,5 +1330,6 @@ namespace SCI.INTERFAZ.UI
             calendarCortesOperador.SelectionRange.Start = corteSeleccionado.FechaInicio;
             calendarCortesOperador.SelectionRange.End = corteSeleccionado.FechaFin;
         }
+
     }
 }

@@ -8,5 +8,8 @@ namespace SCI.COMMON.Interfaces
     public interface IRutaManager:IGenericManager<ruta>
     {
         IEnumerable<ruta> BuscaPorNombreRuta(string nombre);
+        IEnumerable<ruta> BuscarPorIdCliente(int idCliente);
+
+        
     }
 }

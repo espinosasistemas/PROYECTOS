@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarViaje));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textDateFinCliente = new System.Windows.Forms.TextBox();
-            this.textDateInicioCliente = new System.Windows.Forms.TextBox();
             this.textDateFinSci = new System.Windows.Forms.TextBox();
             this.textDateInicioSci = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.CalendarCliente = new System.Windows.Forms.MonthCalendar();
             this.calendarSci = new System.Windows.Forms.MonthCalendar();
             this.label9 = new System.Windows.Forms.Label();
             this.comboStatus = new System.Windows.Forms.ComboBox();
@@ -170,82 +170,48 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(85, 255);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 16);
+            this.label14.Size = new System.Drawing.Size(97, 16);
             this.label14.TabIndex = 0;
             this.label14.Text = "Fechas Final";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(77, 226);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 16);
+            this.label13.Size = new System.Drawing.Size(104, 16);
             this.label13.TabIndex = 0;
             this.label13.Text = "Fechas Inicial";
             // 
-            // textDateFinCliente
-            // 
-            this.textDateFinCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDateFinCliente.Location = new System.Drawing.Point(456, 252);
-            this.textDateFinCliente.Name = "textDateFinCliente";
-            this.textDateFinCliente.Size = new System.Drawing.Size(248, 26);
-            this.textDateFinCliente.TabIndex = 20;
-            // 
-            // textDateInicioCliente
-            // 
-            this.textDateInicioCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDateInicioCliente.Location = new System.Drawing.Point(456, 220);
-            this.textDateInicioCliente.Name = "textDateInicioCliente";
-            this.textDateInicioCliente.Size = new System.Drawing.Size(248, 26);
-            this.textDateInicioCliente.TabIndex = 19;
-            // 
             // textDateFinSci
             // 
-            this.textDateFinSci.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDateFinSci.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDateFinSci.Location = new System.Drawing.Point(184, 255);
             this.textDateFinSci.Name = "textDateFinSci";
-            this.textDateFinSci.Size = new System.Drawing.Size(247, 26);
+            this.textDateFinSci.Size = new System.Drawing.Size(247, 24);
             this.textDateFinSci.TabIndex = 18;
             // 
             // textDateInicioSci
             // 
-            this.textDateInicioSci.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDateInicioSci.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDateInicioSci.Location = new System.Drawing.Point(183, 220);
             this.textDateInicioSci.Name = "textDateInicioSci";
-            this.textDateInicioSci.Size = new System.Drawing.Size(247, 26);
+            this.textDateInicioSci.Size = new System.Drawing.Size(247, 24);
             this.textDateInicioSci.TabIndex = 17;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(516, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 16);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "Fechas del Cliente";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(267, 20);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 16);
+            this.label11.Size = new System.Drawing.Size(87, 16);
             this.label11.TabIndex = 15;
             this.label11.Text = "Fechas SCI";
-            // 
-            // CalendarCliente
-            // 
-            this.CalendarCliente.Location = new System.Drawing.Point(456, 46);
-            this.CalendarCliente.MaxSelectionCount = 30;
-            this.CalendarCliente.Name = "CalendarCliente";
-            this.CalendarCliente.TabIndex = 13;
-            this.CalendarCliente.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.CalendarCliente_DateSelected);
             // 
             // calendarSci
             // 
@@ -258,61 +224,61 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(115, 174);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(116, 148);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.Size = new System.Drawing.Size(45, 16);
             this.label9.TabIndex = 0;
             this.label9.Text = "Status";
             // 
             // comboStatus
             // 
             this.comboStatus.Enabled = false;
-            this.comboStatus.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Location = new System.Drawing.Point(167, 169);
+            this.comboStatus.Location = new System.Drawing.Point(168, 143);
             this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(247, 25);
+            this.comboStatus.Size = new System.Drawing.Size(247, 24);
             this.comboStatus.TabIndex = 5;
             this.comboStatus.SelectedValueChanged += new System.EventHandler(this.comboStatus_SelectedValueChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 139);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(30, 54);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 17);
+            this.label7.Size = new System.Drawing.Size(124, 16);
             this.label7.TabIndex = 0;
             this.label7.Text = "Seleccionar Cliente";
             // 
             // comboClientes
             // 
-            this.comboClientes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboClientes.FormattingEnabled = true;
-            this.comboClientes.Location = new System.Drawing.Point(168, 135);
+            this.comboClientes.Location = new System.Drawing.Point(168, 50);
             this.comboClientes.Name = "comboClientes";
-            this.comboClientes.Size = new System.Drawing.Size(247, 25);
+            this.comboClientes.Size = new System.Drawing.Size(247, 24);
             this.comboClientes.TabIndex = 4;
             this.comboClientes.TextChanged += new System.EventHandler(this.comboClientes_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(46, 64);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(45, 83);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 17);
+            this.label6.Size = new System.Drawing.Size(111, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "Seleccionar Ruta";
             // 
             // comboRutas
             // 
-            this.comboRutas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRutas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRutas.FormattingEnabled = true;
-            this.comboRutas.Location = new System.Drawing.Point(168, 59);
+            this.comboRutas.Location = new System.Drawing.Point(167, 85);
             this.comboRutas.Name = "comboRutas";
-            this.comboRutas.Size = new System.Drawing.Size(247, 25);
+            this.comboRutas.Size = new System.Drawing.Size(247, 24);
             this.comboRutas.TabIndex = 2;
             this.comboRutas.TextChanged += new System.EventHandler(this.comboRutas_TextChanged);
             // 
@@ -337,19 +303,19 @@
             // 
             // textClaveViajeCliente
             // 
-            this.textClaveViajeCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textClaveViajeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textClaveViajeCliente.Location = new System.Drawing.Point(168, 20);
             this.textClaveViajeCliente.Name = "textClaveViajeCliente";
-            this.textClaveViajeCliente.Size = new System.Drawing.Size(247, 26);
+            this.textClaveViajeCliente.Size = new System.Drawing.Size(247, 24);
             this.textClaveViajeCliente.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(30, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 17);
+            this.label1.Size = new System.Drawing.Size(117, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Núm. Viaje Cliente";
             // 
@@ -400,97 +366,97 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(30, 21);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(84, 17);
+            this.label43.Size = new System.Drawing.Size(81, 16);
             this.label43.TabIndex = 47;
             this.label43.Text = "Operadores";
             // 
             // comboOperadoresGasto
             // 
-            this.comboOperadoresGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOperadoresGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadoresGasto.FormattingEnabled = true;
             this.comboOperadoresGasto.Location = new System.Drawing.Point(120, 18);
             this.comboOperadoresGasto.Name = "comboOperadoresGasto";
-            this.comboOperadoresGasto.Size = new System.Drawing.Size(330, 25);
+            this.comboOperadoresGasto.Size = new System.Drawing.Size(330, 24);
             this.comboOperadoresGasto.TabIndex = 10;
             // 
             // textPoliza
             // 
-            this.textPoliza.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPoliza.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPoliza.Location = new System.Drawing.Point(594, 51);
             this.textPoliza.Name = "textPoliza";
-            this.textPoliza.Size = new System.Drawing.Size(175, 26);
+            this.textPoliza.Size = new System.Drawing.Size(175, 24);
             this.textPoliza.TabIndex = 10;
             this.textPoliza.Text = "0";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.Location = new System.Drawing.Point(22, 146);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(92, 17);
+            this.label38.Size = new System.Drawing.Size(89, 16);
             this.label38.TabIndex = 0;
             this.label38.Text = "Fecha y Hora";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.Location = new System.Drawing.Point(478, 151);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(110, 17);
+            this.label37.Size = new System.Drawing.Size(104, 16);
             this.label37.TabIndex = 0;
             this.label37.Text = "Forma De Pago";
             // 
             // comboFormaPago
             // 
-            this.comboFormaPago.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboFormaPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboFormaPago.FormattingEnabled = true;
             this.comboFormaPago.Items.AddRange(new object[] {
             "Transferencia",
             "Crédito"});
             this.comboFormaPago.Location = new System.Drawing.Point(594, 145);
             this.comboFormaPago.Name = "comboFormaPago";
-            this.comboFormaPago.Size = new System.Drawing.Size(175, 25);
+            this.comboFormaPago.Size = new System.Drawing.Size(175, 24);
             this.comboFormaPago.TabIndex = 13;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.Location = new System.Drawing.Point(544, 88);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(44, 17);
+            this.label36.Size = new System.Drawing.Size(45, 16);
             this.label36.TabIndex = 0;
             this.label36.Text = "Ticket";
             // 
             // textTicket
             // 
-            this.textTicket.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTicket.Location = new System.Drawing.Point(594, 82);
             this.textTicket.Name = "textTicket";
-            this.textTicket.Size = new System.Drawing.Size(175, 26);
+            this.textTicket.Size = new System.Drawing.Size(175, 24);
             this.textTicket.TabIndex = 11;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(492, 118);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(96, 17);
+            this.label34.Size = new System.Drawing.Size(87, 16);
             this.label34.TabIndex = 0;
             this.label34.Text = "Núm. Factura";
             // 
             // textNumFactura
             // 
-            this.textNumFactura.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNumFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNumFactura.Location = new System.Drawing.Point(594, 112);
             this.textNumFactura.Name = "textNumFactura";
-            this.textNumFactura.Size = new System.Drawing.Size(175, 26);
+            this.textNumFactura.Size = new System.Drawing.Size(175, 24);
             this.textNumFactura.TabIndex = 12;
             // 
             // btnEliminarGasto
@@ -514,21 +480,21 @@
             // 
             // comboGasolinerias
             // 
-            this.comboGasolinerias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboGasolinerias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboGasolinerias.FormattingEnabled = true;
             this.comboGasolinerias.Location = new System.Drawing.Point(120, 80);
             this.comboGasolinerias.Name = "comboGasolinerias";
-            this.comboGasolinerias.Size = new System.Drawing.Size(332, 25);
+            this.comboGasolinerias.Size = new System.Drawing.Size(332, 24);
             this.comboGasolinerias.TabIndex = 12;
             this.comboGasolinerias.Visible = false;
             // 
             // comboCasetas
             // 
-            this.comboCasetas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboCasetas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCasetas.FormattingEnabled = true;
             this.comboCasetas.Location = new System.Drawing.Point(119, 81);
             this.comboCasetas.Name = "comboCasetas";
-            this.comboCasetas.Size = new System.Drawing.Size(331, 25);
+            this.comboCasetas.Size = new System.Drawing.Size(331, 24);
             this.comboCasetas.TabIndex = 12;
             this.comboCasetas.Visible = false;
             this.comboCasetas.TextChanged += new System.EventHandler(this.comboCasetas_TextChanged);
@@ -536,38 +502,38 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(542, 57);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(46, 17);
+            this.label17.Size = new System.Drawing.Size(45, 16);
             this.label17.TabIndex = 0;
             this.label17.Text = "Póliza";
             // 
             // textFechaDelGasto
             // 
-            this.textFechaDelGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaDelGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textFechaDelGasto.Location = new System.Drawing.Point(120, 141);
             this.textFechaDelGasto.Name = "textFechaDelGasto";
-            this.textFechaDelGasto.Size = new System.Drawing.Size(333, 26);
+            this.textFechaDelGasto.Size = new System.Drawing.Size(333, 24);
             this.textFechaDelGasto.TabIndex = 14;
             // 
             // labelTotalGastos
             // 
             this.labelTotalGastos.AutoSize = true;
-            this.labelTotalGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalGastos.Location = new System.Drawing.Point(420, 582);
             this.labelTotalGastos.Name = "labelTotalGastos";
-            this.labelTotalGastos.Size = new System.Drawing.Size(108, 17);
+            this.labelTotalGastos.Size = new System.Drawing.Size(104, 16);
             this.labelTotalGastos.TabIndex = 40;
             this.labelTotalGastos.Text = "Total de Gastos";
             // 
             // labelTotalDeGastos
             // 
             this.labelTotalDeGastos.AutoSize = true;
-            this.labelTotalDeGastos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalDeGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalDeGastos.Location = new System.Drawing.Point(326, 577);
             this.labelTotalDeGastos.Name = "labelTotalDeGastos";
-            this.labelTotalDeGastos.Size = new System.Drawing.Size(48, 23);
+            this.labelTotalDeGastos.Size = new System.Drawing.Size(49, 24);
             this.labelTotalDeGastos.TabIndex = 39;
             this.labelTotalDeGastos.Text = "0.00";
             this.labelTotalDeGastos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -584,10 +550,10 @@
             // 
             // textRutaPdf
             // 
-            this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRutaPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textRutaPdf.Location = new System.Drawing.Point(120, 173);
             this.textRutaPdf.Name = "textRutaPdf";
-            this.textRutaPdf.Size = new System.Drawing.Size(251, 23);
+            this.textRutaPdf.Size = new System.Drawing.Size(251, 22);
             this.textRutaPdf.TabIndex = 15;
             // 
             // btnExaminarPdf
@@ -625,7 +591,23 @@
             this.dgvGastos.AllowUserToDeleteRows = false;
             this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGastos.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvGastos.Location = new System.Drawing.Point(6, 262);
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
@@ -638,104 +620,104 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(24, 114);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(92, 17);
+            this.label15.Size = new System.Drawing.Size(89, 16);
             this.label15.TabIndex = 0;
             this.label15.Text = "Fecha y Hora";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(32, 205);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 17);
+            this.label10.Size = new System.Drawing.Size(82, 16);
             this.label10.TabIndex = 0;
             this.label10.Text = "Archivo XML";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(33, 174);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 17);
+            this.label5.Size = new System.Drawing.Size(83, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "Archivo PDF";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(538, 26);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 17);
+            this.label4.Size = new System.Drawing.Size(45, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Monto";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(41, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 17);
+            this.label3.Size = new System.Drawing.Size(66, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Concepto";
             // 
             // dateTimeFechaGasto
             // 
-            this.dateTimeFechaGasto.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeFechaGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeFechaGasto.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeFechaGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFechaGasto.Location = new System.Drawing.Point(121, 111);
             this.dateTimeFechaGasto.Name = "dateTimeFechaGasto";
-            this.dateTimeFechaGasto.Size = new System.Drawing.Size(332, 23);
+            this.dateTimeFechaGasto.Size = new System.Drawing.Size(332, 22);
             this.dateTimeFechaGasto.TabIndex = 13;
             this.dateTimeFechaGasto.ValueChanged += new System.EventHandler(this.dateTimeFechaGasto_ValueChanged);
             // 
             // textRutaXml
             // 
-            this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRutaXml.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textRutaXml.Location = new System.Drawing.Point(120, 205);
             this.textRutaXml.Name = "textRutaXml";
-            this.textRutaXml.Size = new System.Drawing.Size(251, 23);
+            this.textRutaXml.Size = new System.Drawing.Size(251, 22);
             this.textRutaXml.TabIndex = 17;
             // 
             // textMontoGasto
             // 
-            this.textMontoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textMontoGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textMontoGasto.Location = new System.Drawing.Point(594, 20);
             this.textMontoGasto.Name = "textMontoGasto";
-            this.textMontoGasto.Size = new System.Drawing.Size(175, 26);
+            this.textMontoGasto.Size = new System.Drawing.Size(175, 24);
             this.textMontoGasto.TabIndex = 9;
             // 
             // textConceptoGasto
             // 
-            this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textConceptoGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textConceptoGasto.Location = new System.Drawing.Point(121, 80);
             this.textConceptoGasto.Name = "textConceptoGasto";
-            this.textConceptoGasto.Size = new System.Drawing.Size(332, 26);
+            this.textConceptoGasto.Size = new System.Drawing.Size(332, 24);
             this.textConceptoGasto.TabIndex = 12;
             // 
             // comboTipoGastos
             // 
-            this.comboTipoGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboTipoGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTipoGastos.FormattingEnabled = true;
             this.comboTipoGastos.Location = new System.Drawing.Point(120, 49);
             this.comboTipoGastos.Name = "comboTipoGastos";
-            this.comboTipoGastos.Size = new System.Drawing.Size(331, 25);
+            this.comboTipoGastos.Size = new System.Drawing.Size(331, 24);
             this.comboTipoGastos.TabIndex = 11;
             this.comboTipoGastos.TextChanged += new System.EventHandler(this.comboTipoGastos2_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(17, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
+            this.label2.Size = new System.Drawing.Size(96, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tipo De Gasto";
             // 
@@ -761,10 +743,10 @@
             this.tabPageGenerales.Controls.Add(this.groupBox3);
             this.tabPageGenerales.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPageGenerales.ImageKey = "(ninguno)";
-            this.tabPageGenerales.Location = new System.Drawing.Point(4, 25);
+            this.tabPageGenerales.Location = new System.Drawing.Point(4, 22);
             this.tabPageGenerales.Name = "tabPageGenerales";
             this.tabPageGenerales.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGenerales.Size = new System.Drawing.Size(792, 641);
+            this.tabPageGenerales.Size = new System.Drawing.Size(792, 644);
             this.tabPageGenerales.TabIndex = 0;
             this.tabPageGenerales.Text = "Datos Generales";
             // 
@@ -777,13 +759,9 @@
             this.groupBox3.Controls.Add(this.calendarSci);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.textDateFinCliente);
-            this.groupBox3.Controls.Add(this.textDateInicioCliente);
             this.groupBox3.Controls.Add(this.textDateFinSci);
             this.groupBox3.Controls.Add(this.textDateInicioSci);
-            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.CalendarCliente);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(780, 626);
@@ -805,10 +783,10 @@
             // 
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(760, 310);
+            this.tabPage1.Size = new System.Drawing.Size(760, 313);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos Del Viaje";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -822,10 +800,10 @@
             this.groupBox2.Controls.Add(this.comboStatus);
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.comboRutas);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.comboClientes);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.comboRutas);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(420, 298);
@@ -835,21 +813,21 @@
             // 
             // comboUnidades
             // 
-            this.comboUnidades.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboUnidades.FormattingEnabled = true;
-            this.comboUnidades.Location = new System.Drawing.Point(168, 97);
+            this.comboUnidades.Location = new System.Drawing.Point(168, 115);
             this.comboUnidades.Name = "comboUnidades";
-            this.comboUnidades.Size = new System.Drawing.Size(247, 25);
+            this.comboUnidades.Size = new System.Drawing.Size(247, 24);
             this.comboUnidades.TabIndex = 3;
             this.comboUnidades.TextChanged += new System.EventHandler(this.comboUnidades_TextChanged);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(30, 101);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(34, 118);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(132, 17);
+            this.label22.Size = new System.Drawing.Size(127, 16);
             this.label22.TabIndex = 0;
             this.label22.Text = "Seleccionar Unidad";
             // 
@@ -887,7 +865,7 @@
             this.labelRfcCliente.AutoSize = true;
             this.labelRfcCliente.Location = new System.Drawing.Point(110, 179);
             this.labelRfcCliente.Name = "labelRfcCliente";
-            this.labelRfcCliente.Size = new System.Drawing.Size(16, 16);
+            this.labelRfcCliente.Size = new System.Drawing.Size(13, 13);
             this.labelRfcCliente.TabIndex = 0;
             this.labelRfcCliente.Text = "--";
             // 
@@ -896,7 +874,7 @@
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(78, 179);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(28, 16);
+            this.label35.Size = new System.Drawing.Size(27, 13);
             this.label35.TabIndex = 0;
             this.label35.Text = "Rfc:";
             // 
@@ -905,7 +883,7 @@
             this.labelTelCliente.AutoSize = true;
             this.labelTelCliente.Location = new System.Drawing.Point(110, 197);
             this.labelTelCliente.Name = "labelTelCliente";
-            this.labelTelCliente.Size = new System.Drawing.Size(16, 16);
+            this.labelTelCliente.Size = new System.Drawing.Size(13, 13);
             this.labelTelCliente.TabIndex = 0;
             this.labelTelCliente.Text = "--";
             // 
@@ -914,7 +892,7 @@
             this.labelNombreCliente.AutoSize = true;
             this.labelNombreCliente.Location = new System.Drawing.Point(110, 163);
             this.labelNombreCliente.Name = "labelNombreCliente";
-            this.labelNombreCliente.Size = new System.Drawing.Size(16, 16);
+            this.labelNombreCliente.Size = new System.Drawing.Size(13, 13);
             this.labelNombreCliente.TabIndex = 0;
             this.labelNombreCliente.Text = "--";
             // 
@@ -923,7 +901,7 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(37, 197);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(69, 16);
+            this.label31.Size = new System.Drawing.Size(63, 13);
             this.label31.TabIndex = 0;
             this.label31.Text = "Tél. Cliente:";
             // 
@@ -932,7 +910,7 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(57, 163);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(49, 16);
+            this.label30.Size = new System.Drawing.Size(42, 13);
             this.label30.TabIndex = 0;
             this.label30.Text = "Cliente:";
             // 
@@ -941,7 +919,7 @@
             this.labelCombustible.AutoSize = true;
             this.labelCombustible.Location = new System.Drawing.Point(110, 147);
             this.labelCombustible.Name = "labelCombustible";
-            this.labelCombustible.Size = new System.Drawing.Size(16, 16);
+            this.labelCombustible.Size = new System.Drawing.Size(13, 13);
             this.labelCombustible.TabIndex = 0;
             this.labelCombustible.Text = "--";
             // 
@@ -950,7 +928,7 @@
             this.labelPlacas.AutoSize = true;
             this.labelPlacas.Location = new System.Drawing.Point(110, 131);
             this.labelPlacas.Name = "labelPlacas";
-            this.labelPlacas.Size = new System.Drawing.Size(16, 16);
+            this.labelPlacas.Size = new System.Drawing.Size(13, 13);
             this.labelPlacas.TabIndex = 0;
             this.labelPlacas.Text = "--";
             // 
@@ -959,7 +937,7 @@
             this.labelNumEco.AutoSize = true;
             this.labelNumEco.Location = new System.Drawing.Point(110, 115);
             this.labelNumEco.Name = "labelNumEco";
-            this.labelNumEco.Size = new System.Drawing.Size(16, 16);
+            this.labelNumEco.Size = new System.Drawing.Size(13, 13);
             this.labelNumEco.TabIndex = 0;
             this.labelNumEco.Text = "--";
             // 
@@ -968,7 +946,7 @@
             this.labelNombreUnidad.AutoSize = true;
             this.labelNombreUnidad.Location = new System.Drawing.Point(110, 99);
             this.labelNombreUnidad.Name = "labelNombreUnidad";
-            this.labelNombreUnidad.Size = new System.Drawing.Size(16, 16);
+            this.labelNombreUnidad.Size = new System.Drawing.Size(13, 13);
             this.labelNombreUnidad.TabIndex = 0;
             this.labelNombreUnidad.Text = "--";
             // 
@@ -977,7 +955,7 @@
             this.labelTipoUnidad.AutoSize = true;
             this.labelTipoUnidad.Location = new System.Drawing.Point(110, 83);
             this.labelTipoUnidad.Name = "labelTipoUnidad";
-            this.labelTipoUnidad.Size = new System.Drawing.Size(16, 16);
+            this.labelTipoUnidad.Size = new System.Drawing.Size(13, 13);
             this.labelTipoUnidad.TabIndex = 0;
             this.labelTipoUnidad.Text = "--";
             // 
@@ -986,7 +964,7 @@
             this.labelCostoRuta.AutoSize = true;
             this.labelCostoRuta.Location = new System.Drawing.Point(110, 67);
             this.labelCostoRuta.Name = "labelCostoRuta";
-            this.labelCostoRuta.Size = new System.Drawing.Size(16, 16);
+            this.labelCostoRuta.Size = new System.Drawing.Size(13, 13);
             this.labelCostoRuta.TabIndex = 0;
             this.labelCostoRuta.Text = "--";
             // 
@@ -1004,7 +982,7 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(27, 147);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(79, 16);
+            this.label29.Size = new System.Drawing.Size(67, 13);
             this.label29.TabIndex = 0;
             this.label29.Text = "Combustible:";
             // 
@@ -1013,7 +991,7 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(59, 131);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(47, 16);
+            this.label28.Size = new System.Drawing.Size(42, 13);
             this.label28.TabIndex = 0;
             this.label28.Text = "Placas:";
             // 
@@ -1022,7 +1000,7 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(4, 115);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(102, 16);
+            this.label27.Size = new System.Drawing.Size(91, 13);
             this.label27.TabIndex = 0;
             this.label27.Text = "Núm. Economico:";
             // 
@@ -1031,7 +1009,7 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(8, 99);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(98, 16);
+            this.label26.Size = new System.Drawing.Size(84, 13);
             this.label26.TabIndex = 0;
             this.label26.Text = "Nombre Unidad:";
             // 
@@ -1040,7 +1018,7 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(29, 83);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(77, 16);
+            this.label25.Size = new System.Drawing.Size(68, 13);
             this.label25.TabIndex = 0;
             this.label25.Text = "Tipo Unidad:";
             // 
@@ -1049,7 +1027,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(64, 67);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(42, 16);
+            this.label24.Size = new System.Drawing.Size(37, 13);
             this.label24.TabIndex = 0;
             this.label24.Text = "Costo:";
             // 
@@ -1058,17 +1036,17 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(52, 23);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 16);
+            this.label23.Size = new System.Drawing.Size(47, 13);
             this.label23.TabIndex = 0;
             this.label23.Text = "Nombre:";
             // 
             // Operadores
             // 
             this.Operadores.Controls.Add(this.groupOperadores);
-            this.Operadores.Location = new System.Drawing.Point(4, 25);
+            this.Operadores.Location = new System.Drawing.Point(4, 22);
             this.Operadores.Name = "Operadores";
             this.Operadores.Padding = new System.Windows.Forms.Padding(3);
-            this.Operadores.Size = new System.Drawing.Size(760, 310);
+            this.Operadores.Size = new System.Drawing.Size(760, 313);
             this.Operadores.TabIndex = 1;
             this.Operadores.Text = "Operadores";
             this.Operadores.UseVisualStyleBackColor = true;
@@ -1100,7 +1078,7 @@
             this.labelCorreoOperador.AutoSize = true;
             this.labelCorreoOperador.Location = new System.Drawing.Point(591, 102);
             this.labelCorreoOperador.Name = "labelCorreoOperador";
-            this.labelCorreoOperador.Size = new System.Drawing.Size(16, 16);
+            this.labelCorreoOperador.Size = new System.Drawing.Size(13, 13);
             this.labelCorreoOperador.TabIndex = 0;
             this.labelCorreoOperador.Text = "--";
             // 
@@ -1109,7 +1087,7 @@
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(538, 102);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(47, 16);
+            this.label42.Size = new System.Drawing.Size(41, 13);
             this.label42.TabIndex = 0;
             this.label42.Text = "Correo:";
             // 
@@ -1118,7 +1096,7 @@
             this.labelSalarioPorHora.AutoSize = true;
             this.labelSalarioPorHora.Location = new System.Drawing.Point(591, 86);
             this.labelSalarioPorHora.Name = "labelSalarioPorHora";
-            this.labelSalarioPorHora.Size = new System.Drawing.Size(16, 16);
+            this.labelSalarioPorHora.Size = new System.Drawing.Size(13, 13);
             this.labelSalarioPorHora.TabIndex = 0;
             this.labelSalarioPorHora.Text = "--";
             // 
@@ -1127,7 +1105,7 @@
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(510, 84);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(77, 16);
+            this.label41.Size = new System.Drawing.Size(68, 13);
             this.label41.TabIndex = 0;
             this.label41.Text = "Salario/hora:";
             // 
@@ -1136,7 +1114,7 @@
             this.labelTelOperador.AutoSize = true;
             this.labelTelOperador.Location = new System.Drawing.Point(591, 70);
             this.labelTelOperador.Name = "labelTelOperador";
-            this.labelTelOperador.Size = new System.Drawing.Size(16, 16);
+            this.labelTelOperador.Size = new System.Drawing.Size(13, 13);
             this.labelTelOperador.TabIndex = 0;
             this.labelTelOperador.Text = "--";
             // 
@@ -1145,7 +1123,7 @@
             this.labelNombreOperador.AutoSize = true;
             this.labelNombreOperador.Location = new System.Drawing.Point(591, 54);
             this.labelNombreOperador.Name = "labelNombreOperador";
-            this.labelNombreOperador.Size = new System.Drawing.Size(16, 16);
+            this.labelNombreOperador.Size = new System.Drawing.Size(13, 13);
             this.labelNombreOperador.TabIndex = 0;
             this.labelNombreOperador.Text = "--";
             // 
@@ -1154,7 +1132,7 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(502, 68);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(85, 16);
+            this.label33.Size = new System.Drawing.Size(75, 13);
             this.label33.TabIndex = 0;
             this.label33.Text = "Tel. Operador:";
             // 
@@ -1163,27 +1141,25 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(522, 52);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(65, 16);
+            this.label32.Size = new System.Drawing.Size(54, 13);
             this.label32.TabIndex = 0;
             this.label32.Text = "Operador:";
             // 
             // listTotalOperadores
             // 
             this.listTotalOperadores.FormattingEnabled = true;
-            this.listTotalOperadores.ItemHeight = 16;
             this.listTotalOperadores.Location = new System.Drawing.Point(9, 52);
             this.listTotalOperadores.Name = "listTotalOperadores";
-            this.listTotalOperadores.Size = new System.Drawing.Size(193, 196);
+            this.listTotalOperadores.Size = new System.Drawing.Size(193, 186);
             this.listTotalOperadores.TabIndex = 7;
             this.listTotalOperadores.DoubleClick += new System.EventHandler(this.listTotalOperadores_DoubleClick);
             // 
             // listOperadoresAsignados
             // 
             this.listOperadoresAsignados.FormattingEnabled = true;
-            this.listOperadoresAsignados.ItemHeight = 16;
             this.listOperadoresAsignados.Location = new System.Drawing.Point(300, 50);
             this.listOperadoresAsignados.Name = "listOperadoresAsignados";
-            this.listOperadoresAsignados.Size = new System.Drawing.Size(193, 196);
+            this.listOperadoresAsignados.Size = new System.Drawing.Size(193, 186);
             this.listOperadoresAsignados.TabIndex = 8;
             this.listOperadoresAsignados.Click += new System.EventHandler(this.listOperadoresAsignados_Click);
             this.listOperadoresAsignados.DoubleClick += new System.EventHandler(this.listOperadoresAsignados_DoubleClick);
@@ -1191,10 +1167,10 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.Location = new System.Drawing.Point(6, 33);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(211, 16);
+            this.label39.Size = new System.Drawing.Size(229, 16);
             this.label39.TabIndex = 29;
             this.label39.Text = "Operadores Registrados en SCI";
             // 
@@ -1211,20 +1187,20 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.Location = new System.Drawing.Point(286, 30);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(214, 16);
+            this.label40.Size = new System.Drawing.Size(226, 16);
             this.label40.TabIndex = 31;
             this.label40.Text = "Operadores Asignados al Viaje";
             // 
             // tabPageGastos
             // 
             this.tabPageGastos.Controls.Add(this.groupGastos);
-            this.tabPageGastos.Location = new System.Drawing.Point(4, 25);
+            this.tabPageGastos.Location = new System.Drawing.Point(4, 22);
             this.tabPageGastos.Name = "tabPageGastos";
             this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGastos.Size = new System.Drawing.Size(792, 641);
+            this.tabPageGastos.Size = new System.Drawing.Size(792, 644);
             this.tabPageGastos.TabIndex = 1;
             this.tabPageGastos.Text = "Gastos del Viaje";
             this.tabPageGastos.UseVisualStyleBackColor = true;
@@ -1232,9 +1208,9 @@
             // tabPageCortes
             // 
             this.tabPageCortes.Controls.Add(this.groupCortesOPerador);
-            this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
+            this.tabPageCortes.Location = new System.Drawing.Point(4, 22);
             this.tabPageCortes.Name = "tabPageCortes";
-            this.tabPageCortes.Size = new System.Drawing.Size(792, 641);
+            this.tabPageCortes.Size = new System.Drawing.Size(792, 644);
             this.tabPageCortes.TabIndex = 2;
             this.tabPageCortes.Text = "Cortes de Operadores";
             this.tabPageCortes.UseVisualStyleBackColor = true;
@@ -1298,37 +1274,37 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(55, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 16);
+            this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Operadores";
             // 
             // comboOperadoresCortes
             // 
-            this.comboOperadoresCortes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOperadoresCortes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadoresCortes.FormattingEnabled = true;
             this.comboOperadoresCortes.Location = new System.Drawing.Point(165, 25);
             this.comboOperadoresCortes.Name = "comboOperadoresCortes";
-            this.comboOperadoresCortes.Size = new System.Drawing.Size(268, 29);
+            this.comboOperadoresCortes.Size = new System.Drawing.Size(268, 28);
             this.comboOperadoresCortes.TabIndex = 15;
             this.comboOperadoresCortes.SelectedValueChanged += new System.EventHandler(this.comboOperadoresCortes_SelectedValueChanged);
             // 
             // labelSueldoCortes
             // 
             this.labelSueldoCortes.AutoSize = true;
-            this.labelSueldoCortes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSueldoCortes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSueldoCortes.Location = new System.Drawing.Point(411, 582);
             this.labelSueldoCortes.Name = "labelSueldoCortes";
-            this.labelSueldoCortes.Size = new System.Drawing.Size(124, 17);
+            this.labelSueldoCortes.Size = new System.Drawing.Size(122, 16);
             this.labelSueldoCortes.TabIndex = 42;
             this.labelSueldoCortes.Text = "Gastos en Sueldos";
             // 
             // labelSaldoTotalCortes
             // 
             this.labelSaldoTotalCortes.AutoSize = true;
-            this.labelSaldoTotalCortes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldoTotalCortes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSaldoTotalCortes.Location = new System.Drawing.Point(304, 578);
             this.labelSaldoTotalCortes.Name = "labelSaldoTotalCortes";
-            this.labelSaldoTotalCortes.Size = new System.Drawing.Size(48, 23);
+            this.labelSaldoTotalCortes.Size = new System.Drawing.Size(49, 24);
             this.labelSaldoTotalCortes.TabIndex = 41;
             this.labelSaldoTotalCortes.Text = "0.00";
             this.labelSaldoTotalCortes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1348,17 +1324,17 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(41, 169);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 16);
+            this.label21.Size = new System.Drawing.Size(79, 13);
             this.label21.TabIndex = 0;
             this.label21.Text = "Sueldo x Horas";
             // 
             // textCostoTotal
             // 
             this.textCostoTotal.Enabled = false;
-            this.textCostoTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCostoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCostoTotal.Location = new System.Drawing.Point(165, 161);
             this.textCostoTotal.Name = "textCostoTotal";
-            this.textCostoTotal.Size = new System.Drawing.Size(173, 27);
+            this.textCostoTotal.Size = new System.Drawing.Size(173, 26);
             this.textCostoTotal.TabIndex = 20;
             // 
             // btnAgregarCorteOperador
@@ -1388,7 +1364,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCortesOperador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCortesOperador.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCortesOperador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCortesOperador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCortesOperador.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCortesOperador.Location = new System.Drawing.Point(9, 254);
             this.dgvCortesOperador.Name = "dgvCortesOperador";
             this.dgvCortesOperador.ReadOnly = true;
@@ -1402,17 +1394,17 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(291, 133);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 16);
+            this.label20.Size = new System.Drawing.Size(62, 13);
             this.label20.TabIndex = 8;
             this.label20.Text = "Costo/Hora";
             // 
             // textCostoHoraOperador
             // 
             this.textCostoHoraOperador.Enabled = false;
-            this.textCostoHoraOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCostoHoraOperador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCostoHoraOperador.Location = new System.Drawing.Point(371, 128);
             this.textCostoHoraOperador.Name = "textCostoHoraOperador";
-            this.textCostoHoraOperador.Size = new System.Drawing.Size(62, 27);
+            this.textCostoHoraOperador.Size = new System.Drawing.Size(62, 26);
             this.textCostoHoraOperador.TabIndex = 19;
             this.textCostoHoraOperador.TextChanged += new System.EventHandler(this.textCostoHoraOperador_TextChanged);
             // 
@@ -1421,16 +1413,16 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(61, 133);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 16);
+            this.label19.Size = new System.Drawing.Size(62, 13);
             this.label19.TabIndex = 0;
             this.label19.Text = "Total Horas";
             // 
             // textTotalHoras
             // 
-            this.textTotalHoras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalHoras.Location = new System.Drawing.Point(165, 128);
             this.textTotalHoras.Name = "textTotalHoras";
-            this.textTotalHoras.Size = new System.Drawing.Size(120, 27);
+            this.textTotalHoras.Size = new System.Drawing.Size(120, 26);
             this.textTotalHoras.TabIndex = 18;
             this.textTotalHoras.Click += new System.EventHandler(this.textTotalHoras_Click);
             // 
@@ -1439,16 +1431,16 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(21, 100);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(107, 16);
+            this.label18.Size = new System.Drawing.Size(96, 13);
             this.label18.TabIndex = 0;
             this.label18.Text = "Fecha y Hora Final";
             // 
             // textFechaHoraFinalOperador
             // 
-            this.textFechaHoraFinalOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaHoraFinalOperador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textFechaHoraFinalOperador.Location = new System.Drawing.Point(165, 95);
             this.textFechaHoraFinalOperador.Name = "textFechaHoraFinalOperador";
-            this.textFechaHoraFinalOperador.Size = new System.Drawing.Size(268, 27);
+            this.textFechaHoraFinalOperador.Size = new System.Drawing.Size(268, 26);
             this.textFechaHoraFinalOperador.TabIndex = 17;
             this.textFechaHoraFinalOperador.Leave += new System.EventHandler(this.textFechaHoraFinalOperador_Leave);
             // 
@@ -1457,26 +1449,26 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(14, 67);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(114, 16);
+            this.label16.Size = new System.Drawing.Size(101, 13);
             this.label16.TabIndex = 0;
             this.label16.Text = "Fecha y Hora Inicial";
             // 
             // textFechaHoraInicialOperador
             // 
-            this.textFechaHoraInicialOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaHoraInicialOperador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textFechaHoraInicialOperador.Location = new System.Drawing.Point(165, 62);
             this.textFechaHoraInicialOperador.Name = "textFechaHoraInicialOperador";
-            this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(268, 27);
+            this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(268, 26);
             this.textFechaHoraInicialOperador.TabIndex = 16;
             this.textFechaHoraInicialOperador.Leave += new System.EventHandler(this.textFechaHoraInicialOperador_Leave);
             // 
             // FormAgregarViaje
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 668);
             this.Controls.Add(this.tabControl1);
-            this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
@@ -1522,11 +1514,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboStatus;
         private System.Windows.Forms.MonthCalendar calendarSci;
-        private System.Windows.Forms.MonthCalendar CalendarCliente;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textDateFinCliente;
-        private System.Windows.Forms.TextBox textDateInicioCliente;
         private System.Windows.Forms.TextBox textDateFinSci;
         private System.Windows.Forms.TextBox textDateInicioSci;
         private System.Windows.Forms.Label label14;

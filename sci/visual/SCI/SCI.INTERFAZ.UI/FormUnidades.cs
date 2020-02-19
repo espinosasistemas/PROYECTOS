@@ -42,7 +42,7 @@ namespace SCI.INTERFAZ.UI
             if (dgvUnidades.Rows.Count > 0)
             {
                 dgvUnidades.Columns.Add("tipoDeUnidad", "tipoDeUnidad");
-                
+                dgvUnidades.Columns["idUnidad"].Visible = false;
                 tipounidad tUnidad = new tipounidad();
                 for (int i = 0; i < dgvUnidades.Rows.Count; i++)
                 {
