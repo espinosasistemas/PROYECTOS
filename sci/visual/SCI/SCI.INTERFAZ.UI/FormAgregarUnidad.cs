@@ -83,6 +83,18 @@ namespace SCI.INTERFAZ.UI
             };
         }
 
+        private bool validarNumeroEconomico()
+        {
+            unidades UnidadAValidar = managerUnidades.BuscarPorNumEco(int.Parse(textNumEco.Text));
+            if (UnidadAValidar != null)
+            {
+                MessageBox.Show("Ya existe una unidad con ese mismo número económico.", "Error al ingresar la unidad.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textNumEco.Focus();
+                return false;
+            }
+            return true;
+        }
+
         private void btnCrearUnidad_Click(object sender, EventArgs e)
         {
             string[] cadena = comboTipoDeUnidad.Text.Split('/');
@@ -92,23 +104,27 @@ namespace SCI.INTERFAZ.UI
             {
                 try
                 {
-                    unidades nuevaUnidad = CrearUnidad();
-                    if (managerUnidades.Insertar(nuevaUnidad))
+                    if (validarNumeroEconomico())
                     {
-                        resultado = "Se ha agregado correctamente la nueva unidad.";
-                        unidades lastUnidad = managerUnidades.BuscarUltimoIngresado();
-                        log registro = new log {
-                            Accion = "agregar",
-                            NombreUsuario = user.NombreUsuario,
-                            Fecha = DateTime.Now,
-                            ModuloAfectado = "unidades-id:" + lastUnidad.IdUnidad
-                        };
-                        managerLog.Insertar(registro);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show(managerUnidades.Error, "Error al ingresar la nueva Unidad.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        unidades nuevaUnidad = CrearUnidad();
+                        if (managerUnidades.Insertar(nuevaUnidad))
+                        {
+                            resultado = "Se ha agregado correctamente la nueva unidad.";
+                            unidades lastUnidad = managerUnidades.BuscarUltimoIngresado();
+                            log registro = new log
+                            {
+                                Accion = "agregar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "unidades-id:" + lastUnidad.IdUnidad
+                            };
+                            managerLog.Insertar(registro);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show(managerUnidades.Error, "Error al ingresar la nueva Unidad.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -132,22 +148,25 @@ namespace SCI.INTERFAZ.UI
                         unidadAeditar.TipoCombustible = comboTipoCombustible.Text;
                         unidadAeditar.IdTipoDeUnidad = idTipoDeUnidad;
 
-                        if (managerUnidades.Actualizar(unidadAeditar))
+                        if (validarNumeroEconomico())
                         {
-                            resultado = "Se han actualizado correctamente los datos de la unidad.";
-                            log registro = new log
+                            if (managerUnidades.Actualizar(unidadAeditar))
                             {
-                                Accion = "editar",
-                                NombreUsuario = user.NombreUsuario,
-                                Fecha = DateTime.Now,
-                                ModuloAfectado = "unidades-id:" + unidadAeditar.IdUnidad
-                            };
-                            managerLog.Insertar(registro);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show(managerUnidades.Error, "Error al actualizar los datos de la unidad.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                resultado = "Se han actualizado correctamente los datos de la unidad.";
+                                log registro = new log
+                                {
+                                    Accion = "editar",
+                                    NombreUsuario = user.NombreUsuario,
+                                    Fecha = DateTime.Now,
+                                    ModuloAfectado = "unidades-id:" + unidadAeditar.IdUnidad
+                                };
+                                managerLog.Insertar(registro);
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show(managerUnidades.Error, "Error al actualizar los datos de la unidad.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                     catch (Exception ex)

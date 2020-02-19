@@ -18,6 +18,7 @@ namespace SCI.INTERFAZ.UI
         IRutaManager managerRutas;
         ITipoDeUnidadManager managerTipoDeUnidades;
         ILogManager managerLog;
+        IClienteManager managerCliente;
 
         string resultado = string.Empty;
         string accion = string.Empty;
@@ -36,29 +37,37 @@ namespace SCI.INTERFAZ.UI
             managerTipoDeUnidades = Tools.FabricManager.TipoDeUnidadesManager();
             managerRutas = Tools.FabricManager.RutaManager();
             managerLog = Tools.FabricManager.LogManager();
+            managerCliente = Tools.FabricManager.ClienteManager();
             accion = evento;
             idAEditar = id;
             user = u;
         }
 
-        private void cargarTiposDeUnidades()
+        /*private void cargarTiposDeUnidades()
         {
             IEnumerable<tipounidad> tiposDeUnidades = managerTipoDeUnidades.ObtenerTodos;
             comboTipoDeUnidad.DataSource = tiposDeUnidades.Select(u => (u.IdTipoDeUnidad + "/" + u.Descripcion)).ToList();
-        }
+        }*/
 
-        
+        private void cargarTodosLosClientes()
+        {
+            IEnumerable<cliente> todosLosClientes = managerCliente.ObtenerTodos;
+            comboClientes.DataSource = todosLosClientes.Select(c => (c.IdCliente + "/" + c.RazonSocial)).ToList();
+        }
 
         private void FormAgregarRutas_Load(object sender, EventArgs e)
         {
-            cargarTiposDeUnidades();
+            //cargarTiposDeUnidades();
+            cargarTodosLosClientes();
+
             if (accion == "editar")
             {
                 entidadAeditar = managerRutas.BuscarPorId(idAEditar.ToString());
-                tipounidad Tunidad = managerTipoDeUnidades.BuscarPorId(entidadAeditar.IdTipoDeUnidad.ToString());
+                cliente  clienteSeleccionado= managerCliente.BuscarPorId(entidadAeditar.IdCliente.ToString());
                 textNombre.Text = entidadAeditar.Nombre;
                 textCosto.Text = entidadAeditar.Costo.ToString();
-                comboTipoDeUnidad.Text = Tunidad.IdTipoDeUnidad + "/" + Tunidad.Descripcion;
+                comboClientes.Text = clienteSeleccionado.IdCliente + "/" + clienteSeleccionado.RazonSocial;
+                comboUnidadAFacturar.Text = entidadAeditar.UnidadAFacturar;
                 this.Text = "Actualizar los datos de la Ruta.";
                 btnAgregarRuta.Text = "Editar Ruta";
             }
@@ -67,14 +76,14 @@ namespace SCI.INTERFAZ.UI
         private void btnAgregarRuta_Click(object sender, EventArgs e)
         {
             string[] cadena;
-            cadena = comboTipoDeUnidad.Text.Split('/');
-            int idTipoUnidad = int.Parse(cadena.First());
+            cadena = comboClientes.Text.Split('/');
+            int idCliente = int.Parse(cadena.First());
 
             if (accion == "agregar")
             {
                 try
                 {
-                    ruta rutaNueva = CrearRuta(idTipoUnidad);
+                    ruta rutaNueva = CrearRuta(idCliente);
                     if (managerRutas.Insertar(rutaNueva))
                     {
                         resultado = "Se ha agregado correctamente la nueva Ruta.";
@@ -107,7 +116,8 @@ namespace SCI.INTERFAZ.UI
                     {
                         entidadAeditar.Nombre = textNombre.Text;
                         entidadAeditar.Costo = double.Parse(textCosto.Text);
-                        entidadAeditar.IdTipoDeUnidad = idTipoUnidad;
+                        entidadAeditar.UnidadAFacturar = comboUnidadAFacturar.Text;
+                        entidadAeditar.IdCliente = idCliente;
 
                         if (managerRutas.Actualizar(entidadAeditar))
                         {
@@ -136,13 +146,15 @@ namespace SCI.INTERFAZ.UI
 
         }
 
-        private ruta CrearRuta(int idTipoDeUnidad)
+        private ruta CrearRuta(int idCliente)
         {
             return new ruta
             {
                 Nombre = textNombre.Text,
                 Costo = double.Parse(textCosto.Text),
-                IdTipoDeUnidad = idTipoDeUnidad
+                UnidadAFacturar = comboUnidadAFacturar.Text,
+                IdCliente = idCliente
+                //IdTipoDeUnidad = idTipoDeUnidad
             };
         }
     }

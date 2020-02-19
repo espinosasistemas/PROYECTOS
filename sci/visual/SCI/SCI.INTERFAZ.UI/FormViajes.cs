@@ -64,7 +64,7 @@ namespace SCI.INTERFAZ.UI
 
                 dgvViajes.Columns["idStatus"].Visible = false;
                 dgvViajes.Columns["idRuta"].Visible = false;
-                dgvViajes.Columns["idCliente"].Visible = false;
+                //dgvViajes.Columns["idCliente"].Visible = false;
                 dgvViajes.Columns["idUnidad"].Visible = false;
 
                 
@@ -76,18 +76,15 @@ namespace SCI.INTERFAZ.UI
                 dgvViajes.Columns.Add("Ruta", "Ruta");
                 dgvViajes.Columns.Add("Cliente", "Cliente");
                 
-                //statusviaje edos = new statusviaje();
-                //ruta rut = new ruta();
-                //cliente client = new cliente();
-                //unidades unidad = new unidades();
-
                 IEnumerable<gasto> todoLosGastos;
                 IEnumerable<cortesoperador> todosLosCortes;
+                IEnumerable<cliente> todosLosClientes  = managerCliente.ObtenerTodos; ;
 
                 IEnumerable<statusviaje> todosLosStatus = managerStatus.ObtenerTodos;
                 IEnumerable<ruta> todasLasRutas = managerRuta.ObtenerTodos;
-                IEnumerable<cliente> todosLosClientes = managerCliente.ObtenerTodos;
+                
                 IEnumerable<unidades> todasLasUnidades = managerUnidades.ObtenerTodos;
+                cliente clienteSeleccionado;
 
                 int idStatusViajeSci = 0;
                 int idRutaViaje = 0;
@@ -102,36 +99,20 @@ namespace SCI.INTERFAZ.UI
                     idRutaViaje = int.Parse(dgvViajes["idRuta", i].Value.ToString());
                     dgvViajes["Ruta", i].Value = (from r in todasLasRutas where r.IdRuta == idRutaViaje select r.Nombre).SingleOrDefault();
 
-                    idClienteViaje = int.Parse(dgvViajes["idCliente", i].Value.ToString());
-                    dgvViajes["Cliente", i].Value = (from c in todosLosClientes where c.IdCliente == idClienteViaje select c.RazonSocial).SingleOrDefault();
+                    idClienteViaje = int.Parse((from r in todasLasRutas where r.IdRuta == idRutaViaje select r.IdCliente).SingleOrDefault().ToString());
+                    clienteSeleccionado = managerCliente.BuscarPorId(idClienteViaje.ToString());
+                    dgvViajes["Cliente", i].Value = clienteSeleccionado.RazonSocial;
 
                     idUnidadViaje = int.Parse(dgvViajes["idUnidad", i].Value.ToString());
                     dgvViajes["Economico", i].Value = (from u in todasLasUnidades where u.IdUnidad == idUnidadViaje select u.NumeroEconomico).SingleOrDefault();
-
-                    /*edos = managerStatus.BuscarPorId(dgvViajes["idStatus", i].Value.ToString());
-                    dgvViajes["Status", i].Value = edos.Nombre;
-
-                    rut = managerRuta.BuscarPorId(dgvViajes["idRuta", i].Value.ToString());
-                    dgvViajes["Ruta", i].Value = rut.Nombre;
-
-                    client = managerCliente.BuscarPorId(dgvViajes["idCliente", i].Value.ToString());
-                    dgvViajes["Cliente", i].Value = client.RazonSocial;
-
-                    unidad = managerUnidades.BuscarPorId(dgvViajes["idUnidad", i].Value.ToString());
-                    dgvViajes["Economico", i].Value = unidad.NumeroEconomico;
-
-                    todoLosGastos = managerGasto.BuscarPorIdViajeOps(int.Parse(dgvViajes["idViajeSci", i].Value.ToString()));
-                    dgvViajes["Gastos", i].Value = "$"+todoLosGastos.Sum(g => g.Costo).ToString();
-
-                    todosLosCortes = managerCortes.BuscarCortesPorIdViaje(int.Parse(dgvViajes["idViajeSci", i].Value.ToString()));
-                    dgvViajes["Cortes", i].Value = "$"+todosLosCortes.Sum(g => g.Costo).ToString();
-                    */
 
                     todoLosGastos = managerGasto.BuscarPorIdViajeOps(int.Parse(dgvViajes["idViajeSci", i].Value.ToString()));
                     dgvViajes["Gastos", i].Value = "$" + todoLosGastos.Sum(g => g.Costo).ToString();
 
                     todosLosCortes = managerCortes.BuscarCortesPorIdViaje(int.Parse(dgvViajes["idViajeSci", i].Value.ToString()));
                     dgvViajes["Cortes", i].Value = "$" + todosLosCortes.Sum(g => g.Costo).ToString();
+
+                    
                 }
                 
                 mostrarLabelStatus("Se han cargado todos los viajes dados de alta.", true);
@@ -203,14 +184,37 @@ namespace SCI.INTERFAZ.UI
             listBoxStatus.Visible = false;
             if (filaSeleccionada != -1)
             {
-                FormAgregarViaje fm = new FormAgregarViaje(user,"editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
-                DialogResult DialogForm = fm.ShowDialog();
-                if (fm.Valor != string.Empty)
+                if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
                 {
-                    //CargarTodosLosViajes(comboStatus.Text);
-                    CargarTodosLosViajes(btnStatus.Text);
-                    mostrarLabelStatus(fm.Valor, true);
+                    FormAgregarViaje fm = new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
+                    DialogResult DialogForm = fm.ShowDialog();
+                    if (fm.Valor != string.Empty)
+                    {
+                        CargarTodosLosViajes(btnStatus.Text);
+                        mostrarLabelStatus(fm.Valor, true);
+                    }
                 }
+                else
+                {
+                    FormPermiso fp = new FormPermiso();
+                    DialogResult DialogForm2 = fp.ShowDialog();
+
+                    if (fp.Valor == true)
+                    {
+                        FormAgregarViaje fm = new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
+                        DialogResult DialogForm = fm.ShowDialog();
+                        if (fm.Valor != string.Empty)
+                        {
+                            CargarTodosLosViajes(btnStatus.Text);
+                            mostrarLabelStatus(fm.Valor, true);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
             }
         }
 

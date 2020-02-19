@@ -11,9 +11,9 @@ namespace SCI.COMMON.Validadores
         public CortesOperadorValidator()
         {
             RuleFor(c => c.FechaInicio).NotNull().NotEmpty();
-            RuleFor(c => c.FechaFin).NotNull().NotEmpty();
-            RuleFor(c => c.Costo).NotNull().NotEmpty().GreaterThan(0);
-            RuleFor(c => c.Horas).NotNull().NotEmpty().GreaterThan(0);
+            //RuleFor(c => c.FechaFin).NotNull().NotEmpty();
+            RuleFor(c => c.Costo).NotNull().GreaterThan(-1);
+            RuleFor(c => c.Horas).NotNull().GreaterThan(-1);
             RuleFor(c => c.IdViajeSci).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(c => c.IdOperador).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(c => c.IdStatus).NotNull().NotEmpty().GreaterThan(0);

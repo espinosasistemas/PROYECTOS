@@ -17,5 +17,9 @@ namespace SCI.BIZ
             return repository.Query(r => r.Nombre.ToLower().Contains(nombre.ToLower()));
         }
 
+        public IEnumerable<ruta> BuscarPorIdCliente(int idCliente)
+        {
+            return repository.Query(r => r.IdCliente == idCliente);
+        }
     }
 }

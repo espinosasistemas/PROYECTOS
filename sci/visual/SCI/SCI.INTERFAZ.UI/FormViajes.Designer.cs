@@ -69,7 +69,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 16);
+            this.label1.Size = new System.Drawing.Size(149, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Módulo para revisar los viajes.";
             // 
@@ -114,9 +114,9 @@
             // 
             // listBoxStatus
             // 
-            this.listBoxStatus.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxStatus.FormattingEnabled = true;
-            this.listBoxStatus.ItemHeight = 17;
+            this.listBoxStatus.ItemHeight = 16;
             this.listBoxStatus.Items.AddRange(new object[] {
             "Planeacion",
             "Transito",
@@ -124,7 +124,7 @@
             "Entregado"});
             this.listBoxStatus.Location = new System.Drawing.Point(6, 53);
             this.listBoxStatus.Name = "listBoxStatus";
-            this.listBoxStatus.Size = new System.Drawing.Size(130, 89);
+            this.listBoxStatus.Size = new System.Drawing.Size(130, 116);
             this.listBoxStatus.TabIndex = 9;
             this.listBoxStatus.Visible = false;
             this.listBoxStatus.SelectedValueChanged += new System.EventHandler(this.listBoxStatus_SelectedValueChanged);
@@ -216,7 +216,7 @@
             this.labelResultado.AutoSize = true;
             this.labelResultado.Location = new System.Drawing.Point(166, 2);
             this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(62, 16);
+            this.labelResultado.Size = new System.Drawing.Size(55, 13);
             this.labelResultado.TabIndex = 1;
             this.labelResultado.Text = "Resultado";
             // 
@@ -225,7 +225,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 16);
+            this.label2.Size = new System.Drawing.Size(137, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Resultado de la operación: ";
             // 
@@ -291,13 +291,13 @@
             // 
             // FormViajes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(718, 522);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormViajes";
             this.Text = "FormViajes";
