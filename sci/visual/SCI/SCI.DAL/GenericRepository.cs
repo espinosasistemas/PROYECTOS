@@ -90,6 +90,7 @@ namespace SCI.DAL
                             DateTime v = (DateTime)valor;
                             sql2 += string.Format($"'{v.Year}-{v.Month}-{v.Day} {v.Hour}:{v.Minute}:00'");
                             break;
+                        
                         default:
                             sql2 += " " + valor;
                             break;

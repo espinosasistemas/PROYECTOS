@@ -110,7 +110,7 @@ namespace SCI.INTERFAZ.UI
                 //Se cargan los valores del viaje a los componentes
                 textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
                 calendarSci.SelectionStart = entidadAeditar.FechaInicio;
-                calendarSci.SelectionEnd = entidadAeditar.FechaFin;
+                //calendarSci.SelectionEnd = entidadAeditar.FechaFin;
                 textDateInicioSci.Text = entidadAeditar.FechaInicio.ToString();
                 textDateFinSci.Text = entidadAeditar.FechaFin.ToString();
 
@@ -147,7 +147,7 @@ namespace SCI.INTERFAZ.UI
                     groupGastos.Enabled = true;
                     groupCortesOPerador.Enabled = true;
                 }*/
-    
+
             }
             else
             {
@@ -210,7 +210,7 @@ namespace SCI.INTERFAZ.UI
             dgvCortesOperador.Columns.Clear();
             IEnumerable<cortesoperador> TodosCortes = managerCortes.BuscarCortesPorIdViaje(entidadAeditar.IdViajeSci);
             dgvCortesOperador.DataSource = TodosCortes.ToArray();
-            labelSaldoTotalCortes.Text = "$"+TodosCortes.Sum(g => g.Costo).ToString();
+            labelSaldoTotalCortes.Text = "$" + TodosCortes.Sum(g => g.Costo).ToString();
 
             dgvCortesOperador.Columns["idCorte"].Visible = false;
             dgvCortesOperador.Columns["idOperador"].Visible = false;
@@ -220,12 +220,12 @@ namespace SCI.INTERFAZ.UI
             if (dgvCortesOperador.Rows.Count > 0)
             {
                 dgvCortesOperador.Columns.Add("Operador", "Operador");
-                dgvCortesOperador.Columns.Add("Status","Status");
+                dgvCortesOperador.Columns.Add("Status", "Status");
                 operador op = new operador();
                 statusviaje status = new statusviaje();
                 for (int i = 0; i < dgvCortesOperador.Rows.Count; i++)
                 {
-                    op = managerOperador.BuscarPorId(dgvCortesOperador["idOperador",i].Value.ToString());
+                    op = managerOperador.BuscarPorId(dgvCortesOperador["idOperador", i].Value.ToString());
                     status = managerStatus.BuscarPorId(dgvCortesOperador["idStatus", i].Value.ToString());
                     dgvCortesOperador["Operador", i].Value = op.Nombre + " " + op.Apellidos;
                     dgvCortesOperador["Status", i].Value = status.Nombre;
@@ -239,7 +239,7 @@ namespace SCI.INTERFAZ.UI
             dgvGastos.Columns.Clear();
             IEnumerable<gasto> TodosLosGastos = managerGastos.BuscarPorIdViajeOps(entidadAeditar.IdViajeSci);
             dgvGastos.DataSource = TodosLosGastos.ToArray();
-            labelTotalDeGastos.Text = "$"+TodosLosGastos.Sum(g => g.Costo).ToString();
+            labelTotalDeGastos.Text = "$" + TodosLosGastos.Sum(g => g.Costo).ToString();
             dgvGastos.Columns["idGasto"].Visible = false;
             dgvGastos.Columns["idTipoGasto"].Visible = false;
             dgvGastos.Columns["idOperador"].Visible = false;
@@ -248,11 +248,11 @@ namespace SCI.INTERFAZ.UI
             if (dgvGastos.Rows.Count > 0)
             {
                 dgvGastos.Columns.Add("TipoDeGasto", "TipoDeGasto");
-                dgvGastos.Columns.Add("Operador","Operador");
+                dgvGastos.Columns.Add("Operador", "Operador");
                 tipogasto tGasto = new tipogasto();
                 operador op = new operador();
 
-                for (int i=0; i<dgvGastos.Rows.Count; i++)
+                for (int i = 0; i < dgvGastos.Rows.Count; i++)
                 {
                     tGasto = managerTiposDeGastos.BuscarPorId(dgvGastos["idTipoGasto", i].Value.ToString());
                     op = managerOperador.BuscarPorId(dgvGastos["idOperador", i].Value.ToString());
@@ -310,7 +310,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        
+
 
                         viaje viajeNuevo = CrearViaje(idStatus, idRuta, idCliente, Unidad.IdUnidad);
                         if (managerViajes.Insertar(viajeNuevo))
@@ -346,7 +346,7 @@ namespace SCI.INTERFAZ.UI
                         {
                             entidadAeditar.IdViajeCliente = textClaveViajeCliente.Text;
                             entidadAeditar.FechaInicio = DateTime.Parse(textDateInicioSci.Text); //dateTimeInicioSci.Value;
-                            entidadAeditar.FechaFin = DateTime.Parse(textDateFinSci.Text); //dateTimeFinSci.Value;
+                            entidadAeditar.FechaFin = fechaValida(textDateFinSci.Text); //dateTimeFinSci.Value;
                             entidadAeditar.IdRuta = idRuta;
                             entidadAeditar.IdStatus = idStatus;
                             entidadAeditar.IdUnidad = Unidad.IdUnidad;
@@ -380,19 +380,30 @@ namespace SCI.INTERFAZ.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un Error al intentar Guardar El viaje. " + ex.Message, "Error al ingresar el Viaje",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Ha ocurrido un Error al intentar Guardar El viaje. " + ex.Message, "Error al ingresar el Viaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private DateTime fechaValida(string fecha)
+        {
+            DateTime fechaFIn = new DateTime(DateTime.MinValue.Ticks);
+            if (fecha != string.Empty)
+            {
+                fechaFIn = DateTime.Parse(fecha);
+            }
+
+            return fechaFIn;
         }
 
         private viaje CrearViaje(int idStatus, int idRuta, int idCliente, /*int idOperador,*/ int idUni)
         {
+            
+
             return new viaje
             {
                 IdViajeCliente = textClaveViajeCliente.Text,
-                FechaInicio = DateTime.Parse(textDateInicioSci.Text), //dateTimeInicioSci.Value,
-                //FechaInicioCliente = DateTime.Parse(textDateInicioCliente.Text), //dateTimeInicioCliente.Value,
-                FechaFin = DateTime.Parse(textDateFinSci.Text),// dateTimeFinSci.Value,
-                //FechaFinCliente = DateTime.Parse(textDateFinCliente.Text),// dateTimeFinCliente.Value,
+                FechaInicio = DateTime.Parse(textDateInicioSci.Text),
+                FechaFin = fechaValida(textDateFinSci.Text),
                 IdStatus = idStatus,
                 IdRuta = idRuta,
                 IdUnidad = idUni
@@ -738,20 +749,24 @@ namespace SCI.INTERFAZ.UI
 
         private void calcularMontoPorHorasOperador()
         {
-            try
+            if ( textFechaHoraInicialOperador.Text != string.Empty && textFechaHoraFinalOperador.Text != string.Empty && textFechaHoraFinalOperador.Text != "01/01/0001 12:00:00 a. m.")
             {
-                DateTime fechaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
-                DateTime fechaFinal = DateTime.Parse(textFechaHoraFinalOperador.Text);
-                double resultado = (fechaFinal - fechaInicio).TotalHours;
-                textTotalHoras.Text = resultado.ToString("N2");
-                textCostoTotal.Text = (resultado * double.Parse(textCostoHoraOperador.Text)).ToString("N2");
+                try
+                {
+                    DateTime fechaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
+                    DateTime fechaFinal = fechaValida(textFechaHoraFinalOperador.Text);
+                    double resultado = (fechaFinal - fechaInicio).TotalHours;
+                    textTotalHoras.Text = resultado.ToString("N2");
+                    textCostoTotal.Text = (resultado * double.Parse(textCostoHoraOperador.Text)).ToString("N2");
+                }
+                catch (Exception ex)
+                {
+                    textTotalHoras.Text = "0";
+                    textCostoTotal.Text = "0";
+                    //MessageBox.Show("No se ha podido calcular el costo por horas Laboradas. Es necesario que selecciones un Operador." + ex.Message, "No se pudo calcular el sueldo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    comboOperadoresCortes.Focus();
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se ha podido calcular el costo por horas Laboradas. Es necesario que selecciones un Operador." + ex.Message, "No se pudo calcular el sueldo",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                comboOperadoresCortes.Focus();
-            }
-            
         }
 
         private void textTotalHoras_Click(object sender, EventArgs e)
@@ -766,19 +781,13 @@ namespace SCI.INTERFAZ.UI
 
         private void btnAgregarCorteOperador_Click(object sender, EventArgs e)
         {
-            if(!validarFechaDelCorte())
-            {
-                MessageBox.Show("La hora del corte no esta en el rango de fecha de Inicio y Fin de SCI.", "No se pudo guardar el corte", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             if (editarCorte == false)
             {
                 cortesoperador nuevoCorte = new cortesoperador();
                 try
                 {
                     nuevoCorte.FechaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
-                    nuevoCorte.FechaFin = DateTime.Parse(textFechaHoraFinalOperador.Text);
+                    nuevoCorte.FechaFin = fechaValida(textFechaHoraFinalOperador.Text);
                     nuevoCorte.Costo = double.Parse(textCostoTotal.Text);
                     nuevoCorte.IdViajeSci = entidadAeditar.IdViajeSci;
                     nuevoCorte.IdStatus = entidadAeditar.IdStatus;
@@ -818,7 +827,7 @@ namespace SCI.INTERFAZ.UI
                 try
                 {
                     corteAEditar.FechaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
-                    corteAEditar.FechaFin = DateTime.Parse(textFechaHoraFinalOperador.Text);
+                    corteAEditar.FechaFin = fechaValida(textFechaHoraFinalOperador.Text);
                     corteAEditar.Costo = double.Parse(textCostoTotal.Text);
                     corteAEditar.IdStatus = entidadAeditar.IdStatus;
                     corteAEditar.Horas = double.Parse(textTotalHoras.Text);
@@ -853,15 +862,6 @@ namespace SCI.INTERFAZ.UI
             }
         }
 
-        private bool validarFechaDelCorte()
-        {
-            DateTime horaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
-            DateTime horaFinal = DateTime.Parse(textFechaHoraFinalOperador.Text);
-
-            if (horaInicio>entidadAeditar.FechaInicio && horaInicio < entidadAeditar.FechaFin && horaFinal>horaInicio && horaFinal<entidadAeditar.FechaFin)
-                return true;
-            else return false;
-        }
 
         private void limpiarFormularioCortes()
         {
@@ -873,7 +873,7 @@ namespace SCI.INTERFAZ.UI
 
         private void textFechaHoraInicialOperador_Leave(object sender, EventArgs e)
         {
-            calcularMontoPorHorasOperador();
+            //calcularMontoPorHorasOperador();
         }
 
         private void textFechaHoraFinalOperador_Leave(object sender, EventArgs e)
