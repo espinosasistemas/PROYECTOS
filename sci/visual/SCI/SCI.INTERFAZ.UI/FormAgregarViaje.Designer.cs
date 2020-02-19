@@ -451,7 +451,8 @@
             this.comboFormaPago.FormattingEnabled = true;
             this.comboFormaPago.Items.AddRange(new object[] {
             "Transferencia",
-            "Crédito"});
+            "Crédito",
+            "Efectivo"});
             this.comboFormaPago.Location = new System.Drawing.Point(594, 145);
             this.comboFormaPago.Name = "comboFormaPago";
             this.comboFormaPago.Size = new System.Drawing.Size(175, 25);

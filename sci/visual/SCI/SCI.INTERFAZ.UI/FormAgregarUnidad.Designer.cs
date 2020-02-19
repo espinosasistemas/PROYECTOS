@@ -161,7 +161,8 @@
             this.comboTipoCombustible.FormattingEnabled = true;
             this.comboTipoCombustible.Items.AddRange(new object[] {
             "Gasolina",
-            "Diesel"});
+            "Diesel",
+            "Gas"});
             this.comboTipoCombustible.Location = new System.Drawing.Point(134, 254);
             this.comboTipoCombustible.Name = "comboTipoCombustible";
             this.comboTipoCombustible.Size = new System.Drawing.Size(309, 28);
