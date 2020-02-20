@@ -15,6 +15,10 @@ namespace SCI.INTERFAZ.UI
 {
     public partial class FormAgregarViaje : Form
     {
+        string fechaInicialGeneral = string.Empty;
+        int horaInicialGeneral = 0;
+        int minutoInicialGeneral = 0;
+        #region primera parte
         IViajeManager managerViajes;
         IStatusViajeManager managerStatus;
         IRutaManager managerRuta;
@@ -51,7 +55,8 @@ namespace SCI.INTERFAZ.UI
         cliente entidadCliente;
         unidades entidadUnidad;
         usuario user;
-
+        
+        
         public string Valor
         {
             get { return resultado; }
@@ -1330,6 +1335,72 @@ namespace SCI.INTERFAZ.UI
             calendarCortesOperador.SelectionRange.Start = corteSeleccionado.FechaInicio;
             calendarCortesOperador.SelectionRange.End = corteSeleccionado.FechaFin;
         }
+        #endregion
 
+        private void dateTimeFechaInicial_ValueChanged(object sender, EventArgs e)
+        {
+            
+            int year = dateTimeFechaInicial.Value.Year;
+            int month = dateTimeFechaInicial.Value.Month;
+            int day = dateTimeFechaInicial.Value.Day;
+
+            if(day<10)
+                fechaInicialGeneral = "0" + day.ToString();
+            else
+                fechaInicialGeneral = day.ToString();
+
+            fechaInicialGeneral += "/";
+
+            if (month < 10)
+                fechaInicialGeneral += "0" + month.ToString();
+            else
+                fechaInicialGeneral += month.ToString();
+
+            fechaInicialGeneral += "/";
+            fechaInicialGeneral += year.ToString();
+
+            textFechaInicial.Text = fechaInicialGeneral;
+            completarFechaHoraMinutos();
+        }
+
+        private void trackHoras_Scroll(object sender, EventArgs e)
+        {
+            horaInicialGeneral = trackHoras.Value;
+            completarFechaHoraMinutos();
+        }
+
+        private void trackMinutos_Scroll(object sender, EventArgs e)
+        {
+            minutoInicialGeneral = trackMinutos.Value;
+            completarFechaHoraMinutos();
+        }
+
+        private void completarFechaHoraMinutos()
+        {
+            if (horaInicialGeneral < 10)
+            {
+                textFechaInicial.Text = fechaInicialGeneral + " 0" + horaInicialGeneral.ToString();
+                if (minutoInicialGeneral < 10)
+                {
+                    textFechaInicial.Text = fechaInicialGeneral + " 0" + horaInicialGeneral.ToString() + ":0" + minutoInicialGeneral.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaInicial.Text = fechaInicialGeneral + " 0" + horaInicialGeneral.ToString() + ":" + minutoInicialGeneral.ToString() + ":00";
+                }
+            }
+            else
+            {
+                textFechaInicial.Text = fechaInicialGeneral + " " + horaInicialGeneral.ToString();
+                if (minutoInicialGeneral < 10)
+                {
+                    textFechaInicial.Text = fechaInicialGeneral + " " + horaInicialGeneral.ToString() + ":0" + minutoInicialGeneral.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaInicial.Text = fechaInicialGeneral + " " + horaInicialGeneral.ToString() + ":" + minutoInicialGeneral.ToString() + ":00";
+                }
+            }
+        }
     }
 }

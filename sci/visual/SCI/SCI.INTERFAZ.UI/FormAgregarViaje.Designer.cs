@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarViaje));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textDateFinSci = new System.Windows.Forms.TextBox();
@@ -86,6 +86,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGenerales = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.trackMinutos = new System.Windows.Forms.TrackBar();
+            this.trackHoras = new System.Windows.Forms.TrackBar();
+            this.textFechaInicial = new System.Windows.Forms.TextBox();
+            this.dateTimeFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -154,6 +158,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPageGenerales.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackMinutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackHoras)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -171,7 +177,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(85, 255);
+            this.label14.Location = new System.Drawing.Point(418, 249);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(97, 16);
             this.label14.TabIndex = 0;
@@ -181,7 +187,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(77, 226);
+            this.label13.Location = new System.Drawing.Point(410, 220);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(104, 16);
             this.label13.TabIndex = 0;
@@ -190,7 +196,7 @@
             // textDateFinSci
             // 
             this.textDateFinSci.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDateFinSci.Location = new System.Drawing.Point(184, 255);
+            this.textDateFinSci.Location = new System.Drawing.Point(517, 249);
             this.textDateFinSci.Name = "textDateFinSci";
             this.textDateFinSci.Size = new System.Drawing.Size(247, 24);
             this.textDateFinSci.TabIndex = 18;
@@ -198,7 +204,7 @@
             // textDateInicioSci
             // 
             this.textDateInicioSci.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDateInicioSci.Location = new System.Drawing.Point(183, 220);
+            this.textDateInicioSci.Location = new System.Drawing.Point(516, 214);
             this.textDateInicioSci.Name = "textDateInicioSci";
             this.textDateInicioSci.Size = new System.Drawing.Size(247, 24);
             this.textDateInicioSci.TabIndex = 17;
@@ -207,7 +213,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(267, 20);
+            this.label11.Location = new System.Drawing.Point(600, 14);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 16);
             this.label11.TabIndex = 15;
@@ -215,7 +221,7 @@
             // 
             // calendarSci
             // 
-            this.calendarSci.Location = new System.Drawing.Point(183, 46);
+            this.calendarSci.Location = new System.Drawing.Point(516, 40);
             this.calendarSci.MaxSelectionCount = 30;
             this.calendarSci.Name = "calendarSci";
             this.calendarSci.TabIndex = 11;
@@ -592,23 +598,23 @@
             this.dgvGastos.AllowUserToDeleteRows = false;
             this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGastos.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGastos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGastos.Location = new System.Drawing.Point(6, 262);
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
@@ -756,6 +762,10 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.trackMinutos);
+            this.groupBox3.Controls.Add(this.trackHoras);
+            this.groupBox3.Controls.Add(this.textFechaInicial);
+            this.groupBox3.Controls.Add(this.dateTimeFechaInicial);
             this.groupBox3.Controls.Add(this.tabControl2);
             this.groupBox3.Controls.Add(this.calendarSci);
             this.groupBox3.Controls.Add(this.label14);
@@ -769,6 +779,43 @@
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Completa los datos generales del Viaje";
+            // 
+            // trackMinutos
+            // 
+            this.trackMinutos.LargeChange = 1;
+            this.trackMinutos.Location = new System.Drawing.Point(33, 114);
+            this.trackMinutos.Maximum = 59;
+            this.trackMinutos.Name = "trackMinutos";
+            this.trackMinutos.Size = new System.Drawing.Size(238, 45);
+            this.trackMinutos.TabIndex = 22;
+            this.trackMinutos.Scroll += new System.EventHandler(this.trackMinutos_Scroll);
+            // 
+            // trackHoras
+            // 
+            this.trackHoras.LargeChange = 1;
+            this.trackHoras.Location = new System.Drawing.Point(33, 78);
+            this.trackHoras.Maximum = 23;
+            this.trackHoras.Name = "trackHoras";
+            this.trackHoras.Size = new System.Drawing.Size(238, 45);
+            this.trackHoras.TabIndex = 21;
+            this.trackHoras.Scroll += new System.EventHandler(this.trackHoras_Scroll);
+            // 
+            // textFechaInicial
+            // 
+            this.textFechaInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFechaInicial.Location = new System.Drawing.Point(33, 232);
+            this.textFechaInicial.Name = "textFechaInicial";
+            this.textFechaInicial.Size = new System.Drawing.Size(238, 24);
+            this.textFechaInicial.TabIndex = 20;
+            // 
+            // dateTimeFechaInicial
+            // 
+            this.dateTimeFechaInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeFechaInicial.Location = new System.Drawing.Point(33, 28);
+            this.dateTimeFechaInicial.Name = "dateTimeFechaInicial";
+            this.dateTimeFechaInicial.Size = new System.Drawing.Size(238, 24);
+            this.dateTimeFechaInicial.TabIndex = 19;
+            this.dateTimeFechaInicial.ValueChanged += new System.EventHandler(this.dateTimeFechaInicial_ValueChanged);
             // 
             // tabControl2
             // 
@@ -1365,23 +1412,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCortesOperador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCortesOperador.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCortesOperador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCortesOperador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCortesOperador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCortesOperador.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCortesOperador.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCortesOperador.Location = new System.Drawing.Point(9, 254);
             this.dgvCortesOperador.Name = "dgvCortesOperador";
             this.dgvCortesOperador.ReadOnly = true;
@@ -1485,6 +1532,8 @@
             this.tabPageGenerales.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackMinutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackHoras)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1621,5 +1670,9 @@
         private System.Windows.Forms.Button btnEliminarCorte;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.ComboBox comboOperadoresGasto;
+        private System.Windows.Forms.TextBox textFechaInicial;
+        private System.Windows.Forms.DateTimePicker dateTimeFechaInicial;
+        private System.Windows.Forms.TrackBar trackHoras;
+        private System.Windows.Forms.TrackBar trackMinutos;
     }
 }
