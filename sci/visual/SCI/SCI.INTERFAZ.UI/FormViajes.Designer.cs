@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormViajes));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -53,7 +55,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(244)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -104,12 +106,11 @@
             this.groupBox1.Controls.Add(this.btnCrearViaje);
             this.groupBox1.Controls.Add(this.btnBuscarTodosViajes);
             this.groupBox1.Controls.Add(this.dgvViajes);
-            this.groupBox1.Location = new System.Drawing.Point(9, 33);
+            this.groupBox1.Location = new System.Drawing.Point(0, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(697, 477);
+            this.groupBox1.Size = new System.Drawing.Size(718, 502);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Mostrar Todos los Viajes";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // listBoxStatus
@@ -152,7 +153,7 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(621, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(642, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -205,9 +206,9 @@
             this.panelResultado.Controls.Add(this.label2);
             this.panelResultado.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelResultado.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelResultado.Location = new System.Drawing.Point(3, 454);
+            this.panelResultado.Location = new System.Drawing.Point(3, 479);
             this.panelResultado.Name = "panelResultado";
-            this.panelResultado.Size = new System.Drawing.Size(691, 20);
+            this.panelResultado.Size = new System.Drawing.Size(712, 20);
             this.panelResultado.TabIndex = 3;
             this.panelResultado.Visible = false;
             // 
@@ -278,12 +279,28 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvViajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvViajes.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvViajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvViajes.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvViajes.EnableHeadersVisualStyles = false;
             this.dgvViajes.Location = new System.Drawing.Point(6, 59);
             this.dgvViajes.Name = "dgvViajes";
             this.dgvViajes.ReadOnly = true;
-            this.dgvViajes.Size = new System.Drawing.Size(685, 389);
+            this.dgvViajes.Size = new System.Drawing.Size(706, 414);
             this.dgvViajes.TabIndex = 0;
             this.dgvViajes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViajes_CellClick);
             this.dgvViajes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViajes_CellContentClick);

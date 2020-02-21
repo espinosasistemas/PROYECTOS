@@ -26,6 +26,7 @@ namespace SCI.INTERFAZ.UI
         bool primeraCarga = true;
         int filaSeleccionada = -1;
         usuario user;
+        private Form activeForm = null;
 
         public FormViajes(usuario u)
         {
@@ -41,7 +42,19 @@ namespace SCI.INTERFAZ.UI
             user = u;
         }
 
-        
+        private void openDashBoardForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(childForm);
+            groupBox1.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
         public void CargarTodosLosViajes(string status)
         {
@@ -181,7 +194,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnEditarViaje_Click(object sender, EventArgs e)
         {
-            listBoxStatus.Visible = false;
+            /*listBoxStatus.Visible = false;
             if (filaSeleccionada != -1)
             {
                 if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
@@ -215,7 +228,8 @@ namespace SCI.INTERFAZ.UI
                     }
                 }
 
-            }
+            }*/
+            openDashBoardForm(new FormAgregarViaje(user, "agregar", -1));
         }
 
         private void dgvViajes_CellClick(object sender, DataGridViewCellEventArgs e)

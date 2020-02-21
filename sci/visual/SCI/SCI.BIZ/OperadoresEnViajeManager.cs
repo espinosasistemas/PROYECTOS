@@ -16,12 +16,12 @@ namespace SCI.BIZ
 
         public IEnumerable<operadoresenviaje> BuscarPorIdViajeOps(int idViajeOps)
         {
-            return repository.Query(g => g.idViajeOps == idViajeOps);
+            return repository.Query(g => g.IdViajeSci == idViajeOps);
         }
 
         public operadoresenviaje BuscarPorIdViajeOpsyOperador(int idViajeOps, int idOperador)
         {
-            return repository.Read.Where(o => o.idViajeOps == idViajeOps && o.IdOperador == idOperador).SingleOrDefault();
+            return repository.Read.Where(o => o.IdViajeSci == idViajeOps && o.IdOperador == idOperador).SingleOrDefault();
         }
     }
 }

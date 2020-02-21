@@ -11,7 +11,8 @@ namespace SCI.COMMON.Validadores
         public OperadoresEnViajeValidator()
         {
             RuleFor(s => s.IdOperador).NotNull().NotEmpty().GreaterThan(0);
-            RuleFor(s => s.idViajeOps).NotNull().NotEmpty().GreaterThan(0);
+            RuleFor(s => s.IdViajeSci).NotNull().NotEmpty().GreaterThan(0);
+            //RuleFor(s => s.SaldoActual).NotNull().NotEmpty().GreaterThan(-1);
         }
     }
 }

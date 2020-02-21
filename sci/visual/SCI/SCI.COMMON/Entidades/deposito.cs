@@ -4,11 +4,13 @@ using System.Text;
 
 namespace SCI.COMMON.Entidades
 {
-    public class operadoresenviaje:BaseDTO
+    public class deposito:BaseDTO
     {
-        public int IdRegistro { get; set; }
+        public int IdAbono { get; set; }
         public int IdOperador { get; set; }
         public int IdViajeSci { get; set; }
-        public double SaldoActual { get; set; }
+        public double Monto { get; set; }
+        public string Tipo { get; set; }
+        public DateTime Fecha { get; set; }
     }
 }

@@ -15,9 +15,15 @@ namespace SCI.INTERFAZ.UI
 {
     public partial class FormAgregarViaje : Form
     {
+        #region Variables para Calendarios Inicial y Final
         string fechaInicialGeneral = string.Empty;
         int horaInicialGeneral = 0;
         int minutoInicialGeneral = 0;
+        string fechaFinalGeneral = string.Empty;
+        int horaFinalGeneral = 0;
+        int minutoFinalGeneral = 0;
+        #endregion
+
         #region primera parte
         IViajeManager managerViajes;
         IStatusViajeManager managerStatus;
@@ -114,10 +120,10 @@ namespace SCI.INTERFAZ.UI
 
                 //Se cargan los valores del viaje a los componentes
                 textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
-                calendarSci.SelectionStart = entidadAeditar.FechaInicio;
+                calendarInicialSci.SelectionStart = entidadAeditar.FechaInicio;
                 //calendarSci.SelectionEnd = entidadAeditar.FechaFin;
-                textDateInicioSci.Text = entidadAeditar.FechaInicio.ToString();
-                textDateFinSci.Text = entidadAeditar.FechaFin.ToString();
+                textFechaInicial.Text = entidadAeditar.FechaInicio.ToString();
+                textFechaFinal.Text = entidadAeditar.FechaFin.ToString();
 
                 //Se inicializan los combos con los valores cargados del viaje
                 comboClientes.Text = entidadCliente.IdCliente.ToString() + "/" + entidadCliente.RazonSocial;
@@ -182,7 +188,9 @@ namespace SCI.INTERFAZ.UI
         private void cargarListaOperadores()
         {
             IEnumerable<operador> operadores = managerOperador.ObtenerTodos;
-            listTotalOperadores.DataSource = operadores.Select(r => (r.IdOperador + "/" + r.Nombre)).ToList();
+            //listTotalOperadores.DataSource = operadores.Select(r => (r.IdOperador + "/" + r.Nombre)).ToList();
+            comboOperadores.DataSource = operadores.Select(r => (r.IdOperador + "/" + r.Nombre + " " + r.Apellidos)).ToList();
+            comboOperadores.Text = string.Empty;
         }
 
         private void cargarListaOperadoresAsignadosAlViaje()
@@ -350,8 +358,8 @@ namespace SCI.INTERFAZ.UI
                         try
                         {
                             entidadAeditar.IdViajeCliente = textClaveViajeCliente.Text;
-                            entidadAeditar.FechaInicio = DateTime.Parse(textDateInicioSci.Text); //dateTimeInicioSci.Value;
-                            entidadAeditar.FechaFin = fechaValida(textDateFinSci.Text); //dateTimeFinSci.Value;
+                            entidadAeditar.FechaInicio = DateTime.Parse(textFechaInicial.Text); //dateTimeInicioSci.Value;
+                            entidadAeditar.FechaFin = fechaValida(textFechaFinal.Text); //dateTimeFinSci.Value;
                             entidadAeditar.IdRuta = idRuta;
                             entidadAeditar.IdStatus = idStatus;
                             entidadAeditar.IdUnidad = Unidad.IdUnidad;
@@ -407,19 +415,15 @@ namespace SCI.INTERFAZ.UI
             return new viaje
             {
                 IdViajeCliente = textClaveViajeCliente.Text,
-                FechaInicio = DateTime.Parse(textDateInicioSci.Text),
-                FechaFin = fechaValida(textDateFinSci.Text),
+                FechaInicio = DateTime.Parse(textFechaInicial.Text),
+                FechaFin = fechaValida(textFechaFinal.Text),
                 IdStatus = idStatus,
                 IdRuta = idRuta,
                 IdUnidad = idUni
             };
         }
 
-        private void calendarSci_DateSelected(object sender, DateRangeEventArgs e)
-        {
-            textDateInicioSci.Text = e.Start.ToString();
-            textDateFinSci.Text = e.End.ToString();
-        }
+        
 
         private void comboStatus_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -431,9 +435,9 @@ namespace SCI.INTERFAZ.UI
 
         private void habilitarComponentes(bool habilitar)
         {
-            calendarSci.Enabled = habilitar;
-            textDateInicioSci.Enabled = habilitar;
-            textDateFinSci.Enabled = habilitar;
+            calendarInicialSci.Enabled = habilitar;
+            textFechaInicial.Enabled = habilitar;
+            textFechaFinal.Enabled = habilitar;
             comboClientes.Enabled = habilitar;
             comboRutas.Enabled = habilitar;
             textClaveViajeCliente.Enabled = habilitar;
@@ -764,7 +768,7 @@ namespace SCI.INTERFAZ.UI
                     textTotalHoras.Text = resultado.ToString("N2");
                     textCostoTotal.Text = (resultado * double.Parse(textCostoHoraOperador.Text)).ToString("N2");
                 }
-                catch (Exception ex)
+                catch
                 {
                     textTotalHoras.Text = "0";
                     textCostoTotal.Text = "0";
@@ -1166,7 +1170,7 @@ namespace SCI.INTERFAZ.UI
             DialogResult result = MessageBox.Show("¿Esta Seguro que de sea agregar este operador al Viaje?", "Agregar Operador", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                operadoresenviaje opEnViaje = new operadoresenviaje { IdOperador= int.Parse(cadena.First()), idViajeOps=entidadAeditar.IdViajeSci};
+                operadoresenviaje opEnViaje = new operadoresenviaje { IdOperador= int.Parse(cadena.First()), IdViajeSci=entidadAeditar.IdViajeSci, SaldoActual=0};
                 
                 //Validamos si ya esta el Operadore asgnado al viaje
                 operadoresenviaje opYaAgregado = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, opEnViaje.IdOperador);
@@ -1174,14 +1178,13 @@ namespace SCI.INTERFAZ.UI
                 {
                     if (managerOperadoresEnViaje.Insertar(opEnViaje))
                     {
-
                         operadoresenviaje lastOperadorEnViaje = managerOperadoresEnViaje.BuscarUltimoIngresado();
                         log registro = new log
                         {
                             Accion = "agregar",
                             NombreUsuario = user.NombreUsuario,
                             Fecha = DateTime.Now,
-                            ModuloAfectado = "viaje-id:" + lastOperadorEnViaje.idViajeOps+" -- operador-id:"+lastOperadorEnViaje.IdOperador
+                            ModuloAfectado = "viaje-id:" + lastOperadorEnViaje.IdViajeSci+" -- operador-id:"+lastOperadorEnViaje.IdOperador
                         };
                         managerLog.Insertar(registro);
 
@@ -1205,6 +1208,9 @@ namespace SCI.INTERFAZ.UI
                 labelTelOperador.Text = opSeleccionado.Celular;
                 labelSalarioPorHora.Text = "$" + opSeleccionado.Salarioporhora.ToString();
                 labelCorreoOperador.Text = opSeleccionado.Correo;
+
+                operadoresenviaje opEnViaje = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, opSeleccionado.IdOperador);
+                labelSaldoOperador.Text = opEnViaje.SaldoActual.ToString();
             }
         }
 
@@ -1234,7 +1240,7 @@ namespace SCI.INTERFAZ.UI
                                 Accion = "eliminar",
                                 NombreUsuario = user.NombreUsuario,
                                 Fecha = DateTime.Now,
-                                ModuloAfectado = "viaje-id:" + opYaAgregado.idViajeOps + " -- operador-id:" + opYaAgregado.IdOperador
+                                ModuloAfectado = "viaje-id:" + opYaAgregado.IdViajeSci + " -- operador-id:" + opYaAgregado.IdOperador
                             };
                             managerLog.Insertar(registro);
 
@@ -1335,46 +1341,33 @@ namespace SCI.INTERFAZ.UI
             calendarCortesOperador.SelectionRange.Start = corteSeleccionado.FechaInicio;
             calendarCortesOperador.SelectionRange.End = corteSeleccionado.FechaFin;
         }
+
+        private void btnAgregarOperador_Click(object sender, EventArgs e)
+        {
+            if(comboOperadores.Text != string.Empty)
+                listOperadoresAsignados.Items.Add(comboOperadores.Text);
+        }
+
         #endregion
 
-        private void dateTimeFechaInicial_ValueChanged(object sender, EventArgs e)
+
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            
-            int year = dateTimeFechaInicial.Value.Year;
-            int month = dateTimeFechaInicial.Value.Month;
-            int day = dateTimeFechaInicial.Value.Day;
-
-            if(day<10)
-                fechaInicialGeneral = "0" + day.ToString();
-            else
-                fechaInicialGeneral = day.ToString();
-
-            fechaInicialGeneral += "/";
-
-            if (month < 10)
-                fechaInicialGeneral += "0" + month.ToString();
-            else
-                fechaInicialGeneral += month.ToString();
-
-            fechaInicialGeneral += "/";
-            fechaInicialGeneral += year.ToString();
-
-            textFechaInicial.Text = fechaInicialGeneral;
-            completarFechaHoraMinutos();
+            this.Close();
         }
 
+
+        #region Calendario Inicial SCI
         private void trackHoras_Scroll(object sender, EventArgs e)
         {
-            horaInicialGeneral = trackHoras.Value;
+            horaInicialGeneral = trackHorasInicio.Value;
             completarFechaHoraMinutos();
         }
-
         private void trackMinutos_Scroll(object sender, EventArgs e)
         {
-            minutoInicialGeneral = trackMinutos.Value;
+            minutoInicialGeneral = trackMinutosInicio.Value;
             completarFechaHoraMinutos();
         }
-
         private void completarFechaHoraMinutos()
         {
             if (horaInicialGeneral < 10)
@@ -1402,5 +1395,187 @@ namespace SCI.INTERFAZ.UI
                 }
             }
         }
+        private void calendarSci_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            int year = calendarInicialSci.SelectionRange.Start.Year;
+            int month = calendarInicialSci.SelectionRange.Start.Month;
+            int day = calendarInicialSci.SelectionRange.Start.Day;
+
+            if (day < 10)
+                fechaInicialGeneral = "0" + day.ToString();
+            else
+                fechaInicialGeneral = day.ToString();
+
+            fechaInicialGeneral += "/";
+
+            if (month < 10)
+                fechaInicialGeneral += "0" + month.ToString();
+            else
+                fechaInicialGeneral += month.ToString();
+
+            fechaInicialGeneral += "/";
+            fechaInicialGeneral += year.ToString();
+
+            textFechaInicial.Text = fechaInicialGeneral;
+            completarFechaHoraMinutos();
+        }
+        private void textFechaInicial_Click(object sender, EventArgs e)
+        {
+            if (textFechaInicial.Text == string.Empty)
+                button2_Click(sender,e);
+            panelFechaInicial.Location = new Point(textFechaInicial.Location.X+4, textFechaInicial.Location.Y+30);
+            panelFechaInicial.Visible = true;
+            panelFechaFinal.Visible = false;
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            panelFechaInicial.Visible = false;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            if (hoy.Day < 10)
+                textFechaInicial.Text = "0" + hoy.Day + "/";
+            else
+                textFechaInicial.Text = hoy.Day + "/";
+            if (hoy.Month < 10)
+                textFechaInicial.Text += "0" + hoy.Month + "/";
+            else
+                textFechaInicial.Text += hoy.Month + "/";
+
+                 
+            textFechaInicial.Text += hoy.Year;
+            fechaInicialGeneral = textFechaInicial.Text;
+
+            if (hoy.Hour < 10)
+                textFechaInicial.Text += " 0" + hoy.Hour + ":";
+            else
+                textFechaInicial.Text += " " + hoy.Hour + ":";
+
+            if (hoy.Minute < 10)
+                textFechaInicial.Text += "0" + hoy.Minute + ":00";
+            else
+                textFechaInicial.Text += hoy.Minute + ":00";
+
+
+            horaInicialGeneral = hoy.Hour;
+            minutoInicialGeneral = hoy.Minute;
+
+            trackHorasInicio.Value = horaInicialGeneral;
+            trackMinutosInicio.Value = minutoInicialGeneral;
+        }
+        #endregion
+
+        #region Calendario Final SCI
+        private void completarFechaHoraMinutosFinal()
+        {
+            if (horaFinalGeneral < 10)
+            {
+                textFechaFinal.Text = fechaFinalGeneral + " 0" + horaFinalGeneral.ToString();
+                if (minutoFinalGeneral < 10)
+                {
+                    textFechaFinal.Text = fechaFinalGeneral + " 0" + horaFinalGeneral.ToString() + ":0" + minutoFinalGeneral.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaFinal.Text = fechaFinalGeneral + " 0" + horaFinalGeneral.ToString() + ":" + minutoFinalGeneral.ToString() + ":00";
+                }
+            }
+            else
+            {
+                textFechaFinal.Text = fechaFinalGeneral + " " + horaFinalGeneral.ToString();
+                if (minutoFinalGeneral < 10)
+                {
+                    textFechaFinal.Text = fechaFinalGeneral + " " + horaFinalGeneral.ToString() + ":0" + minutoFinalGeneral.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaFinal.Text = fechaFinalGeneral + " " + horaFinalGeneral.ToString() + ":" + minutoFinalGeneral.ToString() + ":00";
+                }
+            }
+        }
+        private void textFechaFinal_Click(object sender, EventArgs e)
+        {
+            if (textFechaFinal.Text == string.Empty)
+                btnFechaHoyFinal_Click(sender, e);
+            panelFechaFinal.Location = new Point(textFechaFinal.Location.X+4, textFechaFinal.Location.Y + 30);
+            panelFechaFinal.Visible = true;
+            panelFechaInicial.Visible = false;
+        }
+        private void btnFechaHoyFinal_Click(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            if (hoy.Day < 10)
+                textFechaFinal.Text = "0" + hoy.Day + "/";
+            else
+                textFechaFinal.Text = hoy.Day + "/";
+            if (hoy.Month < 10)
+                textFechaFinal.Text += "0" + hoy.Month + "/";
+            else
+                textFechaFinal.Text += hoy.Month + "/";
+
+
+            textFechaFinal.Text += hoy.Year;
+            fechaFinalGeneral = textFechaFinal.Text;
+
+            if (hoy.Hour < 10)
+                textFechaFinal.Text += " 0" + hoy.Hour + ":";
+            else
+                textFechaFinal.Text += " " + hoy.Hour + ":";
+
+            if (hoy.Minute < 10)
+                textFechaFinal.Text += "0" + hoy.Minute + ":00";
+            else
+                textFechaFinal.Text += hoy.Minute + ":00";
+
+
+            horaFinalGeneral = hoy.Hour;
+            minutoFinalGeneral = hoy.Minute;
+
+            trackHorasFinal.Value = horaFinalGeneral;
+            trackMinutosFinal.Value = minutoFinalGeneral;
+        }
+        private void btnAceptarFechaFinal_Click(object sender, EventArgs e)
+        {
+            panelFechaFinal.Visible = false;
+        }
+        private void calendarFinalSci_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            int year = calendarFinalSci.SelectionRange.Start.Year;
+            int month = calendarFinalSci.SelectionRange.Start.Month;
+            int day = calendarFinalSci.SelectionRange.Start.Day;
+
+            if (day < 10)
+                fechaFinalGeneral = "0" + day.ToString();
+            else
+                fechaFinalGeneral = day.ToString();
+
+            fechaFinalGeneral += "/";
+
+            if (month < 10)
+                fechaFinalGeneral += "0" + month.ToString();
+            else
+                fechaFinalGeneral += month.ToString();
+
+            fechaFinalGeneral += "/";
+            fechaFinalGeneral += year.ToString();
+
+            textFechaFinal.Text = fechaFinalGeneral;
+            completarFechaHoraMinutosFinal();
+        }
+        private void trackHorasFinal_Scroll(object sender, EventArgs e)
+        {
+            horaFinalGeneral = trackHorasFinal.Value;
+            completarFechaHoraMinutosFinal();
+        }
+        private void trackMinutosFinal_Scroll(object sender, EventArgs e)
+        {
+            minutoFinalGeneral = trackMinutosFinal.Value;
+            completarFechaHoraMinutosFinal();
+        }
+
+        #endregion
+
+        
     }
 }

@@ -10,6 +10,11 @@ namespace SCI.BIZ
 {
     public class FabricManager
     {
+        public IDepositoManager DepositoManager()
+        {
+            return new DepositoManger(new GenericRepository<deposito>(new DepositoValidator()));
+        }
+
         public IOperadoresEnViajeManager OperadoresEnViajeManager()
         {
             return new OperadoresEnViajeManager(new GenericRepository<operadoresenviaje>(new OperadoresEnViajeValidator()));
