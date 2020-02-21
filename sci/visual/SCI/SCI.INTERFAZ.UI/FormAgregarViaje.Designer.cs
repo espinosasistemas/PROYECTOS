@@ -526,7 +526,6 @@
             this.dgvGastos.TabIndex = 35;
             this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellClick);
             this.dgvGastos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellDoubleClick);
-            this.dgvGastos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGastos_CellMouseDoubleClick);
             // 
             // label15
             // 
@@ -650,7 +649,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(863, 507);
+            this.tabControl1.Size = new System.Drawing.Size(1239, 507);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
@@ -668,7 +667,7 @@
             this.tabPageGenerales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageGenerales.Name = "tabPageGenerales";
             this.tabPageGenerales.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageGenerales.Size = new System.Drawing.Size(855, 478);
+            this.tabPageGenerales.Size = new System.Drawing.Size(1231, 478);
             this.tabPageGenerales.TabIndex = 0;
             this.tabPageGenerales.Text = "Datos Generales";
             // 
@@ -851,7 +850,7 @@
             this.panel2.Controls.Add(this.label22);
             this.panel2.Location = new System.Drawing.Point(4, 8);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(452, 450);
+            this.panel2.Size = new System.Drawing.Size(452, 461);
             this.panel2.TabIndex = 34;
             // 
             // btnAgregarOperador
@@ -890,6 +889,7 @@
             this.comboOperadores.Name = "comboOperadores";
             this.comboOperadores.Size = new System.Drawing.Size(213, 25);
             this.comboOperadores.TabIndex = 19;
+            this.comboOperadores.Click += new System.EventHandler(this.comboOperadores_Click);
             // 
             // btnAgregarViaje
             // 
@@ -900,7 +900,7 @@
             this.btnAgregarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarViaje.Image")));
             this.btnAgregarViaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarViaje.Location = new System.Drawing.Point(273, 376);
+            this.btnAgregarViaje.Location = new System.Drawing.Point(273, 395);
             this.btnAgregarViaje.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarViaje.Name = "btnAgregarViaje";
             this.btnAgregarViaje.Size = new System.Drawing.Size(166, 40);
@@ -1114,11 +1114,11 @@
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Location = new System.Drawing.Point(462, 8);
+            this.groupBox1.Location = new System.Drawing.Point(462, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(376, 450);
+            this.groupBox1.Size = new System.Drawing.Size(376, 464);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de La Ruta y La Unidad";
@@ -1126,7 +1126,7 @@
             // labelSaldoOperador
             // 
             this.labelSaldoOperador.AutoSize = true;
-            this.labelSaldoOperador.Location = new System.Drawing.Point(128, 332);
+            this.labelSaldoOperador.Location = new System.Drawing.Point(128, 355);
             this.labelSaldoOperador.Name = "labelSaldoOperador";
             this.labelSaldoOperador.Size = new System.Drawing.Size(16, 16);
             this.labelSaldoOperador.TabIndex = 33;
@@ -1135,7 +1135,7 @@
             // labelRfcCliente
             // 
             this.labelRfcCliente.AutoSize = true;
-            this.labelRfcCliente.Location = new System.Drawing.Point(128, 210);
+            this.labelRfcCliente.Location = new System.Drawing.Point(126, 57);
             this.labelRfcCliente.Name = "labelRfcCliente";
             this.labelRfcCliente.Size = new System.Drawing.Size(16, 16);
             this.labelRfcCliente.TabIndex = 0;
@@ -1144,7 +1144,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(70, 332);
+            this.label44.Location = new System.Drawing.Point(70, 355);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(42, 16);
             this.label44.TabIndex = 34;
@@ -1153,7 +1153,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(84, 212);
+            this.label35.Location = new System.Drawing.Point(82, 59);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(28, 16);
             this.label35.TabIndex = 0;
@@ -1162,7 +1162,7 @@
             // labelCorreoOperador
             // 
             this.labelCorreoOperador.AutoSize = true;
-            this.labelCorreoOperador.Location = new System.Drawing.Point(128, 312);
+            this.labelCorreoOperador.Location = new System.Drawing.Point(128, 335);
             this.labelCorreoOperador.Name = "labelCorreoOperador";
             this.labelCorreoOperador.Size = new System.Drawing.Size(16, 16);
             this.labelCorreoOperador.TabIndex = 0;
@@ -1171,7 +1171,7 @@
             // labelTelCliente
             // 
             this.labelTelCliente.AutoSize = true;
-            this.labelTelCliente.Location = new System.Drawing.Point(128, 232);
+            this.labelTelCliente.Location = new System.Drawing.Point(126, 79);
             this.labelTelCliente.Name = "labelTelCliente";
             this.labelTelCliente.Size = new System.Drawing.Size(16, 16);
             this.labelTelCliente.TabIndex = 0;
@@ -1180,7 +1180,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(65, 312);
+            this.label42.Location = new System.Drawing.Point(65, 335);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(47, 16);
             this.label42.TabIndex = 0;
@@ -1189,7 +1189,7 @@
             // labelNombreCliente
             // 
             this.labelNombreCliente.AutoSize = true;
-            this.labelNombreCliente.Location = new System.Drawing.Point(128, 191);
+            this.labelNombreCliente.Location = new System.Drawing.Point(126, 38);
             this.labelNombreCliente.Name = "labelNombreCliente";
             this.labelNombreCliente.Size = new System.Drawing.Size(16, 16);
             this.labelNombreCliente.TabIndex = 0;
@@ -1198,7 +1198,7 @@
             // labelSalarioPorHora
             // 
             this.labelSalarioPorHora.AutoSize = true;
-            this.labelSalarioPorHora.Location = new System.Drawing.Point(128, 296);
+            this.labelSalarioPorHora.Location = new System.Drawing.Point(128, 319);
             this.labelSalarioPorHora.Name = "labelSalarioPorHora";
             this.labelSalarioPorHora.Size = new System.Drawing.Size(16, 16);
             this.labelSalarioPorHora.TabIndex = 0;
@@ -1207,7 +1207,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(43, 232);
+            this.label31.Location = new System.Drawing.Point(41, 79);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(69, 16);
             this.label31.TabIndex = 0;
@@ -1216,7 +1216,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(35, 292);
+            this.label41.Location = new System.Drawing.Point(35, 315);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(77, 16);
             this.label41.TabIndex = 0;
@@ -1225,7 +1225,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(63, 192);
+            this.label30.Location = new System.Drawing.Point(61, 39);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(49, 16);
             this.label30.TabIndex = 0;
@@ -1234,7 +1234,7 @@
             // labelTelOperador
             // 
             this.labelTelOperador.AutoSize = true;
-            this.labelTelOperador.Location = new System.Drawing.Point(128, 275);
+            this.labelTelOperador.Location = new System.Drawing.Point(128, 298);
             this.labelTelOperador.Name = "labelTelOperador";
             this.labelTelOperador.Size = new System.Drawing.Size(16, 16);
             this.labelTelOperador.TabIndex = 0;
@@ -1243,7 +1243,7 @@
             // labelCombustible
             // 
             this.labelCombustible.AutoSize = true;
-            this.labelCombustible.Location = new System.Drawing.Point(128, 171);
+            this.labelCombustible.Location = new System.Drawing.Point(128, 235);
             this.labelCombustible.Name = "labelCombustible";
             this.labelCombustible.Size = new System.Drawing.Size(16, 16);
             this.labelCombustible.TabIndex = 0;
@@ -1252,7 +1252,7 @@
             // labelNombreOperador
             // 
             this.labelNombreOperador.AutoSize = true;
-            this.labelNombreOperador.Location = new System.Drawing.Point(128, 252);
+            this.labelNombreOperador.Location = new System.Drawing.Point(128, 275);
             this.labelNombreOperador.Name = "labelNombreOperador";
             this.labelNombreOperador.Size = new System.Drawing.Size(16, 16);
             this.labelNombreOperador.TabIndex = 0;
@@ -1261,7 +1261,7 @@
             // labelPlacas
             // 
             this.labelPlacas.AutoSize = true;
-            this.labelPlacas.Location = new System.Drawing.Point(128, 151);
+            this.labelPlacas.Location = new System.Drawing.Point(128, 215);
             this.labelPlacas.Name = "labelPlacas";
             this.labelPlacas.Size = new System.Drawing.Size(16, 16);
             this.labelPlacas.TabIndex = 0;
@@ -1270,7 +1270,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(27, 272);
+            this.label33.Location = new System.Drawing.Point(27, 295);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(85, 16);
             this.label33.TabIndex = 0;
@@ -1279,7 +1279,7 @@
             // labelNumEco
             // 
             this.labelNumEco.AutoSize = true;
-            this.labelNumEco.Location = new System.Drawing.Point(128, 132);
+            this.labelNumEco.Location = new System.Drawing.Point(128, 196);
             this.labelNumEco.Name = "labelNumEco";
             this.labelNumEco.Size = new System.Drawing.Size(16, 16);
             this.labelNumEco.TabIndex = 0;
@@ -1288,7 +1288,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(47, 252);
+            this.label32.Location = new System.Drawing.Point(47, 275);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(65, 16);
             this.label32.TabIndex = 0;
@@ -1297,7 +1297,7 @@
             // labelNombreUnidad
             // 
             this.labelNombreUnidad.AutoSize = true;
-            this.labelNombreUnidad.Location = new System.Drawing.Point(128, 112);
+            this.labelNombreUnidad.Location = new System.Drawing.Point(128, 176);
             this.labelNombreUnidad.Name = "labelNombreUnidad";
             this.labelNombreUnidad.Size = new System.Drawing.Size(16, 16);
             this.labelNombreUnidad.TabIndex = 0;
@@ -1306,7 +1306,7 @@
             // labelTipoUnidad
             // 
             this.labelTipoUnidad.AutoSize = true;
-            this.labelTipoUnidad.Location = new System.Drawing.Point(128, 92);
+            this.labelTipoUnidad.Location = new System.Drawing.Point(128, 156);
             this.labelTipoUnidad.Name = "labelTipoUnidad";
             this.labelTipoUnidad.Size = new System.Drawing.Size(16, 16);
             this.labelTipoUnidad.TabIndex = 0;
@@ -1315,7 +1315,7 @@
             // labelCostoRuta
             // 
             this.labelCostoRuta.AutoSize = true;
-            this.labelCostoRuta.Location = new System.Drawing.Point(128, 72);
+            this.labelCostoRuta.Location = new System.Drawing.Point(128, 141);
             this.labelCostoRuta.Name = "labelCostoRuta";
             this.labelCostoRuta.Size = new System.Drawing.Size(16, 16);
             this.labelCostoRuta.TabIndex = 0;
@@ -1323,7 +1323,7 @@
             // 
             // labelNombreRuta
             // 
-            this.labelNombreRuta.Location = new System.Drawing.Point(128, 28);
+            this.labelNombreRuta.Location = new System.Drawing.Point(128, 101);
             this.labelNombreRuta.Name = "labelNombreRuta";
             this.labelNombreRuta.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelNombreRuta.Size = new System.Drawing.Size(223, 40);
@@ -1333,7 +1333,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(33, 172);
+            this.label29.Location = new System.Drawing.Point(33, 236);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(79, 16);
             this.label29.TabIndex = 0;
@@ -1342,7 +1342,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(65, 152);
+            this.label28.Location = new System.Drawing.Point(65, 216);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(47, 16);
             this.label28.TabIndex = 0;
@@ -1351,7 +1351,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(10, 132);
+            this.label27.Location = new System.Drawing.Point(10, 196);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(102, 16);
             this.label27.TabIndex = 0;
@@ -1360,7 +1360,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(14, 112);
+            this.label26.Location = new System.Drawing.Point(14, 176);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(98, 16);
             this.label26.TabIndex = 0;
@@ -1369,7 +1369,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(35, 92);
+            this.label25.Location = new System.Drawing.Point(35, 156);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(77, 16);
             this.label25.TabIndex = 0;
@@ -1378,7 +1378,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(70, 72);
+            this.label24.Location = new System.Drawing.Point(70, 141);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(42, 16);
             this.label24.TabIndex = 0;
@@ -1387,11 +1387,11 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(61, 28);
+            this.label23.Location = new System.Drawing.Point(73, 101);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 16);
+            this.label23.Size = new System.Drawing.Size(37, 16);
             this.label23.TabIndex = 0;
-            this.label23.Text = "Nombre:";
+            this.label23.Text = "Ruta:";
             // 
             // tabPageGastos
             // 
@@ -1400,7 +1400,7 @@
             this.tabPageGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageGastos.Name = "tabPageGastos";
             this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageGastos.Size = new System.Drawing.Size(855, 478);
+            this.tabPageGastos.Size = new System.Drawing.Size(853, 478);
             this.tabPageGastos.TabIndex = 1;
             this.tabPageGastos.Text = "Gastos del Viaje";
             this.tabPageGastos.UseVisualStyleBackColor = true;
@@ -1411,7 +1411,7 @@
             this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
             this.tabPageCortes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageCortes.Name = "tabPageCortes";
-            this.tabPageCortes.Size = new System.Drawing.Size(855, 478);
+            this.tabPageCortes.Size = new System.Drawing.Size(853, 478);
             this.tabPageCortes.TabIndex = 2;
             this.tabPageCortes.Text = "Cortes de Operadores";
             this.tabPageCortes.UseVisualStyleBackColor = true;
@@ -1658,7 +1658,6 @@
             this.textFechaHoraInicialOperador.Name = "textFechaHoraInicialOperador";
             this.textFechaHoraInicialOperador.Size = new System.Drawing.Size(312, 26);
             this.textFechaHoraInicialOperador.TabIndex = 16;
-            this.textFechaHoraInicialOperador.Leave += new System.EventHandler(this.textFechaHoraInicialOperador_Leave);
             // 
             // panel1
             // 
@@ -1669,7 +1668,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(874, 32);
+            this.panel1.Size = new System.Drawing.Size(1250, 32);
             this.panel1.TabIndex = 10;
             // 
             // label12
@@ -1689,7 +1688,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(842, 4);
+            this.btnClose.Location = new System.Drawing.Point(1218, 4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 26);
@@ -1703,7 +1702,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(874, 544);
+            this.ClientSize = new System.Drawing.Size(1250, 544);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1714,7 +1713,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar un nuevo viaje";
             this.Load += new System.EventHandler(this.FormAgregarViaje_Load);
-            this.Shown += new System.EventHandler(this.FormAgregarViaje_Shown);
             this.groupGastos.ResumeLayout(false);
             this.groupGastos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();

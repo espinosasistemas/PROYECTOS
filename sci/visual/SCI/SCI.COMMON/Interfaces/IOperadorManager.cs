@@ -13,5 +13,12 @@ namespace SCI.COMMON.Interfaces
         /// <param name="nombre">Nombre a bucar</param>
         /// <returns>Regresa una lita de operadores con ese nombre</returns>
         IEnumerable<operador> BuscarPorNombre(string nombre);
+
+        /// <summary>
+        /// Busca un solo operador por nombre completo
+        /// </summary>
+        /// <param name="nombreCompleto">Nombre + Apellido</param>
+        /// <returns>Un operador</returns>
+        operador BuscarPorNombreExacto(string nombreCompleto);
     }
 }
