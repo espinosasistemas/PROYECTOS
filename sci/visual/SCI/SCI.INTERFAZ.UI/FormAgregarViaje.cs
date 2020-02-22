@@ -161,7 +161,6 @@ namespace SCI.INTERFAZ.UI
                 btnAgregarViaje.Text = "Editar Viaje";
                 textMontoGasto.Text = string.Empty;
                 comboFormaPago.SelectedIndex = 0;
-                groupOperadores.Enabled = true;
 
                 /*if (comboStatus.Text.Contains("Iniciado"))
                 {
@@ -1158,7 +1157,7 @@ namespace SCI.INTERFAZ.UI
             textTicket.Text = gastoSeleccionado.NumTicket;
             comboFormaPago.Text = gastoSeleccionado.FormaDePago;
         }
-        private void listTotalOperadores_DoubleClick(object sender, EventArgs e)
+        /*private void listTotalOperadores_DoubleClick(object sender, EventArgs e)
         {
             string[] cadena = listTotalOperadores.SelectedItem.ToString().Split('/');
             DialogResult result = MessageBox.Show("¿Esta Seguro que de sea agregar este operador al Viaje?", "Agregar Operador", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -1190,7 +1189,7 @@ namespace SCI.INTERFAZ.UI
                     MessageBox.Show("Lo sentimos el operador ya esta agregado.", "Agregar Operador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-        }
+        }*/
         private void listOperadoresAsignados_DoubleClick(object sender, EventArgs e)
         {
             if (listOperadoresAsignados.Items.Count > 0 && listOperadoresAsignados.SelectedIndex >= 0)
@@ -1658,8 +1657,20 @@ namespace SCI.INTERFAZ.UI
             minutoFinalGeneral = trackMinutosFinal.Value;
             completarFechaHoraMinutosFinal();
         }
+
         #endregion
 
-        
+        private void btnAgregarDeposito_Click(object sender, EventArgs e)
+        {
+            //listBoxStatus.Visible = false;
+            FormAgregarDeposito fm = new FormAgregarDeposito(user, listOperadoresAsignados.Items[listOperadoresAsignados.SelectedIndex].ToString(), entidadAeditar.IdViajeSci);
+            DialogResult DialogForm = fm.ShowDialog();
+            //if (fm.Valor != string.Empty)
+            //{
+                //CargarTodosLosViajes(comboStatus.Text);
+               // CargarTodosLosViajes(btnStatus.Text);
+                //mostrarLabelStatus(fm.Valor, true);
+            //}
+        }
     }
 }

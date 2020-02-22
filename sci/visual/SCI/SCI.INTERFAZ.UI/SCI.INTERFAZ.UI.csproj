@@ -141,6 +141,12 @@
     <Compile Include="FormAgregarCliente.Designer.cs">
       <DependentUpon>FormAgregarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAgregarDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarDeposito.Designer.cs">
+      <DependentUpon>FormAgregarDeposito.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAgregarGasolineria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAgregarCliente.resx">
       <DependentUpon>FormAgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAgregarDeposito.resx">
+      <DependentUpon>FormAgregarDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAgregarGasolineria.resx">
       <DependentUpon>FormAgregarGasolineria.cs</DependentUpon>
