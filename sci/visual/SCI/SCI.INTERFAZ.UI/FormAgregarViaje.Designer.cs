@@ -57,12 +57,10 @@
             this.btnExaminarPdf = new System.Windows.Forms.Button();
             this.btnAgregarGasto = new System.Windows.Forms.Button();
             this.dgvGastos = new System.Windows.Forms.DataGridView();
-            this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimeFechaGasto = new System.Windows.Forms.DateTimePicker();
             this.textRutaXml = new System.Windows.Forms.TextBox();
             this.textMontoGasto = new System.Windows.Forms.TextBox();
             this.textConceptoGasto = new System.Windows.Forms.TextBox();
@@ -155,6 +153,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panelFechaGastos = new System.Windows.Forms.Panel();
+            this.btnHoyGastos = new System.Windows.Forms.Button();
+            this.btnAceptarGastos = new System.Windows.Forms.Button();
+            this.calendarGastos = new System.Windows.Forms.MonthCalendar();
+            this.trackHoraGastos = new System.Windows.Forms.TrackBar();
+            this.trackMinutosGastos = new System.Windows.Forms.TrackBar();
+            this.btnNuevoGasto = new System.Windows.Forms.Button();
             this.groupGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -172,6 +177,9 @@
             this.groupCortesOPerador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panelFechaGastos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackHoraGastos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackMinutosGastos)).BeginInit();
             this.SuspendLayout();
             // 
             // label14
@@ -227,6 +235,9 @@
             // 
             this.groupGastos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupGastos.Controls.Add(this.btnNuevoGasto);
+            this.groupGastos.Controls.Add(this.textConceptoGasto);
+            this.groupGastos.Controls.Add(this.panelFechaGastos);
             this.groupGastos.Controls.Add(this.label43);
             this.groupGastos.Controls.Add(this.comboOperadoresGasto);
             this.groupGastos.Controls.Add(this.textPoliza);
@@ -249,22 +260,19 @@
             this.groupGastos.Controls.Add(this.btnExaminarPdf);
             this.groupGastos.Controls.Add(this.btnAgregarGasto);
             this.groupGastos.Controls.Add(this.dgvGastos);
-            this.groupGastos.Controls.Add(this.label15);
             this.groupGastos.Controls.Add(this.label10);
             this.groupGastos.Controls.Add(this.label5);
             this.groupGastos.Controls.Add(this.label4);
             this.groupGastos.Controls.Add(this.label3);
-            this.groupGastos.Controls.Add(this.dateTimeFechaGasto);
             this.groupGastos.Controls.Add(this.textRutaXml);
             this.groupGastos.Controls.Add(this.textMontoGasto);
-            this.groupGastos.Controls.Add(this.textConceptoGasto);
             this.groupGastos.Controls.Add(this.comboTipoGastos);
             this.groupGastos.Controls.Add(this.label2);
             this.groupGastos.Location = new System.Drawing.Point(7, 7);
             this.groupGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupGastos.Name = "groupGastos";
             this.groupGastos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupGastos.Size = new System.Drawing.Size(825, 467);
+            this.groupGastos.Size = new System.Drawing.Size(840, 467);
             this.groupGastos.TabIndex = 24;
             this.groupGastos.TabStop = false;
             this.groupGastos.Text = "Gastos";
@@ -292,7 +300,7 @@
             // textPoliza
             // 
             this.textPoliza.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPoliza.Location = new System.Drawing.Point(612, 56);
+            this.textPoliza.Location = new System.Drawing.Point(612, 46);
             this.textPoliza.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textPoliza.Name = "textPoliza";
             this.textPoliza.Size = new System.Drawing.Size(203, 23);
@@ -303,7 +311,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(27, 146);
+            this.label38.Location = new System.Drawing.Point(27, 107);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(92, 17);
             this.label38.TabIndex = 0;
@@ -313,7 +321,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(485, 152);
+            this.label37.Location = new System.Drawing.Point(485, 132);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(110, 17);
             this.label37.TabIndex = 0;
@@ -327,7 +335,7 @@
             "Transferencia",
             "Crédito",
             "Efectivo"});
-            this.comboFormaPago.Location = new System.Drawing.Point(612, 149);
+            this.comboFormaPago.Location = new System.Drawing.Point(612, 128);
             this.comboFormaPago.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboFormaPago.Name = "comboFormaPago";
             this.comboFormaPago.Size = new System.Drawing.Size(203, 25);
@@ -337,7 +345,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(549, 92);
+            this.label36.Location = new System.Drawing.Point(549, 79);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(44, 17);
             this.label36.TabIndex = 0;
@@ -346,7 +354,7 @@
             // textTicket
             // 
             this.textTicket.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTicket.Location = new System.Drawing.Point(612, 89);
+            this.textTicket.Location = new System.Drawing.Point(612, 73);
             this.textTicket.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textTicket.Name = "textTicket";
             this.textTicket.Size = new System.Drawing.Size(203, 23);
@@ -356,7 +364,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(499, 122);
+            this.label34.Location = new System.Drawing.Point(499, 105);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(96, 17);
             this.label34.TabIndex = 0;
@@ -365,7 +373,7 @@
             // textNumFactura
             // 
             this.textNumFactura.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNumFactura.Location = new System.Drawing.Point(612, 120);
+            this.textNumFactura.Location = new System.Drawing.Point(612, 102);
             this.textNumFactura.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textNumFactura.Name = "textNumFactura";
             this.textNumFactura.Size = new System.Drawing.Size(203, 23);
@@ -395,10 +403,10 @@
             // 
             this.comboGasolinerias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboGasolinerias.FormattingEnabled = true;
-            this.comboGasolinerias.Location = new System.Drawing.Point(141, 86);
+            this.comboGasolinerias.Location = new System.Drawing.Point(140, 79);
             this.comboGasolinerias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboGasolinerias.Name = "comboGasolinerias";
-            this.comboGasolinerias.Size = new System.Drawing.Size(322, 25);
+            this.comboGasolinerias.Size = new System.Drawing.Size(324, 25);
             this.comboGasolinerias.TabIndex = 12;
             this.comboGasolinerias.Visible = false;
             // 
@@ -406,10 +414,10 @@
             // 
             this.comboCasetas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCasetas.FormattingEnabled = true;
-            this.comboCasetas.Location = new System.Drawing.Point(140, 87);
+            this.comboCasetas.Location = new System.Drawing.Point(140, 79);
             this.comboCasetas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboCasetas.Name = "comboCasetas";
-            this.comboCasetas.Size = new System.Drawing.Size(320, 25);
+            this.comboCasetas.Size = new System.Drawing.Size(324, 25);
             this.comboCasetas.TabIndex = 12;
             this.comboCasetas.Visible = false;
             this.comboCasetas.TextChanged += new System.EventHandler(this.comboCasetas_TextChanged);
@@ -418,7 +426,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(549, 63);
+            this.label17.Location = new System.Drawing.Point(549, 52);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(46, 17);
             this.label17.TabIndex = 0;
@@ -427,11 +435,12 @@
             // textFechaDelGasto
             // 
             this.textFechaDelGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaDelGasto.Location = new System.Drawing.Point(140, 146);
+            this.textFechaDelGasto.Location = new System.Drawing.Point(140, 107);
             this.textFechaDelGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaDelGasto.Name = "textFechaDelGasto";
             this.textFechaDelGasto.Size = new System.Drawing.Size(324, 23);
             this.textFechaDelGasto.TabIndex = 14;
+            this.textFechaDelGasto.Click += new System.EventHandler(this.textFechaDelGasto_Click);
             // 
             // labelTotalGastos
             // 
@@ -456,7 +465,7 @@
             // 
             // btnExaminarXml
             // 
-            this.btnExaminarXml.Location = new System.Drawing.Point(375, 209);
+            this.btnExaminarXml.Location = new System.Drawing.Point(375, 163);
             this.btnExaminarXml.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExaminarXml.Name = "btnExaminarXml";
             this.btnExaminarXml.Size = new System.Drawing.Size(89, 28);
@@ -468,7 +477,7 @@
             // textRutaPdf
             // 
             this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaPdf.Location = new System.Drawing.Point(140, 180);
+            this.textRutaPdf.Location = new System.Drawing.Point(140, 135);
             this.textRutaPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRutaPdf.Name = "textRutaPdf";
             this.textRutaPdf.Size = new System.Drawing.Size(228, 23);
@@ -476,7 +485,7 @@
             // 
             // btnExaminarPdf
             // 
-            this.btnExaminarPdf.Location = new System.Drawing.Point(375, 177);
+            this.btnExaminarPdf.Location = new System.Drawing.Point(375, 132);
             this.btnExaminarPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExaminarPdf.Name = "btnExaminarPdf";
             this.btnExaminarPdf.Size = new System.Drawing.Size(89, 28);
@@ -493,14 +502,14 @@
             this.btnAgregarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarGasto.Image")));
-            this.btnAgregarGasto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarGasto.Location = new System.Drawing.Point(663, 186);
+            this.btnAgregarGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarGasto.Location = new System.Drawing.Point(571, 164);
             this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
-            this.btnAgregarGasto.Size = new System.Drawing.Size(152, 41);
+            this.btnAgregarGasto.Size = new System.Drawing.Size(119, 41);
             this.btnAgregarGasto.TabIndex = 14;
             this.btnAgregarGasto.Text = "Agregar Gasto";
-            this.btnAgregarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarGasto.UseVisualStyleBackColor = false;
             this.btnAgregarGasto.Click += new System.EventHandler(this.btnAgregarGasto_Click);
@@ -512,30 +521,20 @@
             this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
             this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGastos.Location = new System.Drawing.Point(23, 245);
+            this.dgvGastos.Location = new System.Drawing.Point(23, 228);
             this.dgvGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
-            this.dgvGastos.Size = new System.Drawing.Size(792, 161);
+            this.dgvGastos.Size = new System.Drawing.Size(792, 178);
             this.dgvGastos.TabIndex = 35;
             this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellClick);
             this.dgvGastos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellDoubleClick);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(27, 116);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(92, 17);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Fecha y Hora";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(33, 210);
+            this.label10.Location = new System.Drawing.Point(33, 164);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 17);
             this.label10.TabIndex = 0;
@@ -545,7 +544,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 180);
+            this.label5.Location = new System.Drawing.Point(34, 135);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 17);
             this.label5.TabIndex = 0;
@@ -555,7 +554,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(545, 35);
+            this.label4.Location = new System.Drawing.Point(545, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 17);
             this.label4.TabIndex = 0;
@@ -565,27 +564,16 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 86);
+            this.label3.Location = new System.Drawing.Point(44, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Concepto";
             // 
-            // dateTimeFechaGasto
-            // 
-            this.dateTimeFechaGasto.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeFechaGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeFechaGasto.Location = new System.Drawing.Point(140, 116);
-            this.dateTimeFechaGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimeFechaGasto.Name = "dateTimeFechaGasto";
-            this.dateTimeFechaGasto.Size = new System.Drawing.Size(324, 23);
-            this.dateTimeFechaGasto.TabIndex = 13;
-            this.dateTimeFechaGasto.ValueChanged += new System.EventHandler(this.dateTimeFechaGasto_ValueChanged);
-            // 
             // textRutaXml
             // 
             this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaXml.Location = new System.Drawing.Point(140, 210);
+            this.textRutaXml.Location = new System.Drawing.Point(140, 164);
             this.textRutaXml.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRutaXml.Name = "textRutaXml";
             this.textRutaXml.Size = new System.Drawing.Size(228, 23);
@@ -594,7 +582,7 @@
             // textMontoGasto
             // 
             this.textMontoGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMontoGasto.Location = new System.Drawing.Point(612, 26);
+            this.textMontoGasto.Location = new System.Drawing.Point(612, 20);
             this.textMontoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textMontoGasto.Name = "textMontoGasto";
             this.textMontoGasto.Size = new System.Drawing.Size(203, 23);
@@ -603,17 +591,18 @@
             // textConceptoGasto
             // 
             this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textConceptoGasto.Location = new System.Drawing.Point(140, 86);
+            this.textConceptoGasto.Location = new System.Drawing.Point(140, 80);
             this.textConceptoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textConceptoGasto.Name = "textConceptoGasto";
-            this.textConceptoGasto.Size = new System.Drawing.Size(322, 23);
+            this.textConceptoGasto.Size = new System.Drawing.Size(324, 23);
             this.textConceptoGasto.TabIndex = 12;
+            this.textConceptoGasto.Visible = false;
             // 
             // comboTipoGastos
             // 
             this.comboTipoGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTipoGastos.FormattingEnabled = true;
-            this.comboTipoGastos.Location = new System.Drawing.Point(140, 54);
+            this.comboTipoGastos.Location = new System.Drawing.Point(140, 52);
             this.comboTipoGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboTipoGastos.Name = "comboTipoGastos";
             this.comboTipoGastos.Size = new System.Drawing.Size(324, 25);
@@ -624,7 +613,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 56);
+            this.label2.Location = new System.Drawing.Point(20, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 17);
             this.label2.TabIndex = 0;
@@ -643,7 +632,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(846, 513);
+            this.tabControl1.Size = new System.Drawing.Size(861, 513);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
@@ -660,7 +649,7 @@
             this.tabPageGenerales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageGenerales.Name = "tabPageGenerales";
             this.tabPageGenerales.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageGenerales.Size = new System.Drawing.Size(838, 484);
+            this.tabPageGenerales.Size = new System.Drawing.Size(853, 484);
             this.tabPageGenerales.TabIndex = 0;
             this.tabPageGenerales.Text = "Datos Generales";
             // 
@@ -862,6 +851,7 @@
             this.btnAgregarDeposito.TabIndex = 22;
             this.btnAgregarDeposito.Text = "Depósito";
             this.btnAgregarDeposito.UseVisualStyleBackColor = false;
+            this.btnAgregarDeposito.Visible = false;
             this.btnAgregarDeposito.Click += new System.EventHandler(this.btnAgregarDeposito_Click);
             // 
             // btnAgregarOperador
@@ -1152,7 +1142,7 @@
             // labelSalarioPorHora
             // 
             this.labelSalarioPorHora.AutoSize = true;
-            this.labelSalarioPorHora.Location = new System.Drawing.Point(128, 319);
+            this.labelSalarioPorHora.Location = new System.Drawing.Point(128, 315);
             this.labelSalarioPorHora.Name = "labelSalarioPorHora";
             this.labelSalarioPorHora.Size = new System.Drawing.Size(16, 16);
             this.labelSalarioPorHora.TabIndex = 0;
@@ -1188,7 +1178,7 @@
             // labelTelOperador
             // 
             this.labelTelOperador.AutoSize = true;
-            this.labelTelOperador.Location = new System.Drawing.Point(128, 298);
+            this.labelTelOperador.Location = new System.Drawing.Point(128, 295);
             this.labelTelOperador.Name = "labelTelOperador";
             this.labelTelOperador.Size = new System.Drawing.Size(16, 16);
             this.labelTelOperador.TabIndex = 0;
@@ -1354,7 +1344,7 @@
             this.tabPageGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageGastos.Name = "tabPageGastos";
             this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageGastos.Size = new System.Drawing.Size(838, 484);
+            this.tabPageGastos.Size = new System.Drawing.Size(853, 484);
             this.tabPageGastos.TabIndex = 1;
             this.tabPageGastos.Text = "Gastos del Viaje";
             this.tabPageGastos.UseVisualStyleBackColor = true;
@@ -1622,7 +1612,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(857, 32);
+            this.panel1.Size = new System.Drawing.Size(872, 32);
             this.panel1.TabIndex = 10;
             // 
             // label12
@@ -1642,7 +1632,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(825, 4);
+            this.btnClose.Location = new System.Drawing.Point(840, 4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 26);
@@ -1651,12 +1641,113 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // panelFechaGastos
+            // 
+            this.panelFechaGastos.BackColor = System.Drawing.Color.White;
+            this.panelFechaGastos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFechaGastos.Controls.Add(this.btnHoyGastos);
+            this.panelFechaGastos.Controls.Add(this.btnAceptarGastos);
+            this.panelFechaGastos.Controls.Add(this.calendarGastos);
+            this.panelFechaGastos.Controls.Add(this.trackHoraGastos);
+            this.panelFechaGastos.Controls.Add(this.trackMinutosGastos);
+            this.panelFechaGastos.Location = new System.Drawing.Point(876, 20);
+            this.panelFechaGastos.Name = "panelFechaGastos";
+            this.panelFechaGastos.Size = new System.Drawing.Size(287, 308);
+            this.panelFechaGastos.TabIndex = 48;
+            this.panelFechaGastos.Visible = false;
+            // 
+            // btnHoyGastos
+            // 
+            this.btnHoyGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnHoyGastos.FlatAppearance.BorderSize = 0;
+            this.btnHoyGastos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnHoyGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoyGastos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnHoyGastos.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnHoyGastos.Location = new System.Drawing.Point(17, 262);
+            this.btnHoyGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHoyGastos.Name = "btnHoyGastos";
+            this.btnHoyGastos.Size = new System.Drawing.Size(67, 24);
+            this.btnHoyGastos.TabIndex = 25;
+            this.btnHoyGastos.Text = "Hoy";
+            this.btnHoyGastos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHoyGastos.UseVisualStyleBackColor = false;
+            this.btnHoyGastos.Click += new System.EventHandler(this.btnHoyGastos_Click);
+            // 
+            // btnAceptarGastos
+            // 
+            this.btnAceptarGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAceptarGastos.FlatAppearance.BorderSize = 0;
+            this.btnAceptarGastos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnAceptarGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptarGastos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAceptarGastos.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAceptarGastos.Location = new System.Drawing.Point(195, 262);
+            this.btnAceptarGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAceptarGastos.Name = "btnAceptarGastos";
+            this.btnAceptarGastos.Size = new System.Drawing.Size(67, 24);
+            this.btnAceptarGastos.TabIndex = 24;
+            this.btnAceptarGastos.Text = "Aceptar";
+            this.btnAceptarGastos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptarGastos.UseVisualStyleBackColor = false;
+            this.btnAceptarGastos.Click += new System.EventHandler(this.btnAceptarGastos_Click);
+            // 
+            // calendarGastos
+            // 
+            this.calendarGastos.Location = new System.Drawing.Point(14, 7);
+            this.calendarGastos.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.calendarGastos.MaxSelectionCount = 30;
+            this.calendarGastos.Name = "calendarGastos";
+            this.calendarGastos.TabIndex = 11;
+            this.calendarGastos.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarGastos_DateChanged);
+            // 
+            // trackHoraGastos
+            // 
+            this.trackHoraGastos.LargeChange = 1;
+            this.trackHoraGastos.Location = new System.Drawing.Point(3, 180);
+            this.trackHoraGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackHoraGastos.Maximum = 23;
+            this.trackHoraGastos.Name = "trackHoraGastos";
+            this.trackHoraGastos.Size = new System.Drawing.Size(279, 45);
+            this.trackHoraGastos.TabIndex = 21;
+            this.trackHoraGastos.Scroll += new System.EventHandler(this.trackHoraGastos_Scroll);
+            // 
+            // trackMinutosGastos
+            // 
+            this.trackMinutosGastos.LargeChange = 1;
+            this.trackMinutosGastos.Location = new System.Drawing.Point(3, 215);
+            this.trackMinutosGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackMinutosGastos.Maximum = 59;
+            this.trackMinutosGastos.Name = "trackMinutosGastos";
+            this.trackMinutosGastos.Size = new System.Drawing.Size(279, 45);
+            this.trackMinutosGastos.TabIndex = 22;
+            this.trackMinutosGastos.Scroll += new System.EventHandler(this.trackMinutosGastos_Scroll);
+            // 
+            // btnNuevoGasto
+            // 
+            this.btnNuevoGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnNuevoGasto.FlatAppearance.BorderSize = 0;
+            this.btnNuevoGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnNuevoGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoGasto.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnNuevoGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoGasto.Image")));
+            this.btnNuevoGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoGasto.Location = new System.Drawing.Point(696, 163);
+            this.btnNuevoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNuevoGasto.Name = "btnNuevoGasto";
+            this.btnNuevoGasto.Size = new System.Drawing.Size(119, 41);
+            this.btnNuevoGasto.TabIndex = 49;
+            this.btnNuevoGasto.Text = "Nuevo Gasto";
+            this.btnNuevoGasto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevoGasto.UseVisualStyleBackColor = false;
+            // 
             // FormAgregarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(857, 550);
+            this.ClientSize = new System.Drawing.Size(872, 550);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1691,6 +1782,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelFechaGastos.ResumeLayout(false);
+            this.panelFechaGastos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackHoraGastos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackMinutosGastos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1707,7 +1802,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnAgregarGasto;
         private System.Windows.Forms.DataGridView dgvGastos;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
@@ -1717,7 +1811,6 @@
         private System.Windows.Forms.Button btnExaminarXml;
         private System.Windows.Forms.TextBox textRutaPdf;
         private System.Windows.Forms.Button btnExaminarPdf;
-        private System.Windows.Forms.DateTimePicker dateTimeFechaGasto;
         private System.Windows.Forms.TextBox textRutaXml;
         private System.Windows.Forms.TextBox textMontoGasto;
         private System.Windows.Forms.TextBox textConceptoGasto;
@@ -1822,5 +1915,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboOperadores;
         private System.Windows.Forms.Button btnAgregarDeposito;
+        private System.Windows.Forms.Panel panelFechaGastos;
+        private System.Windows.Forms.Button btnHoyGastos;
+        private System.Windows.Forms.Button btnAceptarGastos;
+        private System.Windows.Forms.MonthCalendar calendarGastos;
+        private System.Windows.Forms.TrackBar trackHoraGastos;
+        private System.Windows.Forms.TrackBar trackMinutosGastos;
+        private System.Windows.Forms.Button btnNuevoGasto;
     }
 }

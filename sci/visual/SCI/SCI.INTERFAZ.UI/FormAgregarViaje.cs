@@ -19,9 +19,15 @@ namespace SCI.INTERFAZ.UI
         string fechaInicialGeneral = string.Empty;
         int horaInicialGeneral = 0;
         int minutoInicialGeneral = 0;
+
         string fechaFinalGeneral = string.Empty;
         int horaFinalGeneral = 0;
         int minutoFinalGeneral = 0;
+
+        string fechaDelGasto = string.Empty;
+        int horaDelGasto = 0;
+        int minutosDelGasto = 0;
+
         #endregion
 
         #region primera parte
@@ -39,6 +45,7 @@ namespace SCI.INTERFAZ.UI
         ICasetaManager managerCasetas;
         IOperadoresEnViajeManager managerOperadoresEnViaje;
         ILogManager managerLog;
+        IDepositoManager managerDeposito;
 
         string resultado = string.Empty;
         string accion = string.Empty;
@@ -86,6 +93,7 @@ namespace SCI.INTERFAZ.UI
             managerCasetas = Tools.FabricManager.CasetaManager();
             managerOperadoresEnViaje = Tools.FabricManager.OperadoresEnViajeManager();
             managerLog = Tools.FabricManager.LogManager();
+            managerDeposito = Tools.FabricManager.DepositoManager();
 
             accion = evento;
             idAEditar = id;
@@ -97,13 +105,14 @@ namespace SCI.INTERFAZ.UI
             cargarComboClientes();
             cargarComboStatus();
             cargarComboTipoDeGastos();
+            //selectTipoDeGasto();
             cargarListaOperadores();
             cargarTodasLasUnidades();
 
             if (accion == "editar")
             {
 
-                textFechaDelGasto.Text = dateTimeFechaGasto.Value.ToString(); //Se inicializa la fecha del gasto
+                //textFechaDelGasto.Text = dateTimeFechaGasto.Value.ToString(); //Se inicializa la fecha del gasto
                 entidadAeditar = managerViajes.BuscarPorId(idAEditar.ToString()); //Se carga los datos del Viaje a editar
 
                 //Se cargan las entidades ligadas con el viaje SCi
@@ -137,6 +146,9 @@ namespace SCI.INTERFAZ.UI
                 }
                 else
                     textFechaFinal.Text = string.Empty;
+
+                
+
                 #endregion
 
                 textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
@@ -161,6 +173,7 @@ namespace SCI.INTERFAZ.UI
                 btnAgregarViaje.Text = "Editar Viaje";
                 textMontoGasto.Text = string.Empty;
                 comboFormaPago.SelectedIndex = 0;
+                btnAgregarDeposito.Visible = true;
 
                 /*if (comboStatus.Text.Contains("Iniciado"))
                 {
@@ -294,6 +307,7 @@ namespace SCI.INTERFAZ.UI
         {
             IEnumerable<tipogasto> tiposDeGastos = managerTiposDeGastos.ObtenerTodos;
             comboTipoGastos.DataSource = tiposDeGastos.Select(r => (r.IdTipoGasto + "/" + r.Concepto)).ToList();
+            comboTipoGastos.Text = string.Empty;
         }
         private void cargarComboClientes()
         {
@@ -447,8 +461,6 @@ namespace SCI.INTERFAZ.UI
         }
         private viaje CrearViaje(int idStatus, int idRuta, int idCliente, /*int idOperador,*/ int idUni)
         {
-
-
             return new viaje
             {
                 IdViajeCliente = textClaveViajeCliente.Text,
@@ -487,11 +499,11 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (validarFechaDelGasto() == false)
-                        {
-                            MessageBox.Show("La fecha del Gasto esta fuera del rango de las fechas del Viaje de Sci.", "Erro al ingresar el nuevo gasto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
+                        //if (validarFechaDelGasto() == false)
+                        //{
+                           // MessageBox.Show("La fecha del Gasto esta fuera del rango de las fechas del Viaje de Sci.", "Erro al ingresar el nuevo gasto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                          //  return;
+                        //}
                         string[] cadena = comboTipoGastos.Text.Split('/');
                         int idTipoGasto = int.Parse(cadena.First());
                         gasto nuevoGasto = new gasto();
@@ -559,11 +571,11 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (validarFechaDelGasto() == false)
-                        {
-                            MessageBox.Show("La fecha del Gasto esta fuera del rango de las fechas del Viaje de Sci.", "Erro al ingresar el nuevo gasto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
+                        //if (validarFechaDelGasto() == false)
+                        //{
+                          //  MessageBox.Show("La fecha del Gasto esta fuera del rango de las fechas del Viaje de Sci.", "Erro al ingresar el nuevo gasto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //return;
+                        //}
                         string[] cadena = comboTipoGastos.Text.Split('/');
                         int idTipoGasto = int.Parse(cadena.First());
                         gasto gastoAEditar = managerGastos.BuscarPorId(idGastoAeditar.ToString());
@@ -772,10 +784,7 @@ namespace SCI.INTERFAZ.UI
                 nombreArchivoXml = openFileDialog1.SafeFileName;
             }
         }
-        private void dateTimeFechaGasto_ValueChanged(object sender, EventArgs e)
-        {
-            textFechaDelGasto.Text = dateTimeFechaGasto.Value.ToString();
-        }
+        
         private void calendarCortesOperador_DateChanged(object sender, DateRangeEventArgs e)
         {
             textFechaHoraInicialOperador.Text = e.Start.ToString();
@@ -992,35 +1001,43 @@ namespace SCI.INTERFAZ.UI
         }
         private void comboTipoGastos2_TextChanged(object sender, EventArgs e)
         {
-            if (comboTipoGastos.Text.Contains("Casetas"))
+            //selectTipoDeGasto();
+            if (comboTipoGastos.Text != string.Empty)
             {
-                comboCasetas.Visible = true;
-                comboGasolinerias.Visible = false;
-                textConceptoGasto.Visible = false;
-                comboGasolinerias.Text = string.Empty;
-                textConceptoGasto.Text = string.Empty;
-                tipoDeGasto = "Casetas";
-                cargarTodasLasCasetas();
-                return;
-            }
-            if (comboTipoGastos.Text.Contains("Combustible"))
-            {
-                comboGasolinerias.Visible = true;
-                comboCasetas.Visible = false;
-                textConceptoGasto.Visible = false;
-                comboCasetas.Text = string.Empty;
-                textConceptoGasto.Text = string.Empty;
-                tipoDeGasto = "Combustible";
-                cargarTodasLasGasolinerias();
-                return;
-            }
-            tipoDeGasto = "Otros";
-            textConceptoGasto.Visible = true;
-            comboCasetas.Visible = false;
-            comboGasolinerias.Visible = false;
-            comboCasetas.Text = string.Empty;
-            comboGasolinerias.Text = string.Empty;
+                if (comboTipoGastos.Text.Contains("Combustible"))
+                {
+                    comboGasolinerias.Visible = true;
+                    comboCasetas.Visible = false;
+                    textConceptoGasto.Visible = false;
+                    comboCasetas.Text = string.Empty;
+                    textConceptoGasto.Text = string.Empty;
+                    tipoDeGasto = "Combustible";
+                    cargarTodasLasGasolinerias();
+                    return;
+                }
+                if (comboTipoGastos.Text.Contains("Casetas"))
+                {
+                    comboCasetas.Visible = true;
+                    comboGasolinerias.Visible = false;
+                    textConceptoGasto.Visible = false;
+                    comboGasolinerias.Text = string.Empty;
+                    textConceptoGasto.Text = string.Empty;
+                    tipoDeGasto = "Casetas";
+                    cargarTodasLasCasetas();
+                    return;
+                }
 
+                tipoDeGasto = "Otros";
+                textConceptoGasto.Visible = true;
+                comboCasetas.Visible = false;
+                comboGasolinerias.Visible = false;
+                comboCasetas.Text = string.Empty;
+                comboGasolinerias.Text = string.Empty;
+            }
+        }
+        private void selectTipoDeGasto()
+        {
+            
         }
         private void cargarTodasLasGasolinerias()
         {
@@ -1148,7 +1165,18 @@ namespace SCI.INTERFAZ.UI
                 }
             }
 
-            dateTimeFechaGasto.Value = gastoSeleccionado.Fecha;
+            textFechaDelGasto.Text = formatoFecha(gastoSeleccionado.Fecha);
+            calendarGastos.SelectionRange.Start = gastoSeleccionado.Fecha;
+            string[] cadenaFecha = textFechaDelGasto.Text.Split(' ');
+            fechaDelGasto = cadenaFecha.First();
+            horaDelGasto = gastoSeleccionado.Fecha.Hour;
+            minutosDelGasto = gastoSeleccionado.Fecha.Minute;
+            trackHoraGastos.Value = horaDelGasto;
+            trackMinutosGastos.Value = minutosDelGasto;
+
+            //dateTimeFechaGasto.Value = gastoSeleccionado.Fecha;
+            //textFechaDelGasto.Text = formatoFecha(gastoSeleccionado.Fecha);
+
             textRutaPdf.Text = gastoSeleccionado.RutaPdf;
             textRutaXml.Text = gastoSeleccionado.RutaXml;
             textMontoGasto.Text = gastoSeleccionado.Costo.ToString();
@@ -1205,9 +1233,13 @@ namespace SCI.INTERFAZ.UI
                         operadoresenviaje opYaAgregado = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, opSeleccionado.IdOperador);
                         IEnumerable<cortesoperador> corteAgregado = managerCortes.BuscarCortesPorOperadorEnViaje(entidadAeditar.IdViajeSci, opSeleccionado.IdOperador);
                         IEnumerable<gasto> gastosAgregados = managerGastos.BuscarPorIdViajeyOperador(entidadAeditar.IdViajeSci, opSeleccionado.IdOperador);
+                        IEnumerable<deposito> depositosAgregados = managerDeposito.BuscarPorIdViajeyOperador(entidadAeditar.IdViajeSci, opSeleccionado.IdOperador);
+
                         int contaCortes = corteAgregado.ToArray().Count();
                         int contaGastos = gastosAgregados.ToArray().Count();
-                        if (opYaAgregado != null && contaCortes == 0 && contaGastos == 0) // && gastosAgregados == null) //El operador no puede eliminarse si tiene cortes o gastos asociados.
+                        int contaDepositos = depositosAgregados.ToArray().Count();
+
+                        if (opYaAgregado != null && contaCortes == 0 && contaGastos == 0 && contaDepositos == 0) // && gastosAgregados == null) //El operador no puede eliminarse si tiene cortes o gastos asociados.
                         {
                             if (managerOperadoresEnViaje.Eliminar(opYaAgregado.IdRegistro.ToString()))
                             {
@@ -1225,7 +1257,7 @@ namespace SCI.INTERFAZ.UI
                             }
                         }
                         else
-                            MessageBox.Show("Lo sentimos el operador no se ha podido eliminar del viaje. Revisa que no tenga Cortes o Gastos ya registrados.", "Eliminar Operador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Lo sentimos el operador no se ha podido eliminar del viaje. Revisa que no tenga Cortes, Gastos o Depósitos ya registrados.", "Eliminar Operador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
@@ -1438,6 +1470,19 @@ namespace SCI.INTERFAZ.UI
 
             return fechaCorrecta;
         }
+        private void btnAgregarDeposito_Click(object sender, EventArgs e)
+        {
+            //listBoxStatus.Visible = false;
+            FormAgregarDeposito fm = new FormAgregarDeposito(user, listOperadoresAsignados.Items[listOperadoresAsignados.SelectedIndex].ToString(), entidadAeditar.IdViajeSci);
+            DialogResult DialogForm = fm.ShowDialog();
+            //if (fm.Valor != string.Empty)
+            //{
+            //CargarTodosLosViajes(comboStatus.Text);
+            // CargarTodosLosViajes(btnStatus.Text);
+            //mostrarLabelStatus(fm.Valor, true);
+            //}
+        }
+
         #endregion
 
         #region Calendario Inicial SCI
@@ -1660,17 +1705,113 @@ namespace SCI.INTERFAZ.UI
 
         #endregion
 
-        private void btnAgregarDeposito_Click(object sender, EventArgs e)
+        #region Calendario de Gastos
+        private void textFechaDelGasto_Click(object sender, EventArgs e)
         {
-            //listBoxStatus.Visible = false;
-            FormAgregarDeposito fm = new FormAgregarDeposito(user, listOperadoresAsignados.Items[listOperadoresAsignados.SelectedIndex].ToString(), entidadAeditar.IdViajeSci);
-            DialogResult DialogForm = fm.ShowDialog();
-            //if (fm.Valor != string.Empty)
-            //{
-                //CargarTodosLosViajes(comboStatus.Text);
-               // CargarTodosLosViajes(btnStatus.Text);
-                //mostrarLabelStatus(fm.Valor, true);
-            //}
+            if (textFechaDelGasto.Text == string.Empty)
+                btnHoyGastos_Click(sender, e);
+            panelFechaGastos.Location = new Point(textFechaDelGasto.Location.X, textFechaDelGasto.Location.Y + 22);
+            panelFechaGastos.Visible = true;
         }
+        private void btnHoyGastos_Click(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            if (hoy.Day < 10)
+                textFechaDelGasto.Text = "0" + hoy.Day + "/";
+            else
+                textFechaDelGasto.Text = hoy.Day + "/";
+            if (hoy.Month < 10)
+                textFechaDelGasto.Text += "0" + hoy.Month + "/";
+            else
+                textFechaDelGasto.Text += hoy.Month + "/";
+
+
+            textFechaDelGasto.Text += hoy.Year;
+            fechaDelGasto = textFechaDelGasto.Text;
+
+            if (hoy.Hour < 10)
+                textFechaDelGasto.Text += " 0" + hoy.Hour + ":";
+            else
+                textFechaDelGasto.Text += " " + hoy.Hour + ":";
+
+            if (hoy.Minute < 10)
+                textFechaDelGasto.Text += "0" + hoy.Minute + ":00";
+            else
+                textFechaDelGasto.Text += hoy.Minute + ":00";
+
+
+            horaDelGasto = hoy.Hour;
+            minutosDelGasto = hoy.Minute;
+
+            trackHoraGastos.Value = horaDelGasto;
+            trackMinutosGastos.Value = minutosDelGasto;
+        }
+        private void calendarGastos_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            int year = calendarGastos.SelectionRange.Start.Year;
+            int month = calendarGastos.SelectionRange.Start.Month;
+            int day = calendarGastos.SelectionRange.Start.Day;
+
+            if (day < 10)
+                fechaDelGasto = "0" + day.ToString();
+            else
+                fechaDelGasto = day.ToString();
+
+            fechaDelGasto += "/";
+
+            if (month < 10)
+                fechaDelGasto += "0" + month.ToString();
+            else
+                fechaDelGasto += month.ToString();
+
+            fechaDelGasto += "/";
+            fechaDelGasto += year.ToString();
+
+            textFechaDelGasto.Text = fechaDelGasto;
+            completarFechaHoraMinutosGastos();
+        }
+        private void completarFechaHoraMinutosGastos()
+        {
+            textFechaDelGasto.Text = string.Empty;
+            if (horaDelGasto < 10)
+            {
+                textFechaDelGasto.Text = fechaDelGasto + " 0" + horaDelGasto.ToString();
+                if (minutoInicialGeneral < 10)
+                {
+                    textFechaDelGasto.Text = fechaDelGasto + " 0" + horaDelGasto.ToString() + ":0" + minutosDelGasto.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaDelGasto.Text = fechaDelGasto + " 0" + horaDelGasto.ToString() + ":" + minutosDelGasto.ToString() + ":00";
+                }
+            }
+            else
+            {
+                textFechaDelGasto.Text = fechaDelGasto + " " + horaDelGasto.ToString();
+                if (minutosDelGasto < 10)
+                {
+                    textFechaDelGasto.Text = fechaDelGasto + " " + horaDelGasto.ToString() + ":0" + minutosDelGasto.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaDelGasto.Text = fechaDelGasto + " " + horaDelGasto.ToString() + ":" + minutosDelGasto.ToString() + ":00";
+                }
+            }
+        }
+        private void trackHoraGastos_Scroll(object sender, EventArgs e)
+        {
+            horaDelGasto = trackHoraGastos.Value;
+            completarFechaHoraMinutosGastos();
+        }
+        private void trackMinutosGastos_Scroll(object sender, EventArgs e)
+        {
+            minutosDelGasto = trackMinutosGastos.Value;
+            completarFechaHoraMinutosGastos();
+        }
+        private void btnAceptarGastos_Click(object sender, EventArgs e)
+        {
+            panelFechaGastos.Visible = false;
+        }
+        #endregion
     }
 }

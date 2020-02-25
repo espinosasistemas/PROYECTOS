@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textMonto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textReferencia = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepositos)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +49,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.textReferencia);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dgvDepositos);
             this.groupBox1.Controls.Add(this.labelNombreOperador);
             this.groupBox1.Controls.Add(this.label2);
@@ -57,7 +61,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 324);
+            this.groupBox1.Size = new System.Drawing.Size(441, 367);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos de la Ruta";
@@ -69,11 +73,11 @@
             this.dgvDepositos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDepositos.BackgroundColor = System.Drawing.Color.White;
             this.dgvDepositos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepositos.Location = new System.Drawing.Point(5, 180);
+            this.dgvDepositos.Location = new System.Drawing.Point(8, 212);
             this.dgvDepositos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvDepositos.Name = "dgvDepositos";
             this.dgvDepositos.ReadOnly = true;
-            this.dgvDepositos.Size = new System.Drawing.Size(427, 137);
+            this.dgvDepositos.Size = new System.Drawing.Size(427, 148);
             this.dgvDepositos.TabIndex = 36;
             // 
             // labelNombreOperador
@@ -106,7 +110,7 @@
             this.comboTipoDeposito.Location = new System.Drawing.Point(124, 89);
             this.comboTipoDeposito.Name = "comboTipoDeposito";
             this.comboTipoDeposito.Size = new System.Drawing.Size(308, 29);
-            this.comboTipoDeposito.TabIndex = 3;
+            this.comboTipoDeposito.TabIndex = 2;
             // 
             // btnAgregarDeposito
             // 
@@ -117,10 +121,10 @@
             this.btnAgregarDeposito.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarDeposito.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDeposito.Image")));
             this.btnAgregarDeposito.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarDeposito.Location = new System.Drawing.Point(329, 124);
+            this.btnAgregarDeposito.Location = new System.Drawing.Point(328, 172);
             this.btnAgregarDeposito.Name = "btnAgregarDeposito";
             this.btnAgregarDeposito.Size = new System.Drawing.Size(104, 33);
-            this.btnAgregarDeposito.TabIndex = 5;
+            this.btnAgregarDeposito.TabIndex = 4;
             this.btnAgregarDeposito.Text = "Depositor";
             this.btnAgregarDeposito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarDeposito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -155,11 +159,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Monto";
             // 
+            // textReferencia
+            // 
+            this.textReferencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textReferencia.Location = new System.Drawing.Point(123, 124);
+            this.textReferencia.Name = "textReferencia";
+            this.textReferencia.Size = new System.Drawing.Size(309, 26);
+            this.textReferencia.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(40, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 17);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Referencia";
+            // 
             // FormAgregarDeposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 333);
+            this.ClientSize = new System.Drawing.Size(448, 376);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -186,5 +208,7 @@
         private System.Windows.Forms.Label labelNombreOperador;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvDepositos;
+        private System.Windows.Forms.TextBox textReferencia;
+        private System.Windows.Forms.Label label4;
     }
 }

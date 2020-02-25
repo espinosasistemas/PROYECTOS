@@ -52,13 +52,15 @@ namespace SCI.INTERFAZ.UI
 
         private void cargarTodosLosDepositos()
         {
-            dgvDepositos.Rows.Clear();
+            //dgvDepositos.Rows.Clear();
             if (opSeleccionado != null)
             {
                 IEnumerable<deposito> depositosPorOperador = managerDeposito.BuscarDepositosPorVIaje(idViaje, opSeleccionado.IdOperador);
                 if (depositosPorOperador != null)
                 {
                     dgvDepositos.DataSource = depositosPorOperador.ToArray();
+                    dgvDepositos.Columns["idDeposito"].Visible = false;
+                    dgvDepositos.Columns["idOperador"].Visible = false;
                 }
             }
         }
@@ -73,6 +75,7 @@ namespace SCI.INTERFAZ.UI
                     IdViajeSci = idViaje,
                     Monto = double.Parse(textMonto.Text),
                     Tipo = comboTipoDeposito.Text,
+                    Referencia = textReferencia.Text,
                     Fecha = DateTime.Now
                 };
 
@@ -84,7 +87,7 @@ namespace SCI.INTERFAZ.UI
                         Accion = "agregar",
                         NombreUsuario = user.NombreUsuario,
                         Fecha = DateTime.Now,
-                        ModuloAfectado = "deposito-id:" + lastDeposito.IdAbono
+                        ModuloAfectado = "deposito-id:" + lastDeposito.IdDeposito
                     };
                     managerLog.Insertar(registro);
 
@@ -96,8 +99,10 @@ namespace SCI.INTERFAZ.UI
                         if (managerOperadorEnViaje.Actualizar(opEnElViaje))
                         {
                             resultado = "Se ha registrado correctamente el nuevo abono.";
-                            MessageBox.Show("Se han ingresado correctamente el nuevo Deposito.", "Actualización de Depósitos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBox.Show("Se han ingresado correctamente el nuevo Deposito.", "Actualización de Depósitos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             cargarTodosLosDepositos();
+                            textMonto.Clear();
+                            comboTipoDeposito.Text = string.Empty;
                         }
                     }
                 }

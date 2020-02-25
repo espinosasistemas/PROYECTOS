@@ -8,5 +8,7 @@ namespace SCI.COMMON.Interfaces
     public interface IDepositoManager:IGenericManager<deposito>
     {
         IEnumerable<deposito> BuscarDepositosPorVIaje(int idViajeSci, int idOperador);
+
+        IEnumerable<deposito> BuscarPorIdViajeyOperador(int idViajeOps, int idOperador);
     }
 }
