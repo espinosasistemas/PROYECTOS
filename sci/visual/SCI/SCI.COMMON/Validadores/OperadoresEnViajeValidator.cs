@@ -12,6 +12,7 @@ namespace SCI.COMMON.Validadores
         {
             RuleFor(s => s.IdOperador).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(s => s.IdViajeSci).NotNull().NotEmpty().GreaterThan(0);
+            //RuleFor(s => s.Posicion).NotNull().NotEmpty().GreaterThan(-1);
             //RuleFor(s => s.SaldoActual).NotNull().NotEmpty().GreaterThan(-1);
         }
     }

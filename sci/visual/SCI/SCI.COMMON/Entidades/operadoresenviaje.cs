@@ -10,5 +10,6 @@ namespace SCI.COMMON.Entidades
         public int IdOperador { get; set; }
         public int IdViajeSci { get; set; }
         public double SaldoActual { get; set; }
+        public int Posicion { get; set; }
     }
 }

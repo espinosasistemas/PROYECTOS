@@ -28,6 +28,14 @@ namespace SCI.INTERFAZ.UI
         int horaDelGasto = 0;
         int minutosDelGasto = 0;
 
+        string fechaInicialCorte = string.Empty;
+        int horaInicialCorte = 0;
+        int minutoInicialCorte = 0;
+
+        string fechaFinalCorte = string.Empty;
+        int horaFinalCorte = 0;
+        int minutoFinalCorte = 0;
+
         #endregion
 
         #region primera parte
@@ -166,14 +174,16 @@ namespace SCI.INTERFAZ.UI
                 //Datos del operador y CORTES que se han hecho, tabControl = Cortes
                 cargarTodosLosCortesDelViaje();
                 cargarListaOperadoresAsignadosAlViaje();
-                textFechaHoraInicialOperador.Text = calendarCortesOperador.SelectionRange.Start.ToString();
-                textFechaHoraFinalOperador.Text = calendarCortesOperador.SelectionRange.End.ToString();
+                //textFechaHoraInicialCorte.Text = calendarCortesOperador.SelectionRange.Start.ToString();
+                //textFechaHoraFinalCorte.Text = calendarCortesOperador.SelectionRange.End.ToString();
 
                 this.Text = "Actualizar los datos del Viaje.";
                 btnAgregarViaje.Text = "Editar Viaje";
                 textMontoGasto.Text = string.Empty;
                 comboFormaPago.SelectedIndex = 0;
                 btnAgregarDeposito.Visible = true;
+                btnArriba.Visible = true;
+                btnAbajo.Visible = true;
 
                 /*if (comboStatus.Text.Contains("Iniciado"))
                 {
@@ -222,10 +232,11 @@ namespace SCI.INTERFAZ.UI
             comboOperadoresCortes.Items.Clear();
             comboOperadoresGasto.Items.Clear();
 
-            IEnumerable<operadoresenviaje> operadoresEnViaje = managerOperadoresEnViaje.ObtenerTodos;
-            if (operadoresEnViaje != null)
+            //IEnumerable<operadoresenviaje> operadoresEnViaje = managerOperadoresEnViaje.ObtenerTodos;
+            IEnumerable<operadoresenviaje> operadoresViaje = managerOperadoresEnViaje.BuscarPorIdViajeOps(entidadAeditar.IdViajeSci);
+            if (operadoresViaje != null)
             {
-                IEnumerable<operadoresenviaje> operadoresViaje = managerOperadoresEnViaje.BuscarPorIdViajeOps(entidadAeditar.IdViajeSci);
+                operadoresViaje = operadoresViaje.OrderBy(a => a.Posicion);
                 operador op = new operador();
                 foreach (var item in operadoresViaje)
                 {
@@ -266,6 +277,12 @@ namespace SCI.INTERFAZ.UI
                     dgvCortesOperador["Status", i].Value = status.Nombre;
                 }
 
+                dgvCortesOperador.Columns["Operador"].DisplayIndex = 0;
+                dgvCortesOperador.Columns["Horas"].DisplayIndex = 1;
+                dgvCortesOperador.Columns["Costo"].DisplayIndex = 2;
+                dgvCortesOperador.Columns["FechaInicio"].DisplayIndex = 3;
+                dgvCortesOperador.Columns["FechaFin"].DisplayIndex = 4;
+                dgvCortesOperador.Columns["Status"].DisplayIndex = 5;
             }
         }
         public void cargarTodosLosGastosDelViaje()
@@ -330,6 +347,15 @@ namespace SCI.INTERFAZ.UI
                 string[] splitStatus;
                 splitStatus = comboStatus.Text.Split('/');
                 int idStatus = int.Parse(splitStatus.First());
+                if (splitStatus[1] == "Cerrado")
+                {
+                    if (textFechaFinal.Text == string.Empty)
+                    {
+                        MessageBox.Show("Para cerrar el viaje es necesario que se tenga una fecha de fin del viaje.", "Error al cerrar el Viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textFechaFinal.Focus();
+                        return;
+                    }
+                }
 
                 string[] splitUnidades;
                 splitUnidades = comboUnidades.Text.Split('/');
@@ -471,7 +497,6 @@ namespace SCI.INTERFAZ.UI
                 IdUnidad = idUni
             };
         }
-
         private void comboStatus_SelectedValueChanged(object sender, EventArgs e)
         {
             /*
@@ -501,9 +526,10 @@ namespace SCI.INTERFAZ.UI
                     {
                         //if (validarFechaDelGasto() == false)
                         //{
-                           // MessageBox.Show("La fecha del Gasto esta fuera del rango de las fechas del Viaje de Sci.", "Erro al ingresar el nuevo gasto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                          //  return;
+                        // MessageBox.Show("La fecha del Gasto esta fuera del rango de las fechas del Viaje de Sci.", "Erro al ingresar el nuevo gasto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //  return;
                         //}
+
                         string[] cadena = comboTipoGastos.Text.Split('/');
                         int idTipoGasto = int.Parse(cadena.First());
                         gasto nuevoGasto = new gasto();
@@ -512,6 +538,12 @@ namespace SCI.INTERFAZ.UI
                         string[] cadenaOp = comboOperadoresGasto.Text.Split('/');
                         int idOpAGasto = int.Parse(cadenaOp.First());
                         nuevoGasto.IdOperador = idOpAGasto;
+
+                        if (validarSaldoOperador(idOpAGasto) == false)
+                        {
+                            MessageBox.Show("El Saldo del Operador es insuficiente para registrar este gasto.", "Operador sin saldo.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
                         if (tipoDeGasto == "Combustible")
                         {
@@ -552,6 +584,16 @@ namespace SCI.INTERFAZ.UI
                             };
                             managerLog.Insertar(registro);
 
+                            operadoresenviaje opEnViaje = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, idOpAGasto);
+                            if (opEnViaje != null)
+                            {
+                                opEnViaje.SaldoActual = opEnViaje.SaldoActual - nuevoGasto.Costo;
+                                if (managerOperadoresEnViaje.Actualizar(opEnViaje)==false)
+                                {
+                                    MessageBox.Show("Ha ocurrido un error al intentar guardar nuevo saldo del operador, el gasto no pudo registrarse.", "Error al actualizar el saldo del Operador.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    managerGastos.Eliminar(lastGasto.IdGasto.ToString());
+                                }
+                            }
                             cargarTodosLosGastosDelViaje();
                             limpiarFormularioRegistroDeGastos();
                         }
@@ -641,6 +683,25 @@ namespace SCI.INTERFAZ.UI
             nombreArchivoNuevoPdf = string.Empty;
             nombreArchivoNuevoXml = string.Empty;
         }
+        private bool validarSaldoOperador(int idOpAGasto)
+        {
+            operadoresenviaje opSeleccionado = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, idOpAGasto);
+            if (opSeleccionado != null)
+            {
+                try
+                {
+                    double montoDelGasto = double.Parse(textMontoGasto.Text);
+                    if (opSeleccionado.SaldoActual < montoDelGasto)
+                        return false;
+                }
+                catch {
+                    return false;
+                }
+                return true;
+            }
+
+            return false;
+        }
         private bool validarFechaDelGasto()
         {
             DateTime fechayHora = DateTime.Parse(textFechaDelGasto.Text);
@@ -650,8 +711,14 @@ namespace SCI.INTERFAZ.UI
         }
         private void limpiarFormularioRegistroDeGastos()
         {
-            comboTipoGastos.Text = "";
+            comboOperadoresGasto.Text = string.Empty;
+            comboTipoGastos.Text = string.Empty;
             textConceptoGasto.Clear();
+            comboCasetas.Visible = false;
+            comboGasolinerias.Visible = false;
+            textConceptoGasto.Visible = true;
+            textFechaDelGasto.Text = string.Empty;
+
             textMontoGasto.Clear();
             textRutaPdf.Clear();
             textRutaXml.Clear();
@@ -784,21 +851,20 @@ namespace SCI.INTERFAZ.UI
                 nombreArchivoXml = openFileDialog1.SafeFileName;
             }
         }
-        
         private void calendarCortesOperador_DateChanged(object sender, DateRangeEventArgs e)
         {
-            textFechaHoraInicialOperador.Text = e.Start.ToString();
-            textFechaHoraFinalOperador.Text = e.End.ToString();
+            textFechaHoraInicialCorte.Text = e.Start.ToString();
+            textFechaHoraFinalCorte.Text = e.End.ToString();
             calcularMontoPorHorasOperador();
         }
         private void calcularMontoPorHorasOperador()
         {
-            if (textFechaHoraInicialOperador.Text != string.Empty && textFechaHoraFinalOperador.Text != string.Empty && textFechaHoraFinalOperador.Text != "01/01/0001 12:00:00 a. m.")
+            if (textFechaHoraInicialCorte.Text != string.Empty && textFechaHoraFinalCorte.Text != string.Empty && textFechaHoraFinalCorte.Text != "01/01/0001 12:00:00 a. m.")
             {
                 try
                 {
-                    DateTime fechaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
-                    DateTime fechaFinal = fechaValida(textFechaHoraFinalOperador.Text);
+                    DateTime fechaInicio = DateTime.Parse(textFechaHoraInicialCorte.Text);
+                    DateTime fechaFinal = fechaValida(textFechaHoraFinalCorte.Text);
                     double resultado = (fechaFinal - fechaInicio).TotalHours;
                     textTotalHoras.Text = resultado.ToString("N2");
                     textCostoTotal.Text = (resultado * double.Parse(textCostoHoraOperador.Text)).ToString("N2");
@@ -824,14 +890,22 @@ namespace SCI.INTERFAZ.UI
         {
             if (editarCorte == false)
             {
+                if (validarCortesCerrados() == false)
+                {
+                    MessageBox.Show("No se puede agregar un nuevo corte porque se tiene uno abierto.", "No se pudo guardar el corte", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 cortesoperador nuevoCorte = new cortesoperador();
                 try
                 {
-                    nuevoCorte.FechaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
-                    nuevoCorte.FechaFin = fechaValida(textFechaHoraFinalOperador.Text);
+                    nuevoCorte.FechaInicio = DateTime.Parse(textFechaHoraInicialCorte.Text);
+                    nuevoCorte.FechaFin = fechaValida(textFechaHoraFinalCorte.Text);
+                    if (textCostoTotal.Text == string.Empty) textCostoTotal.Text = "0";
                     nuevoCorte.Costo = double.Parse(textCostoTotal.Text);
                     nuevoCorte.IdViajeSci = entidadAeditar.IdViajeSci;
                     nuevoCorte.IdStatus = entidadAeditar.IdStatus;
+                    if (textTotalHoras.Text == string.Empty)
+                        textTotalHoras.Text = "0";
                     nuevoCorte.Horas = double.Parse(textTotalHoras.Text);
 
                     string[] cadenaOp = comboOperadoresCortes.Text.Split('/');
@@ -867,8 +941,8 @@ namespace SCI.INTERFAZ.UI
                 cortesoperador corteAEditar = managerCortes.BuscarPorId(idCorteAeditar.ToString());
                 try
                 {
-                    corteAEditar.FechaInicio = DateTime.Parse(textFechaHoraInicialOperador.Text);
-                    corteAEditar.FechaFin = fechaValida(textFechaHoraFinalOperador.Text);
+                    corteAEditar.FechaInicio = DateTime.Parse(textFechaHoraInicialCorte.Text);
+                    corteAEditar.FechaFin = fechaValida(textFechaHoraFinalCorte.Text);
                     corteAEditar.Costo = double.Parse(textCostoTotal.Text);
                     corteAEditar.IdStatus = entidadAeditar.IdStatus;
                     corteAEditar.Horas = double.Parse(textTotalHoras.Text);
@@ -902,12 +976,25 @@ namespace SCI.INTERFAZ.UI
                 }
             }
         }
+        private bool validarCortesCerrados()
+        {
+            IEnumerable<cortesoperador> cortes = managerCortes.BuscarCortesPorIdViaje(entidadAeditar.IdViajeSci);
+            foreach (var item in cortes)
+            {
+                if (item.FechaFin.ToString() == "01/01/0001 12:00:00 a. m.")
+                    return false;
+            }
+
+            return true;
+        }
         private void limpiarFormularioCortes()
         {
-            textFechaHoraInicialOperador.Clear();
-            textFechaHoraFinalOperador.Clear();
+            comboOperadoresCortes.Text = string.Empty;
+            textFechaHoraInicialCorte.Clear();
+            textFechaHoraFinalCorte.Clear();
             textTotalHoras.Clear();
             textCostoTotal.Clear();
+            textCostoHoraOperador.Clear();
         }
         private void textFechaHoraFinalOperador_Leave(object sender, EventArgs e)
         {
@@ -1035,10 +1122,6 @@ namespace SCI.INTERFAZ.UI
                 comboGasolinerias.Text = string.Empty;
             }
         }
-        private void selectTipoDeGasto()
-        {
-            
-        }
         private void cargarTodasLasGasolinerias()
         {
             IEnumerable<gasolineria> todasGasolinerias = managerGasolinerias.ObtenerTodos;
@@ -1089,23 +1172,27 @@ namespace SCI.INTERFAZ.UI
                 {
                     string idGastoSeleccionado = dgvGastos["idGasto", filaGastoSeleccionado].Value.ToString();
                     gasto gastoSeleccionado = managerGastos.BuscarPorId(idGastoSeleccionado);
+                    operadoresenviaje opEnViaje = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, gastoSeleccionado.IdOperador);
 
-                    if (managerGastos.Eliminar(idGastoSeleccionado))
+                    opEnViaje.SaldoActual = opEnViaje.SaldoActual + gastoSeleccionado.Costo;
+                    if (managerOperadoresEnViaje.Actualizar(opEnViaje))
                     {
-                        log registro = new log
+                        if (managerGastos.Eliminar(idGastoSeleccionado))
                         {
-                            Accion = "eliminar",
-                            NombreUsuario = user.NombreUsuario,
-                            Fecha = DateTime.Now,
-                            ModuloAfectado = "viaje-id:" + gastoSeleccionado.IdViajeSci.ToString() + " -- gasto-id:" + gastoSeleccionado.IdGasto.ToString()
-                        };
-                        managerLog.Insertar(registro);
-
-                        cargarTodosLosGastosDelViaje();
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "viaje-id:" + gastoSeleccionado.IdViajeSci.ToString() + " -- gasto-id:" + gastoSeleccionado.IdGasto.ToString()
+                            };
+                            managerLog.Insertar(registro);
+                            limpiarFormularioRegistroDeGastos();
+                            cargarTodosLosGastosDelViaje();
+                        }
+                        else
+                            MessageBox.Show("El gasto no se ha podido eliminar.", "Eliminar Gasto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else
-                        MessageBox.Show("El gasto no se ha podido eliminar.", "Eliminar Gasto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 }
             }
         }
@@ -1185,39 +1272,6 @@ namespace SCI.INTERFAZ.UI
             textTicket.Text = gastoSeleccionado.NumTicket;
             comboFormaPago.Text = gastoSeleccionado.FormaDePago;
         }
-        /*private void listTotalOperadores_DoubleClick(object sender, EventArgs e)
-        {
-            string[] cadena = listTotalOperadores.SelectedItem.ToString().Split('/');
-            DialogResult result = MessageBox.Show("¿Esta Seguro que de sea agregar este operador al Viaje?", "Agregar Operador", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
-            {
-                operadoresenviaje opEnViaje = new operadoresenviaje { IdOperador = int.Parse(cadena.First()), IdViajeSci = entidadAeditar.IdViajeSci, SaldoActual = 0 };
-
-                //Validamos si ya esta el Operadore asgnado al viaje
-                operadoresenviaje opYaAgregado = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, opEnViaje.IdOperador);
-                if (opYaAgregado == null)
-                {
-                    if (managerOperadoresEnViaje.Insertar(opEnViaje))
-                    {
-                        operadoresenviaje lastOperadorEnViaje = managerOperadoresEnViaje.BuscarUltimoIngresado();
-                        log registro = new log
-                        {
-                            Accion = "agregar",
-                            NombreUsuario = user.NombreUsuario,
-                            Fecha = DateTime.Now,
-                            ModuloAfectado = "viaje-id:" + lastOperadorEnViaje.IdViajeSci + " -- operador-id:" + lastOperadorEnViaje.IdOperador
-                        };
-                        managerLog.Insertar(registro);
-
-                        listOperadoresAsignados.Items.Clear();
-                        cargarListaOperadoresAsignadosAlViaje();
-                    }
-                }
-                else
-                    MessageBox.Show("Lo sentimos el operador ya esta agregado.", "Agregar Operador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-        }*/
         private void listOperadoresAsignados_DoubleClick(object sender, EventArgs e)
         {
             if (listOperadoresAsignados.Items.Count > 0 && listOperadoresAsignados.SelectedIndex >= 0)
@@ -1336,14 +1390,34 @@ namespace SCI.INTERFAZ.UI
             cortesoperador corteSeleccionado = managerCortes.BuscarPorId(idCorteAeditar.ToString());
             operador opSeleccionado = managerOperador.BuscarPorId(corteSeleccionado.IdOperador.ToString());
             comboOperadoresCortes.Text = opSeleccionado.IdOperador.ToString() + "/" + opSeleccionado.Nombre + " " + opSeleccionado.Apellidos;
-            textFechaHoraInicialOperador.Text = corteSeleccionado.FechaInicio.ToString();
-            textFechaHoraFinalOperador.Text = corteSeleccionado.FechaFin.ToString();
+            textFechaHoraInicialCorte.Text = formatoFecha(corteSeleccionado.FechaInicio);
+
+
+            //Validación de la fechaInicial del Corte junto con sus elementos del Panel de fechas
+            textFechaHoraFinalCorte.Text = formatoFecha(corteSeleccionado.FechaFin);
+            if (textFechaHoraFinalCorte.Text != "01/01/1 00:00:00")
+            {
+                calendarFinCorte.SelectionRange.Start = corteSeleccionado.FechaFin;
+                string[] cadenaFecha2 = textFechaHoraFinalCorte.Text.Split(' ');
+                fechaFinalCorte = cadenaFecha2.First();
+                horaFinalCorte = corteSeleccionado.FechaFin.Hour;
+                minutoFinalCorte = corteSeleccionado.FechaFin.Minute;
+                trackHoraFinCorte.Value = horaFinalCorte;
+                trackMinutoFinCorte.Value = minutoFinalCorte;
+            }
+            else
+                textFechaHoraFinalCorte.Text = string.Empty;
+
+            //textFechaHoraFinalCorte.Text = fechaValida(corteSeleccionado.FechaFin.ToString());
+
+
+
             textTotalHoras.Text = corteSeleccionado.Horas.ToString();
             textCostoHoraOperador.Text = opSeleccionado.Salarioporhora.ToString();
             textCostoTotal.Text = corteSeleccionado.Costo.ToString();
 
-            calendarCortesOperador.SelectionRange.Start = corteSeleccionado.FechaInicio;
-            calendarCortesOperador.SelectionRange.End = corteSeleccionado.FechaFin;
+            //calendarCortesOperador.SelectionRange.Start = corteSeleccionado.FechaInicio;
+            //calendarCortesOperador.SelectionRange.End = corteSeleccionado.FechaFin;
         }
         private void btnAgregarOperador_Click(object sender, EventArgs e)
         {
@@ -1482,7 +1556,11 @@ namespace SCI.INTERFAZ.UI
             //mostrarLabelStatus(fm.Valor, true);
             //}
         }
-
+        private void btnNuevoGasto_Click(object sender, EventArgs e)
+        {
+            editarGasto = false;
+            limpiarFormularioRegistroDeGastos();
+        }
         #endregion
 
         #region Calendario Inicial SCI
@@ -1813,5 +1891,281 @@ namespace SCI.INTERFAZ.UI
             panelFechaGastos.Visible = false;
         }
         #endregion
+
+        #region Calendario Inicial de Cortes
+        private void textFechaHoraInicialOperador_Click(object sender, EventArgs e)
+        {
+            if (textFechaHoraInicialCorte.Text == string.Empty)
+                btnHoyInicioCorte_Click(sender, e);
+            panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X+3, textFechaHoraInicialCorte.Location.Y + 26);
+            panelFechaInicioCorte.Visible = true;
+            panelFechaFinalCorte.Visible = false;
+        }
+        private void btnHoyInicioCorte_Click(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            if (hoy.Day < 10)
+                textFechaHoraInicialCorte.Text = "0" + hoy.Day + "/";
+            else
+                textFechaHoraInicialCorte.Text = hoy.Day + "/";
+            if (hoy.Month < 10)
+                textFechaHoraInicialCorte.Text += "0" + hoy.Month + "/";
+            else
+                textFechaHoraInicialCorte.Text += hoy.Month + "/";
+
+
+            textFechaHoraInicialCorte.Text += hoy.Year;
+            fechaInicialCorte = textFechaHoraInicialCorte.Text;
+
+            if (hoy.Hour < 10)
+                textFechaHoraInicialCorte.Text += " 0" + hoy.Hour + ":";
+            else
+                textFechaHoraInicialCorte.Text += " " + hoy.Hour + ":";
+
+            if (hoy.Minute < 10)
+                textFechaHoraInicialCorte.Text += "0" + hoy.Minute + ":00";
+            else
+                textFechaHoraInicialCorte.Text += hoy.Minute + ":00";
+
+
+            horaInicialCorte = hoy.Hour;
+            minutoInicialCorte = hoy.Minute;
+
+            trackHorasInicioCorte.Value = horaInicialCorte;
+            trackMinutosInicioCorte.Value = minutoInicialCorte;
+        }
+        private void btnFechaInicioAceptar_Click(object sender, EventArgs e)
+        {
+            panelFechaInicioCorte.Visible = false;
+        }
+        private void trackHorasInicioCorte_Scroll(object sender, EventArgs e)
+        {
+            horaInicialCorte = trackHorasInicioCorte.Value;
+            completarFechaHoraMinutosCorte();
+        }
+        private void trackMinutosInicioCorte_Scroll(object sender, EventArgs e)
+        {
+            minutoInicialCorte = trackMinutosInicioCorte.Value;
+            completarFechaHoraMinutosCorte();
+        }
+        private void completarFechaHoraMinutosCorte()
+        {
+            textFechaHoraInicialCorte.Text = string.Empty;
+            if (horaInicialCorte < 10)
+            {
+                textFechaHoraInicialCorte.Text = fechaInicialCorte + " 0" + horaInicialCorte.ToString();
+                if (minutoInicialCorte < 10)
+                {
+                    textFechaHoraInicialCorte.Text = fechaInicialCorte + " 0" + horaInicialCorte.ToString() + ":0" + minutoInicialCorte.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaHoraInicialCorte.Text = fechaInicialCorte + " 0" + horaInicialCorte.ToString() + ":" + minutoInicialCorte.ToString() + ":00";
+                }
+            }
+            else
+            {
+                textFechaHoraInicialCorte.Text = fechaInicialCorte + " " + horaInicialCorte.ToString();
+                if (minutoInicialCorte < 10)
+                {
+                    textFechaHoraInicialCorte.Text = fechaInicialCorte + " " + horaInicialCorte.ToString() + ":0" + minutoInicialCorte.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaHoraInicialCorte.Text = fechaInicialCorte + " " + horaInicialCorte.ToString() + ":" + minutoInicialCorte.ToString() + ":00";
+                }
+            }
+        }
+        private void calendarInicioCortes_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            int year = calendarInicioCortes.SelectionRange.Start.Year;
+            int month = calendarInicioCortes.SelectionRange.Start.Month;
+            int day = calendarInicioCortes.SelectionRange.Start.Day;
+
+            if (day < 10)
+                fechaInicialCorte = "0" + day.ToString();
+            else
+                fechaInicialCorte = day.ToString();
+
+            fechaInicialCorte += "/";
+
+            if (month < 10)
+                fechaInicialCorte += "0" + month.ToString();
+            else
+                fechaInicialCorte += month.ToString();
+
+            fechaInicialCorte += "/";
+            fechaInicialCorte += year.ToString();
+
+            textFechaHoraInicialCorte.Text = fechaInicialCorte;
+            completarFechaHoraMinutosCorte();
+        }
+        #endregion
+
+        #region Calendario Final de Corte
+        private void btnHoyFinCorte_Click(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            if (hoy.Day < 10)
+                textFechaHoraFinalCorte.Text = "0" + hoy.Day + "/";
+            else
+                textFechaHoraFinalCorte.Text = hoy.Day + "/";
+            if (hoy.Month < 10)
+                textFechaHoraFinalCorte.Text += "0" + hoy.Month + "/";
+            else
+                textFechaHoraFinalCorte.Text += hoy.Month + "/";
+
+
+            textFechaHoraFinalCorte.Text += hoy.Year;
+            fechaFinalCorte = textFechaHoraFinalCorte.Text;
+
+            if (hoy.Hour < 10)
+                textFechaHoraFinalCorte.Text += " 0" + hoy.Hour + ":";
+            else
+                textFechaHoraFinalCorte.Text += " " + hoy.Hour + ":";
+
+            if (hoy.Minute < 10)
+                textFechaHoraFinalCorte.Text += "0" + hoy.Minute + ":00";
+            else
+                textFechaHoraFinalCorte.Text += hoy.Minute + ":00";
+
+
+            horaFinalCorte = hoy.Hour;
+            minutoFinalCorte = hoy.Minute;
+
+            trackHoraFinCorte.Value = horaFinalCorte;
+            trackMinutoFinCorte.Value = minutoFinalCorte;
+        }
+        private void completarFechaHoraMinutosCorteFinal()
+        {
+            textFechaHoraFinalCorte.Text = string.Empty;
+            if (horaFinalCorte < 10)
+            {
+                textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString();
+                if (minutoFinalCorte < 10)
+                {
+                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString() + ":0" + minutoFinalCorte.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString() + ":" + minutoFinalCorte.ToString() + ":00";
+                }
+            }
+            else
+            {
+                textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString();
+                if (minutoFinalCorte < 10)
+                {
+                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString() + ":0" + minutoFinalCorte.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString() + ":" + minutoFinalCorte.ToString() + ":00";
+                }
+            }
+        }
+        private void btnAceptarFinCorte_Click(object sender, EventArgs e)
+        {
+            panelFechaFinalCorte.Visible = false;
+        }
+        private void calendarFinCorte_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            int year = calendarFinCorte.SelectionRange.Start.Year;
+            int month = calendarFinCorte.SelectionRange.Start.Month;
+            int day = calendarFinCorte.SelectionRange.Start.Day;
+
+            if (day < 10)
+                fechaFinalCorte = "0" + day.ToString();
+            else
+                fechaFinalCorte = day.ToString();
+
+            fechaFinalCorte += "/";
+
+            if (month < 10)
+                fechaFinalCorte += "0" + month.ToString();
+            else
+                fechaFinalCorte += month.ToString();
+
+            fechaFinalCorte += "/";
+            fechaFinalCorte += year.ToString();
+
+            textFechaHoraFinalCorte.Text = fechaFinalCorte;
+            completarFechaHoraMinutosCorteFinal();
+        }
+        private void textFechaHoraFinalCorte_Click(object sender, EventArgs e)
+        {
+            if (textFechaHoraFinalCorte.Text == string.Empty)
+                btnHoyFinCorte_Click(sender, e);
+            panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X+3, textFechaHoraFinalCorte.Location.Y + 26);
+            panelFechaInicioCorte.Visible = false;
+            panelFechaFinalCorte.Visible = true;
+        }
+        private void trackHoraFinCorte_Scroll(object sender, EventArgs e)
+        {
+            horaFinalCorte = trackHoraFinCorte.Value;
+            completarFechaHoraMinutosCorteFinal();
+        }
+        private void trackMinutoFinCorte_Scroll(object sender, EventArgs e)
+        {
+            minutoFinalCorte = trackMinutoFinCorte.Value;
+            completarFechaHoraMinutosCorteFinal();
+        }
+        #endregion
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            editarCorte = false;
+            limpiarFormularioCortes();
+        }
+
+        private void btnArriba_Click(object sender, EventArgs e)
+        {
+            if (listOperadoresAsignados.SelectedIndex > 0)
+            {
+                int idTemporal = 0;
+                int selectIndex = listOperadoresAsignados.SelectedIndex;
+                operador opArriba = managerOperador.BuscarPorNombreExacto(listOperadoresAsignados.Items[selectIndex - 1].ToString());
+                operador opAbajo = managerOperador.BuscarPorNombreExacto(listOperadoresAsignados.Items[selectIndex].ToString());
+                operadoresenviaje opUp = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci,opArriba.IdOperador);
+                operadoresenviaje opDown = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, opAbajo.IdOperador);
+
+                idTemporal = opDown.Posicion;
+                opDown.Posicion = opUp.Posicion;
+                opUp.Posicion = idTemporal;
+
+                managerOperadoresEnViaje.Actualizar(opDown);
+                managerOperadoresEnViaje.Actualizar(opUp);
+
+                listOperadoresAsignados.Items.Clear();
+                cargarListaOperadoresAsignadosAlViaje();
+
+                listOperadoresAsignados.SelectedIndex = selectIndex - 1;
+            }
+        }
+
+        private void btnAbajo_Click(object sender, EventArgs e)
+        {
+            if (listOperadoresAsignados.SelectedIndex < listOperadoresAsignados.Items.Count-1)
+            {
+                int idTemporal = 0;
+                int selectIndex = listOperadoresAsignados.SelectedIndex;
+                operador opAbajo = managerOperador.BuscarPorNombreExacto(listOperadoresAsignados.Items[selectIndex + 1].ToString());
+                operador opArriba = managerOperador.BuscarPorNombreExacto(listOperadoresAsignados.Items[selectIndex].ToString());
+                operadoresenviaje opUp = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, opArriba.IdOperador);
+                operadoresenviaje opDown = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, opAbajo.IdOperador);
+
+                idTemporal = opDown.Posicion;
+                opDown.Posicion = opUp.Posicion;
+                opUp.Posicion = idTemporal;
+
+                managerOperadoresEnViaje.Actualizar(opDown);
+                managerOperadoresEnViaje.Actualizar(opUp);
+
+                listOperadoresAsignados.Items.Clear();
+                cargarListaOperadoresAsignadosAlViaje();
+
+                listOperadoresAsignados.SelectedIndex = selectIndex + 1;
+            }
+        }
     }
 }

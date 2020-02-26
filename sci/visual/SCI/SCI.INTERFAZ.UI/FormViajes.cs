@@ -229,7 +229,7 @@ namespace SCI.INTERFAZ.UI
                 }
 
             }*/
-            openDashBoardForm(new FormAgregarViaje(user, "agregar", -1));
+            openDashBoardForm(new FormAgregarViaje(user, "editar", 266));
         }
 
         private void dgvViajes_CellClick(object sender, DataGridViewCellEventArgs e)
