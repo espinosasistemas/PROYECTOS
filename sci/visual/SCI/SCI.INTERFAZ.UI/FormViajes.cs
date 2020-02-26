@@ -159,7 +159,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearViaje_Click(object sender, EventArgs e)
         {
-            listBoxStatus.Visible = false;
+            /*listBoxStatus.Visible = false;
             FormAgregarViaje fm = new FormAgregarViaje(user,"agregar", -1);
             DialogResult DialogForm = fm.ShowDialog();
             if (fm.Valor != string.Empty)
@@ -167,7 +167,16 @@ namespace SCI.INTERFAZ.UI
                 //CargarTodosLosViajes(comboStatus.Text);
                 CargarTodosLosViajes(btnStatus.Text);
                 mostrarLabelStatus(fm.Valor, true);
-            }
+            }*/
+            listBoxStatus.Visible = false;
+            openDashBoardForm(new FormAgregarViaje(user, "agregar", -1));
+            /*DialogResult DialogForm = fm.ShowDialog();
+            if (fm.Valor != string.Empty)
+            {
+                //CargarTodosLosViajes(comboStatus.Text);
+                CargarTodosLosViajes(btnStatus.Text);
+                mostrarLabelStatus(fm.Valor, true);
+            }*/
         }
 
         private void FormViajes_Load(object sender, EventArgs e)
@@ -229,7 +238,45 @@ namespace SCI.INTERFAZ.UI
                 }
 
             }*/
-            openDashBoardForm(new FormAgregarViaje(user, "editar", 266));
+
+            listBoxStatus.Visible = false;
+            if (filaSeleccionada != -1)
+            {
+                if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
+                {
+                    openDashBoardForm(new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString())));
+                    // FormAgregarViaje fm =;
+                    /*DialogResult DialogForm = fm.ShowDialog();
+                    if (fm.Valor != string.Empty)
+                    {
+                        CargarTodosLosViajes(btnStatus.Text);
+                        mostrarLabelStatus(fm.Valor, true);
+                    }
+                    */
+                }
+                else
+                {
+                    FormPermiso fp = new FormPermiso();
+                    DialogResult DialogForm2 = fp.ShowDialog();
+
+                    if (fp.Valor == true)
+                    {
+                        openDashBoardForm(new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString())));
+                        /*DialogResult DialogForm = fm.ShowDialog();
+                        if (fm.Valor != string.Empty)
+                        {
+                            CargarTodosLosViajes(btnStatus.Text);
+                            mostrarLabelStatus(fm.Valor, true);
+                        }*/
+                    }
+                    else
+                    {
+                        MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
+            
         }
 
         private void dgvViajes_CellClick(object sender, DataGridViewCellEventArgs e)

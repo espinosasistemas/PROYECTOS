@@ -112,7 +112,7 @@ namespace SCI.INTERFAZ.UI
             //cargarComboRutas();
             cargarComboClientes();
             cargarComboStatus();
-            cargarComboTipoDeGastos();
+            
             //selectTipoDeGasto();
             cargarListaOperadores();
             cargarTodasLasUnidades();
@@ -120,9 +120,8 @@ namespace SCI.INTERFAZ.UI
             if (accion == "editar")
             {
 
-                //textFechaDelGasto.Text = dateTimeFechaGasto.Value.ToString(); //Se inicializa la fecha del gasto
                 entidadAeditar = managerViajes.BuscarPorId(idAEditar.ToString()); //Se carga los datos del Viaje a editar
-
+                
                 //Se cargan las entidades ligadas con el viaje SCi
                 entidadStatus = managerStatus.BuscarPorId(entidadAeditar.IdStatus.ToString());
                 entidadRuta = managerRuta.BuscarPorId(entidadAeditar.IdRuta.ToString());
@@ -155,13 +154,12 @@ namespace SCI.INTERFAZ.UI
                 else
                     textFechaFinal.Text = string.Empty;
 
-                
+
 
                 #endregion
 
-                textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
-
                 //Se inicializan los combos con los valores cargados del viaje
+                textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
                 comboClientes.Text = entidadCliente.IdCliente.ToString() + "/" + entidadCliente.RazonSocial;
                 comboRutas.Text = entidadRuta.IdRuta.ToString() + "/" + entidadRuta.Nombre;
                 comboStatus.Text = entidadStatus.IdStatus.ToString() + "/" + entidadStatus.Nombre;
@@ -169,21 +167,20 @@ namespace SCI.INTERFAZ.UI
                 comboStatus.Enabled = true;
 
                 //Carga todos los GASTOS relacionados con el Viaje en el dgv Del TabControl = Gastos
+                cargarComboTipoDeGastos();
                 cargarTodosLosGastosDelViaje();
 
                 //Datos del operador y CORTES que se han hecho, tabControl = Cortes
                 cargarTodosLosCortesDelViaje();
                 cargarListaOperadoresAsignadosAlViaje();
-                //textFechaHoraInicialCorte.Text = calendarCortesOperador.SelectionRange.Start.ToString();
-                //textFechaHoraFinalCorte.Text = calendarCortesOperador.SelectionRange.End.ToString();
 
                 this.Text = "Actualizar los datos del Viaje.";
                 btnAgregarViaje.Text = "Editar Viaje";
                 textMontoGasto.Text = string.Empty;
-                comboFormaPago.SelectedIndex = 0;
                 btnAgregarDeposito.Visible = true;
                 btnArriba.Visible = true;
                 btnAbajo.Visible = true;
+
 
                 /*if (comboStatus.Text.Contains("Iniciado"))
                 {
@@ -207,15 +204,13 @@ namespace SCI.INTERFAZ.UI
                 comboUnidades.Text = string.Empty;
                 comboTipoGastos.Text = string.Empty;
                 labelTotalDeGastos.Visible = false;
-                labelTotalGastos.Visible = false;
                 labelSaldoTotalCortes.Visible = false;
-                labelSueldoCortes.Visible = false;
                 groupGastos.Enabled = false;
                 groupCortesOPerador.Enabled = false;
 
             }
 
-            comboTipoGastos.Text = "";
+            limpiarFormularioRegistroDeGastos();
             editarGasto = false;
 
         }
@@ -1120,7 +1115,9 @@ namespace SCI.INTERFAZ.UI
                 comboGasolinerias.Visible = false;
                 comboCasetas.Text = string.Empty;
                 comboGasolinerias.Text = string.Empty;
+                
             }
+           
         }
         private void cargarTodasLasGasolinerias()
         {
@@ -1561,6 +1558,29 @@ namespace SCI.INTERFAZ.UI
             editarGasto = false;
             limpiarFormularioRegistroDeGastos();
         }
+        private void btnEditarGasto_Click(object sender, EventArgs e)
+        {
+            if (filaGastoSeleccionado >= 0)
+            {
+                idGastoAeditar = int.Parse(dgvGastos["idGasto", filaGastoSeleccionado].Value.ToString());
+                cargarDatosGastoAeditar();
+                editarGasto = true;
+            }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (filaCorteSeleccionado >= 0)
+            {
+                idCorteAeditar = int.Parse(dgvCortesOperador["idCorte", filaCorteSeleccionado].Value.ToString());
+                cargarDatosCorteAeditar();
+                editarCorte = true;
+            }
+        }
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            editarCorte = false;
+            limpiarFormularioCortes();
+        }
         #endregion
 
         #region Calendario Inicial SCI
@@ -1628,11 +1648,55 @@ namespace SCI.INTERFAZ.UI
         }
         private void textFechaInicial_Click(object sender, EventArgs e)
         {
+            if (panelFechaInicial.Visible == true)
+                panelFechaInicial.Visible = false;
+            else
+            {
+                if (textFechaInicial.Text == string.Empty)
+                {
+                    int year = calendarInicialSci.SelectionRange.Start.Year;
+                    int month = calendarInicialSci.SelectionRange.Start.Month;
+                    int day = calendarInicialSci.SelectionRange.Start.Day;
+                    if (day < 10)
+                        fechaInicialGeneral = "0" + day.ToString();
+                    else
+                        fechaInicialGeneral = day.ToString();
+
+                    fechaInicialGeneral += "/";
+
+                    if (month < 10)
+                        fechaInicialGeneral += "0" + month.ToString();
+                    else
+                        fechaInicialGeneral += month.ToString();
+
+                    fechaInicialGeneral += "/";
+                    fechaInicialGeneral += year.ToString();
+
+                    trackHorasInicio.Value = DateTime.Now.Hour;
+                    trackMinutosInicio.Value = DateTime.Now.Minute;
+                    horaInicialGeneral = trackHorasInicio.Value;
+                    minutoInicialGeneral = trackMinutosInicio.Value;
+                }
+                else
+                {
+                    calendarInicialSci.SelectionStart = DateTime.Parse(textFechaInicial.Text);
+                    calendarInicialSci.SelectionEnd = DateTime.Parse(textFechaInicial.Text);
+                    trackHorasInicio.Value = calendarInicialSci.SelectionStart.Hour;
+                    trackMinutosInicio.Value = calendarInicialSci.SelectionStart.Minute;
+
+                    horaInicialGeneral = trackHorasInicio.Value;
+                    minutoInicialGeneral = trackMinutosInicio.Value;
+                }
+                panelFechaInicial.Location = new Point(textFechaInicial.Location.X + 4, textFechaInicial.Location.Y + 30);
+                panelFechaInicial.Visible = true;
+            }
+
+            /*
             if (textFechaInicial.Text == string.Empty)
                 button2_Click(sender, e);
             panelFechaInicial.Location = new Point(textFechaInicial.Location.X + 4, textFechaInicial.Location.Y + 30);
             panelFechaInicial.Visible = true;
-            panelFechaFinal.Visible = false;
+            panelFechaFinal.Visible = false;*/
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -1650,7 +1714,6 @@ namespace SCI.INTERFAZ.UI
             else
                 textFechaInicial.Text += hoy.Month + "/";
 
-
             textFechaInicial.Text += hoy.Year;
             fechaInicialGeneral = textFechaInicial.Text;
 
@@ -1664,12 +1727,18 @@ namespace SCI.INTERFAZ.UI
             else
                 textFechaInicial.Text += hoy.Minute + ":00";
 
-
             horaInicialGeneral = hoy.Hour;
             minutoInicialGeneral = hoy.Minute;
-
             trackHorasInicio.Value = horaInicialGeneral;
             trackMinutosInicio.Value = minutoInicialGeneral;
+        }
+        private void btnCancelarFechaInicio_Click(object sender, EventArgs e)
+        {
+            if (entidadAeditar.IdViajeSci > 0)
+            {
+                textFechaInicial.Text = formatoFecha(entidadAeditar.FechaInicio);
+            }
+            panelFechaInicial.Visible = false;
         }
         #endregion
 
@@ -1786,10 +1855,48 @@ namespace SCI.INTERFAZ.UI
         #region Calendario de Gastos
         private void textFechaDelGasto_Click(object sender, EventArgs e)
         {
-            if (textFechaDelGasto.Text == string.Empty)
-                btnHoyGastos_Click(sender, e);
-            panelFechaGastos.Location = new Point(textFechaDelGasto.Location.X, textFechaDelGasto.Location.Y + 22);
-            panelFechaGastos.Visible = true;
+            if (panelFechaGastos.Visible == true)
+                panelFechaGastos.Visible = false;
+            else
+            {
+                if (textFechaDelGasto.Text == string.Empty)
+                {
+                    int year = calendarGastos.SelectionRange.Start.Year;
+                    int month = calendarGastos.SelectionRange.Start.Month;
+                    int day = calendarGastos.SelectionRange.Start.Day;
+                    if (day < 10)
+                        fechaDelGasto = "0" + day.ToString();
+                    else
+                        fechaDelGasto = day.ToString();
+
+                    fechaDelGasto += "/";
+
+                    if (month < 10)
+                        fechaDelGasto += "0" + month.ToString();
+                    else
+                        fechaDelGasto += month.ToString();
+
+                    fechaDelGasto += "/";
+                    fechaDelGasto += year.ToString();
+
+                    trackHoraGastos.Value = DateTime.Now.Hour;
+                    trackMinutosGastos.Value = DateTime.Now.Minute;
+                    horaDelGasto = trackHoraGastos.Value;
+                    minutosDelGasto = trackMinutosGastos.Value;
+                }
+                else
+                {
+                    calendarGastos.SelectionStart = DateTime.Parse(textFechaDelGasto.Text);
+                    calendarGastos.SelectionEnd = DateTime.Parse(textFechaDelGasto.Text);
+                    trackHoraGastos.Value = calendarGastos.SelectionStart.Hour;
+                    trackMinutosGastos.Value = calendarGastos.SelectionStart.Minute;
+
+                    horaDelGasto = trackHoraGastos.Value;
+                    minutosDelGasto = trackMinutosGastos.Value;
+                }
+                panelFechaGastos.Location = new Point(textFechaDelGasto.Location.X, textFechaDelGasto.Location.Y - 340);
+                panelFechaGastos.Visible = true;
+            }
         }
         private void btnHoyGastos_Click(object sender, EventArgs e)
         {
@@ -1854,7 +1961,7 @@ namespace SCI.INTERFAZ.UI
             if (horaDelGasto < 10)
             {
                 textFechaDelGasto.Text = fechaDelGasto + " 0" + horaDelGasto.ToString();
-                if (minutoInicialGeneral < 10)
+                if (minutosDelGasto < 10)
                 {
                     textFechaDelGasto.Text = fechaDelGasto + " 0" + horaDelGasto.ToString() + ":0" + minutosDelGasto.ToString() + ":00";
                 }
@@ -1890,6 +1997,17 @@ namespace SCI.INTERFAZ.UI
         {
             panelFechaGastos.Visible = false;
         }
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (idGastoAeditar > 0)
+            {
+                gasto gastoSeleccionado = managerGastos.BuscarPorId(idGastoAeditar.ToString());
+                textFechaDelGasto.Text = formatoFecha(gastoSeleccionado.Fecha);
+            }
+            else
+                textFechaDelGasto.Text = string.Empty;
+            panelFechaGastos.Visible = false;
+        }
         #endregion
 
         #region Calendario Inicial de Cortes
@@ -1897,7 +2015,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (textFechaHoraInicialCorte.Text == string.Empty)
                 btnHoyInicioCorte_Click(sender, e);
-            panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X+3, textFechaHoraInicialCorte.Location.Y + 26);
+            panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X+7, textFechaHoraInicialCorte.Location.Y - 332);
             panelFechaInicioCorte.Visible = true;
             panelFechaFinalCorte.Visible = false;
         }
@@ -2096,7 +2214,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (textFechaHoraFinalCorte.Text == string.Empty)
                 btnHoyFinCorte_Click(sender, e);
-            panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X+3, textFechaHoraFinalCorte.Location.Y + 26);
+            panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X+7, textFechaHoraFinalCorte.Location.Y - 332);
             panelFechaInicioCorte.Visible = false;
             panelFechaFinalCorte.Visible = true;
         }
@@ -2112,12 +2230,7 @@ namespace SCI.INTERFAZ.UI
         }
         #endregion
 
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            editarCorte = false;
-            limpiarFormularioCortes();
-        }
-
+        #region Botones Subir y Bajar Operador
         private void btnArriba_Click(object sender, EventArgs e)
         {
             if (listOperadoresAsignados.SelectedIndex > 0)
@@ -2142,7 +2255,6 @@ namespace SCI.INTERFAZ.UI
                 listOperadoresAsignados.SelectedIndex = selectIndex - 1;
             }
         }
-
         private void btnAbajo_Click(object sender, EventArgs e)
         {
             if (listOperadoresAsignados.SelectedIndex < listOperadoresAsignados.Items.Count-1)
@@ -2167,5 +2279,9 @@ namespace SCI.INTERFAZ.UI
                 listOperadoresAsignados.SelectedIndex = selectIndex + 1;
             }
         }
+
+        #endregion
+
+        
     }
 }

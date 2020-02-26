@@ -35,14 +35,17 @@
             this.textFechaInicial = new System.Windows.Forms.TextBox();
             this.calendarInicialSci = new System.Windows.Forms.MonthCalendar();
             this.groupGastos = new System.Windows.Forms.GroupBox();
-            this.btnNuevoGasto = new System.Windows.Forms.Button();
-            this.textConceptoGasto = new System.Windows.Forms.TextBox();
             this.panelFechaGastos = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnHoyGastos = new System.Windows.Forms.Button();
             this.btnAceptarGastos = new System.Windows.Forms.Button();
             this.calendarGastos = new System.Windows.Forms.MonthCalendar();
             this.trackHoraGastos = new System.Windows.Forms.TrackBar();
             this.trackMinutosGastos = new System.Windows.Forms.TrackBar();
+            this.btnEditarGasto = new System.Windows.Forms.Button();
+            this.btnEliminarGasto = new System.Windows.Forms.Button();
+            this.btnNuevoGasto = new System.Windows.Forms.Button();
+            this.textConceptoGasto = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.comboOperadoresGasto = new System.Windows.Forms.ComboBox();
             this.textPoliza = new System.Windows.Forms.TextBox();
@@ -53,12 +56,10 @@
             this.textTicket = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.textNumFactura = new System.Windows.Forms.TextBox();
-            this.btnEliminarGasto = new System.Windows.Forms.Button();
             this.comboGasolinerias = new System.Windows.Forms.ComboBox();
             this.comboCasetas = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textFechaDelGasto = new System.Windows.Forms.TextBox();
-            this.labelTotalGastos = new System.Windows.Forms.Label();
             this.labelTotalDeGastos = new System.Windows.Forms.Label();
             this.btnExaminarXml = new System.Windows.Forms.Button();
             this.textRutaPdf = new System.Windows.Forms.TextBox();
@@ -77,17 +78,21 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGenerales = new System.Windows.Forms.TabPage();
             this.panelFechaFinal = new System.Windows.Forms.Panel();
+            this.btnCancelarFechaFinal = new System.Windows.Forms.Button();
             this.btnFechaHoyFinal = new System.Windows.Forms.Button();
             this.btnAceptarFechaFinal = new System.Windows.Forms.Button();
             this.calendarFinalSci = new System.Windows.Forms.MonthCalendar();
             this.trackHorasFinal = new System.Windows.Forms.TrackBar();
             this.trackMinutosFinal = new System.Windows.Forms.TrackBar();
             this.panelFechaInicial = new System.Windows.Forms.Panel();
+            this.btnCancelarFechaInicio = new System.Windows.Forms.Button();
             this.btnFechaHoyInicio = new System.Windows.Forms.Button();
             this.btnAceptarFechaInicio = new System.Windows.Forms.Button();
             this.trackHorasInicio = new System.Windows.Forms.TrackBar();
             this.trackMinutosInicio = new System.Windows.Forms.TrackBar();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAbajo = new System.Windows.Forms.Button();
+            this.btnArriba = new System.Windows.Forms.Button();
             this.btnAgregarDeposito = new System.Windows.Forms.Button();
             this.btnAgregarOperador = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -137,11 +142,25 @@
             this.label23 = new System.Windows.Forms.Label();
             this.tabPageGastos = new System.Windows.Forms.TabPage();
             this.tabPageCortes = new System.Windows.Forms.TabPage();
+            this.panelFechaFinalCorte = new System.Windows.Forms.Panel();
+            this.btnHoyFinCorte = new System.Windows.Forms.Button();
+            this.btnAceptarFinCorte = new System.Windows.Forms.Button();
+            this.calendarFinCorte = new System.Windows.Forms.MonthCalendar();
+            this.trackHoraFinCorte = new System.Windows.Forms.TrackBar();
+            this.trackMinutoFinCorte = new System.Windows.Forms.TrackBar();
+            this.panelFechaInicioCorte = new System.Windows.Forms.Panel();
+            this.btnFechaInicioCancelar = new System.Windows.Forms.Button();
+            this.btnHoyInicioCorte = new System.Windows.Forms.Button();
+            this.btnFechaInicioAceptar = new System.Windows.Forms.Button();
+            this.calendarInicioCortes = new System.Windows.Forms.MonthCalendar();
+            this.trackHorasInicioCorte = new System.Windows.Forms.TrackBar();
+            this.trackMinutosInicioCorte = new System.Windows.Forms.TrackBar();
             this.groupCortesOPerador = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.btnEliminarCorte = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.comboOperadoresCortes = new System.Windows.Forms.ComboBox();
-            this.labelSueldoCortes = new System.Windows.Forms.Label();
             this.labelSaldoTotalCortes = new System.Windows.Forms.Label();
             this.btnRedondear = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
@@ -159,21 +178,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.panelFechaInicioCorte = new System.Windows.Forms.Panel();
-            this.btnHoyInicioCorte = new System.Windows.Forms.Button();
-            this.btnFechaInicioAceptar = new System.Windows.Forms.Button();
-            this.calendarInicioCortes = new System.Windows.Forms.MonthCalendar();
-            this.trackHorasInicioCorte = new System.Windows.Forms.TrackBar();
-            this.trackMinutosInicioCorte = new System.Windows.Forms.TrackBar();
-            this.panelFechaFinalCorte = new System.Windows.Forms.Panel();
-            this.btnHoyFinCorte = new System.Windows.Forms.Button();
-            this.btnAceptarFinCorte = new System.Windows.Forms.Button();
-            this.calendarFinCorte = new System.Windows.Forms.MonthCalendar();
-            this.trackHoraFinCorte = new System.Windows.Forms.TrackBar();
-            this.trackMinutoFinCorte = new System.Windows.Forms.TrackBar();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnArriba = new System.Windows.Forms.Button();
-            this.btnAbajo = new System.Windows.Forms.Button();
+            this.btnFechaFinalCancelar = new System.Windows.Forms.Button();
             this.groupGastos.SuspendLayout();
             this.panelFechaGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackHoraGastos)).BeginInit();
@@ -191,15 +196,15 @@
             this.groupBox1.SuspendLayout();
             this.tabPageGastos.SuspendLayout();
             this.tabPageCortes.SuspendLayout();
-            this.groupCortesOPerador.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panelFechaInicioCorte.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackHorasInicioCorte)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackMinutosInicioCorte)).BeginInit();
             this.panelFechaFinalCorte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackHoraFinCorte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackMinutoFinCorte)).BeginInit();
+            this.panelFechaInicioCorte.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackHorasInicioCorte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackMinutosInicioCorte)).BeginInit();
+            this.groupCortesOPerador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label14
@@ -244,7 +249,7 @@
             // 
             // calendarInicialSci
             // 
-            this.calendarInicialSci.Location = new System.Drawing.Point(17, 7);
+            this.calendarInicialSci.Location = new System.Drawing.Point(19, 21);
             this.calendarInicialSci.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.calendarInicialSci.MaxSelectionCount = 30;
             this.calendarInicialSci.Name = "calendarInicialSci";
@@ -255,10 +260,11 @@
             // 
             this.groupGastos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupGastos.Controls.Add(this.panelFechaGastos);
+            this.groupGastos.Controls.Add(this.btnEditarGasto);
             this.groupGastos.Controls.Add(this.btnEliminarGasto);
             this.groupGastos.Controls.Add(this.btnNuevoGasto);
             this.groupGastos.Controls.Add(this.textConceptoGasto);
-            this.groupGastos.Controls.Add(this.panelFechaGastos);
             this.groupGastos.Controls.Add(this.label43);
             this.groupGastos.Controls.Add(this.comboOperadoresGasto);
             this.groupGastos.Controls.Add(this.textPoliza);
@@ -273,7 +279,6 @@
             this.groupGastos.Controls.Add(this.comboCasetas);
             this.groupGastos.Controls.Add(this.label17);
             this.groupGastos.Controls.Add(this.textFechaDelGasto);
-            this.groupGastos.Controls.Add(this.labelTotalGastos);
             this.groupGastos.Controls.Add(this.labelTotalDeGastos);
             this.groupGastos.Controls.Add(this.btnExaminarXml);
             this.groupGastos.Controls.Add(this.textRutaPdf);
@@ -292,55 +297,44 @@
             this.groupGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupGastos.Name = "groupGastos";
             this.groupGastos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupGastos.Size = new System.Drawing.Size(835, 467);
+            this.groupGastos.Size = new System.Drawing.Size(1668, 467);
             this.groupGastos.TabIndex = 24;
             this.groupGastos.TabStop = false;
             this.groupGastos.Text = "Gastos";
             // 
-            // btnNuevoGasto
-            // 
-            this.btnNuevoGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnNuevoGasto.FlatAppearance.BorderSize = 0;
-            this.btnNuevoGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnNuevoGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoGasto.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnNuevoGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoGasto.Image")));
-            this.btnNuevoGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevoGasto.Location = new System.Drawing.Point(584, 165);
-            this.btnNuevoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnNuevoGasto.Name = "btnNuevoGasto";
-            this.btnNuevoGasto.Size = new System.Drawing.Size(119, 41);
-            this.btnNuevoGasto.TabIndex = 49;
-            this.btnNuevoGasto.Text = "Nuevo Gasto";
-            this.btnNuevoGasto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevoGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNuevoGasto.UseVisualStyleBackColor = false;
-            this.btnNuevoGasto.Click += new System.EventHandler(this.btnNuevoGasto_Click);
-            // 
-            // textConceptoGasto
-            // 
-            this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textConceptoGasto.Location = new System.Drawing.Point(127, 81);
-            this.textConceptoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textConceptoGasto.Name = "textConceptoGasto";
-            this.textConceptoGasto.Size = new System.Drawing.Size(324, 23);
-            this.textConceptoGasto.TabIndex = 12;
-            this.textConceptoGasto.Visible = false;
-            // 
             // panelFechaGastos
             // 
-            this.panelFechaGastos.BackColor = System.Drawing.Color.White;
+            this.panelFechaGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.panelFechaGastos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFechaGastos.Controls.Add(this.button2);
             this.panelFechaGastos.Controls.Add(this.btnHoyGastos);
             this.panelFechaGastos.Controls.Add(this.btnAceptarGastos);
             this.panelFechaGastos.Controls.Add(this.calendarGastos);
             this.panelFechaGastos.Controls.Add(this.trackHoraGastos);
             this.panelFechaGastos.Controls.Add(this.trackMinutosGastos);
-            this.panelFechaGastos.Location = new System.Drawing.Point(876, 20);
+            this.panelFechaGastos.Location = new System.Drawing.Point(896, 52);
             this.panelFechaGastos.Name = "panelFechaGastos";
-            this.panelFechaGastos.Size = new System.Drawing.Size(287, 308);
+            this.panelFechaGastos.Size = new System.Drawing.Size(287, 340);
             this.panelFechaGastos.TabIndex = 48;
             this.panelFechaGastos.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button2.Location = new System.Drawing.Point(109, 291);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(67, 24);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Cancelar";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // btnHoyGastos
             // 
@@ -350,7 +344,7 @@
             this.btnHoyGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHoyGastos.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnHoyGastos.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnHoyGastos.Location = new System.Drawing.Point(17, 262);
+            this.btnHoyGastos.Location = new System.Drawing.Point(36, 291);
             this.btnHoyGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHoyGastos.Name = "btnHoyGastos";
             this.btnHoyGastos.Size = new System.Drawing.Size(67, 24);
@@ -368,7 +362,7 @@
             this.btnAceptarGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptarGastos.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAceptarGastos.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAceptarGastos.Location = new System.Drawing.Point(195, 262);
+            this.btnAceptarGastos.Location = new System.Drawing.Point(182, 291);
             this.btnAceptarGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAceptarGastos.Name = "btnAceptarGastos";
             this.btnAceptarGastos.Size = new System.Drawing.Size(67, 24);
@@ -380,7 +374,7 @@
             // 
             // calendarGastos
             // 
-            this.calendarGastos.Location = new System.Drawing.Point(14, 7);
+            this.calendarGastos.Location = new System.Drawing.Point(18, 18);
             this.calendarGastos.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.calendarGastos.MaxSelectionCount = 30;
             this.calendarGastos.Name = "calendarGastos";
@@ -389,8 +383,9 @@
             // 
             // trackHoraGastos
             // 
+            this.trackHoraGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.trackHoraGastos.LargeChange = 1;
-            this.trackHoraGastos.Location = new System.Drawing.Point(3, 180);
+            this.trackHoraGastos.Location = new System.Drawing.Point(3, 198);
             this.trackHoraGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.trackHoraGastos.Maximum = 23;
             this.trackHoraGastos.Name = "trackHoraGastos";
@@ -400,8 +395,9 @@
             // 
             // trackMinutosGastos
             // 
+            this.trackMinutosGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.trackMinutosGastos.LargeChange = 1;
-            this.trackMinutosGastos.Location = new System.Drawing.Point(3, 215);
+            this.trackMinutosGastos.Location = new System.Drawing.Point(3, 250);
             this.trackMinutosGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.trackMinutosGastos.Maximum = 59;
             this.trackMinutosGastos.Name = "trackMinutosGastos";
@@ -409,11 +405,81 @@
             this.trackMinutosGastos.TabIndex = 22;
             this.trackMinutosGastos.Scroll += new System.EventHandler(this.trackMinutosGastos_Scroll);
             // 
+            // btnEditarGasto
+            // 
+            this.btnEditarGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnEditarGasto.FlatAppearance.BorderSize = 0;
+            this.btnEditarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarGasto.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEditarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarGasto.Image")));
+            this.btnEditarGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarGasto.Location = new System.Drawing.Point(150, 22);
+            this.btnEditarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEditarGasto.Name = "btnEditarGasto";
+            this.btnEditarGasto.Size = new System.Drawing.Size(119, 41);
+            this.btnEditarGasto.TabIndex = 50;
+            this.btnEditarGasto.Text = "Editar Gasto";
+            this.btnEditarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditarGasto.UseVisualStyleBackColor = false;
+            this.btnEditarGasto.Click += new System.EventHandler(this.btnEditarGasto_Click);
+            // 
+            // btnEliminarGasto
+            // 
+            this.btnEliminarGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.btnEliminarGasto.FlatAppearance.BorderSize = 0;
+            this.btnEliminarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarGasto.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarGasto.Image")));
+            this.btnEliminarGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarGasto.Location = new System.Drawing.Point(275, 22);
+            this.btnEliminarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEliminarGasto.Name = "btnEliminarGasto";
+            this.btnEliminarGasto.Size = new System.Drawing.Size(119, 41);
+            this.btnEliminarGasto.TabIndex = 45;
+            this.btnEliminarGasto.Text = "Eliminar Gasto";
+            this.btnEliminarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarGasto.UseVisualStyleBackColor = false;
+            this.btnEliminarGasto.Click += new System.EventHandler(this.btnEliminarGasto_Click);
+            // 
+            // btnNuevoGasto
+            // 
+            this.btnNuevoGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnNuevoGasto.FlatAppearance.BorderSize = 0;
+            this.btnNuevoGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnNuevoGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoGasto.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnNuevoGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoGasto.Image")));
+            this.btnNuevoGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoGasto.Location = new System.Drawing.Point(25, 22);
+            this.btnNuevoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNuevoGasto.Name = "btnNuevoGasto";
+            this.btnNuevoGasto.Size = new System.Drawing.Size(119, 41);
+            this.btnNuevoGasto.TabIndex = 49;
+            this.btnNuevoGasto.Text = "Nuevo Gasto";
+            this.btnNuevoGasto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevoGasto.UseVisualStyleBackColor = false;
+            this.btnNuevoGasto.Click += new System.EventHandler(this.btnNuevoGasto_Click);
+            // 
+            // textConceptoGasto
+            // 
+            this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textConceptoGasto.Location = new System.Drawing.Point(132, 342);
+            this.textConceptoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textConceptoGasto.Name = "textConceptoGasto";
+            this.textConceptoGasto.Size = new System.Drawing.Size(324, 23);
+            this.textConceptoGasto.TabIndex = 12;
+            this.textConceptoGasto.Visible = false;
+            // 
             // label43
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(22, 27);
+            this.label43.Location = new System.Drawing.Point(27, 288);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(84, 17);
             this.label43.TabIndex = 47;
@@ -423,7 +489,7 @@
             // 
             this.comboOperadoresGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadoresGasto.FormattingEnabled = true;
-            this.comboOperadoresGasto.Location = new System.Drawing.Point(127, 23);
+            this.comboOperadoresGasto.Location = new System.Drawing.Point(132, 284);
             this.comboOperadoresGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboOperadoresGasto.Name = "comboOperadoresGasto";
             this.comboOperadoresGasto.Size = new System.Drawing.Size(324, 25);
@@ -432,7 +498,7 @@
             // textPoliza
             // 
             this.textPoliza.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPoliza.Location = new System.Drawing.Point(620, 48);
+            this.textPoliza.Location = new System.Drawing.Point(625, 309);
             this.textPoliza.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textPoliza.Name = "textPoliza";
             this.textPoliza.Size = new System.Drawing.Size(203, 23);
@@ -443,7 +509,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(14, 108);
+            this.label38.Location = new System.Drawing.Point(19, 369);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(92, 17);
             this.label38.TabIndex = 0;
@@ -453,7 +519,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(493, 134);
+            this.label37.Location = new System.Drawing.Point(498, 395);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(110, 17);
             this.label37.TabIndex = 0;
@@ -467,7 +533,7 @@
             "Transferencia",
             "Crédito",
             "Efectivo"});
-            this.comboFormaPago.Location = new System.Drawing.Point(620, 130);
+            this.comboFormaPago.Location = new System.Drawing.Point(625, 391);
             this.comboFormaPago.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboFormaPago.Name = "comboFormaPago";
             this.comboFormaPago.Size = new System.Drawing.Size(203, 25);
@@ -477,7 +543,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(557, 81);
+            this.label36.Location = new System.Drawing.Point(562, 342);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(44, 17);
             this.label36.TabIndex = 0;
@@ -486,7 +552,7 @@
             // textTicket
             // 
             this.textTicket.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTicket.Location = new System.Drawing.Point(620, 75);
+            this.textTicket.Location = new System.Drawing.Point(625, 336);
             this.textTicket.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textTicket.Name = "textTicket";
             this.textTicket.Size = new System.Drawing.Size(203, 23);
@@ -496,7 +562,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(507, 107);
+            this.label34.Location = new System.Drawing.Point(512, 368);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(96, 17);
             this.label34.TabIndex = 0;
@@ -505,37 +571,17 @@
             // textNumFactura
             // 
             this.textNumFactura.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNumFactura.Location = new System.Drawing.Point(620, 104);
+            this.textNumFactura.Location = new System.Drawing.Point(625, 365);
             this.textNumFactura.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textNumFactura.Name = "textNumFactura";
             this.textNumFactura.Size = new System.Drawing.Size(203, 23);
             this.textNumFactura.TabIndex = 12;
             // 
-            // btnEliminarGasto
-            // 
-            this.btnEliminarGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
-            this.btnEliminarGasto.FlatAppearance.BorderSize = 0;
-            this.btnEliminarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnEliminarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarGasto.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEliminarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarGasto.Image")));
-            this.btnEliminarGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarGasto.Location = new System.Drawing.Point(459, 165);
-            this.btnEliminarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnEliminarGasto.Name = "btnEliminarGasto";
-            this.btnEliminarGasto.Size = new System.Drawing.Size(119, 41);
-            this.btnEliminarGasto.TabIndex = 45;
-            this.btnEliminarGasto.Text = "Eliminar Gasto";
-            this.btnEliminarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminarGasto.UseVisualStyleBackColor = false;
-            this.btnEliminarGasto.Click += new System.EventHandler(this.btnEliminarGasto_Click);
-            // 
             // comboGasolinerias
             // 
             this.comboGasolinerias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboGasolinerias.FormattingEnabled = true;
-            this.comboGasolinerias.Location = new System.Drawing.Point(126, 80);
+            this.comboGasolinerias.Location = new System.Drawing.Point(131, 341);
             this.comboGasolinerias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboGasolinerias.Name = "comboGasolinerias";
             this.comboGasolinerias.Size = new System.Drawing.Size(324, 25);
@@ -546,7 +592,7 @@
             // 
             this.comboCasetas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCasetas.FormattingEnabled = true;
-            this.comboCasetas.Location = new System.Drawing.Point(127, 80);
+            this.comboCasetas.Location = new System.Drawing.Point(132, 341);
             this.comboCasetas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboCasetas.Name = "comboCasetas";
             this.comboCasetas.Size = new System.Drawing.Size(324, 25);
@@ -558,7 +604,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(557, 54);
+            this.label17.Location = new System.Drawing.Point(562, 315);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(46, 17);
             this.label17.TabIndex = 0;
@@ -567,37 +613,27 @@
             // textFechaDelGasto
             // 
             this.textFechaDelGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaDelGasto.Location = new System.Drawing.Point(127, 108);
+            this.textFechaDelGasto.Location = new System.Drawing.Point(132, 369);
             this.textFechaDelGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaDelGasto.Name = "textFechaDelGasto";
             this.textFechaDelGasto.Size = new System.Drawing.Size(324, 23);
             this.textFechaDelGasto.TabIndex = 14;
             this.textFechaDelGasto.Click += new System.EventHandler(this.textFechaDelGasto_Click);
             // 
-            // labelTotalGastos
-            // 
-            this.labelTotalGastos.AutoSize = true;
-            this.labelTotalGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalGastos.Location = new System.Drawing.Point(499, 430);
-            this.labelTotalGastos.Name = "labelTotalGastos";
-            this.labelTotalGastos.Size = new System.Drawing.Size(104, 16);
-            this.labelTotalGastos.TabIndex = 40;
-            this.labelTotalGastos.Text = "Total de Gastos";
-            // 
             // labelTotalDeGastos
             // 
             this.labelTotalDeGastos.AutoSize = true;
             this.labelTotalDeGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalDeGastos.Location = new System.Drawing.Point(389, 424);
+            this.labelTotalDeGastos.Location = new System.Drawing.Point(747, 27);
             this.labelTotalDeGastos.Name = "labelTotalDeGastos";
-            this.labelTotalDeGastos.Size = new System.Drawing.Size(49, 24);
+            this.labelTotalDeGastos.Size = new System.Drawing.Size(60, 24);
             this.labelTotalDeGastos.TabIndex = 39;
-            this.labelTotalDeGastos.Text = "0.00";
+            this.labelTotalDeGastos.Text = "$0.00";
             this.labelTotalDeGastos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnExaminarXml
             // 
-            this.btnExaminarXml.Location = new System.Drawing.Point(362, 164);
+            this.btnExaminarXml.Location = new System.Drawing.Point(367, 425);
             this.btnExaminarXml.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExaminarXml.Name = "btnExaminarXml";
             this.btnExaminarXml.Size = new System.Drawing.Size(89, 28);
@@ -609,7 +645,7 @@
             // textRutaPdf
             // 
             this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaPdf.Location = new System.Drawing.Point(127, 136);
+            this.textRutaPdf.Location = new System.Drawing.Point(132, 397);
             this.textRutaPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRutaPdf.Name = "textRutaPdf";
             this.textRutaPdf.Size = new System.Drawing.Size(228, 23);
@@ -617,7 +653,7 @@
             // 
             // btnExaminarPdf
             // 
-            this.btnExaminarPdf.Location = new System.Drawing.Point(362, 133);
+            this.btnExaminarPdf.Location = new System.Drawing.Point(367, 394);
             this.btnExaminarPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExaminarPdf.Name = "btnExaminarPdf";
             this.btnExaminarPdf.Size = new System.Drawing.Size(89, 28);
@@ -635,13 +671,13 @@
             this.btnAgregarGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarGasto.Image")));
             this.btnAgregarGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarGasto.Location = new System.Drawing.Point(709, 165);
+            this.btnAgregarGasto.Location = new System.Drawing.Point(734, 424);
             this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
-            this.btnAgregarGasto.Size = new System.Drawing.Size(119, 41);
+            this.btnAgregarGasto.Size = new System.Drawing.Size(94, 33);
             this.btnAgregarGasto.TabIndex = 14;
-            this.btnAgregarGasto.Text = "Agregar Gasto";
-            this.btnAgregarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarGasto.Text = "Guardar";
+            this.btnAgregarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarGasto.UseVisualStyleBackColor = false;
             this.btnAgregarGasto.Click += new System.EventHandler(this.btnAgregarGasto_Click);
@@ -653,11 +689,11 @@
             this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
             this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGastos.Location = new System.Drawing.Point(23, 228);
+            this.dgvGastos.Location = new System.Drawing.Point(25, 87);
             this.dgvGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
-            this.dgvGastos.Size = new System.Drawing.Size(805, 178);
+            this.dgvGastos.Size = new System.Drawing.Size(805, 174);
             this.dgvGastos.TabIndex = 35;
             this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellClick);
             this.dgvGastos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellDoubleClick);
@@ -666,7 +702,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 165);
+            this.label10.Location = new System.Drawing.Point(25, 426);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 17);
             this.label10.TabIndex = 0;
@@ -676,7 +712,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 136);
+            this.label5.Location = new System.Drawing.Point(26, 397);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 17);
             this.label5.TabIndex = 0;
@@ -686,7 +722,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(553, 28);
+            this.label4.Location = new System.Drawing.Point(558, 289);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 17);
             this.label4.TabIndex = 0;
@@ -696,7 +732,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 80);
+            this.label3.Location = new System.Drawing.Point(36, 341);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 17);
             this.label3.TabIndex = 0;
@@ -705,7 +741,7 @@
             // textRutaXml
             // 
             this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaXml.Location = new System.Drawing.Point(127, 165);
+            this.textRutaXml.Location = new System.Drawing.Point(132, 426);
             this.textRutaXml.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRutaXml.Name = "textRutaXml";
             this.textRutaXml.Size = new System.Drawing.Size(228, 23);
@@ -714,7 +750,7 @@
             // textMontoGasto
             // 
             this.textMontoGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMontoGasto.Location = new System.Drawing.Point(620, 22);
+            this.textMontoGasto.Location = new System.Drawing.Point(625, 283);
             this.textMontoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textMontoGasto.Name = "textMontoGasto";
             this.textMontoGasto.Size = new System.Drawing.Size(203, 23);
@@ -724,7 +760,7 @@
             // 
             this.comboTipoGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTipoGastos.FormattingEnabled = true;
-            this.comboTipoGastos.Location = new System.Drawing.Point(127, 52);
+            this.comboTipoGastos.Location = new System.Drawing.Point(132, 313);
             this.comboTipoGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboTipoGastos.Name = "comboTipoGastos";
             this.comboTipoGastos.Size = new System.Drawing.Size(324, 25);
@@ -735,7 +771,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 53);
+            this.label2.Location = new System.Drawing.Point(12, 314);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 17);
             this.label2.TabIndex = 0;
@@ -754,7 +790,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(856, 513);
+            this.tabControl1.Size = new System.Drawing.Size(1689, 753);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
@@ -771,24 +807,42 @@
             this.tabPageGenerales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageGenerales.Name = "tabPageGenerales";
             this.tabPageGenerales.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageGenerales.Size = new System.Drawing.Size(848, 484);
+            this.tabPageGenerales.Size = new System.Drawing.Size(1681, 724);
             this.tabPageGenerales.TabIndex = 0;
             this.tabPageGenerales.Text = "Datos Generales";
             // 
             // panelFechaFinal
             // 
-            this.panelFechaFinal.BackColor = System.Drawing.Color.White;
+            this.panelFechaFinal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.panelFechaFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFechaFinal.Controls.Add(this.btnCancelarFechaFinal);
             this.panelFechaFinal.Controls.Add(this.btnFechaHoyFinal);
             this.panelFechaFinal.Controls.Add(this.btnAceptarFechaFinal);
             this.panelFechaFinal.Controls.Add(this.calendarFinalSci);
             this.panelFechaFinal.Controls.Add(this.trackHorasFinal);
             this.panelFechaFinal.Controls.Add(this.trackMinutosFinal);
-            this.panelFechaFinal.Location = new System.Drawing.Point(876, 326);
+            this.panelFechaFinal.Location = new System.Drawing.Point(1189, 52);
             this.panelFechaFinal.Name = "panelFechaFinal";
-            this.panelFechaFinal.Size = new System.Drawing.Size(287, 308);
+            this.panelFechaFinal.Size = new System.Drawing.Size(287, 340);
             this.panelFechaFinal.TabIndex = 24;
             this.panelFechaFinal.Visible = false;
+            // 
+            // btnCancelarFechaFinal
+            // 
+            this.btnCancelarFechaFinal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnCancelarFechaFinal.FlatAppearance.BorderSize = 0;
+            this.btnCancelarFechaFinal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCancelarFechaFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarFechaFinal.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCancelarFechaFinal.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCancelarFechaFinal.Location = new System.Drawing.Point(112, 298);
+            this.btnCancelarFechaFinal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelarFechaFinal.Name = "btnCancelarFechaFinal";
+            this.btnCancelarFechaFinal.Size = new System.Drawing.Size(67, 24);
+            this.btnCancelarFechaFinal.TabIndex = 28;
+            this.btnCancelarFechaFinal.Text = "Cancelar";
+            this.btnCancelarFechaFinal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelarFechaFinal.UseVisualStyleBackColor = false;
             // 
             // btnFechaHoyFinal
             // 
@@ -798,7 +852,7 @@
             this.btnFechaHoyFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechaHoyFinal.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnFechaHoyFinal.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnFechaHoyFinal.Location = new System.Drawing.Point(14, 259);
+            this.btnFechaHoyFinal.Location = new System.Drawing.Point(39, 298);
             this.btnFechaHoyFinal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFechaHoyFinal.Name = "btnFechaHoyFinal";
             this.btnFechaHoyFinal.Size = new System.Drawing.Size(67, 24);
@@ -816,7 +870,7 @@
             this.btnAceptarFechaFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptarFechaFinal.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAceptarFechaFinal.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAceptarFechaFinal.Location = new System.Drawing.Point(195, 259);
+            this.btnAceptarFechaFinal.Location = new System.Drawing.Point(185, 298);
             this.btnAceptarFechaFinal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAceptarFechaFinal.Name = "btnAceptarFechaFinal";
             this.btnAceptarFechaFinal.Size = new System.Drawing.Size(67, 24);
@@ -828,7 +882,7 @@
             // 
             // calendarFinalSci
             // 
-            this.calendarFinalSci.Location = new System.Drawing.Point(19, 9);
+            this.calendarFinalSci.Location = new System.Drawing.Point(19, 17);
             this.calendarFinalSci.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.calendarFinalSci.MaxSelectionCount = 30;
             this.calendarFinalSci.Name = "calendarFinalSci";
@@ -838,7 +892,7 @@
             // trackHorasFinal
             // 
             this.trackHorasFinal.LargeChange = 1;
-            this.trackHorasFinal.Location = new System.Drawing.Point(11, 171);
+            this.trackHorasFinal.Location = new System.Drawing.Point(3, 197);
             this.trackHorasFinal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.trackHorasFinal.Maximum = 23;
             this.trackHorasFinal.Name = "trackHorasFinal";
@@ -849,7 +903,7 @@
             // trackMinutosFinal
             // 
             this.trackMinutosFinal.LargeChange = 1;
-            this.trackMinutosFinal.Location = new System.Drawing.Point(11, 206);
+            this.trackMinutosFinal.Location = new System.Drawing.Point(3, 247);
             this.trackMinutosFinal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.trackMinutosFinal.Maximum = 59;
             this.trackMinutosFinal.Name = "trackMinutosFinal";
@@ -859,18 +913,37 @@
             // 
             // panelFechaInicial
             // 
-            this.panelFechaInicial.BackColor = System.Drawing.Color.White;
+            this.panelFechaInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.panelFechaInicial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFechaInicial.Controls.Add(this.btnCancelarFechaInicio);
             this.panelFechaInicial.Controls.Add(this.btnFechaHoyInicio);
             this.panelFechaInicial.Controls.Add(this.btnAceptarFechaInicio);
             this.panelFechaInicial.Controls.Add(this.calendarInicialSci);
             this.panelFechaInicial.Controls.Add(this.trackHorasInicio);
             this.panelFechaInicial.Controls.Add(this.trackMinutosInicio);
-            this.panelFechaInicial.Location = new System.Drawing.Point(876, 12);
+            this.panelFechaInicial.Location = new System.Drawing.Point(896, 52);
             this.panelFechaInicial.Name = "panelFechaInicial";
-            this.panelFechaInicial.Size = new System.Drawing.Size(287, 308);
+            this.panelFechaInicial.Size = new System.Drawing.Size(287, 340);
             this.panelFechaInicial.TabIndex = 23;
             this.panelFechaInicial.Visible = false;
+            // 
+            // btnCancelarFechaInicio
+            // 
+            this.btnCancelarFechaInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnCancelarFechaInicio.FlatAppearance.BorderSize = 0;
+            this.btnCancelarFechaInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCancelarFechaInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarFechaInicio.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCancelarFechaInicio.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCancelarFechaInicio.Location = new System.Drawing.Point(118, 298);
+            this.btnCancelarFechaInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelarFechaInicio.Name = "btnCancelarFechaInicio";
+            this.btnCancelarFechaInicio.Size = new System.Drawing.Size(67, 24);
+            this.btnCancelarFechaInicio.TabIndex = 27;
+            this.btnCancelarFechaInicio.Text = "Cancelar";
+            this.btnCancelarFechaInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelarFechaInicio.UseVisualStyleBackColor = false;
+            this.btnCancelarFechaInicio.Click += new System.EventHandler(this.btnCancelarFechaInicio_Click);
             // 
             // btnFechaHoyInicio
             // 
@@ -880,7 +953,7 @@
             this.btnFechaHoyInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechaHoyInicio.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnFechaHoyInicio.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnFechaHoyInicio.Location = new System.Drawing.Point(17, 262);
+            this.btnFechaHoyInicio.Location = new System.Drawing.Point(45, 298);
             this.btnFechaHoyInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFechaHoyInicio.Name = "btnFechaHoyInicio";
             this.btnFechaHoyInicio.Size = new System.Drawing.Size(67, 24);
@@ -898,7 +971,7 @@
             this.btnAceptarFechaInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptarFechaInicio.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAceptarFechaInicio.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAceptarFechaInicio.Location = new System.Drawing.Point(195, 262);
+            this.btnAceptarFechaInicio.Location = new System.Drawing.Point(191, 298);
             this.btnAceptarFechaInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAceptarFechaInicio.Name = "btnAceptarFechaInicio";
             this.btnAceptarFechaInicio.Size = new System.Drawing.Size(67, 24);
@@ -911,7 +984,7 @@
             // trackHorasInicio
             // 
             this.trackHorasInicio.LargeChange = 1;
-            this.trackHorasInicio.Location = new System.Drawing.Point(3, 180);
+            this.trackHorasInicio.Location = new System.Drawing.Point(5, 194);
             this.trackHorasInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.trackHorasInicio.Maximum = 23;
             this.trackHorasInicio.Name = "trackHorasInicio";
@@ -922,7 +995,7 @@
             // trackMinutosInicio
             // 
             this.trackMinutosInicio.LargeChange = 1;
-            this.trackMinutosInicio.Location = new System.Drawing.Point(3, 215);
+            this.trackMinutosInicio.Location = new System.Drawing.Point(7, 247);
             this.trackMinutosInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.trackMinutosInicio.Maximum = 59;
             this.trackMinutosInicio.Name = "trackMinutosInicio";
@@ -959,6 +1032,40 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(452, 461);
             this.panel2.TabIndex = 34;
+            // 
+            // btnAbajo
+            // 
+            this.btnAbajo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAbajo.FlatAppearance.BorderSize = 0;
+            this.btnAbajo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnAbajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbajo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAbajo.Image = ((System.Drawing.Image)(resources.GetObject("btnAbajo.Image")));
+            this.btnAbajo.Location = new System.Drawing.Point(122, 328);
+            this.btnAbajo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAbajo.Name = "btnAbajo";
+            this.btnAbajo.Size = new System.Drawing.Size(24, 24);
+            this.btnAbajo.TabIndex = 24;
+            this.btnAbajo.UseVisualStyleBackColor = false;
+            this.btnAbajo.Visible = false;
+            this.btnAbajo.Click += new System.EventHandler(this.btnAbajo_Click);
+            // 
+            // btnArriba
+            // 
+            this.btnArriba.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnArriba.FlatAppearance.BorderSize = 0;
+            this.btnArriba.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnArriba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArriba.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnArriba.Image = ((System.Drawing.Image)(resources.GetObject("btnArriba.Image")));
+            this.btnArriba.Location = new System.Drawing.Point(122, 303);
+            this.btnArriba.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnArriba.Name = "btnArriba";
+            this.btnArriba.Size = new System.Drawing.Size(24, 24);
+            this.btnArriba.TabIndex = 23;
+            this.btnArriba.UseVisualStyleBackColor = false;
+            this.btnArriba.Visible = false;
+            this.btnArriba.Click += new System.EventHandler(this.btnArriba_Click);
             // 
             // btnAgregarDeposito
             // 
@@ -1186,7 +1293,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(376, 465);
+            this.groupBox1.Size = new System.Drawing.Size(394, 465);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de La Ruta y La Unidad";
@@ -1468,7 +1575,7 @@
             this.tabPageGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageGastos.Name = "tabPageGastos";
             this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageGastos.Size = new System.Drawing.Size(848, 484);
+            this.tabPageGastos.Size = new System.Drawing.Size(1681, 724);
             this.tabPageGastos.TabIndex = 1;
             this.tabPageGastos.Text = "Gastos del Viaje";
             this.tabPageGastos.UseVisualStyleBackColor = true;
@@ -1481,18 +1588,201 @@
             this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
             this.tabPageCortes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageCortes.Name = "tabPageCortes";
-            this.tabPageCortes.Size = new System.Drawing.Size(848, 484);
+            this.tabPageCortes.Size = new System.Drawing.Size(1681, 724);
             this.tabPageCortes.TabIndex = 2;
             this.tabPageCortes.Text = "Cortes de Operadores";
             this.tabPageCortes.UseVisualStyleBackColor = true;
             // 
+            // panelFechaFinalCorte
+            // 
+            this.panelFechaFinalCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.panelFechaFinalCorte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFechaFinalCorte.Controls.Add(this.btnFechaFinalCancelar);
+            this.panelFechaFinalCorte.Controls.Add(this.btnHoyFinCorte);
+            this.panelFechaFinalCorte.Controls.Add(this.btnAceptarFinCorte);
+            this.panelFechaFinalCorte.Controls.Add(this.calendarFinCorte);
+            this.panelFechaFinalCorte.Controls.Add(this.trackHoraFinCorte);
+            this.panelFechaFinalCorte.Controls.Add(this.trackMinutoFinCorte);
+            this.panelFechaFinalCorte.Location = new System.Drawing.Point(1230, 13);
+            this.panelFechaFinalCorte.Name = "panelFechaFinalCorte";
+            this.panelFechaFinalCorte.Size = new System.Drawing.Size(287, 340);
+            this.panelFechaFinalCorte.TabIndex = 25;
+            this.panelFechaFinalCorte.Visible = false;
+            // 
+            // btnHoyFinCorte
+            // 
+            this.btnHoyFinCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnHoyFinCorte.FlatAppearance.BorderSize = 0;
+            this.btnHoyFinCorte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnHoyFinCorte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoyFinCorte.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnHoyFinCorte.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnHoyFinCorte.Location = new System.Drawing.Point(40, 289);
+            this.btnHoyFinCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHoyFinCorte.Name = "btnHoyFinCorte";
+            this.btnHoyFinCorte.Size = new System.Drawing.Size(67, 24);
+            this.btnHoyFinCorte.TabIndex = 25;
+            this.btnHoyFinCorte.Text = "Hoy";
+            this.btnHoyFinCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHoyFinCorte.UseVisualStyleBackColor = false;
+            this.btnHoyFinCorte.Click += new System.EventHandler(this.btnHoyFinCorte_Click);
+            // 
+            // btnAceptarFinCorte
+            // 
+            this.btnAceptarFinCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAceptarFinCorte.FlatAppearance.BorderSize = 0;
+            this.btnAceptarFinCorte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnAceptarFinCorte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptarFinCorte.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAceptarFinCorte.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAceptarFinCorte.Location = new System.Drawing.Point(186, 289);
+            this.btnAceptarFinCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAceptarFinCorte.Name = "btnAceptarFinCorte";
+            this.btnAceptarFinCorte.Size = new System.Drawing.Size(67, 24);
+            this.btnAceptarFinCorte.TabIndex = 24;
+            this.btnAceptarFinCorte.Text = "Aceptar";
+            this.btnAceptarFinCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptarFinCorte.UseVisualStyleBackColor = false;
+            this.btnAceptarFinCorte.Click += new System.EventHandler(this.btnAceptarFinCorte_Click);
+            // 
+            // calendarFinCorte
+            // 
+            this.calendarFinCorte.Location = new System.Drawing.Point(18, 26);
+            this.calendarFinCorte.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.calendarFinCorte.MaxSelectionCount = 30;
+            this.calendarFinCorte.Name = "calendarFinCorte";
+            this.calendarFinCorte.TabIndex = 11;
+            this.calendarFinCorte.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarFinCorte_DateChanged);
+            // 
+            // trackHoraFinCorte
+            // 
+            this.trackHoraFinCorte.LargeChange = 1;
+            this.trackHoraFinCorte.Location = new System.Drawing.Point(3, 203);
+            this.trackHoraFinCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackHoraFinCorte.Maximum = 23;
+            this.trackHoraFinCorte.Name = "trackHoraFinCorte";
+            this.trackHoraFinCorte.Size = new System.Drawing.Size(271, 45);
+            this.trackHoraFinCorte.TabIndex = 21;
+            this.trackHoraFinCorte.Scroll += new System.EventHandler(this.trackHoraFinCorte_Scroll);
+            // 
+            // trackMinutoFinCorte
+            // 
+            this.trackMinutoFinCorte.LargeChange = 1;
+            this.trackMinutoFinCorte.Location = new System.Drawing.Point(3, 245);
+            this.trackMinutoFinCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackMinutoFinCorte.Maximum = 59;
+            this.trackMinutoFinCorte.Name = "trackMinutoFinCorte";
+            this.trackMinutoFinCorte.Size = new System.Drawing.Size(271, 45);
+            this.trackMinutoFinCorte.TabIndex = 22;
+            this.trackMinutoFinCorte.Scroll += new System.EventHandler(this.trackMinutoFinCorte_Scroll);
+            // 
+            // panelFechaInicioCorte
+            // 
+            this.panelFechaInicioCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.panelFechaInicioCorte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFechaInicioCorte.Controls.Add(this.btnFechaInicioCancelar);
+            this.panelFechaInicioCorte.Controls.Add(this.btnHoyInicioCorte);
+            this.panelFechaInicioCorte.Controls.Add(this.btnFechaInicioAceptar);
+            this.panelFechaInicioCorte.Controls.Add(this.calendarInicioCortes);
+            this.panelFechaInicioCorte.Controls.Add(this.trackHorasInicioCorte);
+            this.panelFechaInicioCorte.Controls.Add(this.trackMinutosInicioCorte);
+            this.panelFechaInicioCorte.Location = new System.Drawing.Point(937, 13);
+            this.panelFechaInicioCorte.Name = "panelFechaInicioCorte";
+            this.panelFechaInicioCorte.Size = new System.Drawing.Size(287, 340);
+            this.panelFechaInicioCorte.TabIndex = 24;
+            this.panelFechaInicioCorte.Visible = false;
+            // 
+            // btnFechaInicioCancelar
+            // 
+            this.btnFechaInicioCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnFechaInicioCancelar.FlatAppearance.BorderSize = 0;
+            this.btnFechaInicioCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnFechaInicioCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechaInicioCancelar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnFechaInicioCancelar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFechaInicioCancelar.Location = new System.Drawing.Point(113, 291);
+            this.btnFechaInicioCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFechaInicioCancelar.Name = "btnFechaInicioCancelar";
+            this.btnFechaInicioCancelar.Size = new System.Drawing.Size(67, 24);
+            this.btnFechaInicioCancelar.TabIndex = 27;
+            this.btnFechaInicioCancelar.Text = "Cancelar";
+            this.btnFechaInicioCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFechaInicioCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnHoyInicioCorte
+            // 
+            this.btnHoyInicioCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnHoyInicioCorte.FlatAppearance.BorderSize = 0;
+            this.btnHoyInicioCorte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnHoyInicioCorte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoyInicioCorte.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnHoyInicioCorte.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnHoyInicioCorte.Location = new System.Drawing.Point(40, 291);
+            this.btnHoyInicioCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHoyInicioCorte.Name = "btnHoyInicioCorte";
+            this.btnHoyInicioCorte.Size = new System.Drawing.Size(67, 24);
+            this.btnHoyInicioCorte.TabIndex = 25;
+            this.btnHoyInicioCorte.Text = "Hoy";
+            this.btnHoyInicioCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHoyInicioCorte.UseVisualStyleBackColor = false;
+            this.btnHoyInicioCorte.Click += new System.EventHandler(this.btnHoyInicioCorte_Click);
+            // 
+            // btnFechaInicioAceptar
+            // 
+            this.btnFechaInicioAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnFechaInicioAceptar.FlatAppearance.BorderSize = 0;
+            this.btnFechaInicioAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnFechaInicioAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechaInicioAceptar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnFechaInicioAceptar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFechaInicioAceptar.Location = new System.Drawing.Point(186, 291);
+            this.btnFechaInicioAceptar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFechaInicioAceptar.Name = "btnFechaInicioAceptar";
+            this.btnFechaInicioAceptar.Size = new System.Drawing.Size(67, 24);
+            this.btnFechaInicioAceptar.TabIndex = 24;
+            this.btnFechaInicioAceptar.Text = "Aceptar";
+            this.btnFechaInicioAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFechaInicioAceptar.UseVisualStyleBackColor = false;
+            this.btnFechaInicioAceptar.Click += new System.EventHandler(this.btnFechaInicioAceptar_Click);
+            // 
+            // calendarInicioCortes
+            // 
+            this.calendarInicioCortes.Location = new System.Drawing.Point(18, 26);
+            this.calendarInicioCortes.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.calendarInicioCortes.MaxSelectionCount = 30;
+            this.calendarInicioCortes.Name = "calendarInicioCortes";
+            this.calendarInicioCortes.TabIndex = 11;
+            this.calendarInicioCortes.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarInicioCortes_DateChanged);
+            // 
+            // trackHorasInicioCorte
+            // 
+            this.trackHorasInicioCorte.LargeChange = 1;
+            this.trackHorasInicioCorte.Location = new System.Drawing.Point(-1, 203);
+            this.trackHorasInicioCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackHorasInicioCorte.Maximum = 23;
+            this.trackHorasInicioCorte.Name = "trackHorasInicioCorte";
+            this.trackHorasInicioCorte.Size = new System.Drawing.Size(279, 45);
+            this.trackHorasInicioCorte.TabIndex = 21;
+            this.trackHorasInicioCorte.Scroll += new System.EventHandler(this.trackHorasInicioCorte_Scroll);
+            // 
+            // trackMinutosInicioCorte
+            // 
+            this.trackMinutosInicioCorte.LargeChange = 1;
+            this.trackMinutosInicioCorte.Location = new System.Drawing.Point(-1, 245);
+            this.trackMinutosInicioCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackMinutosInicioCorte.Maximum = 59;
+            this.trackMinutosInicioCorte.Name = "trackMinutosInicioCorte";
+            this.trackMinutosInicioCorte.Size = new System.Drawing.Size(279, 45);
+            this.trackMinutosInicioCorte.TabIndex = 22;
+            this.trackMinutosInicioCorte.Scroll += new System.EventHandler(this.trackMinutosInicioCorte_Scroll);
+            // 
             // groupCortesOPerador
             // 
+            this.groupCortesOPerador.Controls.Add(this.button3);
             this.groupCortesOPerador.Controls.Add(this.btnEliminarCorte);
             this.groupCortesOPerador.Controls.Add(this.button1);
             this.groupCortesOPerador.Controls.Add(this.label8);
             this.groupCortesOPerador.Controls.Add(this.comboOperadoresCortes);
-            this.groupCortesOPerador.Controls.Add(this.labelSueldoCortes);
             this.groupCortesOPerador.Controls.Add(this.labelSaldoTotalCortes);
             this.groupCortesOPerador.Controls.Add(this.btnRedondear);
             this.groupCortesOPerador.Controls.Add(this.label21);
@@ -1507,14 +1797,34 @@
             this.groupCortesOPerador.Controls.Add(this.textFechaHoraFinalCorte);
             this.groupCortesOPerador.Controls.Add(this.label16);
             this.groupCortesOPerador.Controls.Add(this.textFechaHoraInicialCorte);
-            this.groupCortesOPerador.Location = new System.Drawing.Point(3, 4);
+            this.groupCortesOPerador.Location = new System.Drawing.Point(7, 7);
             this.groupCortesOPerador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupCortesOPerador.Name = "groupCortesOPerador";
             this.groupCortesOPerador.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupCortesOPerador.Size = new System.Drawing.Size(832, 470);
+            this.groupCortesOPerador.Size = new System.Drawing.Size(849, 467);
             this.groupCortesOPerador.TabIndex = 0;
             this.groupCortesOPerador.TabStop = false;
             this.groupCortesOPerador.Text = "Corte de Tiempo por Operador";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(150, 22);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(119, 41);
+            this.button3.TabIndex = 51;
+            this.button3.Text = "Editar Corte";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnEliminarCorte
             // 
@@ -1525,7 +1835,7 @@
             this.btnEliminarCorte.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEliminarCorte.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarCorte.Image")));
             this.btnEliminarCorte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarCorte.Location = new System.Drawing.Point(457, 85);
+            this.btnEliminarCorte.Location = new System.Drawing.Point(275, 22);
             this.btnEliminarCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEliminarCorte.Name = "btnEliminarCorte";
             this.btnEliminarCorte.Size = new System.Drawing.Size(119, 41);
@@ -1536,11 +1846,31 @@
             this.btnEliminarCorte.UseVisualStyleBackColor = false;
             this.btnEliminarCorte.Click += new System.EventHandler(this.btnEliminarCorte_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(25, 22);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 41);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "Nuevo Corte";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(18, 27);
+            this.label8.Location = new System.Drawing.Point(420, 275);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 17);
             this.label8.TabIndex = 0;
@@ -1550,38 +1880,28 @@
             // 
             this.comboOperadoresCortes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadoresCortes.FormattingEnabled = true;
-            this.comboOperadoresCortes.Location = new System.Drawing.Point(108, 24);
+            this.comboOperadoresCortes.Location = new System.Drawing.Point(510, 272);
             this.comboOperadoresCortes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboOperadoresCortes.Name = "comboOperadoresCortes";
             this.comboOperadoresCortes.Size = new System.Drawing.Size(312, 25);
             this.comboOperadoresCortes.TabIndex = 15;
             this.comboOperadoresCortes.SelectedValueChanged += new System.EventHandler(this.comboOperadoresCortes_SelectedValueChanged);
             // 
-            // labelSueldoCortes
-            // 
-            this.labelSueldoCortes.AutoSize = true;
-            this.labelSueldoCortes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSueldoCortes.Location = new System.Drawing.Point(484, 431);
-            this.labelSueldoCortes.Name = "labelSueldoCortes";
-            this.labelSueldoCortes.Size = new System.Drawing.Size(122, 16);
-            this.labelSueldoCortes.TabIndex = 42;
-            this.labelSueldoCortes.Text = "Gastos en Sueldos";
-            // 
             // labelSaldoTotalCortes
             // 
             this.labelSaldoTotalCortes.AutoSize = true;
             this.labelSaldoTotalCortes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(360, 426);
+            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(747, 27);
             this.labelSaldoTotalCortes.Name = "labelSaldoTotalCortes";
-            this.labelSaldoTotalCortes.Size = new System.Drawing.Size(49, 24);
+            this.labelSaldoTotalCortes.Size = new System.Drawing.Size(60, 24);
             this.labelSaldoTotalCortes.TabIndex = 41;
-            this.labelSaldoTotalCortes.Text = "0.00";
+            this.labelSaldoTotalCortes.Text = "$0.00";
             this.labelSaldoTotalCortes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRedondear
             // 
             this.btnRedondear.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRedondear.Location = new System.Drawing.Point(328, 80);
+            this.btnRedondear.Location = new System.Drawing.Point(730, 330);
             this.btnRedondear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRedondear.Name = "btnRedondear";
             this.btnRedondear.Size = new System.Drawing.Size(92, 25);
@@ -1594,7 +1914,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(4, 85);
+            this.label21.Location = new System.Drawing.Point(406, 333);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(101, 17);
             this.label21.TabIndex = 0;
@@ -1604,7 +1924,7 @@
             // 
             this.textCostoTotal.Enabled = false;
             this.textCostoTotal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoTotal.Location = new System.Drawing.Point(108, 82);
+            this.textCostoTotal.Location = new System.Drawing.Point(510, 330);
             this.textCostoTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textCostoTotal.Name = "textCostoTotal";
             this.textCostoTotal.Size = new System.Drawing.Size(201, 23);
@@ -1619,12 +1939,12 @@
             this.btnAgregarCorteOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarCorteOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCorteOperador.Image")));
             this.btnAgregarCorteOperador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(707, 85);
+            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(734, 424);
             this.btnAgregarCorteOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
-            this.btnAgregarCorteOperador.Size = new System.Drawing.Size(119, 41);
+            this.btnAgregarCorteOperador.Size = new System.Drawing.Size(94, 33);
             this.btnAgregarCorteOperador.TabIndex = 22;
-            this.btnAgregarCorteOperador.Text = "Agregar Corte";
+            this.btnAgregarCorteOperador.Text = "Guardar";
             this.btnAgregarCorteOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarCorteOperador.UseVisualStyleBackColor = false;
             this.btnAgregarCorteOperador.Click += new System.EventHandler(this.btnAgregarCorteOperador_Click);
@@ -1638,11 +1958,11 @@
             this.dgvCortesOperador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCortesOperador.BackgroundColor = System.Drawing.Color.White;
             this.dgvCortesOperador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCortesOperador.Location = new System.Drawing.Point(6, 143);
+            this.dgvCortesOperador.Location = new System.Drawing.Point(25, 87);
             this.dgvCortesOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvCortesOperador.Name = "dgvCortesOperador";
             this.dgvCortesOperador.ReadOnly = true;
-            this.dgvCortesOperador.Size = new System.Drawing.Size(820, 274);
+            this.dgvCortesOperador.Size = new System.Drawing.Size(805, 174);
             this.dgvCortesOperador.TabIndex = 23;
             this.dgvCortesOperador.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellClick);
             this.dgvCortesOperador.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellDoubleClick);
@@ -1651,7 +1971,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(253, 59);
+            this.label20.Location = new System.Drawing.Point(655, 305);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(84, 17);
             this.label20.TabIndex = 8;
@@ -1661,7 +1981,7 @@
             // 
             this.textCostoHoraOperador.Enabled = false;
             this.textCostoHoraOperador.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoHoraOperador.Location = new System.Drawing.Point(343, 52);
+            this.textCostoHoraOperador.Location = new System.Drawing.Point(745, 303);
             this.textCostoHoraOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textCostoHoraOperador.Name = "textCostoHoraOperador";
             this.textCostoHoraOperador.Size = new System.Drawing.Size(77, 23);
@@ -1672,7 +1992,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(24, 55);
+            this.label19.Location = new System.Drawing.Point(426, 303);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(79, 17);
             this.label19.TabIndex = 0;
@@ -1681,7 +2001,7 @@
             // textTotalHoras
             // 
             this.textTotalHoras.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTotalHoras.Location = new System.Drawing.Point(108, 54);
+            this.textTotalHoras.Location = new System.Drawing.Point(510, 302);
             this.textTotalHoras.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textTotalHoras.Name = "textTotalHoras";
             this.textTotalHoras.Size = new System.Drawing.Size(139, 23);
@@ -1692,7 +2012,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(439, 54);
+            this.label18.Location = new System.Drawing.Point(423, 393);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(80, 17);
             this.label18.TabIndex = 0;
@@ -1701,10 +2021,10 @@
             // textFechaHoraFinalCorte
             // 
             this.textFechaHoraFinalCorte.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraFinalCorte.Location = new System.Drawing.Point(526, 49);
+            this.textFechaHoraFinalCorte.Location = new System.Drawing.Point(510, 388);
             this.textFechaHoraFinalCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaHoraFinalCorte.Name = "textFechaHoraFinalCorte";
-            this.textFechaHoraFinalCorte.Size = new System.Drawing.Size(300, 23);
+            this.textFechaHoraFinalCorte.Size = new System.Drawing.Size(312, 23);
             this.textFechaHoraFinalCorte.TabIndex = 17;
             this.textFechaHoraFinalCorte.Click += new System.EventHandler(this.textFechaHoraFinalCorte_Click);
             this.textFechaHoraFinalCorte.Leave += new System.EventHandler(this.textFechaHoraFinalOperador_Leave);
@@ -1713,7 +2033,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(432, 27);
+            this.label16.Location = new System.Drawing.Point(416, 366);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(88, 17);
             this.label16.TabIndex = 0;
@@ -1722,10 +2042,10 @@
             // textFechaHoraInicialCorte
             // 
             this.textFechaHoraInicialCorte.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraInicialCorte.Location = new System.Drawing.Point(526, 22);
+            this.textFechaHoraInicialCorte.Location = new System.Drawing.Point(510, 361);
             this.textFechaHoraInicialCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaHoraInicialCorte.Name = "textFechaHoraInicialCorte";
-            this.textFechaHoraInicialCorte.Size = new System.Drawing.Size(300, 23);
+            this.textFechaHoraInicialCorte.Size = new System.Drawing.Size(312, 23);
             this.textFechaHoraInicialCorte.TabIndex = 16;
             this.textFechaHoraInicialCorte.Click += new System.EventHandler(this.textFechaHoraInicialOperador_Click);
             // 
@@ -1738,7 +2058,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(867, 32);
+            this.panel1.Size = new System.Drawing.Size(1700, 32);
             this.panel1.TabIndex = 10;
             // 
             // label12
@@ -1758,7 +2078,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(835, 4);
+            this.btnClose.Location = new System.Drawing.Point(1668, 4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 26);
@@ -1767,230 +2087,29 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // panelFechaInicioCorte
+            // btnFechaFinalCancelar
             // 
-            this.panelFechaInicioCorte.BackColor = System.Drawing.Color.White;
-            this.panelFechaInicioCorte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelFechaInicioCorte.Controls.Add(this.btnHoyInicioCorte);
-            this.panelFechaInicioCorte.Controls.Add(this.btnFechaInicioAceptar);
-            this.panelFechaInicioCorte.Controls.Add(this.calendarInicioCortes);
-            this.panelFechaInicioCorte.Controls.Add(this.trackHorasInicioCorte);
-            this.panelFechaInicioCorte.Controls.Add(this.trackMinutosInicioCorte);
-            this.panelFechaInicioCorte.Location = new System.Drawing.Point(881, 13);
-            this.panelFechaInicioCorte.Name = "panelFechaInicioCorte";
-            this.panelFechaInicioCorte.Size = new System.Drawing.Size(287, 308);
-            this.panelFechaInicioCorte.TabIndex = 24;
-            this.panelFechaInicioCorte.Visible = false;
-            // 
-            // btnHoyInicioCorte
-            // 
-            this.btnHoyInicioCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.btnHoyInicioCorte.FlatAppearance.BorderSize = 0;
-            this.btnHoyInicioCorte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnHoyInicioCorte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoyInicioCorte.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnHoyInicioCorte.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnHoyInicioCorte.Location = new System.Drawing.Point(17, 262);
-            this.btnHoyInicioCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnHoyInicioCorte.Name = "btnHoyInicioCorte";
-            this.btnHoyInicioCorte.Size = new System.Drawing.Size(67, 24);
-            this.btnHoyInicioCorte.TabIndex = 25;
-            this.btnHoyInicioCorte.Text = "Hoy";
-            this.btnHoyInicioCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHoyInicioCorte.UseVisualStyleBackColor = false;
-            this.btnHoyInicioCorte.Click += new System.EventHandler(this.btnHoyInicioCorte_Click);
-            // 
-            // btnFechaInicioAceptar
-            // 
-            this.btnFechaInicioAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnFechaInicioAceptar.FlatAppearance.BorderSize = 0;
-            this.btnFechaInicioAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnFechaInicioAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechaInicioAceptar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFechaInicioAceptar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnFechaInicioAceptar.Location = new System.Drawing.Point(195, 262);
-            this.btnFechaInicioAceptar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFechaInicioAceptar.Name = "btnFechaInicioAceptar";
-            this.btnFechaInicioAceptar.Size = new System.Drawing.Size(67, 24);
-            this.btnFechaInicioAceptar.TabIndex = 24;
-            this.btnFechaInicioAceptar.Text = "Aceptar";
-            this.btnFechaInicioAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFechaInicioAceptar.UseVisualStyleBackColor = false;
-            this.btnFechaInicioAceptar.Click += new System.EventHandler(this.btnFechaInicioAceptar_Click);
-            // 
-            // calendarInicioCortes
-            // 
-            this.calendarInicioCortes.Location = new System.Drawing.Point(17, 7);
-            this.calendarInicioCortes.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.calendarInicioCortes.MaxSelectionCount = 30;
-            this.calendarInicioCortes.Name = "calendarInicioCortes";
-            this.calendarInicioCortes.TabIndex = 11;
-            this.calendarInicioCortes.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarInicioCortes_DateChanged);
-            // 
-            // trackHorasInicioCorte
-            // 
-            this.trackHorasInicioCorte.LargeChange = 1;
-            this.trackHorasInicioCorte.Location = new System.Drawing.Point(3, 180);
-            this.trackHorasInicioCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.trackHorasInicioCorte.Maximum = 23;
-            this.trackHorasInicioCorte.Name = "trackHorasInicioCorte";
-            this.trackHorasInicioCorte.Size = new System.Drawing.Size(279, 45);
-            this.trackHorasInicioCorte.TabIndex = 21;
-            this.trackHorasInicioCorte.Scroll += new System.EventHandler(this.trackHorasInicioCorte_Scroll);
-            // 
-            // trackMinutosInicioCorte
-            // 
-            this.trackMinutosInicioCorte.LargeChange = 1;
-            this.trackMinutosInicioCorte.Location = new System.Drawing.Point(3, 215);
-            this.trackMinutosInicioCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.trackMinutosInicioCorte.Maximum = 59;
-            this.trackMinutosInicioCorte.Name = "trackMinutosInicioCorte";
-            this.trackMinutosInicioCorte.Size = new System.Drawing.Size(279, 45);
-            this.trackMinutosInicioCorte.TabIndex = 22;
-            this.trackMinutosInicioCorte.Scroll += new System.EventHandler(this.trackMinutosInicioCorte_Scroll);
-            // 
-            // panelFechaFinalCorte
-            // 
-            this.panelFechaFinalCorte.BackColor = System.Drawing.Color.White;
-            this.panelFechaFinalCorte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelFechaFinalCorte.Controls.Add(this.btnHoyFinCorte);
-            this.panelFechaFinalCorte.Controls.Add(this.btnAceptarFinCorte);
-            this.panelFechaFinalCorte.Controls.Add(this.calendarFinCorte);
-            this.panelFechaFinalCorte.Controls.Add(this.trackHoraFinCorte);
-            this.panelFechaFinalCorte.Controls.Add(this.trackMinutoFinCorte);
-            this.panelFechaFinalCorte.Location = new System.Drawing.Point(881, 327);
-            this.panelFechaFinalCorte.Name = "panelFechaFinalCorte";
-            this.panelFechaFinalCorte.Size = new System.Drawing.Size(287, 308);
-            this.panelFechaFinalCorte.TabIndex = 25;
-            this.panelFechaFinalCorte.Visible = false;
-            // 
-            // btnHoyFinCorte
-            // 
-            this.btnHoyFinCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.btnHoyFinCorte.FlatAppearance.BorderSize = 0;
-            this.btnHoyFinCorte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnHoyFinCorte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoyFinCorte.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnHoyFinCorte.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnHoyFinCorte.Location = new System.Drawing.Point(14, 259);
-            this.btnHoyFinCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnHoyFinCorte.Name = "btnHoyFinCorte";
-            this.btnHoyFinCorte.Size = new System.Drawing.Size(67, 24);
-            this.btnHoyFinCorte.TabIndex = 25;
-            this.btnHoyFinCorte.Text = "Hoy";
-            this.btnHoyFinCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHoyFinCorte.UseVisualStyleBackColor = false;
-            this.btnHoyFinCorte.Click += new System.EventHandler(this.btnHoyFinCorte_Click);
-            // 
-            // btnAceptarFinCorte
-            // 
-            this.btnAceptarFinCorte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAceptarFinCorte.FlatAppearance.BorderSize = 0;
-            this.btnAceptarFinCorte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnAceptarFinCorte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptarFinCorte.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAceptarFinCorte.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAceptarFinCorte.Location = new System.Drawing.Point(195, 259);
-            this.btnAceptarFinCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAceptarFinCorte.Name = "btnAceptarFinCorte";
-            this.btnAceptarFinCorte.Size = new System.Drawing.Size(67, 24);
-            this.btnAceptarFinCorte.TabIndex = 24;
-            this.btnAceptarFinCorte.Text = "Aceptar";
-            this.btnAceptarFinCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAceptarFinCorte.UseVisualStyleBackColor = false;
-            this.btnAceptarFinCorte.Click += new System.EventHandler(this.btnAceptarFinCorte_Click);
-            // 
-            // calendarFinCorte
-            // 
-            this.calendarFinCorte.Location = new System.Drawing.Point(19, 9);
-            this.calendarFinCorte.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.calendarFinCorte.MaxSelectionCount = 30;
-            this.calendarFinCorte.Name = "calendarFinCorte";
-            this.calendarFinCorte.TabIndex = 11;
-            this.calendarFinCorte.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarFinCorte_DateChanged);
-            // 
-            // trackHoraFinCorte
-            // 
-            this.trackHoraFinCorte.LargeChange = 1;
-            this.trackHoraFinCorte.Location = new System.Drawing.Point(11, 171);
-            this.trackHoraFinCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.trackHoraFinCorte.Maximum = 23;
-            this.trackHoraFinCorte.Name = "trackHoraFinCorte";
-            this.trackHoraFinCorte.Size = new System.Drawing.Size(271, 45);
-            this.trackHoraFinCorte.TabIndex = 21;
-            this.trackHoraFinCorte.Scroll += new System.EventHandler(this.trackHoraFinCorte_Scroll);
-            // 
-            // trackMinutoFinCorte
-            // 
-            this.trackMinutoFinCorte.LargeChange = 1;
-            this.trackMinutoFinCorte.Location = new System.Drawing.Point(11, 206);
-            this.trackMinutoFinCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.trackMinutoFinCorte.Maximum = 59;
-            this.trackMinutoFinCorte.Name = "trackMinutoFinCorte";
-            this.trackMinutoFinCorte.Size = new System.Drawing.Size(271, 45);
-            this.trackMinutoFinCorte.TabIndex = 22;
-            this.trackMinutoFinCorte.Scroll += new System.EventHandler(this.trackMinutoFinCorte_Scroll);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(582, 85);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 41);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "Nuevo Corte";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // btnArriba
-            // 
-            this.btnArriba.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnArriba.FlatAppearance.BorderSize = 0;
-            this.btnArriba.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnArriba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArriba.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnArriba.Image = ((System.Drawing.Image)(resources.GetObject("btnArriba.Image")));
-            this.btnArriba.Location = new System.Drawing.Point(122, 303);
-            this.btnArriba.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnArriba.Name = "btnArriba";
-            this.btnArriba.Size = new System.Drawing.Size(24, 24);
-            this.btnArriba.TabIndex = 23;
-            this.btnArriba.UseVisualStyleBackColor = false;
-            this.btnArriba.Visible = false;
-            this.btnArriba.Click += new System.EventHandler(this.btnArriba_Click);
-            // 
-            // btnAbajo
-            // 
-            this.btnAbajo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAbajo.FlatAppearance.BorderSize = 0;
-            this.btnAbajo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnAbajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbajo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAbajo.Image = ((System.Drawing.Image)(resources.GetObject("btnAbajo.Image")));
-            this.btnAbajo.Location = new System.Drawing.Point(122, 328);
-            this.btnAbajo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAbajo.Name = "btnAbajo";
-            this.btnAbajo.Size = new System.Drawing.Size(24, 24);
-            this.btnAbajo.TabIndex = 24;
-            this.btnAbajo.UseVisualStyleBackColor = false;
-            this.btnAbajo.Visible = false;
-            this.btnAbajo.Click += new System.EventHandler(this.btnAbajo_Click);
+            this.btnFechaFinalCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnFechaFinalCancelar.FlatAppearance.BorderSize = 0;
+            this.btnFechaFinalCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnFechaFinalCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechaFinalCancelar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnFechaFinalCancelar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFechaFinalCancelar.Location = new System.Drawing.Point(113, 289);
+            this.btnFechaFinalCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFechaFinalCancelar.Name = "btnFechaFinalCancelar";
+            this.btnFechaFinalCancelar.Size = new System.Drawing.Size(67, 24);
+            this.btnFechaFinalCancelar.TabIndex = 28;
+            this.btnFechaFinalCancelar.Text = "Cancelar";
+            this.btnFechaFinalCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFechaFinalCancelar.UseVisualStyleBackColor = false;
             // 
             // FormAgregarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(867, 550);
+            this.ClientSize = new System.Drawing.Size(1700, 790);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2024,19 +2143,19 @@
             this.groupBox1.PerformLayout();
             this.tabPageGastos.ResumeLayout(false);
             this.tabPageCortes.ResumeLayout(false);
+            this.panelFechaFinalCorte.ResumeLayout(false);
+            this.panelFechaFinalCorte.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackHoraFinCorte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackMinutoFinCorte)).EndInit();
+            this.panelFechaInicioCorte.ResumeLayout(false);
+            this.panelFechaInicioCorte.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackHorasInicioCorte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackMinutosInicioCorte)).EndInit();
             this.groupCortesOPerador.ResumeLayout(false);
             this.groupCortesOPerador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelFechaInicioCorte.ResumeLayout(false);
-            this.panelFechaInicioCorte.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackHorasInicioCorte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackMinutosInicioCorte)).EndInit();
-            this.panelFechaFinalCorte.ResumeLayout(false);
-            this.panelFechaFinalCorte.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackHoraFinCorte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackMinutoFinCorte)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2067,7 +2186,6 @@
         private System.Windows.Forms.TextBox textConceptoGasto;
         private System.Windows.Forms.ComboBox comboTipoGastos;
         private System.Windows.Forms.TabPage tabPageCortes;
-        private System.Windows.Forms.Label labelTotalGastos;
         private System.Windows.Forms.Label labelTotalDeGastos;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textFechaDelGasto;
@@ -2085,7 +2203,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textCostoTotal;
         private System.Windows.Forms.Button btnRedondear;
-        private System.Windows.Forms.Label labelSueldoCortes;
         private System.Windows.Forms.Label labelSaldoTotalCortes;
         private System.Windows.Forms.ComboBox comboGasolinerias;
         private System.Windows.Forms.ComboBox comboCasetas;
@@ -2187,5 +2304,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAbajo;
         private System.Windows.Forms.Button btnArriba;
+        private System.Windows.Forms.Button btnEditarGasto;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCancelarFechaInicio;
+        private System.Windows.Forms.Button btnCancelarFechaFinal;
+        private System.Windows.Forms.Button btnFechaInicioCancelar;
+        private System.Windows.Forms.Button btnFechaFinalCancelar;
     }
 }
