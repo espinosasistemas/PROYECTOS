@@ -244,13 +244,16 @@ namespace SCI.INTERFAZ.UI
             {
                 if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
                 {
-                    FormAgregarViaje fm = new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
-                    DialogResult DialogForm = fm.ShowDialog();
-                    if (fm.Valor != string.Empty)
-                    {
-                        CargarTodosLosViajes(btnStatus.Text);
-                        mostrarLabelStatus(fm.Valor, true);
-                    }
+
+                        FormAgregarViaje fm = new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()));
+                        DialogResult DialogForm = fm.ShowDialog();
+                        if (fm.Valor != string.Empty)
+                        {
+                            CargarTodosLosViajes(btnStatus.Text);
+                            mostrarLabelStatus(fm.Valor, true);
+                        }
+                        fm.Close();
+                    
                 }
                 else
                 {
@@ -272,6 +275,7 @@ namespace SCI.INTERFAZ.UI
                         MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                
 
             }
             /*

@@ -15,6 +15,8 @@ namespace SCI.BIZ
             repository = repositorio;
         }
 
+        
+
         public string Error {
             get
             {

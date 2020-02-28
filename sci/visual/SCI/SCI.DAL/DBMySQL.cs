@@ -9,16 +9,20 @@ namespace SCI.DAL
     public class DBMySQL : IDB
     {
         private MySqlConnection conexion;
-        public DBMySQL()
+        /*public DBMySQL()
         {
-            string server = "localhost";
-            //string server = "172.29.50.1";
+            //string server = "localhost";
+            string server = "172.29.50.1";
             string database = "db_sci";
             string uid = "usuario_sci";
             string password = "Falomay@-1";
             conexion = new MySqlConnection(string.Format("SERVER={0};DATABASE={1};UID={2};PASSWORD={3};SslMode=none;", server, database, uid, password));
             Conetar();
-        }
+        }*/
+        string server = "172.29.50.1";
+        string database = "db_sci";
+        string uid = "usuario_sci";
+        string password = "Falomay@-1";
 
         private bool Conetar()
         {
@@ -41,9 +45,13 @@ namespace SCI.DAL
         {
             try
             {
+                conexion = new MySqlConnection(string.Format("SERVER={0};DATABASE={1};UID={2};PASSWORD={3};SslMode=none;", server, database, uid, password));
+                conexion.Open();
+
                 MySqlCommand cmd = new MySqlCommand(command, conexion);
                 cmd.ExecuteNonQuery();
                 Error = "";
+                conexion.Close();
                 return true;
             }
             catch (Exception ex)
@@ -57,10 +65,14 @@ namespace SCI.DAL
         {
             try
             {
+                conexion = new MySqlConnection(string.Format("SERVER={0};DATABASE={1};UID={2};PASSWORD={3};SslMode=none;", server, database, uid, password));
+                conexion.Open();
                 MySqlCommand cmd = new MySqlCommand(consulta, conexion);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 Error = "";
+                //conexion.Close();
                 return dr;
+                
             }
             catch (MySqlException ex)
             {
@@ -68,14 +80,16 @@ namespace SCI.DAL
                 return null;
             }
         }
-        ~DBMySQL()
+
+        public void CerrarConexion()
         {
-            if (conexion.State == System.Data.ConnectionState.Open)
-            {
-                conexion.Close();
-            }
+            conexion.Close();
         }
 
+        ~DBMySQL()
+        {
+            conexion.Close();
+        }
 
     }
 }

@@ -16,5 +16,8 @@ namespace SCI.COMMON.Entidades
                 GC.SuppressFinalize(this);
             }
         }
+        
+
+       
     }
 }

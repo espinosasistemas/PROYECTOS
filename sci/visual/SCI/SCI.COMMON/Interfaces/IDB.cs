@@ -11,5 +11,7 @@ namespace SCI.COMMON.Interfaces
         bool Comando(string command);
 
         object Consulta(string consulta);
+
+        void CerrarConexion();
     }
 }

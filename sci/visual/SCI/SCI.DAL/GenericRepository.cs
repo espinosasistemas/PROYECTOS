@@ -22,8 +22,10 @@ namespace SCI.DAL
         {
             this.validator = validator;
             this.idEsAutonumerico = idEsAutonumerico;
-            db = new DBMySQL(); //la conecta automaticamente por el constructor
+            //db = new DBMySQL(); //la conecta automaticamente por el constructor
+            
         }
+
 
         public string Error { get; private set; }
 
@@ -33,6 +35,8 @@ namespace SCI.DAL
             {
                 try
                 {
+                    db = new DBMySQL();
+                    
                     string sql = string.Format("SELECT * FROM {0};", typeof(T).Name);
                     MySqlDataReader r = (MySqlDataReader)db.Consulta(sql);
                     List<T> datos = new List<T>();
@@ -49,8 +53,9 @@ namespace SCI.DAL
                         }
                         datos.Add(dato);
                     }
-                    r.Close();
+                    r.Close();                    
                     Error = "";
+                    db.CerrarConexion();
                     return datos;
 
                 }
@@ -116,14 +121,17 @@ namespace SCI.DAL
 
         private bool EjecutarComando(string sql)
         {
+            db = new DBMySQL();
             if (db.Comando(sql))
             {
                 Error = "";
+                db.CerrarConexion();
                 return true;
             }
             else
             {
                 Error = db.Error;
+                db.CerrarConexion();
                 return false;
             }
         }
@@ -171,6 +179,7 @@ namespace SCI.DAL
         {
             try
             {
+                db = new DBMySQL();
                 var campos = typeof(T).GetProperties();
                 Type Ttypo = typeof(T);
                 string sql = "SELECT * FROM " + typeof(T).Name + " WHERE " + campos[0].Name + "=";
@@ -197,6 +206,7 @@ namespace SCI.DAL
                     j++;
                 }
                 r.Close();
+                db.CerrarConexion();
                 if (j > 0)
                 {
                     Error = "";
@@ -222,6 +232,7 @@ namespace SCI.DAL
             {
                 try
                 {
+                    //db = new DBMySQL();
                     string sql1 = "UPDATE " + typeof(T).Name + " SET ";
                     string sql2 = " WHERE ";
                     string sql = "";
