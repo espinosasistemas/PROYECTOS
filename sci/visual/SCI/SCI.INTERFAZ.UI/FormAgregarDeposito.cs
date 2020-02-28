@@ -19,12 +19,15 @@ namespace SCI.INTERFAZ.UI
         IDepositoManager managerDeposito;
         ILogManager managerLog;
         IOperadoresEnViajeManager managerOperadorEnViaje;
+        IGastoManager managerGastos;
 
         operador opSeleccionado;
         usuario user;
         string nombreOperador = string.Empty;
         int idViaje = 0;
         string resultado = string.Empty;
+        int filaSeleccionada = -1;
+
         public string Valor
         {
             get { return resultado; }
@@ -38,6 +41,8 @@ namespace SCI.INTERFAZ.UI
             managerDeposito = Tools.FabricManager.DepositoManager();
             managerLog = Tools.FabricManager.LogManager();
             managerOperadorEnViaje = Tools.FabricManager.OperadoresEnViajeManager();
+            managerGastos = Tools.FabricManager.GastoManager();
+
             user = u;
             nombreOperador = op;
             idViaje = idV;
@@ -113,6 +118,48 @@ namespace SCI.INTERFAZ.UI
                 MessageBox.Show("Revisa por favor que los campos tengan el tipo de dato correcto.", "Error al ingresar el nuevo Deposito.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void dgvDepositos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex;
+        }
+
+        private void btnEliminarDeposito_Click(object sender, EventArgs e)
+        {
+            if (filaSeleccionada >= 0)
+            {
+                DialogResult Resultado = MessageBox.Show("¿Esta seguro de eliminar el deposito Seleccionado?", "Eliminar Deposito.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (Resultado == DialogResult.Yes)
+                {
+                    if (existenGastosAsociados())
+                    {
+                        MessageBox.Show("No se puede eliminar el deposito porque tiene gastos asociados, es necesario primero eliminar los gastos.", "Eliminar Deposito.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        //Como no existen gastos asociados al operador en el viaje entonces podemos eliminar el Deposito y decrementar el saldo actual.
+                        int idDepositoAEliminar = int.Parse(dgvDepositos["idDeposito", filaSeleccionada].Value.ToString());
+                        double montoDelDeposito = double.Parse(dgvDepositos["monto", filaSeleccionada].Value.ToString());
+                        if (managerDeposito.Eliminar(idDepositoAEliminar.ToString()))
+                        {
+                            operadoresenviaje opEnViaje = managerOperadorEnViaje.BuscarPorIdViajeOpsyOperador(idViaje, opSeleccionado.IdOperador);
+                            opEnViaje.SaldoActual = opEnViaje.SaldoActual - montoDelDeposito;
+                            managerOperadorEnViaje.Actualizar(opEnViaje);
+                            cargarTodosLosDepositos();
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool existenGastosAsociados()
+        {
+            IEnumerable<gasto> todosLosGastos = managerGastos.BuscarPorIdViajeyOperador(idViaje, opSeleccionado.IdOperador);
+            if (todosLosGastos.Count(g=>g.IdOperador==opSeleccionado.IdOperador && g.IdViajeSci==idViaje) == 0)
+                return false;
+            return true;
         }
     }
 }

@@ -121,7 +121,11 @@ namespace SCI.INTERFAZ.UI
             {
 
                 entidadAeditar = managerViajes.BuscarPorId(idAEditar.ToString()); //Se carga los datos del Viaje a editar
-                
+                if (entidadAeditar == null)
+                {
+                    Application.Exit();
+                }
+
                 //Se cargan las entidades ligadas con el viaje SCi
                 entidadStatus = managerStatus.BuscarPorId(entidadAeditar.IdStatus.ToString());
                 entidadRuta = managerRuta.BuscarPorId(entidadAeditar.IdRuta.ToString());
@@ -181,18 +185,6 @@ namespace SCI.INTERFAZ.UI
                 btnArriba.Visible = true;
                 btnAbajo.Visible = true;
 
-
-                /*if (comboStatus.Text.Contains("Iniciado"))
-                {
-                    groupGastos.Enabled = false;
-                    groupCortesOPerador.Enabled = false;
-                }
-                else
-                {
-                    groupGastos.Enabled = true;
-                    groupCortesOPerador.Enabled = true;
-                }*/
-
             }
             else
             {
@@ -217,9 +209,11 @@ namespace SCI.INTERFAZ.UI
         private void cargarListaOperadores()
         {
             IEnumerable<operador> operadores = managerOperador.ObtenerTodos;
-            //listTotalOperadores.DataSource = operadores.Select(r => (r.IdOperador + "/" + r.Nombre)).ToList();
-            comboOperadores.DataSource = operadores.OrderByDescending(s=>s.Nombre).Select(r => (r.Nombre + " " + r.Apellidos)).ToList();
-            comboOperadores.Text = string.Empty;
+            if (operadores != null)
+            {
+                comboOperadores.DataSource = operadores.OrderByDescending(s => s.Nombre).Select(r => (r.Nombre + " " + r.Apellidos)).ToList();
+                comboOperadores.Text = string.Empty;
+            }
         }
         private void cargarListaOperadoresAsignadosAlViaje()
         {
@@ -312,8 +306,11 @@ namespace SCI.INTERFAZ.UI
         private void cargarComboStatus()
         {
             IEnumerable<statusviaje> StatusViaje = managerStatus.ObtenerTodos;
-            comboStatus.DataSource = StatusViaje.Select(r => (r.IdStatus + "/" + r.Nombre)).ToList();
-            comboStatus.Text = string.Empty;
+            if (StatusViaje != null)
+            {
+                comboStatus.DataSource = StatusViaje.Select(r => (r.IdStatus + "/" + r.Nombre)).ToList();
+                comboStatus.Text = string.Empty;
+            }
         }
         private void cargarComboTipoDeGastos()
         {
@@ -324,8 +321,11 @@ namespace SCI.INTERFAZ.UI
         private void cargarComboClientes()
         {
             IEnumerable<cliente> cliente = managerCliete.ObtenerTodos;
-            comboClientes.DataSource = cliente.Select(r => (r.IdCliente + "/" + r.RazonSocial)).ToList();
-            comboClientes.Text = string.Empty;
+            if (cliente != null)
+            {
+                comboClientes.DataSource = cliente.Select(r => (r.IdCliente + "/" + r.RazonSocial)).ToList();
+                comboClientes.Text = string.Empty;
+            }
         }
         private void btnAgregarViaje_Click(object sender, EventArgs e)
         {
@@ -712,7 +712,7 @@ namespace SCI.INTERFAZ.UI
             comboCasetas.Visible = false;
             comboGasolinerias.Visible = false;
             textConceptoGasto.Visible = true;
-            textFechaDelGasto.Text = string.Empty;
+            
 
             textMontoGasto.Clear();
             textRutaPdf.Clear();
@@ -722,6 +722,11 @@ namespace SCI.INTERFAZ.UI
             textTicket.Text = string.Empty;
             textNumFactura.Text = string.Empty;
             comboFormaPago.Text = string.Empty;
+
+            calendarGastos.SelectionStart = DateTime.Now;
+            calendarGastos.SelectionEnd = DateTime.Now;
+
+            textFechaDelGasto.Text = string.Empty;
         }
         private void subirFicherosPdfyXml()
         {
@@ -990,6 +995,10 @@ namespace SCI.INTERFAZ.UI
             textTotalHoras.Clear();
             textCostoTotal.Clear();
             textCostoHoraOperador.Clear();
+            calendarInicioCortes.SelectionStart = DateTime.Now;
+            calendarInicioCortes.SelectionEnd = DateTime.Now;
+            calendarFinCorte.SelectionStart = DateTime.Now;
+            calendarFinCorte.SelectionEnd = DateTime.Now;
         }
         private void textFechaHoraFinalOperador_Leave(object sender, EventArgs e)
         {
@@ -998,7 +1007,8 @@ namespace SCI.INTERFAZ.UI
         private void cargarTodasLasUnidades()
         {
             IEnumerable<unidades> TodasLasUnidades = managerUnidades.ObtenerTodos;
-            comboUnidades.DataSource = TodasLasUnidades.Select(r => (r.NumeroEconomico + "/" + r.Nombre)).ToList();
+            if(TodasLasUnidades != null)
+                comboUnidades.DataSource = TodasLasUnidades.Select(r => (r.NumeroEconomico + "/" + r.Nombre)).ToList();
         }
         private void cargarComboRutas(int idCliente)
         {
@@ -1433,8 +1443,9 @@ namespace SCI.INTERFAZ.UI
                     operador opSeleccionado = managerOperador.BuscarPorNombreExacto(comboOperadores.Text);
                     if (opSeleccionado != null)
                     {
-                        operadoresenviaje opEnViaje = new operadoresenviaje { IdOperador = opSeleccionado.IdOperador, IdViajeSci = entidadAeditar.IdViajeSci, SaldoActual = 0 };
-
+                        int PosicionSiguiente = obtenerPosicionSiguienteOpEnViaje(entidadAeditar.IdViajeSci);
+                        operadoresenviaje opEnViaje = new operadoresenviaje { IdOperador = opSeleccionado.IdOperador, IdViajeSci = entidadAeditar.IdViajeSci, SaldoActual = 0,Posicion = PosicionSiguiente};
+                        
                         //Validamos si ya esta el Operadore asgnado al viaje
                         operadoresenviaje opYaAgregado = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, opSeleccionado.IdOperador);
                         if (opYaAgregado == null)
@@ -1463,6 +1474,17 @@ namespace SCI.INTERFAZ.UI
                     listOperadoresAsignados.Items.Add(comboOperadores.Text);
 
             }
+        }
+        private int obtenerPosicionSiguienteOpEnViaje(int idViajeSci)
+        {
+            IEnumerable<operadoresenviaje> oprsEnViaje = managerOperadoresEnViaje.BuscarPorIdViajeOps(idViajeSci);
+            try
+            {
+                if (oprsEnViaje == null) return 0; //significa que no hay operadore asignados al viaje, la primera posición es cero.
+                else
+                    return oprsEnViaje.Max(o => o.Posicion) + 1;
+            }
+            catch { return 0; };
         }
         private void comboOperadores_Click(object sender, EventArgs e)
         {
@@ -1543,15 +1565,11 @@ namespace SCI.INTERFAZ.UI
         }
         private void btnAgregarDeposito_Click(object sender, EventArgs e)
         {
-            //listBoxStatus.Visible = false;
-            FormAgregarDeposito fm = new FormAgregarDeposito(user, listOperadoresAsignados.Items[listOperadoresAsignados.SelectedIndex].ToString(), entidadAeditar.IdViajeSci);
-            DialogResult DialogForm = fm.ShowDialog();
-            //if (fm.Valor != string.Empty)
-            //{
-            //CargarTodosLosViajes(comboStatus.Text);
-            // CargarTodosLosViajes(btnStatus.Text);
-            //mostrarLabelStatus(fm.Valor, true);
-            //}
+            if (listOperadoresAsignados.SelectedIndex >= 0)
+            {
+                FormAgregarDeposito fm = new FormAgregarDeposito(user, listOperadoresAsignados.Items[listOperadoresAsignados.SelectedIndex].ToString(), entidadAeditar.IdViajeSci);
+                DialogResult DialogForm = fm.ShowDialog();
+            }
         }
         private void btnNuevoGasto_Click(object sender, EventArgs e)
         {
@@ -1772,11 +1790,54 @@ namespace SCI.INTERFAZ.UI
         }
         private void textFechaFinal_Click(object sender, EventArgs e)
         {
-            if (textFechaFinal.Text == string.Empty)
+            if (panelFechaFinal.Visible == true)
+                panelFechaInicial.Visible = false;
+            else
+            {
+                if (textFechaFinal.Text == string.Empty)
+                {
+                    int year = calendarFinalSci.SelectionRange.Start.Year;
+                    int month = calendarFinalSci.SelectionRange.Start.Month;
+                    int day = calendarFinalSci.SelectionRange.Start.Day;
+                    if (day < 10)
+                        fechaFinalGeneral = "0" + day.ToString();
+                    else
+                        fechaFinalGeneral = day.ToString();
+
+                    fechaFinalGeneral += "/";
+
+                    if (month < 10)
+                        fechaFinalGeneral += "0" + month.ToString();
+                    else
+                        fechaFinalGeneral += month.ToString();
+
+                    fechaFinalGeneral += "/";
+                    fechaFinalGeneral += year.ToString();
+
+                    trackHorasFinal.Value = DateTime.Now.Hour;
+                    trackMinutosFinal.Value = DateTime.Now.Minute;
+                    horaFinalGeneral = trackHorasFinal.Value;
+                    minutoFinalGeneral = trackMinutosFinal.Value;
+                }
+                else
+                {
+                    calendarFinalSci.SelectionStart = DateTime.Parse(textFechaFinal.Text);
+                    calendarFinalSci.SelectionEnd = DateTime.Parse(textFechaFinal.Text);
+                    trackHorasFinal.Value = calendarFinalSci.SelectionStart.Hour;
+                    trackMinutosFinal.Value = calendarFinalSci.SelectionStart.Minute;
+
+                    horaFinalGeneral = trackHorasFinal.Value;
+                    minutoFinalGeneral = trackMinutosFinal.Value;
+                }
+                panelFechaFinal.Location = new Point(textFechaFinal.Location.X + 4, textFechaFinal.Location.Y + 30);
+                panelFechaFinal.Visible = true;
+            }
+
+            /*if (textFechaFinal.Text == string.Empty)
                 btnFechaHoyFinal_Click(sender, e);
             panelFechaFinal.Location = new Point(textFechaFinal.Location.X + 4, textFechaFinal.Location.Y + 30);
             panelFechaFinal.Visible = true;
-            panelFechaInicial.Visible = false;
+            panelFechaInicial.Visible = false;*/
         }
         private void btnFechaHoyFinal_Click(object sender, EventArgs e)
         {
@@ -1849,7 +1910,14 @@ namespace SCI.INTERFAZ.UI
             minutoFinalGeneral = trackMinutosFinal.Value;
             completarFechaHoraMinutosFinal();
         }
-
+        private void btnCancelarFechaFinal_Click(object sender, EventArgs e)
+        {
+            if (entidadAeditar.IdViajeSci > 0)
+            {
+                textFechaFinal.Text = formatoFecha(entidadAeditar.FechaFin);
+            }
+            panelFechaFinal.Visible = false;
+        }
         #endregion
 
         #region Calendario de Gastos
@@ -2011,51 +2079,6 @@ namespace SCI.INTERFAZ.UI
         #endregion
 
         #region Calendario Inicial de Cortes
-        private void textFechaHoraInicialOperador_Click(object sender, EventArgs e)
-        {
-            if (textFechaHoraInicialCorte.Text == string.Empty)
-                btnHoyInicioCorte_Click(sender, e);
-            panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X+7, textFechaHoraInicialCorte.Location.Y - 332);
-            panelFechaInicioCorte.Visible = true;
-            panelFechaFinalCorte.Visible = false;
-        }
-        private void btnHoyInicioCorte_Click(object sender, EventArgs e)
-        {
-            DateTime hoy = DateTime.Now;
-            if (hoy.Day < 10)
-                textFechaHoraInicialCorte.Text = "0" + hoy.Day + "/";
-            else
-                textFechaHoraInicialCorte.Text = hoy.Day + "/";
-            if (hoy.Month < 10)
-                textFechaHoraInicialCorte.Text += "0" + hoy.Month + "/";
-            else
-                textFechaHoraInicialCorte.Text += hoy.Month + "/";
-
-
-            textFechaHoraInicialCorte.Text += hoy.Year;
-            fechaInicialCorte = textFechaHoraInicialCorte.Text;
-
-            if (hoy.Hour < 10)
-                textFechaHoraInicialCorte.Text += " 0" + hoy.Hour + ":";
-            else
-                textFechaHoraInicialCorte.Text += " " + hoy.Hour + ":";
-
-            if (hoy.Minute < 10)
-                textFechaHoraInicialCorte.Text += "0" + hoy.Minute + ":00";
-            else
-                textFechaHoraInicialCorte.Text += hoy.Minute + ":00";
-
-
-            horaInicialCorte = hoy.Hour;
-            minutoInicialCorte = hoy.Minute;
-
-            trackHorasInicioCorte.Value = horaInicialCorte;
-            trackMinutosInicioCorte.Value = minutoInicialCorte;
-        }
-        private void btnFechaInicioAceptar_Click(object sender, EventArgs e)
-        {
-            panelFechaInicioCorte.Visible = false;
-        }
         private void trackHorasInicioCorte_Scroll(object sender, EventArgs e)
         {
             horaInicialCorte = trackHorasInicioCorte.Value;
@@ -2094,7 +2117,7 @@ namespace SCI.INTERFAZ.UI
                 }
             }
         }
-        private void calendarInicioCortes_DateChanged(object sender, DateRangeEventArgs e)
+        private void calendarInicioCortes_DateSelected(object sender, DateRangeEventArgs e)
         {
             int year = calendarInicioCortes.SelectionRange.Start.Year;
             int month = calendarInicioCortes.SelectionRange.Start.Month;
@@ -2118,9 +2141,227 @@ namespace SCI.INTERFAZ.UI
             textFechaHoraInicialCorte.Text = fechaInicialCorte;
             completarFechaHoraMinutosCorte();
         }
+        private void textFechaHoraInicialOperador_Click(object sender, EventArgs e)
+        {
+            if (panelFechaInicioCorte.Visible == true)
+                panelFechaInicioCorte.Visible = false;
+            else
+            {
+                if (textFechaHoraInicialCorte.Text == string.Empty)
+                {
+                    int year = calendarInicioCortes.SelectionRange.Start.Year;
+                    int month = calendarInicioCortes.SelectionRange.Start.Month;
+                    int day = calendarInicioCortes.SelectionRange.Start.Day;
+                    if (day < 10)
+                        fechaInicialCorte = "0" + day.ToString();
+                    else
+                        fechaInicialCorte = day.ToString();
+
+                    fechaInicialCorte += "/";
+
+                    if (month < 10)
+                        fechaInicialCorte += "0" + month.ToString();
+                    else
+                        fechaInicialCorte += month.ToString();
+
+                    fechaInicialCorte += "/";
+                    fechaInicialCorte += year.ToString();
+
+                    trackHorasInicioCorte.Value = DateTime.Now.Hour;
+                    trackMinutosInicioCorte.Value = DateTime.Now.Minute;
+                    horaInicialCorte = trackHorasInicioCorte.Value;
+                    minutoInicialCorte = trackMinutosInicioCorte.Value;
+                }
+                else
+                {
+                    calendarInicioCortes.SelectionStart = DateTime.Parse(textFechaHoraInicialCorte.Text);
+                    calendarInicioCortes.SelectionEnd = DateTime.Parse(textFechaHoraInicialCorte.Text);
+                    trackHorasInicioCorte.Value = calendarInicioCortes.SelectionStart.Hour;
+                    trackMinutosInicioCorte.Value = calendarInicioCortes.SelectionStart.Minute;
+
+                    horaInicialCorte = trackHorasInicioCorte.Value;
+                    minutoInicialCorte = trackMinutosInicioCorte.Value;
+                }
+                panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X + 7, textFechaHoraInicialCorte.Location.Y -332);
+                panelFechaInicioCorte.Visible = true;
+            }
+
+            /*
+            if (textFechaHoraInicialCorte.Text == string.Empty)
+                btnHoyInicioCorte_Click(sender, e);
+            panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X+7, textFechaHoraInicialCorte.Location.Y - 332);
+            panelFechaInicioCorte.Visible = true;
+            panelFechaFinalCorte.Visible = false;*/
+        }
+        private void btnFechaInicioAceptar_Click(object sender, EventArgs e)
+        {
+            panelFechaInicioCorte.Visible = false;
+        }
+        private void btnHoyInicioCorte_Click(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            if (hoy.Day < 10)
+                textFechaHoraInicialCorte.Text = "0" + hoy.Day + "/";
+            else
+                textFechaHoraInicialCorte.Text = hoy.Day + "/";
+            if (hoy.Month < 10)
+                textFechaHoraInicialCorte.Text += "0" + hoy.Month + "/";
+            else
+                textFechaHoraInicialCorte.Text += hoy.Month + "/";
+
+
+            textFechaHoraInicialCorte.Text += hoy.Year;
+            fechaInicialCorte = textFechaHoraInicialCorte.Text;
+
+            if (hoy.Hour < 10)
+                textFechaHoraInicialCorte.Text += " 0" + hoy.Hour + ":";
+            else
+                textFechaHoraInicialCorte.Text += " " + hoy.Hour + ":";
+
+            if (hoy.Minute < 10)
+                textFechaHoraInicialCorte.Text += "0" + hoy.Minute + ":00";
+            else
+                textFechaHoraInicialCorte.Text += hoy.Minute + ":00";
+
+
+            horaInicialCorte = hoy.Hour;
+            minutoInicialCorte = hoy.Minute;
+
+            trackHorasInicioCorte.Value = horaInicialCorte;
+            trackMinutosInicioCorte.Value = minutoInicialCorte;
+        }
+        private void btnFechaInicioCancelar_Click(object sender, EventArgs e)
+        {
+            if (idCorteAeditar > 0)
+            {
+                cortesoperador corteSeleccionado = managerCortes.BuscarPorId(idCorteAeditar.ToString());
+                textFechaHoraInicialCorte.Text = formatoFecha(corteSeleccionado.FechaInicio);
+            }
+            else
+                textFechaHoraInicialCorte.Text = string.Empty;
+            panelFechaInicioCorte.Visible = false;
+        }
         #endregion
 
         #region Calendario Final de Corte
+        private void trackHoraFinCorte_Scroll(object sender, EventArgs e)
+        {
+            horaFinalCorte = trackHoraFinCorte.Value;
+            completarFechaHoraMinutosCorteFinal();
+        }
+        private void trackMinutoFinCorte_Scroll(object sender, EventArgs e)
+        {
+            minutoFinalCorte = trackMinutoFinCorte.Value;
+            completarFechaHoraMinutosCorteFinal();
+        }
+        private void completarFechaHoraMinutosCorteFinal()
+        {
+            textFechaHoraFinalCorte.Text = string.Empty;
+            if (horaFinalCorte < 10)
+            {
+                textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString();
+                if (minutoFinalCorte < 10)
+                {
+                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString() + ":0" + minutoFinalCorte.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString() + ":" + minutoFinalCorte.ToString() + ":00";
+                }
+            }
+            else
+            {
+                textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString();
+                if (minutoFinalCorte < 10)
+                {
+                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString() + ":0" + minutoFinalCorte.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString() + ":" + minutoFinalCorte.ToString() + ":00";
+                }
+            }
+        }
+        private void calendarFinCorte_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            int year = calendarFinCorte.SelectionRange.Start.Year;
+            int month = calendarFinCorte.SelectionRange.Start.Month;
+            int day = calendarFinCorte.SelectionRange.Start.Day;
+
+            if (day < 10)
+                fechaFinalCorte = "0" + day.ToString();
+            else
+                fechaFinalCorte = day.ToString();
+
+            fechaFinalCorte += "/";
+
+            if (month < 10)
+                fechaFinalCorte += "0" + month.ToString();
+            else
+                fechaFinalCorte += month.ToString();
+
+            fechaFinalCorte += "/";
+            fechaFinalCorte += year.ToString();
+
+            textFechaHoraFinalCorte.Text = fechaFinalCorte;
+            completarFechaHoraMinutosCorteFinal();
+        }
+        private void textFechaHoraFinalCorte_Click(object sender, EventArgs e)
+        {
+            if (panelFechaFinalCorte.Visible == true)
+                panelFechaFinalCorte.Visible = false;
+            else
+            {
+                if (textFechaHoraFinalCorte.Text == string.Empty)
+                {
+                    int year = calendarFinCorte.SelectionRange.Start.Year;
+                    int month = calendarFinCorte.SelectionRange.Start.Month;
+                    int day = calendarFinCorte.SelectionRange.Start.Day;
+                    if (day < 10)
+                        fechaFinalCorte = "0" + day.ToString();
+                    else
+                        fechaFinalCorte = day.ToString();
+
+                    fechaFinalCorte += "/";
+
+                    if (month < 10)
+                        fechaFinalCorte += "0" + month.ToString();
+                    else
+                        fechaFinalCorte += month.ToString();
+
+                    fechaFinalCorte += "/";
+                    fechaFinalCorte += year.ToString();
+
+                    trackHoraFinCorte.Value = DateTime.Now.Hour;
+                    trackMinutoFinCorte.Value = DateTime.Now.Minute;
+                    horaFinalCorte = trackHoraFinCorte.Value;
+                    minutoFinalCorte = trackMinutoFinCorte.Value;
+                }
+                else
+                {
+                    calendarFinCorte.SelectionStart = DateTime.Parse(textFechaHoraFinalCorte.Text);
+                    calendarFinCorte.SelectionEnd = DateTime.Parse(textFechaHoraFinalCorte.Text);
+                    trackHoraFinCorte.Value = calendarFinCorte.SelectionStart.Hour;
+                    trackMinutoFinCorte.Value = calendarFinCorte.SelectionStart.Minute;
+
+                    horaFinalCorte = trackHoraFinCorte.Value;
+                    minutoFinalCorte = trackMinutoFinCorte.Value;
+                }
+                panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X + 7, textFechaHoraFinalCorte.Location.Y - 332);
+                panelFechaFinalCorte.Visible = true;
+            }
+            /*
+            if (textFechaHoraFinalCorte.Text == string.Empty)
+                btnHoyFinCorte_Click(sender, e);
+            panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X + 7, textFechaHoraFinalCorte.Location.Y - 332);
+            panelFechaInicioCorte.Visible = false;
+            panelFechaFinalCorte.Visible = true;
+            */
+        }
+        private void btnAceptarFinCorte_Click(object sender, EventArgs e)
+        {
+            panelFechaFinalCorte.Visible = false;
+        }
         private void btnHoyFinCorte_Click(object sender, EventArgs e)
         {
             DateTime hoy = DateTime.Now;
@@ -2154,79 +2395,16 @@ namespace SCI.INTERFAZ.UI
             trackHoraFinCorte.Value = horaFinalCorte;
             trackMinutoFinCorte.Value = minutoFinalCorte;
         }
-        private void completarFechaHoraMinutosCorteFinal()
+        private void btnFechaFinalCancelar_Click(object sender, EventArgs e)
         {
-            textFechaHoraFinalCorte.Text = string.Empty;
-            if (horaFinalCorte < 10)
+            if (idCorteAeditar > 0)
             {
-                textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString();
-                if (minutoFinalCorte < 10)
-                {
-                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString() + ":0" + minutoFinalCorte.ToString() + ":00";
-                }
-                else
-                {
-                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " 0" + horaFinalCorte.ToString() + ":" + minutoFinalCorte.ToString() + ":00";
-                }
+                cortesoperador corteSeleccionado = managerCortes.BuscarPorId(idCorteAeditar.ToString());
+                textFechaHoraFinalCorte.Text = formatoFecha(corteSeleccionado.FechaFin);
             }
             else
-            {
-                textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString();
-                if (minutoFinalCorte < 10)
-                {
-                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString() + ":0" + minutoFinalCorte.ToString() + ":00";
-                }
-                else
-                {
-                    textFechaHoraFinalCorte.Text = fechaFinalCorte + " " + horaFinalCorte.ToString() + ":" + minutoFinalCorte.ToString() + ":00";
-                }
-            }
-        }
-        private void btnAceptarFinCorte_Click(object sender, EventArgs e)
-        {
+                textFechaHoraFinalCorte.Text = string.Empty;
             panelFechaFinalCorte.Visible = false;
-        }
-        private void calendarFinCorte_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            int year = calendarFinCorte.SelectionRange.Start.Year;
-            int month = calendarFinCorte.SelectionRange.Start.Month;
-            int day = calendarFinCorte.SelectionRange.Start.Day;
-
-            if (day < 10)
-                fechaFinalCorte = "0" + day.ToString();
-            else
-                fechaFinalCorte = day.ToString();
-
-            fechaFinalCorte += "/";
-
-            if (month < 10)
-                fechaFinalCorte += "0" + month.ToString();
-            else
-                fechaFinalCorte += month.ToString();
-
-            fechaFinalCorte += "/";
-            fechaFinalCorte += year.ToString();
-
-            textFechaHoraFinalCorte.Text = fechaFinalCorte;
-            completarFechaHoraMinutosCorteFinal();
-        }
-        private void textFechaHoraFinalCorte_Click(object sender, EventArgs e)
-        {
-            if (textFechaHoraFinalCorte.Text == string.Empty)
-                btnHoyFinCorte_Click(sender, e);
-            panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X+7, textFechaHoraFinalCorte.Location.Y - 332);
-            panelFechaInicioCorte.Visible = false;
-            panelFechaFinalCorte.Visible = true;
-        }
-        private void trackHoraFinCorte_Scroll(object sender, EventArgs e)
-        {
-            horaFinalCorte = trackHoraFinCorte.Value;
-            completarFechaHoraMinutosCorteFinal();
-        }
-        private void trackMinutoFinCorte_Scroll(object sender, EventArgs e)
-        {
-            minutoFinalCorte = trackMinutoFinCorte.Value;
-            completarFechaHoraMinutosCorteFinal();
         }
         #endregion
 
@@ -2279,7 +2457,6 @@ namespace SCI.INTERFAZ.UI
                 listOperadoresAsignados.SelectedIndex = selectIndex + 1;
             }
         }
-
         #endregion
 
         

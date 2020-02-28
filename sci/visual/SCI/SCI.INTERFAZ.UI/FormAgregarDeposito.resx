@@ -118,6 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnEliminarDeposito.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAH5JREFUSEtjGAWjgH7gPyZQgEqRD4CGBPz7928+FO9Hw4uBeD5IDVQ56QCo2QGI
+        GwhgB6hy8gDQAAmgS2VAbBAN5IODBsqWALEpAkCDQMFxH8q+DzT0P4wNkgOxKQKjFhAEw8aC10BzE6A0
+        CIDZVLMAaigGoIoFo2AUEAAMDABlBTL1/iJEvAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnAgregarDeposito.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

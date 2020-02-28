@@ -11,8 +11,8 @@ namespace SCI.DAL
         private MySqlConnection conexion;
         public DBMySQL()
         {
-            //string server = "localhost";
-            string server = "172.29.50.1";
+            string server = "localhost";
+            //string server = "172.29.50.1";
             string database = "db_sci";
             string uid = "usuario_sci";
             string password = "Falomay@-1";

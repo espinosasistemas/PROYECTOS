@@ -14,6 +14,11 @@ namespace SCI.BIZ
 
         }
 
+        public operadoresenviaje BuscarOperadorPoscionMenor(int idViaje, int Posicion)
+        {
+            return repository.Read.Where(o => o.IdViajeSci == idViaje && o.Posicion == Posicion).SingleOrDefault();
+        }
+
         public IEnumerable<operadoresenviaje> BuscarPorIdViajeOps(int idViajeOps)
         {
             return repository.Query(g => g.IdViajeSci == idViajeOps);

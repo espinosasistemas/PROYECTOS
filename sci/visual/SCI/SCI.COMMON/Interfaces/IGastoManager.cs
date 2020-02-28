@@ -9,6 +9,12 @@ namespace SCI.COMMON.Interfaces
     {
         IEnumerable<gasto>BuscarPorIdViajeOps(int idViajeOps);
 
+        /// <summary>
+        /// Busca Todos los gastos de un Operador en un Viaje
+        /// </summary>
+        /// <param name="idViajeOps">Clave del Viaje</param>
+        /// <param name="idOperador">Clave del Operador</param>
+        /// <returns>Regresa null si no hay o una coleccion de gastos en caso de que existan.</returns>
         IEnumerable<gasto> BuscarPorIdViajeyOperador(int idViajeOps, int idOperador);
 
         IEnumerable<gasto> BuscarGastosPorRangoFechas(DateTime fechaInicio, DateTime fechaFinal);

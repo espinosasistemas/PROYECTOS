@@ -143,6 +143,7 @@
             this.tabPageGastos = new System.Windows.Forms.TabPage();
             this.tabPageCortes = new System.Windows.Forms.TabPage();
             this.panelFechaFinalCorte = new System.Windows.Forms.Panel();
+            this.btnFechaFinalCancelar = new System.Windows.Forms.Button();
             this.btnHoyFinCorte = new System.Windows.Forms.Button();
             this.btnAceptarFinCorte = new System.Windows.Forms.Button();
             this.calendarFinCorte = new System.Windows.Forms.MonthCalendar();
@@ -178,7 +179,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnFechaFinalCancelar = new System.Windows.Forms.Button();
             this.groupGastos.SuspendLayout();
             this.panelFechaGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackHoraGastos)).BeginInit();
@@ -297,7 +297,7 @@
             this.groupGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupGastos.Name = "groupGastos";
             this.groupGastos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupGastos.Size = new System.Drawing.Size(1668, 467);
+            this.groupGastos.Size = new System.Drawing.Size(861, 467);
             this.groupGastos.TabIndex = 24;
             this.groupGastos.TabStop = false;
             this.groupGastos.Text = "Gastos";
@@ -790,7 +790,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1689, 753);
+            this.tabControl1.Size = new System.Drawing.Size(882, 753);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
@@ -807,7 +807,7 @@
             this.tabPageGenerales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageGenerales.Name = "tabPageGenerales";
             this.tabPageGenerales.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageGenerales.Size = new System.Drawing.Size(1681, 724);
+            this.tabPageGenerales.Size = new System.Drawing.Size(874, 724);
             this.tabPageGenerales.TabIndex = 0;
             this.tabPageGenerales.Text = "Datos Generales";
             // 
@@ -843,6 +843,7 @@
             this.btnCancelarFechaFinal.Text = "Cancelar";
             this.btnCancelarFechaFinal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelarFechaFinal.UseVisualStyleBackColor = false;
+            this.btnCancelarFechaFinal.Click += new System.EventHandler(this.btnCancelarFechaFinal_Click);
             // 
             // btnFechaHoyFinal
             // 
@@ -1575,7 +1576,7 @@
             this.tabPageGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageGastos.Name = "tabPageGastos";
             this.tabPageGastos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageGastos.Size = new System.Drawing.Size(1681, 724);
+            this.tabPageGastos.Size = new System.Drawing.Size(874, 724);
             this.tabPageGastos.TabIndex = 1;
             this.tabPageGastos.Text = "Gastos del Viaje";
             this.tabPageGastos.UseVisualStyleBackColor = true;
@@ -1588,7 +1589,7 @@
             this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
             this.tabPageCortes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageCortes.Name = "tabPageCortes";
-            this.tabPageCortes.Size = new System.Drawing.Size(1681, 724);
+            this.tabPageCortes.Size = new System.Drawing.Size(874, 724);
             this.tabPageCortes.TabIndex = 2;
             this.tabPageCortes.Text = "Cortes de Operadores";
             this.tabPageCortes.UseVisualStyleBackColor = true;
@@ -1608,6 +1609,24 @@
             this.panelFechaFinalCorte.Size = new System.Drawing.Size(287, 340);
             this.panelFechaFinalCorte.TabIndex = 25;
             this.panelFechaFinalCorte.Visible = false;
+            // 
+            // btnFechaFinalCancelar
+            // 
+            this.btnFechaFinalCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnFechaFinalCancelar.FlatAppearance.BorderSize = 0;
+            this.btnFechaFinalCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnFechaFinalCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechaFinalCancelar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnFechaFinalCancelar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFechaFinalCancelar.Location = new System.Drawing.Point(113, 289);
+            this.btnFechaFinalCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFechaFinalCancelar.Name = "btnFechaFinalCancelar";
+            this.btnFechaFinalCancelar.Size = new System.Drawing.Size(67, 24);
+            this.btnFechaFinalCancelar.TabIndex = 28;
+            this.btnFechaFinalCancelar.Text = "Cancelar";
+            this.btnFechaFinalCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFechaFinalCancelar.UseVisualStyleBackColor = false;
+            this.btnFechaFinalCancelar.Click += new System.EventHandler(this.btnFechaFinalCancelar_Click);
             // 
             // btnHoyFinCorte
             // 
@@ -1652,7 +1671,7 @@
             this.calendarFinCorte.MaxSelectionCount = 30;
             this.calendarFinCorte.Name = "calendarFinCorte";
             this.calendarFinCorte.TabIndex = 11;
-            this.calendarFinCorte.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarFinCorte_DateChanged);
+            this.calendarFinCorte.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarFinCorte_DateSelected);
             // 
             // trackHoraFinCorte
             // 
@@ -1708,6 +1727,7 @@
             this.btnFechaInicioCancelar.Text = "Cancelar";
             this.btnFechaInicioCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFechaInicioCancelar.UseVisualStyleBackColor = false;
+            this.btnFechaInicioCancelar.Click += new System.EventHandler(this.btnFechaInicioCancelar_Click);
             // 
             // btnHoyInicioCorte
             // 
@@ -1752,7 +1772,7 @@
             this.calendarInicioCortes.MaxSelectionCount = 30;
             this.calendarInicioCortes.Name = "calendarInicioCortes";
             this.calendarInicioCortes.TabIndex = 11;
-            this.calendarInicioCortes.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarInicioCortes_DateChanged);
+            this.calendarInicioCortes.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarInicioCortes_DateSelected);
             // 
             // trackHorasInicioCorte
             // 
@@ -2058,7 +2078,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1700, 32);
+            this.panel1.Size = new System.Drawing.Size(893, 32);
             this.panel1.TabIndex = 10;
             // 
             // label12
@@ -2078,7 +2098,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(1668, 4);
+            this.btnClose.Location = new System.Drawing.Point(861, 4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 26);
@@ -2087,29 +2107,12 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnFechaFinalCancelar
-            // 
-            this.btnFechaFinalCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.btnFechaFinalCancelar.FlatAppearance.BorderSize = 0;
-            this.btnFechaFinalCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnFechaFinalCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechaFinalCancelar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFechaFinalCancelar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnFechaFinalCancelar.Location = new System.Drawing.Point(113, 289);
-            this.btnFechaFinalCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFechaFinalCancelar.Name = "btnFechaFinalCancelar";
-            this.btnFechaFinalCancelar.Size = new System.Drawing.Size(67, 24);
-            this.btnFechaFinalCancelar.TabIndex = 28;
-            this.btnFechaFinalCancelar.Text = "Cancelar";
-            this.btnFechaFinalCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFechaFinalCancelar.UseVisualStyleBackColor = false;
-            // 
             // FormAgregarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1700, 790);
+            this.ClientSize = new System.Drawing.Size(893, 790);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

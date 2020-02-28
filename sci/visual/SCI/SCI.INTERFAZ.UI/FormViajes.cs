@@ -22,6 +22,8 @@ namespace SCI.INTERFAZ.UI
         IGastoManager managerGasto;
         ICortesOperadorManager managerCortes;
         ILogManager managerLog;
+        IOperadoresEnViajeManager managerOperadorEnViaje;
+        IOperadorManager managerOperador;
 
         bool primeraCarga = true;
         int filaSeleccionada = -1;
@@ -39,6 +41,8 @@ namespace SCI.INTERFAZ.UI
             managerGasto = Tools.FabricManager.GastoManager();
             managerCortes = Tools.FabricManager.CortesOperadorManager();
             managerLog = Tools.FabricManager.LogManager();
+            managerOperadorEnViaje = Tools.FabricManager.OperadoresEnViajeManager();
+            managerOperador = Tools.FabricManager.OperadorManager();
             user = u;
         }
 
@@ -59,6 +63,7 @@ namespace SCI.INTERFAZ.UI
         public void CargarTodosLosViajes(string status)
         {
             IEnumerable<viaje> TodosViajes;
+            int idViajeSci = 0;
             dgvViajes.Columns.Clear();
 
             if (status == string.Empty)
@@ -71,27 +76,35 @@ namespace SCI.INTERFAZ.UI
 
             dgvViajes.DataSource = TodosViajes.OrderByDescending(s=>s.IdViajeSci).ToArray();
 
+            dgvViajes.Columns["idStatus"].Visible = false;
+            dgvViajes.Columns["idRuta"].Visible = false;
+            dgvViajes.Columns["idViajeCliente"].Visible = false;
+            dgvViajes.Columns["idUnidad"].Visible = false;
+            dgvViajes.Columns["FechaFin"].Visible = false;
+
+            dgvViajes.Columns.Add("Gastos", "Gastos");
+            dgvViajes.Columns.Add("Cortes", "Cortes");
+            dgvViajes.Columns.Add("Economico", "Economico");
+            dgvViajes.Columns.Add("Status", "Status");
+            dgvViajes.Columns.Add("Ruta", "Ruta");
+            dgvViajes.Columns.Add("Cliente", "Cliente");
+            dgvViajes.Columns.Add("Operador", "Operador");
+
             if (dgvViajes.Rows.Count > 0)
             {
                 
 
-                dgvViajes.Columns["idStatus"].Visible = false;
-                dgvViajes.Columns["idRuta"].Visible = false;
-                //dgvViajes.Columns["idCliente"].Visible = false;
-                dgvViajes.Columns["idUnidad"].Visible = false;
-
-                
-                dgvViajes.Columns.Add("Gastos", "Gastos");
-                dgvViajes.Columns.Add("Cortes", "Cortes");
-
-                dgvViajes.Columns.Add("Economico", "Economico");
-                dgvViajes.Columns.Add("Status", "Status");
-                dgvViajes.Columns.Add("Ruta", "Ruta");
-                dgvViajes.Columns.Add("Cliente", "Cliente");
-                
                 IEnumerable<gasto> todoLosGastos;
                 IEnumerable<cortesoperador> todosLosCortes;
-                IEnumerable<cliente> todosLosClientes  = managerCliente.ObtenerTodos; ;
+                IEnumerable<cliente> todosLosClientes  = managerCliente.ObtenerTodos;
+                IEnumerable<operadoresenviaje> operadoresEnViaje = managerOperadorEnViaje.ObtenerTodos;
+                IEnumerable<operador> todosLosOperadores = managerOperador.ObtenerTodos;
+
+                int idOpMenorEnViaje;
+                //operador opSeleccionado;
+                int posicion = -1;
+                string nombreOP = string.Empty;
+                string apellidosOP = string.Empty;
 
                 IEnumerable<statusviaje> todosLosStatus = managerStatus.ObtenerTodos;
                 IEnumerable<ruta> todasLasRutas = managerRuta.ObtenerTodos;
@@ -106,6 +119,8 @@ namespace SCI.INTERFAZ.UI
 
                 for (int i=0;i<dgvViajes.Rows.Count;i++)
                 {
+                    idViajeSci = int.Parse(dgvViajes["idViajeSci", i].Value.ToString());
+
                     idStatusViajeSci = int.Parse(dgvViajes["idStatus", i].Value.ToString());
                     dgvViajes["Status", i].Value = (from s in todosLosStatus where s.IdStatus == idStatusViajeSci select s.Nombre).SingleOrDefault();
 
@@ -119,13 +134,22 @@ namespace SCI.INTERFAZ.UI
                     idUnidadViaje = int.Parse(dgvViajes["idUnidad", i].Value.ToString());
                     dgvViajes["Economico", i].Value = (from u in todasLasUnidades where u.IdUnidad == idUnidadViaje select u.NumeroEconomico).SingleOrDefault();
 
-                    todoLosGastos = managerGasto.BuscarPorIdViajeOps(int.Parse(dgvViajes["idViajeSci", i].Value.ToString()));
+                    
+                    todoLosGastos = managerGasto.BuscarPorIdViajeOps(idViajeSci);
                     dgvViajes["Gastos", i].Value = "$" + todoLosGastos.Sum(g => g.Costo).ToString();
 
-                    todosLosCortes = managerCortes.BuscarCortesPorIdViaje(int.Parse(dgvViajes["idViajeSci", i].Value.ToString()));
+                    todosLosCortes = managerCortes.BuscarCortesPorIdViaje(idViajeSci);
                     dgvViajes["Cortes", i].Value = "$" + todosLosCortes.Sum(g => g.Costo).ToString();
-
                     
+                    try
+                    {
+                        posicion = (from s in operadoresEnViaje where s.IdViajeSci == idViajeSci select s.Posicion).Min();
+                        idOpMenorEnViaje = (from s in operadoresEnViaje where s.IdViajeSci == idViajeSci && s.Posicion == posicion select s.IdOperador).SingleOrDefault();
+                        nombreOP = (from s in todosLosOperadores where s.IdOperador == idOpMenorEnViaje select s.Nombre + " " + s.Apellidos).SingleOrDefault();
+                        dgvViajes["Operador", i].Value = nombreOP;//opSeleccionado.Nombre + " " + opSeleccionado.Apellidos;
+
+                    }
+                    catch { dgvViajes["Operador", i].Value = "Sin Operador Asignado"; }
                 }
                 
                 mostrarLabelStatus("Se han cargado todos los viajes dados de alta.", true);
@@ -138,6 +162,15 @@ namespace SCI.INTERFAZ.UI
                 mostrarLabelStatus("Por el momento no se tienen viajes registradas.", false);
                 filaSeleccionada = -1;
             }
+            dgvViajes.Columns["idViajeSci"].DisplayIndex = 0;
+            dgvViajes.Columns["fechaInicio"].DisplayIndex = 1;
+            dgvViajes.Columns["Cliente"].DisplayIndex = 2;
+            dgvViajes.Columns["Status"].DisplayIndex = 3;
+            dgvViajes.Columns["Ruta"].DisplayIndex = 4;
+            dgvViajes.Columns["Economico"].DisplayIndex = 5;
+            dgvViajes.Columns["Cortes"].DisplayIndex = 6;
+            dgvViajes.Columns["Gastos"].DisplayIndex = 7;
+
         }
 
         private void mostrarLabelStatus(string mensaje, bool color)
@@ -189,21 +222,24 @@ namespace SCI.INTERFAZ.UI
         {
             string statuInicial = string.Empty;
             IEnumerable <statusviaje> StatusViaje = managerStatus.ObtenerTodos;
-            listBoxStatus.DataSource = StatusViaje.Select(r => (r.IdStatus + "/" + r.Nombre)).ToList();
-            for (int i = 0; i < listBoxStatus.Items.Count; i++)
+            if (StatusViaje != null)
             {
-                if (listBoxStatus.Items[i].ToString().Contains("nsito"))
+                listBoxStatus.DataSource = StatusViaje.Select(r => (r.IdStatus + "/" + r.Nombre)).ToList();
+                for (int i = 0; i < listBoxStatus.Items.Count; i++)
                 {
-                    statuInicial = listBoxStatus.Items[i].ToString();
-                    break;
+                    if (listBoxStatus.Items[i].ToString().Contains("nsito"))
+                    {
+                        statuInicial = listBoxStatus.Items[i].ToString();
+                        break;
+                    }
                 }
+                btnStatus.Text = statuInicial;
             }
-            btnStatus.Text = statuInicial;
         }
 
         private void btnEditarViaje_Click(object sender, EventArgs e)
         {
-            /*listBoxStatus.Visible = false;
+            listBoxStatus.Visible = false;
             if (filaSeleccionada != -1)
             {
                 if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
@@ -237,22 +273,15 @@ namespace SCI.INTERFAZ.UI
                     }
                 }
 
-            }*/
-
+            }
+            /*
             listBoxStatus.Visible = false;
             if (filaSeleccionada != -1)
             {
                 if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
                 {
                     openDashBoardForm(new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString())));
-                    // FormAgregarViaje fm =;
-                    /*DialogResult DialogForm = fm.ShowDialog();
-                    if (fm.Valor != string.Empty)
-                    {
-                        CargarTodosLosViajes(btnStatus.Text);
-                        mostrarLabelStatus(fm.Valor, true);
-                    }
-                    */
+                    
                 }
                 else
                 {
@@ -262,12 +291,7 @@ namespace SCI.INTERFAZ.UI
                     if (fp.Valor == true)
                     {
                         openDashBoardForm(new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString())));
-                        /*DialogResult DialogForm = fm.ShowDialog();
-                        if (fm.Valor != string.Empty)
-                        {
-                            CargarTodosLosViajes(btnStatus.Text);
-                            mostrarLabelStatus(fm.Valor, true);
-                        }*/
+                        
                     }
                     else
                     {
@@ -275,7 +299,7 @@ namespace SCI.INTERFAZ.UI
                     }
                 }
 
-            }
+            }*/
             
         }
 

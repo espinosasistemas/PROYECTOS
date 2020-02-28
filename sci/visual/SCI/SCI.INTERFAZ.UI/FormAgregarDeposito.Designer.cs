@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textMonto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEliminarDeposito = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepositos)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnEliminarDeposito);
             this.groupBox1.Controls.Add(this.textReferencia);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dgvDepositos);
@@ -97,6 +99,7 @@
             this.dgvDepositos.ReadOnly = true;
             this.dgvDepositos.Size = new System.Drawing.Size(427, 148);
             this.dgvDepositos.TabIndex = 36;
+            this.dgvDepositos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepositos_CellClick);
             // 
             // labelNombreOperador
             // 
@@ -139,7 +142,7 @@
             this.btnAgregarDeposito.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarDeposito.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDeposito.Image")));
             this.btnAgregarDeposito.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarDeposito.Location = new System.Drawing.Point(337, 173);
+            this.btnAgregarDeposito.Location = new System.Drawing.Point(337, 166);
             this.btnAgregarDeposito.Name = "btnAgregarDeposito";
             this.btnAgregarDeposito.Size = new System.Drawing.Size(104, 33);
             this.btnAgregarDeposito.TabIndex = 4;
@@ -177,6 +180,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Monto";
             // 
+            // btnEliminarDeposito
+            // 
+            this.btnEliminarDeposito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.btnEliminarDeposito.FlatAppearance.BorderSize = 0;
+            this.btnEliminarDeposito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarDeposito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarDeposito.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminarDeposito.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarDeposito.Image")));
+            this.btnEliminarDeposito.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnEliminarDeposito.Location = new System.Drawing.Point(227, 166);
+            this.btnEliminarDeposito.Name = "btnEliminarDeposito";
+            this.btnEliminarDeposito.Size = new System.Drawing.Size(104, 33);
+            this.btnEliminarDeposito.TabIndex = 37;
+            this.btnEliminarDeposito.Text = "Eliminar";
+            this.btnEliminarDeposito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarDeposito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarDeposito.UseVisualStyleBackColor = false;
+            this.btnEliminarDeposito.Click += new System.EventHandler(this.btnEliminarDeposito_Click);
+            // 
             // FormAgregarDeposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -210,5 +232,6 @@
         private System.Windows.Forms.DataGridView dgvDepositos;
         private System.Windows.Forms.TextBox textReferencia;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnEliminarDeposito;
     }
 }
