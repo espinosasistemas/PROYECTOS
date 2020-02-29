@@ -178,7 +178,7 @@ namespace SCI.INTERFAZ.UI
                 cargarTodosLosCortesDelViaje();
                 cargarListaOperadoresAsignadosAlViaje();
 
-                this.Text = "Actualizar los datos del Viaje.";
+                labelTitulo.Text = "Editar el Viaje: " + entidadAeditar.IdViajeSci +  " Cliente: " + entidadCliente.RazonSocial ;
                 btnAgregarViaje.Text = "Editar Viaje";
                 textMontoGasto.Text = string.Empty;
                 btnAgregarDeposito.Visible = true;
@@ -199,7 +199,7 @@ namespace SCI.INTERFAZ.UI
                 labelSaldoTotalCortes.Visible = false;
                 groupGastos.Enabled = false;
                 groupCortesOPerador.Enabled = false;
-
+                labelTitulo.Text = "Viaje Nuevo de SCI";
             }
 
             limpiarFormularioRegistroDeGastos();
@@ -1791,7 +1791,7 @@ namespace SCI.INTERFAZ.UI
         private void textFechaFinal_Click(object sender, EventArgs e)
         {
             if (panelFechaFinal.Visible == true)
-                panelFechaInicial.Visible = false;
+                panelFechaFinal.Visible = false;
             else
             {
                 if (textFechaFinal.Text == string.Empty)
@@ -2182,7 +2182,7 @@ namespace SCI.INTERFAZ.UI
                     horaInicialCorte = trackHorasInicioCorte.Value;
                     minutoInicialCorte = trackMinutosInicioCorte.Value;
                 }
-                panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X + 7, textFechaHoraInicialCorte.Location.Y -332);
+                panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X + 34, textFechaHoraInicialCorte.Location.Y - 60);// -332);
                 panelFechaInicioCorte.Visible = true;
             }
 

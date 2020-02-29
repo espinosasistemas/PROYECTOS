@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarDeposito));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarDeposito = new System.Windows.Forms.Button();
             this.textReferencia = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvDepositos = new System.Windows.Forms.DataGridView();
@@ -40,7 +41,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textMonto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEliminarDeposito = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepositos)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos de la Ruta";
             // 
+            // btnEliminarDeposito
+            // 
+            this.btnEliminarDeposito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.btnEliminarDeposito.FlatAppearance.BorderSize = 0;
+            this.btnEliminarDeposito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarDeposito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarDeposito.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminarDeposito.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarDeposito.Image")));
+            this.btnEliminarDeposito.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnEliminarDeposito.Location = new System.Drawing.Point(227, 166);
+            this.btnEliminarDeposito.Name = "btnEliminarDeposito";
+            this.btnEliminarDeposito.Size = new System.Drawing.Size(104, 33);
+            this.btnEliminarDeposito.TabIndex = 37;
+            this.btnEliminarDeposito.Text = "Eliminar";
+            this.btnEliminarDeposito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarDeposito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarDeposito.UseVisualStyleBackColor = false;
+            this.btnEliminarDeposito.Click += new System.EventHandler(this.btnEliminarDeposito_Click);
+            // 
             // textReferencia
             // 
             this.textReferencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,7 +109,7 @@
             // 
             this.dgvDepositos.AllowUserToAddRows = false;
             this.dgvDepositos.AllowUserToDeleteRows = false;
-            this.dgvDepositos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDepositos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDepositos.BackgroundColor = System.Drawing.Color.White;
             this.dgvDepositos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDepositos.Location = new System.Drawing.Point(17, 213);
@@ -104,10 +123,11 @@
             // labelNombreOperador
             // 
             this.labelNombreOperador.AutoSize = true;
-            this.labelNombreOperador.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombreOperador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombreOperador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
             this.labelNombreOperador.Location = new System.Drawing.Point(130, 24);
             this.labelNombreOperador.Name = "labelNombreOperador";
-            this.labelNombreOperador.Size = new System.Drawing.Size(72, 16);
+            this.labelNombreOperador.Size = new System.Drawing.Size(85, 19);
             this.labelNombreOperador.TabIndex = 7;
             this.labelNombreOperador.Text = "Operador";
             // 
@@ -180,25 +200,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Monto";
             // 
-            // btnEliminarDeposito
-            // 
-            this.btnEliminarDeposito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
-            this.btnEliminarDeposito.FlatAppearance.BorderSize = 0;
-            this.btnEliminarDeposito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnEliminarDeposito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarDeposito.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEliminarDeposito.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarDeposito.Image")));
-            this.btnEliminarDeposito.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEliminarDeposito.Location = new System.Drawing.Point(227, 166);
-            this.btnEliminarDeposito.Name = "btnEliminarDeposito";
-            this.btnEliminarDeposito.Size = new System.Drawing.Size(104, 33);
-            this.btnEliminarDeposito.TabIndex = 37;
-            this.btnEliminarDeposito.Text = "Eliminar";
-            this.btnEliminarDeposito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarDeposito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminarDeposito.UseVisualStyleBackColor = false;
-            this.btnEliminarDeposito.Click += new System.EventHandler(this.btnEliminarDeposito_Click);
-            // 
             // FormAgregarDeposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -208,6 +209,8 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAgregarDeposito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormAgregarDeposito";

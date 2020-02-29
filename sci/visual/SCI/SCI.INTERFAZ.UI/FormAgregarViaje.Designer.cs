@@ -177,8 +177,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textFechaHoraInicialCorte = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.groupGastos.SuspendLayout();
             this.panelFechaGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackHoraGastos)).BeginInit();
@@ -205,6 +207,8 @@
             this.groupCortesOPerador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label14
@@ -258,46 +262,21 @@
             // 
             // groupGastos
             // 
-            this.groupGastos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupGastos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupGastos.Controls.Add(this.panel3);
             this.groupGastos.Controls.Add(this.panelFechaGastos);
             this.groupGastos.Controls.Add(this.btnEditarGasto);
             this.groupGastos.Controls.Add(this.btnEliminarGasto);
             this.groupGastos.Controls.Add(this.btnNuevoGasto);
-            this.groupGastos.Controls.Add(this.textConceptoGasto);
-            this.groupGastos.Controls.Add(this.label43);
-            this.groupGastos.Controls.Add(this.comboOperadoresGasto);
-            this.groupGastos.Controls.Add(this.textPoliza);
-            this.groupGastos.Controls.Add(this.label38);
-            this.groupGastos.Controls.Add(this.label37);
-            this.groupGastos.Controls.Add(this.comboFormaPago);
-            this.groupGastos.Controls.Add(this.label36);
-            this.groupGastos.Controls.Add(this.textTicket);
-            this.groupGastos.Controls.Add(this.label34);
-            this.groupGastos.Controls.Add(this.textNumFactura);
-            this.groupGastos.Controls.Add(this.comboGasolinerias);
-            this.groupGastos.Controls.Add(this.comboCasetas);
-            this.groupGastos.Controls.Add(this.label17);
-            this.groupGastos.Controls.Add(this.textFechaDelGasto);
             this.groupGastos.Controls.Add(this.labelTotalDeGastos);
-            this.groupGastos.Controls.Add(this.btnExaminarXml);
-            this.groupGastos.Controls.Add(this.textRutaPdf);
-            this.groupGastos.Controls.Add(this.btnExaminarPdf);
-            this.groupGastos.Controls.Add(this.btnAgregarGasto);
             this.groupGastos.Controls.Add(this.dgvGastos);
-            this.groupGastos.Controls.Add(this.label10);
-            this.groupGastos.Controls.Add(this.label5);
-            this.groupGastos.Controls.Add(this.label4);
-            this.groupGastos.Controls.Add(this.label3);
-            this.groupGastos.Controls.Add(this.textRutaXml);
-            this.groupGastos.Controls.Add(this.textMontoGasto);
-            this.groupGastos.Controls.Add(this.comboTipoGastos);
-            this.groupGastos.Controls.Add(this.label2);
             this.groupGastos.Location = new System.Drawing.Point(7, 7);
             this.groupGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupGastos.Name = "groupGastos";
             this.groupGastos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupGastos.Size = new System.Drawing.Size(861, 467);
+            this.groupGastos.Size = new System.Drawing.Size(861, 709);
             this.groupGastos.TabIndex = 24;
             this.groupGastos.TabStop = false;
             this.groupGastos.Text = "Gastos";
@@ -467,8 +446,9 @@
             // 
             // textConceptoGasto
             // 
+            this.textConceptoGasto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textConceptoGasto.Location = new System.Drawing.Point(132, 342);
+            this.textConceptoGasto.Location = new System.Drawing.Point(172, 69);
             this.textConceptoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textConceptoGasto.Name = "textConceptoGasto";
             this.textConceptoGasto.Size = new System.Drawing.Size(324, 23);
@@ -477,9 +457,10 @@
             // 
             // label43
             // 
+            this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(27, 288);
+            this.label43.Location = new System.Drawing.Point(67, 15);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(84, 17);
             this.label43.TabIndex = 47;
@@ -487,9 +468,10 @@
             // 
             // comboOperadoresGasto
             // 
+            this.comboOperadoresGasto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboOperadoresGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadoresGasto.FormattingEnabled = true;
-            this.comboOperadoresGasto.Location = new System.Drawing.Point(132, 284);
+            this.comboOperadoresGasto.Location = new System.Drawing.Point(172, 11);
             this.comboOperadoresGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboOperadoresGasto.Name = "comboOperadoresGasto";
             this.comboOperadoresGasto.Size = new System.Drawing.Size(324, 25);
@@ -497,8 +479,9 @@
             // 
             // textPoliza
             // 
+            this.textPoliza.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textPoliza.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPoliza.Location = new System.Drawing.Point(625, 309);
+            this.textPoliza.Location = new System.Drawing.Point(639, 35);
             this.textPoliza.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textPoliza.Name = "textPoliza";
             this.textPoliza.Size = new System.Drawing.Size(203, 23);
@@ -507,9 +490,10 @@
             // 
             // label38
             // 
+            this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(19, 369);
+            this.label38.Location = new System.Drawing.Point(59, 96);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(92, 17);
             this.label38.TabIndex = 0;
@@ -517,9 +501,10 @@
             // 
             // label37
             // 
+            this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(498, 395);
+            this.label37.Location = new System.Drawing.Point(512, 121);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(110, 17);
             this.label37.TabIndex = 0;
@@ -527,13 +512,14 @@
             // 
             // comboFormaPago
             // 
+            this.comboFormaPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboFormaPago.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboFormaPago.FormattingEnabled = true;
             this.comboFormaPago.Items.AddRange(new object[] {
             "Transferencia",
             "Crédito",
             "Efectivo"});
-            this.comboFormaPago.Location = new System.Drawing.Point(625, 391);
+            this.comboFormaPago.Location = new System.Drawing.Point(639, 117);
             this.comboFormaPago.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboFormaPago.Name = "comboFormaPago";
             this.comboFormaPago.Size = new System.Drawing.Size(203, 25);
@@ -541,9 +527,10 @@
             // 
             // label36
             // 
+            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(562, 342);
+            this.label36.Location = new System.Drawing.Point(576, 68);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(44, 17);
             this.label36.TabIndex = 0;
@@ -551,8 +538,9 @@
             // 
             // textTicket
             // 
+            this.textTicket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textTicket.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTicket.Location = new System.Drawing.Point(625, 336);
+            this.textTicket.Location = new System.Drawing.Point(639, 62);
             this.textTicket.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textTicket.Name = "textTicket";
             this.textTicket.Size = new System.Drawing.Size(203, 23);
@@ -560,9 +548,10 @@
             // 
             // label34
             // 
+            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(512, 368);
+            this.label34.Location = new System.Drawing.Point(526, 94);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(96, 17);
             this.label34.TabIndex = 0;
@@ -570,8 +559,9 @@
             // 
             // textNumFactura
             // 
+            this.textNumFactura.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textNumFactura.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNumFactura.Location = new System.Drawing.Point(625, 365);
+            this.textNumFactura.Location = new System.Drawing.Point(639, 91);
             this.textNumFactura.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textNumFactura.Name = "textNumFactura";
             this.textNumFactura.Size = new System.Drawing.Size(203, 23);
@@ -579,9 +569,10 @@
             // 
             // comboGasolinerias
             // 
+            this.comboGasolinerias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboGasolinerias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboGasolinerias.FormattingEnabled = true;
-            this.comboGasolinerias.Location = new System.Drawing.Point(131, 341);
+            this.comboGasolinerias.Location = new System.Drawing.Point(171, 68);
             this.comboGasolinerias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboGasolinerias.Name = "comboGasolinerias";
             this.comboGasolinerias.Size = new System.Drawing.Size(324, 25);
@@ -590,9 +581,10 @@
             // 
             // comboCasetas
             // 
+            this.comboCasetas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboCasetas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCasetas.FormattingEnabled = true;
-            this.comboCasetas.Location = new System.Drawing.Point(132, 341);
+            this.comboCasetas.Location = new System.Drawing.Point(172, 68);
             this.comboCasetas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboCasetas.Name = "comboCasetas";
             this.comboCasetas.Size = new System.Drawing.Size(324, 25);
@@ -602,9 +594,10 @@
             // 
             // label17
             // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(562, 315);
+            this.label17.Location = new System.Drawing.Point(576, 41);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(46, 17);
             this.label17.TabIndex = 0;
@@ -612,8 +605,9 @@
             // 
             // textFechaDelGasto
             // 
+            this.textFechaDelGasto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textFechaDelGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaDelGasto.Location = new System.Drawing.Point(132, 369);
+            this.textFechaDelGasto.Location = new System.Drawing.Point(172, 96);
             this.textFechaDelGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaDelGasto.Name = "textFechaDelGasto";
             this.textFechaDelGasto.Size = new System.Drawing.Size(324, 23);
@@ -622,9 +616,10 @@
             // 
             // labelTotalDeGastos
             // 
+            this.labelTotalDeGastos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTotalDeGastos.AutoSize = true;
             this.labelTotalDeGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalDeGastos.Location = new System.Drawing.Point(747, 27);
+            this.labelTotalDeGastos.Location = new System.Drawing.Point(768, 27);
             this.labelTotalDeGastos.Name = "labelTotalDeGastos";
             this.labelTotalDeGastos.Size = new System.Drawing.Size(60, 24);
             this.labelTotalDeGastos.TabIndex = 39;
@@ -633,7 +628,8 @@
             // 
             // btnExaminarXml
             // 
-            this.btnExaminarXml.Location = new System.Drawing.Point(367, 425);
+            this.btnExaminarXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExaminarXml.Location = new System.Drawing.Point(407, 152);
             this.btnExaminarXml.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExaminarXml.Name = "btnExaminarXml";
             this.btnExaminarXml.Size = new System.Drawing.Size(89, 28);
@@ -644,8 +640,9 @@
             // 
             // textRutaPdf
             // 
+            this.textRutaPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textRutaPdf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaPdf.Location = new System.Drawing.Point(132, 397);
+            this.textRutaPdf.Location = new System.Drawing.Point(172, 124);
             this.textRutaPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRutaPdf.Name = "textRutaPdf";
             this.textRutaPdf.Size = new System.Drawing.Size(228, 23);
@@ -653,7 +650,8 @@
             // 
             // btnExaminarPdf
             // 
-            this.btnExaminarPdf.Location = new System.Drawing.Point(367, 394);
+            this.btnExaminarPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExaminarPdf.Location = new System.Drawing.Point(407, 121);
             this.btnExaminarPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExaminarPdf.Name = "btnExaminarPdf";
             this.btnExaminarPdf.Size = new System.Drawing.Size(89, 28);
@@ -664,6 +662,7 @@
             // 
             // btnAgregarGasto
             // 
+            this.btnAgregarGasto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregarGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnAgregarGasto.FlatAppearance.BorderSize = 0;
             this.btnAgregarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
@@ -671,7 +670,7 @@
             this.btnAgregarGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarGasto.Image")));
             this.btnAgregarGasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarGasto.Location = new System.Drawing.Point(734, 424);
+            this.btnAgregarGasto.Location = new System.Drawing.Point(748, 150);
             this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(94, 33);
@@ -686,23 +685,26 @@
             // 
             this.dgvGastos.AllowUserToAddRows = false;
             this.dgvGastos.AllowUserToDeleteRows = false;
-            this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvGastos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
             this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGastos.Location = new System.Drawing.Point(25, 87);
             this.dgvGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
-            this.dgvGastos.Size = new System.Drawing.Size(805, 174);
+            this.dgvGastos.Size = new System.Drawing.Size(826, 174);
             this.dgvGastos.TabIndex = 35;
             this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellClick);
             this.dgvGastos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellDoubleClick);
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(25, 426);
+            this.label10.Location = new System.Drawing.Point(65, 153);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 17);
             this.label10.TabIndex = 0;
@@ -710,9 +712,10 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 397);
+            this.label5.Location = new System.Drawing.Point(66, 124);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 17);
             this.label5.TabIndex = 0;
@@ -720,9 +723,10 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(558, 289);
+            this.label4.Location = new System.Drawing.Point(572, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 17);
             this.label4.TabIndex = 0;
@@ -730,9 +734,10 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(36, 341);
+            this.label3.Location = new System.Drawing.Point(76, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 17);
             this.label3.TabIndex = 0;
@@ -740,8 +745,9 @@
             // 
             // textRutaXml
             // 
+            this.textRutaXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textRutaXml.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRutaXml.Location = new System.Drawing.Point(132, 426);
+            this.textRutaXml.Location = new System.Drawing.Point(172, 153);
             this.textRutaXml.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRutaXml.Name = "textRutaXml";
             this.textRutaXml.Size = new System.Drawing.Size(228, 23);
@@ -749,8 +755,9 @@
             // 
             // textMontoGasto
             // 
+            this.textMontoGasto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textMontoGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMontoGasto.Location = new System.Drawing.Point(625, 283);
+            this.textMontoGasto.Location = new System.Drawing.Point(639, 9);
             this.textMontoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textMontoGasto.Name = "textMontoGasto";
             this.textMontoGasto.Size = new System.Drawing.Size(203, 23);
@@ -758,9 +765,10 @@
             // 
             // comboTipoGastos
             // 
+            this.comboTipoGastos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboTipoGastos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTipoGastos.FormattingEnabled = true;
-            this.comboTipoGastos.Location = new System.Drawing.Point(132, 313);
+            this.comboTipoGastos.Location = new System.Drawing.Point(172, 40);
             this.comboTipoGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboTipoGastos.Name = "comboTipoGastos";
             this.comboTipoGastos.Size = new System.Drawing.Size(324, 25);
@@ -769,9 +777,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 314);
+            this.label2.Location = new System.Drawing.Point(52, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 17);
             this.label2.TabIndex = 0;
@@ -790,7 +799,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(882, 753);
+            this.tabControl1.Size = new System.Drawing.Size(866, 753);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
@@ -1006,6 +1015,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.btnAbajo);
             this.panel2.Controls.Add(this.btnArriba);
@@ -1031,7 +1042,7 @@
             this.panel2.Controls.Add(this.label22);
             this.panel2.Location = new System.Drawing.Point(4, 8);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(452, 461);
+            this.panel2.Size = new System.Drawing.Size(452, 693);
             this.panel2.TabIndex = 34;
             // 
             // btnAbajo
@@ -1260,6 +1271,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.labelSaldoOperador);
             this.groupBox1.Controls.Add(this.labelRfcCliente);
             this.groupBox1.Controls.Add(this.label44);
@@ -1294,7 +1307,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(394, 465);
+            this.groupBox1.Size = new System.Drawing.Size(406, 697);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de La Ruta y La Unidad";
@@ -1589,7 +1602,7 @@
             this.tabPageCortes.Location = new System.Drawing.Point(4, 25);
             this.tabPageCortes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageCortes.Name = "tabPageCortes";
-            this.tabPageCortes.Size = new System.Drawing.Size(874, 724);
+            this.tabPageCortes.Size = new System.Drawing.Size(858, 724);
             this.tabPageCortes.TabIndex = 2;
             this.tabPageCortes.Text = "Cortes de Operadores";
             this.tabPageCortes.UseVisualStyleBackColor = true;
@@ -1798,30 +1811,20 @@
             // 
             // groupCortesOPerador
             // 
+            this.groupCortesOPerador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupCortesOPerador.Controls.Add(this.panel4);
             this.groupCortesOPerador.Controls.Add(this.button3);
             this.groupCortesOPerador.Controls.Add(this.btnEliminarCorte);
             this.groupCortesOPerador.Controls.Add(this.button1);
-            this.groupCortesOPerador.Controls.Add(this.label8);
-            this.groupCortesOPerador.Controls.Add(this.comboOperadoresCortes);
             this.groupCortesOPerador.Controls.Add(this.labelSaldoTotalCortes);
-            this.groupCortesOPerador.Controls.Add(this.btnRedondear);
-            this.groupCortesOPerador.Controls.Add(this.label21);
-            this.groupCortesOPerador.Controls.Add(this.textCostoTotal);
-            this.groupCortesOPerador.Controls.Add(this.btnAgregarCorteOperador);
             this.groupCortesOPerador.Controls.Add(this.dgvCortesOperador);
-            this.groupCortesOPerador.Controls.Add(this.label20);
-            this.groupCortesOPerador.Controls.Add(this.textCostoHoraOperador);
-            this.groupCortesOPerador.Controls.Add(this.label19);
-            this.groupCortesOPerador.Controls.Add(this.textTotalHoras);
-            this.groupCortesOPerador.Controls.Add(this.label18);
-            this.groupCortesOPerador.Controls.Add(this.textFechaHoraFinalCorte);
-            this.groupCortesOPerador.Controls.Add(this.label16);
-            this.groupCortesOPerador.Controls.Add(this.textFechaHoraInicialCorte);
             this.groupCortesOPerador.Location = new System.Drawing.Point(7, 7);
             this.groupCortesOPerador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupCortesOPerador.Name = "groupCortesOPerador";
             this.groupCortesOPerador.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupCortesOPerador.Size = new System.Drawing.Size(849, 467);
+            this.groupCortesOPerador.Size = new System.Drawing.Size(848, 707);
             this.groupCortesOPerador.TabIndex = 0;
             this.groupCortesOPerador.TabStop = false;
             this.groupCortesOPerador.Text = "Corte de Tiempo por Operador";
@@ -1888,9 +1891,10 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(420, 275);
+            this.label8.Location = new System.Drawing.Point(397, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 17);
             this.label8.TabIndex = 0;
@@ -1898,9 +1902,10 @@
             // 
             // comboOperadoresCortes
             // 
+            this.comboOperadoresCortes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboOperadoresCortes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadoresCortes.FormattingEnabled = true;
-            this.comboOperadoresCortes.Location = new System.Drawing.Point(510, 272);
+            this.comboOperadoresCortes.Location = new System.Drawing.Point(487, 4);
             this.comboOperadoresCortes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboOperadoresCortes.Name = "comboOperadoresCortes";
             this.comboOperadoresCortes.Size = new System.Drawing.Size(312, 25);
@@ -1909,9 +1914,10 @@
             // 
             // labelSaldoTotalCortes
             // 
+            this.labelSaldoTotalCortes.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelSaldoTotalCortes.AutoSize = true;
             this.labelSaldoTotalCortes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(747, 27);
+            this.labelSaldoTotalCortes.Location = new System.Drawing.Point(745, 27);
             this.labelSaldoTotalCortes.Name = "labelSaldoTotalCortes";
             this.labelSaldoTotalCortes.Size = new System.Drawing.Size(60, 24);
             this.labelSaldoTotalCortes.TabIndex = 41;
@@ -1920,8 +1926,9 @@
             // 
             // btnRedondear
             // 
+            this.btnRedondear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRedondear.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRedondear.Location = new System.Drawing.Point(730, 330);
+            this.btnRedondear.Location = new System.Drawing.Point(707, 62);
             this.btnRedondear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRedondear.Name = "btnRedondear";
             this.btnRedondear.Size = new System.Drawing.Size(92, 25);
@@ -1932,9 +1939,10 @@
             // 
             // label21
             // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(406, 333);
+            this.label21.Location = new System.Drawing.Point(383, 65);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(101, 17);
             this.label21.TabIndex = 0;
@@ -1942,9 +1950,10 @@
             // 
             // textCostoTotal
             // 
+            this.textCostoTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textCostoTotal.Enabled = false;
             this.textCostoTotal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoTotal.Location = new System.Drawing.Point(510, 330);
+            this.textCostoTotal.Location = new System.Drawing.Point(487, 62);
             this.textCostoTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textCostoTotal.Name = "textCostoTotal";
             this.textCostoTotal.Size = new System.Drawing.Size(201, 23);
@@ -1952,6 +1961,7 @@
             // 
             // btnAgregarCorteOperador
             // 
+            this.btnAgregarCorteOperador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregarCorteOperador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnAgregarCorteOperador.FlatAppearance.BorderSize = 0;
             this.btnAgregarCorteOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
@@ -1959,7 +1969,7 @@
             this.btnAgregarCorteOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarCorteOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCorteOperador.Image")));
             this.btnAgregarCorteOperador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(734, 424);
+            this.btnAgregarCorteOperador.Location = new System.Drawing.Point(705, 151);
             this.btnAgregarCorteOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
             this.btnAgregarCorteOperador.Size = new System.Drawing.Size(94, 33);
@@ -1982,16 +1992,17 @@
             this.dgvCortesOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvCortesOperador.Name = "dgvCortesOperador";
             this.dgvCortesOperador.ReadOnly = true;
-            this.dgvCortesOperador.Size = new System.Drawing.Size(805, 174);
+            this.dgvCortesOperador.Size = new System.Drawing.Size(804, 174);
             this.dgvCortesOperador.TabIndex = 23;
             this.dgvCortesOperador.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellClick);
             this.dgvCortesOperador.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCortesOperador_CellDoubleClick);
             // 
             // label20
             // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(655, 305);
+            this.label20.Location = new System.Drawing.Point(632, 37);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(84, 17);
             this.label20.TabIndex = 8;
@@ -1999,9 +2010,10 @@
             // 
             // textCostoHoraOperador
             // 
+            this.textCostoHoraOperador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textCostoHoraOperador.Enabled = false;
             this.textCostoHoraOperador.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCostoHoraOperador.Location = new System.Drawing.Point(745, 303);
+            this.textCostoHoraOperador.Location = new System.Drawing.Point(722, 35);
             this.textCostoHoraOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textCostoHoraOperador.Name = "textCostoHoraOperador";
             this.textCostoHoraOperador.Size = new System.Drawing.Size(77, 23);
@@ -2010,9 +2022,10 @@
             // 
             // label19
             // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(426, 303);
+            this.label19.Location = new System.Drawing.Point(403, 35);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(79, 17);
             this.label19.TabIndex = 0;
@@ -2020,8 +2033,9 @@
             // 
             // textTotalHoras
             // 
+            this.textTotalHoras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textTotalHoras.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTotalHoras.Location = new System.Drawing.Point(510, 302);
+            this.textTotalHoras.Location = new System.Drawing.Point(487, 34);
             this.textTotalHoras.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textTotalHoras.Name = "textTotalHoras";
             this.textTotalHoras.Size = new System.Drawing.Size(139, 23);
@@ -2030,9 +2044,10 @@
             // 
             // label18
             // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(423, 393);
+            this.label18.Location = new System.Drawing.Point(400, 125);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(80, 17);
             this.label18.TabIndex = 0;
@@ -2040,8 +2055,9 @@
             // 
             // textFechaHoraFinalCorte
             // 
+            this.textFechaHoraFinalCorte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textFechaHoraFinalCorte.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraFinalCorte.Location = new System.Drawing.Point(510, 388);
+            this.textFechaHoraFinalCorte.Location = new System.Drawing.Point(487, 120);
             this.textFechaHoraFinalCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaHoraFinalCorte.Name = "textFechaHoraFinalCorte";
             this.textFechaHoraFinalCorte.Size = new System.Drawing.Size(312, 23);
@@ -2051,9 +2067,10 @@
             // 
             // label16
             // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(416, 366);
+            this.label16.Location = new System.Drawing.Point(393, 98);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(88, 17);
             this.label16.TabIndex = 0;
@@ -2061,8 +2078,9 @@
             // 
             // textFechaHoraInicialCorte
             // 
+            this.textFechaHoraInicialCorte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textFechaHoraInicialCorte.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFechaHoraInicialCorte.Location = new System.Drawing.Point(510, 361);
+            this.textFechaHoraInicialCorte.Location = new System.Drawing.Point(487, 93);
             this.textFechaHoraInicialCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaHoraInicialCorte.Name = "textFechaHoraInicialCorte";
             this.textFechaHoraInicialCorte.Size = new System.Drawing.Size(312, 23);
@@ -2071,24 +2089,26 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.labelTitulo);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(893, 32);
+            this.panel1.Size = new System.Drawing.Size(868, 32);
             this.panel1.TabIndex = 10;
             // 
-            // label12
+            // labelTitulo
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 6);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 16);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Agregar o Editar Viaje";
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Location = new System.Drawing.Point(7, 6);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(179, 19);
+            this.labelTitulo.TabIndex = 2;
+            this.labelTitulo.Text = "Agregar o Editar Viaje";
             // 
             // btnClose
             // 
@@ -2098,7 +2118,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(861, 4);
+            this.btnClose.Location = new System.Drawing.Point(836, 4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 26);
@@ -2107,12 +2127,69 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.comboTipoGastos);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.textRutaXml);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.textPoliza);
+            this.panel3.Controls.Add(this.label37);
+            this.panel3.Controls.Add(this.textConceptoGasto);
+            this.panel3.Controls.Add(this.comboFormaPago);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.label36);
+            this.panel3.Controls.Add(this.label43);
+            this.panel3.Controls.Add(this.textTicket);
+            this.panel3.Controls.Add(this.btnExaminarPdf);
+            this.panel3.Controls.Add(this.label34);
+            this.panel3.Controls.Add(this.comboOperadoresGasto);
+            this.panel3.Controls.Add(this.textNumFactura);
+            this.panel3.Controls.Add(this.textRutaPdf);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.btnExaminarXml);
+            this.panel3.Controls.Add(this.label38);
+            this.panel3.Controls.Add(this.btnAgregarGasto);
+            this.panel3.Controls.Add(this.textFechaDelGasto);
+            this.panel3.Controls.Add(this.comboCasetas);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.comboGasolinerias);
+            this.panel3.Controls.Add(this.textMontoGasto);
+            this.panel3.Location = new System.Drawing.Point(6, 268);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(845, 231);
+            this.panel3.TabIndex = 51;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.comboOperadoresCortes);
+            this.panel4.Controls.Add(this.textFechaHoraInicialCorte);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.textFechaHoraFinalCorte);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.textTotalHoras);
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Controls.Add(this.btnRedondear);
+            this.panel4.Controls.Add(this.textCostoHoraOperador);
+            this.panel4.Controls.Add(this.label21);
+            this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.textCostoTotal);
+            this.panel4.Controls.Add(this.btnAgregarCorteOperador);
+            this.panel4.Location = new System.Drawing.Point(27, 268);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(802, 201);
+            this.panel4.TabIndex = 52;
+            // 
             // FormAgregarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(893, 790);
+            this.ClientSize = new System.Drawing.Size(868, 790);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2159,6 +2236,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesOperador)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2226,7 +2307,7 @@
         private System.Windows.Forms.TrackBar trackHorasInicio;
         private System.Windows.Forms.TrackBar trackMinutosInicio;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox textClaveViajeCliente;
         private System.Windows.Forms.Label label9;
@@ -2314,5 +2395,7 @@
         private System.Windows.Forms.Button btnCancelarFechaFinal;
         private System.Windows.Forms.Button btnFechaInicioCancelar;
         private System.Windows.Forms.Button btnFechaFinalCancelar;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

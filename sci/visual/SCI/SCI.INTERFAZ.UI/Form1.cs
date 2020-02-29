@@ -121,6 +121,7 @@ namespace SCI.INTERFAZ.UI
         private void btnReportes_Click(object sender, EventArgs e)
         {
             showSubMenu(panelReportesSubMenu);
+            MessageBox.Show(this.Size.ToString());
         }
 
         private void FormPrincipal_FormClosed(object sender, FormClosedEventArgs e)

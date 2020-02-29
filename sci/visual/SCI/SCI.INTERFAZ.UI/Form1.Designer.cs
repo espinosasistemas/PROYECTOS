@@ -71,7 +71,7 @@
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(250, 561);
+            this.panelSideMenu.Size = new System.Drawing.Size(250, 661);
             this.panelSideMenu.TabIndex = 0;
             // 
             // panelReportesSubMenu
@@ -337,19 +337,21 @@
             // 
             // panelDashBoard
             // 
+            this.panelDashBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDashBoard.BackColor = System.Drawing.Color.White;
             this.panelDashBoard.Controls.Add(this.pictureBox1);
-            this.panelDashBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDashBoard.Location = new System.Drawing.Point(250, 0);
             this.panelDashBoard.Name = "panelDashBoard";
-            this.panelDashBoard.Size = new System.Drawing.Size(734, 561);
+            this.panelDashBoard.Size = new System.Drawing.Size(1084, 661);
             this.panelDashBoard.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(198, 152);
+            this.pictureBox1.Location = new System.Drawing.Point(373, 202);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(360, 222);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -361,13 +363,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1334, 661);
             this.Controls.Add(this.panelDashBoard);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
+            this.MaximumSize = new System.Drawing.Size(1380, 780);
+            this.MinimumSize = new System.Drawing.Size(1350, 700);
             this.Name = "FormPrincipal";
             this.Text = "Sistema de Control de Servicios Corporativos Integrales";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

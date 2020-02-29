@@ -168,8 +168,9 @@ namespace SCI.INTERFAZ.UI
             dgvViajes.Columns["Status"].DisplayIndex = 3;
             dgvViajes.Columns["Ruta"].DisplayIndex = 4;
             dgvViajes.Columns["Economico"].DisplayIndex = 5;
-            dgvViajes.Columns["Cortes"].DisplayIndex = 6;
-            dgvViajes.Columns["Gastos"].DisplayIndex = 7;
+            dgvViajes.Columns["Operador"].DisplayIndex = 6;
+            dgvViajes.Columns["Cortes"].DisplayIndex = 7;
+            dgvViajes.Columns["Gastos"].DisplayIndex = 8;
 
         }
 
@@ -239,7 +240,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnEditarViaje_Click(object sender, EventArgs e)
         {
-            listBoxStatus.Visible = false;
+            /*listBoxStatus.Visible = false;
             if (filaSeleccionada != -1)
             {
                 if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
@@ -277,8 +278,8 @@ namespace SCI.INTERFAZ.UI
                 }
                 
 
-            }
-            /*
+            }*/
+            
             listBoxStatus.Visible = false;
             if (filaSeleccionada != -1)
             {
@@ -303,7 +304,7 @@ namespace SCI.INTERFAZ.UI
                     }
                 }
 
-            }*/
+            }
             
         }
 
