@@ -36,6 +36,10 @@ namespace SCI.INTERFAZ.UI
         int horaFinalCorte = 0;
         int minutoFinalCorte = 0;
 
+        string fechaCobroAdicional = string.Empty;
+        int horaCobroAdicional = 0;
+        int minutoCobroAdicional = 0;
+
         #endregion
 
         #region primera parte
@@ -54,6 +58,7 @@ namespace SCI.INTERFAZ.UI
         IOperadoresEnViajeManager managerOperadoresEnViaje;
         ILogManager managerLog;
         IDepositoManager managerDeposito;
+        ICobroAdicionalManager managerCobrosAdicionales;
 
         string resultado = string.Empty;
         string accion = string.Empty;
@@ -65,10 +70,13 @@ namespace SCI.INTERFAZ.UI
         string tipoDeGasto = string.Empty;
         int filaGastoSeleccionado = -1;
         int filaCorteSeleccionado = -1;
+        int filaCobroAdicional = -1;
         bool editarGasto = false;
         bool editarCorte = false;
+        bool editarCobroAdicional = false;
         int idGastoAeditar = 0;
         int idCorteAeditar = 0;
+        int idCobroAdicional = 0;
 
         viaje entidadAeditar;
         statusviaje entidadStatus;
@@ -102,6 +110,7 @@ namespace SCI.INTERFAZ.UI
             managerOperadoresEnViaje = Tools.FabricManager.OperadoresEnViajeManager();
             managerLog = Tools.FabricManager.LogManager();
             managerDeposito = Tools.FabricManager.DepositoManager();
+            managerCobrosAdicionales = Tools.FabricManager.CobrosAdicionalManager();
 
             accion = evento;
             idAEditar = id;
@@ -178,13 +187,15 @@ namespace SCI.INTERFAZ.UI
                 cargarTodosLosCortesDelViaje();
                 cargarListaOperadoresAsignadosAlViaje();
 
+                //Cargar los cobros adicionales
+                cargarTodosCobrosAdicionales();
+
                 labelTitulo.Text = "Editar el Viaje: " + entidadAeditar.IdViajeSci +  " Cliente: " + entidadCliente.RazonSocial ;
                 btnAgregarViaje.Text = "Editar Viaje";
                 textMontoGasto.Text = string.Empty;
                 btnAgregarDeposito.Visible = true;
                 btnArriba.Visible = true;
                 btnAbajo.Visible = true;
-
             }
             else
             {
@@ -197,8 +208,11 @@ namespace SCI.INTERFAZ.UI
                 comboTipoGastos.Text = string.Empty;
                 labelTotalDeGastos.Visible = false;
                 labelSaldoTotalCortes.Visible = false;
+                labelCobrosAdicionales.Visible = false;
+
                 groupGastos.Enabled = false;
                 groupCortesOPerador.Enabled = false;
+                groupCobrosAdicionales.Enabled = false;
                 labelTitulo.Text = "Viaje Nuevo de SCI";
             }
 
@@ -206,6 +220,18 @@ namespace SCI.INTERFAZ.UI
             editarGasto = false;
 
         }
+
+        private void cargarTodosCobrosAdicionales()
+        {
+            dgvCobrosAdicionales.Columns.Clear();
+            IEnumerable<cobrosadicionales> TodosLosCobrosAdicionales = managerCobrosAdicionales.BuscarCobrosPorViaje(entidadAeditar.IdViajeSci);
+            dgvCobrosAdicionales.DataSource = TodosLosCobrosAdicionales.ToArray();
+            labelCobrosAdicionales.Text = string.Format("{0:C2}", TodosLosCobrosAdicionales.Sum(g => g.Monto));
+            labelCobrosAdicionales.Visible = true;
+            if (dgvCobrosAdicionales.Rows.Count <= 0)
+                labelCobrosAdicionales.Visible = false;
+        }
+
         private void cargarListaOperadores()
         {
             IEnumerable<operador> operadores = managerOperador.ObtenerTodos;
@@ -245,7 +271,9 @@ namespace SCI.INTERFAZ.UI
             dgvCortesOperador.Columns.Clear();
             IEnumerable<cortesoperador> TodosCortes = managerCortes.BuscarCortesPorIdViaje(entidadAeditar.IdViajeSci);
             dgvCortesOperador.DataSource = TodosCortes.ToArray();
-            labelSaldoTotalCortes.Text = "$" + TodosCortes.Sum(g => g.Costo).ToString();
+            //labelSaldoTotalCortes.Text = "$" + TodosCortes.Sum(g => g.Costo).ToString();
+            labelSaldoTotalCortes.Text = string.Format("{0:C2}", TodosCortes.Sum(g => g.Costo));
+
 
             dgvCortesOperador.Columns["idCorte"].Visible = false;
             dgvCortesOperador.Columns["idOperador"].Visible = false;
@@ -273,13 +301,17 @@ namespace SCI.INTERFAZ.UI
                 dgvCortesOperador.Columns["FechaFin"].DisplayIndex = 4;
                 dgvCortesOperador.Columns["Status"].DisplayIndex = 5;
             }
+            else
+                labelSaldoTotalCortes.Visible = false;
         }
         public void cargarTodosLosGastosDelViaje()
         {
             dgvGastos.Columns.Clear();
             IEnumerable<gasto> TodosLosGastos = managerGastos.BuscarPorIdViajeOps(entidadAeditar.IdViajeSci);
             dgvGastos.DataSource = TodosLosGastos.ToArray();
-            labelTotalDeGastos.Text = "$" + TodosLosGastos.Sum(g => g.Costo).ToString();
+            //labelTotalDeGastos.Text = "$" + TodosLosGastos.Sum(g => g.Costo).ToString();
+            labelTotalDeGastos.Text = string.Format("{0:C2}", TodosLosGastos.Sum(g => g.Costo));
+
             dgvGastos.Columns["idGasto"].Visible = false;
             dgvGastos.Columns["idTipoGasto"].Visible = false;
             dgvGastos.Columns["idOperador"].Visible = false;
@@ -301,6 +333,8 @@ namespace SCI.INTERFAZ.UI
                     dgvGastos["Operador", i].Value = op.Nombre + " " + op.Apellidos;
                 }
             }
+            else
+                labelTotalDeGastos.Visible = false;
 
         }
         private void cargarComboStatus()
@@ -316,7 +350,7 @@ namespace SCI.INTERFAZ.UI
         {
             IEnumerable<tipogasto> tiposDeGastos = managerTiposDeGastos.ObtenerTodos;
             comboTipoGastos.DataSource = tiposDeGastos.Select(r => (r.IdTipoGasto + "/" + r.Concepto)).ToList();
-            comboTipoGastos.Text = string.Empty;
+            //comboTipoGastos.SelectedIndex = 0;
         }
         private void cargarComboClientes()
         {
@@ -710,8 +744,8 @@ namespace SCI.INTERFAZ.UI
             comboTipoGastos.Text = string.Empty;
             textConceptoGasto.Clear();
             comboCasetas.Visible = false;
-            comboGasolinerias.Visible = false;
-            textConceptoGasto.Visible = true;
+            comboGasolinerias.Visible = true;
+            textConceptoGasto.Visible = false;
             
 
             textMontoGasto.Clear();
@@ -884,7 +918,8 @@ namespace SCI.INTERFAZ.UI
         }
         private void btnRedondear_Click(object sender, EventArgs e)
         {
-            textCostoTotal.Text = Math.Round(double.Parse(textCostoTotal.Text)).ToString();
+            try { textCostoTotal.Text = Math.Round(double.Parse(textCostoTotal.Text)).ToString(); }
+            catch { textCostoTotal.Text = "0"; }
         }
         private void btnAgregarCorteOperador_Click(object sender, EventArgs e)
         {
@@ -1093,7 +1128,42 @@ namespace SCI.INTERFAZ.UI
         }
         private void comboTipoGastos2_TextChanged(object sender, EventArgs e)
         {
-            //selectTipoDeGasto();
+            if (comboTipoGastos.SelectedIndex == 0)
+            {
+                comboGasolinerias.Visible = true;
+                comboCasetas.Visible = false;
+                textConceptoGasto.Visible = false;
+
+                comboCasetas.Text = string.Empty;
+                textConceptoGasto.Text = string.Empty;
+                tipoDeGasto = "Combustible";
+                cargarTodasLasGasolinerias();
+                
+                return;
+            }
+            if (comboTipoGastos.SelectedIndex == 1)
+            {
+                comboCasetas.Visible = true;
+                comboGasolinerias.Visible = false;
+                textConceptoGasto.Visible = false;
+
+                comboGasolinerias.Text = string.Empty;
+                textConceptoGasto.Text = string.Empty;
+                tipoDeGasto = "Casetas";
+                cargarTodasLasCasetas();
+                return;
+            }
+
+            tipoDeGasto = "Otros";
+            textConceptoGasto.Visible = true;
+            comboCasetas.Visible = false;
+            comboGasolinerias.Visible = false;
+            comboTipoGastos.Text = string.Empty;
+            comboCasetas.Text = string.Empty;
+            comboGasolinerias.Text = string.Empty;
+
+
+            /*
             if (comboTipoGastos.Text != string.Empty)
             {
                 if (comboTipoGastos.Text.Contains("Combustible"))
@@ -1101,6 +1171,7 @@ namespace SCI.INTERFAZ.UI
                     comboGasolinerias.Visible = true;
                     comboCasetas.Visible = false;
                     textConceptoGasto.Visible = false;
+
                     comboCasetas.Text = string.Empty;
                     textConceptoGasto.Text = string.Empty;
                     tipoDeGasto = "Combustible";
@@ -1112,22 +1183,23 @@ namespace SCI.INTERFAZ.UI
                     comboCasetas.Visible = true;
                     comboGasolinerias.Visible = false;
                     textConceptoGasto.Visible = false;
+
                     comboGasolinerias.Text = string.Empty;
                     textConceptoGasto.Text = string.Empty;
                     tipoDeGasto = "Casetas";
                     cargarTodasLasCasetas();
                     return;
                 }
-
-                tipoDeGasto = "Otros";
-                textConceptoGasto.Visible = true;
-                comboCasetas.Visible = false;
-                comboGasolinerias.Visible = false;
-                comboCasetas.Text = string.Empty;
-                comboGasolinerias.Text = string.Empty;
-                
             }
-           
+
+            tipoDeGasto = "Otros";
+            textConceptoGasto.Visible = true;
+            comboCasetas.Visible = false;
+            comboGasolinerias.Visible = false;
+            comboTipoGastos.Text = string.Empty;
+            comboCasetas.Text = string.Empty;
+            comboGasolinerias.Text = string.Empty;
+            */
         }
         private void cargarTodasLasGasolinerias()
         {
@@ -1267,9 +1339,6 @@ namespace SCI.INTERFAZ.UI
             minutosDelGasto = gastoSeleccionado.Fecha.Minute;
             trackHoraGastos.Value = horaDelGasto;
             trackMinutosGastos.Value = minutosDelGasto;
-
-            //dateTimeFechaGasto.Value = gastoSeleccionado.Fecha;
-            //textFechaDelGasto.Text = formatoFecha(gastoSeleccionado.Fecha);
 
             textRutaPdf.Text = gastoSeleccionado.RutaPdf;
             textRutaXml.Text = gastoSeleccionado.RutaXml;
@@ -1415,16 +1484,10 @@ namespace SCI.INTERFAZ.UI
             else
                 textFechaHoraFinalCorte.Text = string.Empty;
 
-            //textFechaHoraFinalCorte.Text = fechaValida(corteSeleccionado.FechaFin.ToString());
-
-
-
             textTotalHoras.Text = corteSeleccionado.Horas.ToString();
             textCostoHoraOperador.Text = opSeleccionado.Salarioporhora.ToString();
             textCostoTotal.Text = corteSeleccionado.Costo.ToString();
 
-            //calendarCortesOperador.SelectionRange.Start = corteSeleccionado.FechaInicio;
-            //calendarCortesOperador.SelectionRange.End = corteSeleccionado.FechaFin;
         }
         private void btnAgregarOperador_Click(object sender, EventArgs e)
         {
@@ -1599,6 +1662,148 @@ namespace SCI.INTERFAZ.UI
             editarCorte = false;
             limpiarFormularioCortes();
         }
+        private void btnNuevoCobro_Click(object sender, EventArgs e)
+        {
+            editarCobroAdicional = false;
+            limpiarFormularioCobros();
+        }
+        private void limpiarFormularioCobros()
+        {
+            comboTipoCobro.Text = string.Empty;
+            textMontoCobro.Clear();
+            textFechaCobroAdicional.Clear();
+        }
+        private void btnEditarCobro_Click(object sender, EventArgs e)
+        {
+            if (filaCobroAdicional >= 0)
+            {
+                idCobroAdicional = int.Parse(dgvCobrosAdicionales["idCobroAdicional", filaCobroAdicional].Value.ToString());
+                cargarDatosCobroAdiciaonAeditar();
+                editarCobroAdicional = true;
+            }
+        }
+        private void cargarDatosCobroAdiciaonAeditar()
+        {
+            cobrosadicionales cobroAeditar = managerCobrosAdicionales.BuscarPorId(idCobroAdicional.ToString());
+            comboTipoCobro.Text = cobroAeditar.TipoCobro;
+            textMontoCobro.Text = cobroAeditar.Monto.ToString();
+            textFechaCobroAdicional.Text = formatoFecha(cobroAeditar.Fecha);
+        }
+        private void btnGuardarCobroAdicional_Click(object sender, EventArgs e)
+        {
+            if (editarCobroAdicional == false)
+            {
+                cobrosadicionales nuevoCobroAdicional = new cobrosadicionales();
+                try
+                {
+                    nuevoCobroAdicional.IdViajeSci = entidadAeditar.IdViajeSci;
+                    nuevoCobroAdicional.TipoCobro = comboTipoCobro.Text;
+                    nuevoCobroAdicional.Monto = double.Parse(textMontoCobro.Text);
+                    nuevoCobroAdicional.Fecha = fechaValida(textFechaCobroAdicional.Text);
+
+                    if (managerCobrosAdicionales.Insertar(nuevoCobroAdicional))
+                    {
+                        cobrosadicionales lastCobro = managerCobrosAdicionales.BuscarUltimoIngresado();
+                        log registro = new log
+                        {
+                            Accion = "agregar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "cobro adicional-id:" + lastCobro.IdCobroAdicional + " -- viaje-id:" + lastCobro.IdViajeSci
+                        };
+                        managerLog.Insertar(registro);
+
+                        cargarTodosCobrosAdicionales();
+                        limpiarFormularioCobros();
+
+                    }
+                    else
+                        MessageBox.Show("Ha ocurrido un problema al intentar guardar el nuevo cobro adicional. " + managerCobrosAdicionales.Error, "No se pudo guardar el cobro Adicional", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Ha ocurrido un problema al intentar guardar el nuevo Cobro. " + ex.Message, "No se pudo guardar el nuevo Cobro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                cobrosadicionales cobroAEditar = managerCobrosAdicionales.BuscarPorId(idCobroAdicional.ToString());
+                try
+                {
+                    cobroAEditar.TipoCobro = comboTipoCobro.Text;
+                    cobroAEditar.Monto = double.Parse(textMontoCobro.Text);
+                    cobroAEditar.Fecha = DateTime.Parse(textFechaCobroAdicional.Text);
+
+                    if (managerCobrosAdicionales.Actualizar(cobroAEditar))
+                    {
+                        log registro = new log
+                        {
+                            Accion = "editar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "cobrosadicionales-id:" + cobroAEditar.IdCobroAdicional + " -- viajes-id:" + cobroAEditar.IdViajeSci
+                        };
+                        managerLog.Insertar(registro);
+
+                        cargarTodosCobrosAdicionales();
+                        limpiarFormularioCobros();
+                    }
+                    else
+                        MessageBox.Show("Ha ocurrido un problema al intentar guardar el nuevo cobro. " + managerCobrosAdicionales.Error, "No se pudo guardar el cobro.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    editarCorte = false;
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Ha ocurrido un problema al intentar guardar el nuevo cobro. " + ex.Message, "No se pudo guardar el cobro.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void dgvCobrosAdicionales_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaCobroAdicional = e.RowIndex;
+        }
+        private void dgvCobrosAdicionales_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                filaCobroAdicional = e.RowIndex;
+                idCobroAdicional = int.Parse(dgvCobrosAdicionales["idCobroAdicional", filaCobroAdicional].Value.ToString());
+                cargarDatosCobroAdiciaonAeditar();
+                editarCobroAdicional = true;
+            }
+        }
+        private void btnEliminarCobro_Click(object sender, EventArgs e)
+        {
+            if (filaCobroAdicional >= 0)
+            {
+                DialogResult result = MessageBox.Show("¿Esta seguro que desea eliminar el cobro adicional seleccionado?", "Eliminar Cobro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    string idCobroSeleccionado = dgvCobrosAdicionales["idCobroAdicional", filaCobroAdicional].Value.ToString();
+                    cobrosadicionales cobroSeleccionado = managerCobrosAdicionales.BuscarPorId(idCobroSeleccionado);
+                    if (managerCobrosAdicionales.Eliminar(idCobroSeleccionado))
+                    {
+                        log registro = new log
+                        {
+                            Accion = "eliminar",
+                            NombreUsuario = user.NombreUsuario,
+                            Fecha = DateTime.Now,
+                            ModuloAfectado = "cobrosadicionales-id:" + cobroSeleccionado.IdCobroAdicional + " -- viaje-id:" + cobroSeleccionado.IdViajeSci
+                        };
+                        managerLog.Insertar(registro);
+
+                        cargarTodosCobrosAdicionales();
+                    }
+                    else
+                        MessageBox.Show("El cobro no se ha podido eliminar.", "Eliminar Cobro.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+        }
+
         #endregion
 
         #region Calendario Inicial SCI
@@ -1707,6 +1912,7 @@ namespace SCI.INTERFAZ.UI
                 }
                 panelFechaInicial.Location = new Point(textFechaInicial.Location.X + 4, textFechaInicial.Location.Y + 30);
                 panelFechaInicial.Visible = true;
+                panelFechaFinal.Visible = false;
             }
 
             /*
@@ -1752,9 +1958,18 @@ namespace SCI.INTERFAZ.UI
         }
         private void btnCancelarFechaInicio_Click(object sender, EventArgs e)
         {
+            if (entidadAeditar == null)
+            {
+                textFechaInicial.Text = string.Empty;
+                panelFechaInicial.Visible = false;
+                return;
+            }
             if (entidadAeditar.IdViajeSci > 0)
             {
-                textFechaInicial.Text = formatoFecha(entidadAeditar.FechaInicio);
+                if (formatoFecha(entidadAeditar.FechaInicio) == "01/01/1 00:00:00")
+                    textFechaInicial.Text = string.Empty;
+                else
+                    textFechaInicial.Text = formatoFecha(entidadAeditar.FechaInicio);
             }
             panelFechaInicial.Visible = false;
         }
@@ -1831,6 +2046,7 @@ namespace SCI.INTERFAZ.UI
                 }
                 panelFechaFinal.Location = new Point(textFechaFinal.Location.X + 4, textFechaFinal.Location.Y + 30);
                 panelFechaFinal.Visible = true;
+                panelFechaInicial.Visible = false;
             }
 
             /*if (textFechaFinal.Text == string.Empty)
@@ -1912,9 +2128,19 @@ namespace SCI.INTERFAZ.UI
         }
         private void btnCancelarFechaFinal_Click(object sender, EventArgs e)
         {
+            if (entidadAeditar == null)
+            {
+                textFechaFinal.Text = string.Empty;
+                panelFechaFinal.Visible = false;
+                return;
+            }
+
             if (entidadAeditar.IdViajeSci > 0)
             {
-                textFechaFinal.Text = formatoFecha(entidadAeditar.FechaFin);
+                if (formatoFecha(entidadAeditar.FechaFin) == "01/01/1 00:00:00")
+                    textFechaFinal.Text = string.Empty;
+                else
+                    formatoFecha(entidadAeditar.FechaFin);
             }
             panelFechaFinal.Visible = false;
         }
@@ -1962,7 +2188,7 @@ namespace SCI.INTERFAZ.UI
                     horaDelGasto = trackHoraGastos.Value;
                     minutosDelGasto = trackMinutosGastos.Value;
                 }
-                panelFechaGastos.Location = new Point(textFechaDelGasto.Location.X, textFechaDelGasto.Location.Y - 340);
+                panelFechaGastos.Location = new Point(textFechaDelGasto.Location.X+6, textFechaDelGasto.Location.Y-70);
                 panelFechaGastos.Visible = true;
             }
         }
@@ -2182,8 +2408,9 @@ namespace SCI.INTERFAZ.UI
                     horaInicialCorte = trackHorasInicioCorte.Value;
                     minutoInicialCorte = trackMinutosInicioCorte.Value;
                 }
-                panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X + 34, textFechaHoraInicialCorte.Location.Y - 60);// -332);
+                panelFechaInicioCorte.Location = new Point(textFechaHoraInicialCorte.Location.X + 34, textFechaHoraInicialCorte.Location.Y - 63);// -332);
                 panelFechaInicioCorte.Visible = true;
+                panelFechaFinalCorte.Visible = false;
             }
 
             /*
@@ -2347,16 +2574,11 @@ namespace SCI.INTERFAZ.UI
                     horaFinalCorte = trackHoraFinCorte.Value;
                     minutoFinalCorte = trackMinutoFinCorte.Value;
                 }
-                panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X + 7, textFechaHoraFinalCorte.Location.Y - 332);
+                panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X + 34, textFechaHoraFinalCorte.Location.Y - 63);
                 panelFechaFinalCorte.Visible = true;
+                panelFechaInicioCorte.Visible = false;
             }
-            /*
-            if (textFechaHoraFinalCorte.Text == string.Empty)
-                btnHoyFinCorte_Click(sender, e);
-            panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X + 7, textFechaHoraFinalCorte.Location.Y - 332);
-            panelFechaInicioCorte.Visible = false;
-            panelFechaFinalCorte.Visible = true;
-            */
+            
         }
         private void btnAceptarFinCorte_Click(object sender, EventArgs e)
         {
@@ -2405,6 +2627,165 @@ namespace SCI.INTERFAZ.UI
             else
                 textFechaHoraFinalCorte.Text = string.Empty;
             panelFechaFinalCorte.Visible = false;
+        }
+        #endregion
+
+        #region Calendario Final de Cobros
+        private void trackHoraFechaCobro_Scroll(object sender, EventArgs e)
+        {
+            horaCobroAdicional = trackHoraFechaCobro.Value;
+            completarFechaHoraMinutosCobroAdicional();
+        }
+        private void trackMinutosHoraCobro_Scroll(object sender, EventArgs e)
+        {
+            minutoCobroAdicional = trackMinutosHoraCobro.Value;
+            completarFechaHoraMinutosCobroAdicional();
+        }
+        private void completarFechaHoraMinutosCobroAdicional()
+        {
+            textFechaCobroAdicional.Text = string.Empty;
+            if (horaCobroAdicional < 10)
+            {
+                textFechaCobroAdicional.Text = fechaCobroAdicional + " 0" + horaCobroAdicional.ToString();
+                if (minutoCobroAdicional < 10)
+                {
+                    textFechaCobroAdicional.Text = fechaCobroAdicional + " 0" + horaCobroAdicional.ToString() + ":0" + minutoCobroAdicional.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaCobroAdicional.Text = fechaCobroAdicional + " 0" + horaCobroAdicional.ToString() + ":" + minutoCobroAdicional.ToString() + ":00";
+                }
+            }
+            else
+            {
+                textFechaCobroAdicional.Text = fechaCobroAdicional + " " + horaCobroAdicional.ToString();
+                if (minutoCobroAdicional < 10)
+                {
+                    textFechaCobroAdicional.Text = fechaCobroAdicional + " " + horaCobroAdicional.ToString() + ":0" + minutoCobroAdicional.ToString() + ":00";
+                }
+                else
+                {
+                    textFechaCobroAdicional.Text = fechaCobroAdicional + " " + horaCobroAdicional.ToString() + ":" + minutoCobroAdicional.ToString() + ":00";
+                }
+            }
+        }
+        private void calendarFechaCobro_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            int year = calendarFechaCobro.SelectionRange.Start.Year;
+            int month = calendarFechaCobro.SelectionRange.Start.Month;
+            int day = calendarFechaCobro.SelectionRange.Start.Day;
+
+            if (day < 10)
+                fechaCobroAdicional = "0" + day.ToString();
+            else
+                fechaCobroAdicional = day.ToString();
+
+            fechaCobroAdicional += "/";
+
+            if (month < 10)
+                fechaCobroAdicional += "0" + month.ToString();
+            else
+                fechaCobroAdicional += month.ToString();
+
+            fechaCobroAdicional += "/";
+            fechaCobroAdicional += year.ToString();
+
+            textFechaCobroAdicional.Text = fechaCobroAdicional;
+            completarFechaHoraMinutosCobroAdicional();
+        }
+        private void textFechaCobroAdicional_Click(object sender, EventArgs e)
+        {
+            if (panelFechaCobroAdicional.Visible == true)
+                panelFechaCobroAdicional.Visible = false;
+            else
+            {
+                if (textFechaCobroAdicional.Text == string.Empty)
+                {
+                    int year = calendarFechaCobro.SelectionRange.Start.Year;
+                    int month = calendarFechaCobro.SelectionRange.Start.Month;
+                    int day = calendarFechaCobro.SelectionRange.Start.Day;
+                    if (day < 10)
+                        fechaCobroAdicional = "0" + day.ToString();
+                    else
+                        fechaCobroAdicional = day.ToString();
+
+                    fechaCobroAdicional += "/";
+
+                    if (month < 10)
+                        fechaCobroAdicional += "0" + month.ToString();
+                    else
+                        fechaCobroAdicional += month.ToString();
+
+                    fechaCobroAdicional += "/";
+                    fechaCobroAdicional += year.ToString();
+
+                    trackHoraFechaCobro.Value = DateTime.Now.Hour;
+                    trackMinutosHoraCobro.Value = DateTime.Now.Minute;
+                    horaCobroAdicional = trackHoraFechaCobro.Value;
+                    minutoCobroAdicional = trackMinutosHoraCobro.Value;
+                }
+                else
+                {
+                    calendarFechaCobro.SelectionStart = DateTime.Parse(textFechaCobroAdicional.Text);
+                    calendarFechaCobro.SelectionEnd = DateTime.Parse(textFechaCobroAdicional.Text);
+
+                    trackHoraFechaCobro.Value = calendarFechaCobro.SelectionStart.Hour;
+                    trackMinutosHoraCobro.Value = calendarFechaCobro.SelectionStart.Minute;
+
+                    horaCobroAdicional = trackHoraFechaCobro.Value;
+                    minutoCobroAdicional = trackMinutosHoraCobro.Value;
+                }
+                panelFechaCobroAdicional.Location = new Point(textFechaCobroAdicional.Location.X + 27, textFechaCobroAdicional.Location.Y - 67);
+                panelFechaCobroAdicional.Visible = true;
+            }
+        }
+        private void btnAceptarFechaCobro_Click(object sender, EventArgs e)
+        {
+            panelFechaCobroAdicional.Visible = false;
+        }
+        private void btnHoyFechaCobro_Click(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            if (hoy.Day < 10)
+                textFechaCobroAdicional.Text = "0" + hoy.Day + "/";
+            else
+                textFechaCobroAdicional.Text = hoy.Day + "/";
+            if (hoy.Month < 10)
+                textFechaCobroAdicional.Text += "0" + hoy.Month + "/";
+            else
+                textFechaCobroAdicional.Text += hoy.Month + "/";
+
+
+            textFechaCobroAdicional.Text += hoy.Year;
+            fechaCobroAdicional = textFechaCobroAdicional.Text;
+
+            if (hoy.Hour < 10)
+                textFechaCobroAdicional.Text += " 0" + hoy.Hour + ":";
+            else
+                textFechaCobroAdicional.Text += " " + hoy.Hour + ":";
+
+            if (hoy.Minute < 10)
+                textFechaCobroAdicional.Text += "0" + hoy.Minute + ":00";
+            else
+                textFechaCobroAdicional.Text += hoy.Minute + ":00";
+
+
+            horaCobroAdicional = hoy.Hour;
+            minutoCobroAdicional = hoy.Minute;
+
+            trackHoraFechaCobro.Value = horaCobroAdicional;
+            trackMinutosHoraCobro.Value = minutoCobroAdicional;
+        }
+        private void btnCancelarFechaCobro_Click(object sender, EventArgs e)
+        {
+            if (idCobroAdicional > 0)
+            {
+                cobrosadicionales cobroSeleccionado = managerCobrosAdicionales.BuscarPorId(idCobroAdicional.ToString());
+                textFechaCobroAdicional.Text = formatoFecha(cobroSeleccionado.Fecha);
+            }
+            else
+                textFechaCobroAdicional.Text = string.Empty;
+            panelFechaCobroAdicional.Visible = false;
         }
         #endregion
 
@@ -2457,6 +2838,7 @@ namespace SCI.INTERFAZ.UI
                 listOperadoresAsignados.SelectedIndex = selectIndex + 1;
             }
         }
+
         #endregion
 
         

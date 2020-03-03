@@ -320,8 +320,8 @@ namespace SCI.INTERFAZ.UI
             DialogResult dialogEliminar = new DialogResult();
             if (filaSeleccionada >= 0)
             {
-                string nombre = dgvViajes["idViajeCliente", filaSeleccionada].Value.ToString();
-                dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el viaje del Cliente: {nombre}?", "Eliminar Viaje.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                string idViaje = dgvViajes["idViajeSci", filaSeleccionada].Value.ToString();
+                dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el viaje: {idViaje}?", "Eliminar Viaje.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogEliminar == DialogResult.Yes)
                 {
                     try
@@ -339,7 +339,7 @@ namespace SCI.INTERFAZ.UI
 
                             // CargarTodosLosViajes(comboStatus.Text);
                             CargarTodosLosViajes(btnStatus.Text);
-                            mostrarLabelStatus("Se ha eliminado Correctamente el Viaje del cliente. " + nombre, true);
+                            mostrarLabelStatus("Se ha eliminado Correctamente el Viaje: . " + idViaje, true);
                         }
                         else
                             mostrarLabelStatus("No se ha podido Eliminar el viaje. " + managerViajes.Error, false);
@@ -403,6 +403,39 @@ namespace SCI.INTERFAZ.UI
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             listBoxStatus.Visible = false;
+        }
+
+        private void dgvViajes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                filaSeleccionada = e.RowIndex;
+                listBoxStatus.Visible = false;
+                if (filaSeleccionada != -1)
+                {
+                    if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
+                    {
+                        openDashBoardForm(new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString())));
+
+                    }
+                    else
+                    {
+                        FormPermiso fp = new FormPermiso();
+                        DialogResult DialogForm2 = fp.ShowDialog();
+
+                        if (fp.Valor == true)
+                        {
+                            openDashBoardForm(new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString())));
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

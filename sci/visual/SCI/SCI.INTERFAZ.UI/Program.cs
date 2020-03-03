@@ -23,7 +23,7 @@ namespace SCI.INTERFAZ.UI
             Application.Run(new FormPrincipal());
             //Application.Run(new FormAgregarGasolineria("editar", 7));
             //Application.Run(new FormAgregarViaje(new usuario {NombreCompleto= "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "agregar",-1));
-            //Application.Run(new FormAgregarViaje(new usuario { NombreCompleto = "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "editar", 266));
+            //Application.Run(new FormAgregarViaje(new usuario { NombreCompleto = "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "editar", 262));
             //Application.Run(new FormAgregarViaje("editar", 13));
             //Application.Run(new FormAgregarCasetas("agregar", 1));
         }

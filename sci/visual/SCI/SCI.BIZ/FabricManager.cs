@@ -10,6 +10,11 @@ namespace SCI.BIZ
 {
     public class FabricManager
     {
+        public ICobroAdicionalManager CobrosAdicionalManager()
+        {
+            return new CobrosAdicionalesManager(new GenericRepository<cobrosadicionales>(new CobrosAdicionalesValidator()));
+        }
+
         public IDepositoManager DepositoManager()
         {
             return new DepositoManger(new GenericRepository<deposito>(new DepositoValidator()));

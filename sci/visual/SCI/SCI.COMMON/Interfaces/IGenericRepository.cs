@@ -64,6 +64,8 @@ namespace SCI.COMMON.Interfaces
         /// <param name="id">Id de la Entidad a obtener</param>
         /// <returns>La entidad completa que le corresponde el Id propocionado</returns>
         T SearchById(string id);
+
+        
         //producto ObtenUltimo();
     }
 }

@@ -57,7 +57,7 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCatalogos_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelCatalogoSubMenu);
+            //showSubMenu(panelCatalogoSubMenu);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -115,13 +115,13 @@ namespace SCI.INTERFAZ.UI
 
         private void btnTransporte_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelViajesSubMenu);
+            //showSubMenu(panelViajesSubMenu);
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelReportesSubMenu);
-            MessageBox.Show(this.Size.ToString());
+            //showSubMenu(panelReportesSubMenu);
+            //MessageBox.Show(this.Size.ToString());
         }
 
         private void FormPrincipal_FormClosed(object sender, FormClosedEventArgs e)
