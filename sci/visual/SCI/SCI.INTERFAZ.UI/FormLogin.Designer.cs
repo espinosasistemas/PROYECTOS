@@ -109,6 +109,7 @@
             this.textPassword.Size = new System.Drawing.Size(190, 24);
             this.textPassword.TabIndex = 5;
             this.textPassword.UseSystemPasswordChar = true;
+            this.textPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPassword_KeyPress);
             // 
             // pictureBox5
             // 

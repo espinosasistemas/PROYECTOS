@@ -83,7 +83,7 @@
             // 
             this.btnElminarCaseta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnElminarCaseta.FlatAppearance.BorderSize = 0;
-            this.btnElminarCaseta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnElminarCaseta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnElminarCaseta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnElminarCaseta.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnElminarCaseta.Image = ((System.Drawing.Image)(resources.GetObject("btnElminarCaseta.Image")));
@@ -102,7 +102,7 @@
             // 
             this.btnEditarCaseta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditarCaseta.FlatAppearance.BorderSize = 0;
-            this.btnEditarCaseta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarCaseta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEditarCaseta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarCaseta.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEditarCaseta.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarCaseta.Image")));
@@ -152,7 +152,7 @@
             // 
             this.btnCrearCaseta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnCrearCaseta.FlatAppearance.BorderSize = 0;
-            this.btnCrearCaseta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCrearCaseta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnCrearCaseta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearCaseta.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCrearCaseta.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearCaseta.Image")));
@@ -171,7 +171,7 @@
             // 
             this.btnBuscarTodasCasetas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnBuscarTodasCasetas.FlatAppearance.BorderSize = 0;
-            this.btnBuscarTodasCasetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnBuscarTodasCasetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnBuscarTodasCasetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarTodasCasetas.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnBuscarTodasCasetas.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarTodasCasetas.Image")));

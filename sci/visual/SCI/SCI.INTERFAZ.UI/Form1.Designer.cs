@@ -87,7 +87,7 @@
             // 
             this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
@@ -115,7 +115,7 @@
             // 
             this.btnViajes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnViajes.FlatAppearance.BorderSize = 0;
-            this.btnViajes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnViajes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnViajes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViajes.ForeColor = System.Drawing.Color.LightGray;
             this.btnViajes.Image = ((System.Drawing.Image)(resources.GetObject("btnViajes.Image")));
@@ -134,7 +134,7 @@
             // 
             this.btnTransporte.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTransporte.FlatAppearance.BorderSize = 0;
-            this.btnTransporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnTransporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnTransporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTransporte.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnTransporte.Image = ((System.Drawing.Image)(resources.GetObject("btnTransporte.Image")));
@@ -168,7 +168,7 @@
             // 
             this.btnGasolineria.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGasolineria.FlatAppearance.BorderSize = 0;
-            this.btnGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnGasolineria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGasolineria.ForeColor = System.Drawing.Color.LightGray;
             this.btnGasolineria.Image = ((System.Drawing.Image)(resources.GetObject("btnGasolineria.Image")));
@@ -187,7 +187,7 @@
             // 
             this.btnCasetas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCasetas.FlatAppearance.BorderSize = 0;
-            this.btnCasetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCasetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnCasetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCasetas.ForeColor = System.Drawing.Color.LightGray;
             this.btnCasetas.Image = ((System.Drawing.Image)(resources.GetObject("btnCasetas.Image")));
@@ -206,7 +206,7 @@
             // 
             this.btnGastos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGastos.FlatAppearance.BorderSize = 0;
-            this.btnGastos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnGastos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGastos.ForeColor = System.Drawing.Color.LightGray;
             this.btnGastos.Image = ((System.Drawing.Image)(resources.GetObject("btnGastos.Image")));
@@ -225,7 +225,7 @@
             // 
             this.btnRutas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRutas.FlatAppearance.BorderSize = 0;
-            this.btnRutas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnRutas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnRutas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutas.ForeColor = System.Drawing.Color.LightGray;
             this.btnRutas.Image = ((System.Drawing.Image)(resources.GetObject("btnRutas.Image")));
@@ -244,7 +244,7 @@
             // 
             this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClientes.FlatAppearance.BorderSize = 0;
-            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.ForeColor = System.Drawing.Color.LightGray;
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
@@ -263,7 +263,7 @@
             // 
             this.btnOperadores.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOperadores.FlatAppearance.BorderSize = 0;
-            this.btnOperadores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnOperadores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnOperadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOperadores.ForeColor = System.Drawing.Color.LightGray;
             this.btnOperadores.Image = ((System.Drawing.Image)(resources.GetObject("btnOperadores.Image")));
@@ -282,7 +282,7 @@
             // 
             this.btnUnidades.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUnidades.FlatAppearance.BorderSize = 0;
-            this.btnUnidades.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnUnidades.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnUnidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnidades.ForeColor = System.Drawing.Color.LightGray;
             this.btnUnidades.Image = ((System.Drawing.Image)(resources.GetObject("btnUnidades.Image")));
@@ -301,7 +301,7 @@
             // 
             this.btnCatalogos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCatalogos.FlatAppearance.BorderSize = 0;
-            this.btnCatalogos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCatalogos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnCatalogos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCatalogos.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCatalogos.Image = ((System.Drawing.Image)(resources.GetObject("btnCatalogos.Image")));

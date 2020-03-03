@@ -130,7 +130,7 @@
             // 
             this.btnEliminarGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEliminarGasto.FlatAppearance.BorderSize = 0;
-            this.btnEliminarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEliminarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEliminarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarGasto.Image")));
@@ -149,7 +149,7 @@
             // 
             this.btnEditarGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditarGasto.FlatAppearance.BorderSize = 0;
-            this.btnEditarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEditarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEditarGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarGasto.Image")));
@@ -168,7 +168,7 @@
             // 
             this.btnCrearTipoGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnCrearTipoGasto.FlatAppearance.BorderSize = 0;
-            this.btnCrearTipoGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCrearTipoGasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnCrearTipoGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearTipoGasto.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCrearTipoGasto.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearTipoGasto.Image")));
@@ -187,7 +187,7 @@
             // 
             this.btnBuscarTodosGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnBuscarTodosGastos.FlatAppearance.BorderSize = 0;
-            this.btnBuscarTodosGastos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnBuscarTodosGastos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnBuscarTodosGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarTodosGastos.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnBuscarTodosGastos.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarTodosGastos.Image")));
@@ -282,7 +282,7 @@
             // 
             this.btnEliminarEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEliminarEstado.FlatAppearance.BorderSize = 0;
-            this.btnEliminarEstado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarEstado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEliminarEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarEstado.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEliminarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarEstado.Image")));
@@ -301,7 +301,7 @@
             // 
             this.btnEditarEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditarEstado.FlatAppearance.BorderSize = 0;
-            this.btnEditarEstado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarEstado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEditarEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarEstado.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEditarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarEstado.Image")));
@@ -320,7 +320,7 @@
             // 
             this.btnAgregarEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnAgregarEstado.FlatAppearance.BorderSize = 0;
-            this.btnAgregarEstado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnAgregarEstado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnAgregarEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarEstado.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarEstado.Image")));
@@ -339,7 +339,7 @@
             // 
             this.btnMostrarEstados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnMostrarEstados.FlatAppearance.BorderSize = 0;
-            this.btnMostrarEstados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnMostrarEstados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnMostrarEstados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrarEstados.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMostrarEstados.Image = ((System.Drawing.Image)(resources.GetObject("btnMostrarEstados.Image")));

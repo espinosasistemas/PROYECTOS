@@ -135,7 +135,7 @@
             // 
             this.btnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnStatus.FlatAppearance.BorderSize = 0;
-            this.btnStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatus.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnStatus.Image = ((System.Drawing.Image)(resources.GetObject("btnStatus.Image")));
@@ -166,7 +166,7 @@
             // 
             this.btnEliminarViaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEliminarViaje.FlatAppearance.BorderSize = 0;
-            this.btnEliminarViaje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarViaje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEliminarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEliminarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarViaje.Image")));
@@ -185,7 +185,7 @@
             // 
             this.btnEditarViaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditarViaje.FlatAppearance.BorderSize = 0;
-            this.btnEditarViaje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarViaje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEditarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEditarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarViaje.Image")));
@@ -207,27 +207,29 @@
             this.panelResultado.Controls.Add(this.label2);
             this.panelResultado.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelResultado.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelResultado.Location = new System.Drawing.Point(3, 518);
+            this.panelResultado.Location = new System.Drawing.Point(3, 508);
             this.panelResultado.Name = "panelResultado";
-            this.panelResultado.Size = new System.Drawing.Size(878, 20);
+            this.panelResultado.Size = new System.Drawing.Size(878, 30);
             this.panelResultado.TabIndex = 3;
             this.panelResultado.Visible = false;
             // 
             // labelResultado
             // 
             this.labelResultado.AutoSize = true;
-            this.labelResultado.Location = new System.Drawing.Point(166, 2);
+            this.labelResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResultado.Location = new System.Drawing.Point(191, 6);
             this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(55, 13);
+            this.labelResultado.Size = new System.Drawing.Size(72, 17);
             this.labelResultado.TabIndex = 1;
             this.labelResultado.Text = "Resultado";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 2);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 13);
+            this.label2.Size = new System.Drawing.Size(182, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Resultado de la operación: ";
             // 
@@ -235,7 +237,7 @@
             // 
             this.btnCrearViaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnCrearViaje.FlatAppearance.BorderSize = 0;
-            this.btnCrearViaje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCrearViaje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnCrearViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCrearViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearViaje.Image")));
@@ -254,7 +256,7 @@
             // 
             this.btnBuscarTodosViajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnBuscarTodosViajes.FlatAppearance.BorderSize = 0;
-            this.btnBuscarTodosViajes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnBuscarTodosViajes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnBuscarTodosViajes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarTodosViajes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnBuscarTodosViajes.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarTodosViajes.Image")));
@@ -301,7 +303,7 @@
             this.dgvViajes.Location = new System.Drawing.Point(6, 59);
             this.dgvViajes.Name = "dgvViajes";
             this.dgvViajes.ReadOnly = true;
-            this.dgvViajes.Size = new System.Drawing.Size(872, 453);
+            this.dgvViajes.Size = new System.Drawing.Size(872, 443);
             this.dgvViajes.TabIndex = 0;
             this.dgvViajes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViajes_CellClick);
             this.dgvViajes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViajes_CellContentClick);

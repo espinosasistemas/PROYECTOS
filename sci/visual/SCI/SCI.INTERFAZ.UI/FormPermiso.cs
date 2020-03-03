@@ -32,12 +32,18 @@ namespace SCI.INTERFAZ.UI
         private void btnAutorizar_Click(object sender, EventArgs e)
         {
             usuario nuevoUsuario = managerUsuario.Login(textUsuario.Text, textPassword.Text);
-            if (nuevoUsuario != null)
+            if (nuevoUsuario != null && nuevoUsuario.NombreUsuario=="root")
                 resultado = true;
             else
                 resultado = false;
 
             this.Close();
-        }   
+        }
+
+        private void textPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == 13)
+                btnAutorizar_Click(sender, e);
+        }
     }
 }

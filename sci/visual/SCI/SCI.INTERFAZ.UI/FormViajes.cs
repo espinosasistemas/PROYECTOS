@@ -58,6 +58,7 @@ namespace SCI.INTERFAZ.UI
             groupBox1.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+            //MessageBox.Show(childForm.DialogResult.ToString());
         }
 
         public void CargarTodosLosViajes(string status)
@@ -67,7 +68,10 @@ namespace SCI.INTERFAZ.UI
             dgvViajes.Columns.Clear();
 
             if (status == string.Empty)
-                TodosViajes = managerViajes.ObtenerTodos;
+            {
+                TodosViajes = managerViajes.ObtenerTodos.Where(v=>v.IdStatus!=5);
+
+            }
             else
             {
                 string[] cadenaStatus = status.Split('/');
@@ -286,7 +290,7 @@ namespace SCI.INTERFAZ.UI
                 if (dgvViajes["idStatus", filaSeleccionada].Value.ToString() != "5")
                 {
                     openDashBoardForm(new FormAgregarViaje(user, "editar", int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString())));
-                    
+                   
                 }
                 else
                 {
@@ -337,8 +341,7 @@ namespace SCI.INTERFAZ.UI
                             };
                             managerLog.Insertar(registro);
 
-                            // CargarTodosLosViajes(comboStatus.Text);
-                            CargarTodosLosViajes(btnStatus.Text);
+                            CargarTodosLosViajes("");
                             mostrarLabelStatus("Se ha eliminado Correctamente el Viaje: . " + idViaje, true);
                         }
                         else
@@ -356,7 +359,7 @@ namespace SCI.INTERFAZ.UI
 
         private void FormViajes_Shown(object sender, EventArgs e)
         {
-            CargarTodosLosViajes(btnStatus.Text);
+            CargarTodosLosViajes("");
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -437,5 +440,6 @@ namespace SCI.INTERFAZ.UI
                 }
             }
         }
+        
     }
 }

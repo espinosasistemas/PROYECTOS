@@ -31,8 +31,8 @@ namespace SCI.INTERFAZ.UI
             usuario user = managerUsuario.Login(textUsuario.Text, textPassword.Text);
             if (user != null)
             {
-                //FormPrincipal fp = new FormPrincipal(user);
-                FormPrincipal fp = new FormPrincipal();
+                FormPrincipal fp = new FormPrincipal(user);
+                //FormPrincipal fp = new FormPrincipal();
                 fp.Show();
                 this.Hide();
             }
@@ -40,6 +40,12 @@ namespace SCI.INTERFAZ.UI
             {
                 MessageBox.Show("El nombre de usuario o password son incorrectos.","Inicio de sesión.",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+
+        private void textPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == 13)
+                btnLogin_Click(sender, e);
         }
     }
 }

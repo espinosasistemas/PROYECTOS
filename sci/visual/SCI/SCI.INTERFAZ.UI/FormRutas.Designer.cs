@@ -85,7 +85,7 @@
             // 
             this.btnEliminarRuta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEliminarRuta.FlatAppearance.BorderSize = 0;
-            this.btnEliminarRuta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarRuta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEliminarRuta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarRuta.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEliminarRuta.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarRuta.Image")));
@@ -104,7 +104,7 @@
             // 
             this.btnEditarRuta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditarRuta.FlatAppearance.BorderSize = 0;
-            this.btnEditarRuta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarRuta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEditarRuta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarRuta.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEditarRuta.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarRuta.Image")));
@@ -154,7 +154,7 @@
             // 
             this.btnCrearRuta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnCrearRuta.FlatAppearance.BorderSize = 0;
-            this.btnCrearRuta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCrearRuta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnCrearRuta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearRuta.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCrearRuta.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearRuta.Image")));
@@ -173,7 +173,7 @@
             // 
             this.btnMostrarRutas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnMostrarRutas.FlatAppearance.BorderSize = 0;
-            this.btnMostrarRutas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnMostrarRutas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnMostrarRutas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrarRutas.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMostrarRutas.Image = ((System.Drawing.Image)(resources.GetObject("btnMostrarRutas.Image")));

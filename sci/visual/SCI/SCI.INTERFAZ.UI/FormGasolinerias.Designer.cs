@@ -83,7 +83,7 @@
             // 
             this.btnElminarGasolineria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnElminarGasolineria.FlatAppearance.BorderSize = 0;
-            this.btnElminarGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnElminarGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnElminarGasolineria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnElminarGasolineria.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnElminarGasolineria.Image = ((System.Drawing.Image)(resources.GetObject("btnElminarGasolineria.Image")));
@@ -102,7 +102,7 @@
             // 
             this.btnEditarGasolineria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditarGasolineria.FlatAppearance.BorderSize = 0;
-            this.btnEditarGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEditarGasolineria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarGasolineria.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEditarGasolineria.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarGasolineria.Image")));
@@ -152,7 +152,7 @@
             // 
             this.btnCrearGasolineria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnCrearGasolineria.FlatAppearance.BorderSize = 0;
-            this.btnCrearGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCrearGasolineria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnCrearGasolineria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearGasolineria.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCrearGasolineria.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearGasolineria.Image")));
@@ -171,7 +171,7 @@
             // 
             this.btnBuscarTodasGasolinerias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnBuscarTodasGasolinerias.FlatAppearance.BorderSize = 0;
-            this.btnBuscarTodasGasolinerias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnBuscarTodasGasolinerias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnBuscarTodasGasolinerias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarTodasGasolinerias.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnBuscarTodasGasolinerias.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarTodasGasolinerias.Image")));

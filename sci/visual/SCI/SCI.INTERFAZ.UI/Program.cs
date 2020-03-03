@@ -19,11 +19,12 @@ namespace SCI.INTERFAZ.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormLogin());
-            Application.Run(new FormPrincipal());
+            Application.Run(new FormLogin());
+            
             //Application.Run(new FormAgregarGasolineria("editar", 7));
             //Application.Run(new FormAgregarViaje(new usuario {NombreCompleto= "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "agregar",-1));
             //Application.Run(new FormAgregarViaje(new usuario { NombreCompleto = "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "editar", 262));
+            //Application.Run(new FormPrincipal());
             //Application.Run(new FormAgregarViaje("editar", 13));
             //Application.Run(new FormAgregarCasetas("agregar", 1));
         }

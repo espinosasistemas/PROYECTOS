@@ -83,7 +83,7 @@
             // 
             this.btnEliminarOperador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEliminarOperador.FlatAppearance.BorderSize = 0;
-            this.btnEliminarOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEliminarOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEliminarOperador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEliminarOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarOperador.Image")));
@@ -102,7 +102,7 @@
             // 
             this.btnEditarOperador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditarOperador.FlatAppearance.BorderSize = 0;
-            this.btnEditarOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnEditarOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnEditarOperador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEditarOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarOperador.Image")));
@@ -152,7 +152,7 @@
             // 
             this.btnCrearOperador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnCrearOperador.FlatAppearance.BorderSize = 0;
-            this.btnCrearOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnCrearOperador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnCrearOperador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCrearOperador.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearOperador.Image")));
@@ -171,7 +171,7 @@
             // 
             this.btnMostrarOperadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnMostrarOperadores.FlatAppearance.BorderSize = 0;
-            this.btnMostrarOperadores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnMostrarOperadores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnMostrarOperadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrarOperadores.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMostrarOperadores.Image = ((System.Drawing.Image)(resources.GetObject("btnMostrarOperadores.Image")));

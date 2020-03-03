@@ -14,17 +14,17 @@ namespace SCI.INTERFAZ.UI
 {
     public partial class FormPrincipal : Form
     {
-        IUsuarioManager managerUsuario;
+        //IUsuarioManager managerUsuario;
         private Form activeForm = null;
         usuario user;
         
-        public FormPrincipal()//usuario u)
+        public FormPrincipal(usuario u)
         {
             InitializeComponent();
             customizeDising();
-            managerUsuario = Tools.FabricManager.UsuarioManager();
-            user = managerUsuario.Login("test","x");
-            //user = u;
+            //managerUsuario = Tools.FabricManager.UsuarioManager();
+            //user = managerUsuario.Login("test","x");
+            user = u;
         }
 
         private void customizeDising()
