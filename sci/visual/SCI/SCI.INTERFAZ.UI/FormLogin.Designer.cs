@@ -75,7 +75,7 @@
             this.textUsuario.Location = new System.Drawing.Point(415, 182);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(190, 24);
-            this.textUsuario.TabIndex = 2;
+            this.textUsuario.TabIndex = 1;
             // 
             // pictureBox3
             // 
@@ -107,7 +107,7 @@
             this.textPassword.Location = new System.Drawing.Point(415, 240);
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(190, 24);
-            this.textPassword.TabIndex = 5;
+            this.textPassword.TabIndex = 2;
             this.textPassword.UseSystemPasswordChar = true;
             this.textPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPassword_KeyPress);
             // 
@@ -146,7 +146,7 @@
             this.btnLogin.Location = new System.Drawing.Point(415, 301);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(171, 39);
-            this.btnLogin.TabIndex = 8;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Iniciar Sesión";
             this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnLogin.UseVisualStyleBackColor = false;

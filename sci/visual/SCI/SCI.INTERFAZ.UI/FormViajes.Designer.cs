@@ -143,7 +143,7 @@
             this.btnStatus.Location = new System.Drawing.Point(6, 20);
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.Size = new System.Drawing.Size(130, 33);
-            this.btnStatus.TabIndex = 8;
+            this.btnStatus.TabIndex = 1;
             this.btnStatus.Text = "Mostrar Todos";
             this.btnStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -174,7 +174,7 @@
             this.btnEliminarViaje.Location = new System.Drawing.Point(550, 20);
             this.btnEliminarViaje.Name = "btnEliminarViaje";
             this.btnEliminarViaje.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarViaje.TabIndex = 4;
+            this.btnEliminarViaje.TabIndex = 5;
             this.btnEliminarViaje.Text = "Eliminar Viaje";
             this.btnEliminarViaje.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarViaje.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -193,7 +193,7 @@
             this.btnEditarViaje.Location = new System.Drawing.Point(414, 20);
             this.btnEditarViaje.Name = "btnEditarViaje";
             this.btnEditarViaje.Size = new System.Drawing.Size(130, 33);
-            this.btnEditarViaje.TabIndex = 3;
+            this.btnEditarViaje.TabIndex = 4;
             this.btnEditarViaje.Text = "Editar Viaje";
             this.btnEditarViaje.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarViaje.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -245,7 +245,7 @@
             this.btnCrearViaje.Location = new System.Drawing.Point(278, 20);
             this.btnCrearViaje.Name = "btnCrearViaje";
             this.btnCrearViaje.Size = new System.Drawing.Size(130, 33);
-            this.btnCrearViaje.TabIndex = 2;
+            this.btnCrearViaje.TabIndex = 3;
             this.btnCrearViaje.Text = "Agregar Viaje";
             this.btnCrearViaje.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCrearViaje.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -264,7 +264,7 @@
             this.btnBuscarTodosViajes.Location = new System.Drawing.Point(142, 20);
             this.btnBuscarTodosViajes.Name = "btnBuscarTodosViajes";
             this.btnBuscarTodosViajes.Size = new System.Drawing.Size(130, 33);
-            this.btnBuscarTodosViajes.TabIndex = 1;
+            this.btnBuscarTodosViajes.TabIndex = 2;
             this.btnBuscarTodosViajes.Text = "Mostrar Todos";
             this.btnBuscarTodosViajes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarTodosViajes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

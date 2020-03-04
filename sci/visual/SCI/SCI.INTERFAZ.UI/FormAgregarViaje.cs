@@ -174,7 +174,8 @@ namespace SCI.INTERFAZ.UI
                 //Se inicializan los combos con los valores cargados del viaje
                 textClaveViajeCliente.Text = entidadAeditar.IdViajeCliente;
                 comboClientes.Text = entidadCliente.IdCliente.ToString() + "/" + entidadCliente.RazonSocial;
-                comboRutas.Text = entidadRuta.IdRuta.ToString() + "/" + entidadRuta.Nombre;
+                //comboRutas.Text = entidadRuta.IdRuta.ToString() + "/" + entidadRuta.Nombre;
+                comboRutas.Text = entidadRuta.Nombre;
                 comboStatus.Text = entidadStatus.IdStatus.ToString() + "/" + entidadStatus.Nombre;
                 comboUnidades.Text = entidadUnidad.NumeroEconomico.ToString() + "/" + entidadUnidad.Nombre;
                 comboStatus.Enabled = true;
@@ -380,9 +381,11 @@ namespace SCI.INTERFAZ.UI
         {
             try
             {
-                string[] splitRutas;
-                splitRutas = comboRutas.Text.Split('/');
-                int idRuta = int.Parse(splitRutas.First());
+                //string[] splitRutas;
+                ruta rutSeleccionada = managerRuta.BuscarPorNombreExacto(comboRutas.Text);
+                //splitRutas = comboRutas.Text.Split('/');
+                //int idRuta = int.Parse(splitRutas.First());
+                //int idRuta = rutSeleccionada.IdRuta;
 
                 string[] splitClientes;
                 splitClientes = comboClientes.Text.Split('/');
@@ -410,7 +413,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        viaje viajeNuevo = CrearViaje(idStatus, idRuta, idCliente, Unidad.IdUnidad);
+                        viaje viajeNuevo = CrearViaje(idStatus, rutSeleccionada.IdRuta, idCliente, Unidad.IdUnidad);
                         if (managerViajes.Insertar(viajeNuevo))
                         {
                             viaje lastViaje = managerViajes.BuscarUltimoIngresado();
@@ -445,7 +448,7 @@ namespace SCI.INTERFAZ.UI
                             entidadAeditar.IdViajeCliente = textClaveViajeCliente.Text;
                             entidadAeditar.FechaInicio = DateTime.Parse(textFechaInicial.Text); //dateTimeInicioSci.Value;
                             entidadAeditar.FechaFin = fechaValida(textFechaFinal.Text); //dateTimeFinSci.Value;
-                            entidadAeditar.IdRuta = idRuta;
+                            entidadAeditar.IdRuta = rutSeleccionada.IdRuta;
                             entidadAeditar.IdStatus = idStatus;
                             entidadAeditar.IdUnidad = Unidad.IdUnidad;
 
@@ -481,7 +484,6 @@ namespace SCI.INTERFAZ.UI
                 MessageBox.Show("Ha ocurrido un Error al intentar Guardar El viaje. " + ex.Message, "Error al ingresar el Viaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
         private DateTime fechaValida(string fecha)
         {
             DateTime fechaFIn = new DateTime(DateTime.MinValue.Ticks);
@@ -687,6 +689,7 @@ namespace SCI.INTERFAZ.UI
                 }
 
             }
+            labelSaldoOp.Visible = false;
             nombreArchivoNuevoPdf = string.Empty;
             nombreArchivoNuevoXml = string.Empty;
         }
@@ -1028,58 +1031,59 @@ namespace SCI.INTERFAZ.UI
         }
         private void cargarComboRutas(int idCliente)
         {
+            comboRutas.DataSource = null;
             IEnumerable<ruta> rutas = managerRuta.BuscarPorIdCliente(idCliente);
-            comboRutas.DataSource = rutas.Select(r => (r.IdRuta + "/" + r.Nombre)).ToList();
-            /*if (comboClientes.Text == string.Empty)
-            {
-                comboRutas.Items.Clear();
-                
-            }*/
+            //comboRutas.DataSource = rutas.Select(r => (r.IdRuta + "/" + r.Nombre)).ToList();
+            comboRutas.DataSource = rutas.Select(r => (r.Nombre)).ToList();
             comboRutas.Text = string.Empty;
         }
         private void comboRutas_TextChanged(object sender, EventArgs e)
         {
-            if (comboRutas.Text != string.Empty)
+            try
             {
-                string[] cadenaRutaSeleccionada = comboRutas.Text.Split('/');
-                ruta rutaSeleccionada = managerRuta.BuscarPorId(cadenaRutaSeleccionada.First());
-                labelNombreRuta.Text = rutaSeleccionada.Nombre;
-                labelCostoRuta.Text = "$" + rutaSeleccionada.Costo.ToString();
-                //tipounidad tUnidad = managerTipoDeUnidad.BuscarPorId(rutaSeleccionada.IdTipoDeUnidad.ToString());
-                // labelTipoUnidad.Text = tUnidad.Descripcion;
-                //cargarTodasLasUnidades(tUnidad.IdTipoDeUnidad);
-                //
-                //comboUnidades.Text = string.Empty;
+                if (comboRutas.Text != string.Empty)
+                {
+                    string[] cadenaRutaSeleccionada = comboRutas.Text.Split('/');
+                    //ruta rutaSeleccionada = managerRuta.BuscarPorId(cadenaRutaSeleccionada.First());
+                    ruta rutaSeleccionada = managerRuta.BuscarPorNombreExacto(comboRutas.Text);
+                    labelNombreRuta.Text = rutaSeleccionada.Nombre;
+                    labelCostoRuta.Text = "$" + rutaSeleccionada.Costo.ToString();
+                }
+                else
+                {
+                    labelNombreRuta.Text = "--";
+                    labelCostoRuta.Text = "--";
+                }
             }
-            else
-            {
-                labelNombreRuta.Text = "--";
-                labelCostoRuta.Text = "--";
-                //labelTipoUnidad.Text = "--";
-            }
+            catch { }
+            
         }
         private void comboUnidades_TextChanged(object sender, EventArgs e)
         {
-            if (comboUnidades.Text != string.Empty)
+            try
             {
-                string[] cadenaUnidades = comboUnidades.Text.Split('/');
-                unidades unidadSeleccionada = managerUnidades.BuscarPorNumEco(int.Parse(cadenaUnidades.First()));
-                tipounidad tipoU = managerTipoDeUnidad.BuscarPorId(unidadSeleccionada.IdTipoDeUnidad.ToString());
+                if (comboUnidades.Text != string.Empty)
+                {
+                    string[] cadenaUnidades = comboUnidades.Text.Split('/');
+                    unidades unidadSeleccionada = managerUnidades.BuscarPorNumEco(int.Parse(cadenaUnidades.First()));
+                    tipounidad tipoU = managerTipoDeUnidad.BuscarPorId(unidadSeleccionada.IdTipoDeUnidad.ToString());
 
-                labelNombreUnidad.Text = unidadSeleccionada.Nombre;
-                labelNumEco.Text = unidadSeleccionada.NumeroEconomico.ToString();
-                labelPlacas.Text = unidadSeleccionada.Placas;
-                labelCombustible.Text = unidadSeleccionada.TipoCombustible;
-                labelTipoUnidad.Text = tipoU.Descripcion;
+                    labelNombreUnidad.Text = unidadSeleccionada.Nombre;
+                    labelNumEco.Text = unidadSeleccionada.NumeroEconomico.ToString();
+                    labelPlacas.Text = unidadSeleccionada.Placas;
+                    labelCombustible.Text = unidadSeleccionada.TipoCombustible;
+                    labelTipoUnidad.Text = tipoU.Descripcion;
+                }
+                else
+                {
+                    labelNombreUnidad.Text = "--";
+                    labelNumEco.Text = "--";
+                    labelPlacas.Text = "--";
+                    labelCombustible.Text = "--";
+                    labelTipoUnidad.Text = "--";
+                }
             }
-            else
-            {
-                labelNombreUnidad.Text = "--";
-                labelNumEco.Text = "--";
-                labelPlacas.Text = "--";
-                labelCombustible.Text = "--";
-                labelTipoUnidad.Text = "--";
-            }
+            catch { }
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -1087,24 +1091,28 @@ namespace SCI.INTERFAZ.UI
         }
         private void comboClientes_TextChanged(object sender, EventArgs e)
         {
-            if (comboClientes.Text != string.Empty)
+            try
             {
-                string[] cadenaCliente = comboClientes.Text.Split('/');
-                cargarComboRutas(int.Parse(cadenaCliente.First()));
-                cliente clienteSeleccionado = managerCliete.BuscarPorId(cadenaCliente.First());
-                labelNombreCliente.Text = clienteSeleccionado.RazonSocial;
-                labelTelCliente.Text = clienteSeleccionado.Telefono;
-                labelRfcCliente.Text = clienteSeleccionado.Rfc;
+                if (comboClientes.Text != string.Empty)
+                {
+                    string[] cadenaCliente = comboClientes.Text.Split('/');
+                    cargarComboRutas(int.Parse(cadenaCliente.First()));
+                    cliente clienteSeleccionado = managerCliete.BuscarPorId(cadenaCliente.First());
+                    labelNombreCliente.Text = clienteSeleccionado.RazonSocial;
+                    labelTelCliente.Text = clienteSeleccionado.Telefono;
+                    labelRfcCliente.Text = clienteSeleccionado.Rfc;
 
+                }
+                else
+                {
+                    comboRutas.DataSource = null;
+                    comboRutas.Text = string.Empty;
+                    labelNombreCliente.Text = "--";
+                    labelTelCliente.Text = "--";
+                    labelRfcCliente.Text = "--";
+                }
             }
-            else
-            {
-                comboRutas.DataSource = null;
-                comboRutas.Text = string.Empty;
-                labelNombreCliente.Text = "--";
-                labelTelCliente.Text = "--";
-                labelRfcCliente.Text = "--";
-            }
+            catch { }
 
         }
         private void comboTipoGastos2_TextChanged(object sender, EventArgs e)
@@ -1252,8 +1260,12 @@ namespace SCI.INTERFAZ.UI
                         }
                         else
                             MessageBox.Show("El gasto no se ha podido eliminar.", "Eliminar Gasto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        labelSaldoOp.Visible = false;
                     }
                 }
+
+                
             }
         }
         private void dgvGastos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1569,10 +1581,7 @@ namespace SCI.INTERFAZ.UI
             }
             catch { return 0; };
         }
-        private void comboOperadores_Click(object sender, EventArgs e)
-        {
-            comboOperadores.DroppedDown = true;
-        }
+       
         private void listOperadoresAsignados_Click(object sender, EventArgs e)
         {
             if (listOperadoresAsignados.Items.Count > 0 && listOperadoresAsignados.SelectedIndex >= 0)
@@ -1912,13 +1921,19 @@ namespace SCI.INTERFAZ.UI
                 }
                 else
                 {
-                    calendarInicialSci.SelectionStart = DateTime.Parse(textFechaInicial.Text);
-                    calendarInicialSci.SelectionEnd = DateTime.Parse(textFechaInicial.Text);
-                    trackHorasInicio.Value = calendarInicialSci.SelectionStart.Hour;
-                    trackMinutosInicio.Value = calendarInicialSci.SelectionStart.Minute;
+                    try
+                    {
+                        calendarInicialSci.SelectionStart = DateTime.Parse(textFechaInicial.Text);
+                        calendarInicialSci.SelectionEnd = DateTime.Parse(textFechaInicial.Text);
+                        trackHorasInicio.Value = calendarInicialSci.SelectionStart.Hour;
+                        trackMinutosInicio.Value = calendarInicialSci.SelectionStart.Minute;
 
-                    horaInicialGeneral = trackHorasInicio.Value;
-                    minutoInicialGeneral = trackMinutosInicio.Value;
+                        horaInicialGeneral = trackHorasInicio.Value;
+                        minutoInicialGeneral = trackMinutosInicio.Value;
+                    }
+                    catch { }
+
+                    
                 }
                 panelFechaInicial.Location = new Point(textFechaInicial.Location.X + 4, textFechaInicial.Location.Y + 30);
                 panelFechaInicial.Visible = true;
@@ -2046,13 +2061,17 @@ namespace SCI.INTERFAZ.UI
                 }
                 else
                 {
-                    calendarFinalSci.SelectionStart = DateTime.Parse(textFechaFinal.Text);
-                    calendarFinalSci.SelectionEnd = DateTime.Parse(textFechaFinal.Text);
-                    trackHorasFinal.Value = calendarFinalSci.SelectionStart.Hour;
-                    trackMinutosFinal.Value = calendarFinalSci.SelectionStart.Minute;
+                    try
+                    {
+                        calendarFinalSci.SelectionStart = DateTime.Parse(textFechaFinal.Text);
+                        calendarFinalSci.SelectionEnd = DateTime.Parse(textFechaFinal.Text);
+                        trackHorasFinal.Value = calendarFinalSci.SelectionStart.Hour;
+                        trackMinutosFinal.Value = calendarFinalSci.SelectionStart.Minute;
 
-                    horaFinalGeneral = trackHorasFinal.Value;
-                    minutoFinalGeneral = trackMinutosFinal.Value;
+                        horaFinalGeneral = trackHorasFinal.Value;
+                        minutoFinalGeneral = trackMinutosFinal.Value;
+                    }
+                    catch { }
                 }
                 panelFechaFinal.Location = new Point(textFechaFinal.Location.X + 4, textFechaFinal.Location.Y + 30);
                 panelFechaFinal.Visible = true;
@@ -2190,13 +2209,17 @@ namespace SCI.INTERFAZ.UI
                 }
                 else
                 {
-                    calendarGastos.SelectionStart = DateTime.Parse(textFechaDelGasto.Text);
-                    calendarGastos.SelectionEnd = DateTime.Parse(textFechaDelGasto.Text);
-                    trackHoraGastos.Value = calendarGastos.SelectionStart.Hour;
-                    trackMinutosGastos.Value = calendarGastos.SelectionStart.Minute;
+                    try
+                    {
+                        calendarGastos.SelectionStart = DateTime.Parse(textFechaDelGasto.Text);
+                        calendarGastos.SelectionEnd = DateTime.Parse(textFechaDelGasto.Text);
+                        trackHoraGastos.Value = calendarGastos.SelectionStart.Hour;
+                        trackMinutosGastos.Value = calendarGastos.SelectionStart.Minute;
 
-                    horaDelGasto = trackHoraGastos.Value;
-                    minutosDelGasto = trackMinutosGastos.Value;
+                        horaDelGasto = trackHoraGastos.Value;
+                        minutosDelGasto = trackMinutosGastos.Value;
+                    }
+                    catch { }
                 }
                 //panelFechaGastos.Location = new Point(textFechaDelGasto.Location.X+6, textFechaDelGasto.Location.Y-70);
                 panelFechaGastos.Visible = true;
@@ -2413,14 +2436,17 @@ namespace SCI.INTERFAZ.UI
                 }
                 else
                 {
-                    calendarInicioCortes.SelectionStart = DateTime.Parse(textFechaHoraInicialCorte.Text);
-                    calendarInicioCortes.SelectionEnd = DateTime.Parse(textFechaHoraInicialCorte.Text);
-                    trackHorasInicioCorte.Value = calendarInicioCortes.SelectionStart.Hour;
-                    trackMinutosInicioCorte.Value = calendarInicioCortes.SelectionStart.Minute;
+                    try
+                    {
+                        calendarInicioCortes.SelectionStart = DateTime.Parse(textFechaHoraInicialCorte.Text);
+                        calendarInicioCortes.SelectionEnd = DateTime.Parse(textFechaHoraInicialCorte.Text);
+                        trackHorasInicioCorte.Value = calendarInicioCortes.SelectionStart.Hour;
+                        trackMinutosInicioCorte.Value = calendarInicioCortes.SelectionStart.Minute;
 
-                    horaInicialCorte = trackHorasInicioCorte.Value;
-                    minutoInicialCorte = trackMinutosInicioCorte.Value;
-
+                        horaInicialCorte = trackHorasInicioCorte.Value;
+                        minutoInicialCorte = trackMinutosInicioCorte.Value;
+                    }
+                    catch { }
                     
                 }
                 
@@ -2577,14 +2603,17 @@ namespace SCI.INTERFAZ.UI
                 }
                 else
                 {
-                    calendarFinCorte.SelectionStart = DateTime.Parse(textFechaHoraFinalCorte.Text);
-                    calendarFinCorte.SelectionEnd = DateTime.Parse(textFechaHoraFinalCorte.Text);
-                    trackHoraFinCorte.Value = calendarFinCorte.SelectionStart.Hour;
-                    trackMinutoFinCorte.Value = calendarFinCorte.SelectionStart.Minute;
+                    try
+                    {
+                        calendarFinCorte.SelectionStart = DateTime.Parse(textFechaHoraFinalCorte.Text);
+                        calendarFinCorte.SelectionEnd = DateTime.Parse(textFechaHoraFinalCorte.Text);
+                        trackHoraFinCorte.Value = calendarFinCorte.SelectionStart.Hour;
+                        trackMinutoFinCorte.Value = calendarFinCorte.SelectionStart.Minute;
 
-                    horaFinalCorte = trackHoraFinCorte.Value;
-                    minutoFinalCorte = trackMinutoFinCorte.Value;
-
+                        horaFinalCorte = trackHoraFinCorte.Value;
+                        minutoFinalCorte = trackMinutoFinCorte.Value;
+                    }
+                    catch { }
                     
                 }
                 //panelFechaFinalCorte.Location = new Point(textFechaHoraFinalCorte.Location.X + 34, textFechaHoraFinalCorte.Location.Y - 63);
@@ -2739,14 +2768,18 @@ namespace SCI.INTERFAZ.UI
                 }
                 else
                 {
-                    calendarFechaCobro.SelectionStart = DateTime.Parse(textFechaCobroAdicional.Text);
-                    calendarFechaCobro.SelectionEnd = DateTime.Parse(textFechaCobroAdicional.Text);
+                    try
+                    {
+                        calendarFechaCobro.SelectionStart = DateTime.Parse(textFechaCobroAdicional.Text);
+                        calendarFechaCobro.SelectionEnd = DateTime.Parse(textFechaCobroAdicional.Text);
 
-                    trackHoraFechaCobro.Value = calendarFechaCobro.SelectionStart.Hour;
-                    trackMinutosHoraCobro.Value = calendarFechaCobro.SelectionStart.Minute;
+                        trackHoraFechaCobro.Value = calendarFechaCobro.SelectionStart.Hour;
+                        trackMinutosHoraCobro.Value = calendarFechaCobro.SelectionStart.Minute;
 
-                    horaCobroAdicional = trackHoraFechaCobro.Value;
-                    minutoCobroAdicional = trackMinutosHoraCobro.Value;
+                        horaCobroAdicional = trackHoraFechaCobro.Value;
+                        minutoCobroAdicional = trackMinutosHoraCobro.Value;
+                    }
+                    catch { }
                 }
                 //panelFechaCobroAdicional.Location = new Point(textFechaCobroAdicional.Location.X + 27, textFechaCobroAdicional.Location.Y - 67);
                 panelFechaCobroAdicional.Visible = true;
@@ -2875,6 +2908,22 @@ namespace SCI.INTERFAZ.UI
             }
             else
                 calcularMontoPorHorasOperador();
+        }
+
+        private void comboOperadoresGasto_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboOperadoresGasto.Text != string.Empty)
+                {
+                    string[] cadenaOp = comboOperadoresGasto.Text.Split('/');
+                    operadoresenviaje opSeleccionado = managerOperadoresEnViaje.BuscarPorIdViajeOpsyOperador(entidadAeditar.IdViajeSci, int.Parse(cadenaOp.First()));
+                    labelSaldoOp.Text = string.Format("Saldo actual del Operador: {0:C2}", opSeleccionado.SaldoActual);
+                    //string.Format("{0:C2}", TodosLosGastos.Sum(g => g.Costo));
+                    labelSaldoOp.Visible = true;
+                }
+            }
+            catch { }
         }
     }
 }

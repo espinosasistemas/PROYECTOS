@@ -91,7 +91,7 @@
             this.btnEliminarCliente.Location = new System.Drawing.Point(414, 20);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(130, 33);
-            this.btnEliminarCliente.TabIndex = 5;
+            this.btnEliminarCliente.TabIndex = 4;
             this.btnEliminarCliente.Text = "Eliminar Cliente";
             this.btnEliminarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

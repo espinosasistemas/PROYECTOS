@@ -81,7 +81,8 @@ namespace SCI.INTERFAZ.UI
                     Monto = double.Parse(textMonto.Text),
                     Tipo = comboTipoDeposito.Text,
                     Referencia = textReferencia.Text,
-                    Fecha = DateTime.Now
+                    Fecha = DateTime.Now,
+                    Nota = textNota.Text
                 };
 
                 if (managerDeposito.Insertar(depositoNuevo))
@@ -108,10 +109,13 @@ namespace SCI.INTERFAZ.UI
                             cargarTodosLosDepositos();
                             textMonto.Clear();
                             comboTipoDeposito.Text = string.Empty;
+                            textReferencia.Text = string.Empty;
+                            textNota.Text = string.Empty;
                         }
                     }
                 }
-
+                else
+                    MessageBox.Show(managerDeposito.Error, "Error al ingresar el nuevo Deposito.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch
             {

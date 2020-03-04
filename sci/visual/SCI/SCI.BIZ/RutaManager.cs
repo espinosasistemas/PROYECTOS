@@ -2,6 +2,7 @@
 using SCI.COMMON.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SCI.BIZ
@@ -20,6 +21,11 @@ namespace SCI.BIZ
         public IEnumerable<ruta> BuscarPorIdCliente(int idCliente)
         {
             return repository.Query(r => r.IdCliente == idCliente);
+        }
+
+        public ruta BuscarPorNombreExacto(string nombre)
+        {
+            return repository.Query(r => r.Nombre == nombre).SingleOrDefault();
         }
     }
 }

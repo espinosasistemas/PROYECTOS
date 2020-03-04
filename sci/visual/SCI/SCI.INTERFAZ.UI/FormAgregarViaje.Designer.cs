@@ -203,6 +203,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.labelSaldoOp = new System.Windows.Forms.Label();
             this.groupGastos.SuspendLayout();
             this.panelFechaGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackHoraGastos)).BeginInit();
@@ -266,8 +267,8 @@
             this.textFechaFinal.Location = new System.Drawing.Point(152, 64);
             this.textFechaFinal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaFinal.Name = "textFechaFinal";
-            this.textFechaFinal.Size = new System.Drawing.Size(287, 23);
-            this.textFechaFinal.TabIndex = 18;
+            this.textFechaFinal.Size = new System.Drawing.Size(331, 23);
+            this.textFechaFinal.TabIndex = 2;
             this.textFechaFinal.Click += new System.EventHandler(this.textFechaFinal_Click);
             // 
             // textFechaInicial
@@ -276,8 +277,8 @@
             this.textFechaInicial.Location = new System.Drawing.Point(152, 35);
             this.textFechaInicial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaInicial.Name = "textFechaInicial";
-            this.textFechaInicial.Size = new System.Drawing.Size(287, 23);
-            this.textFechaInicial.TabIndex = 17;
+            this.textFechaInicial.Size = new System.Drawing.Size(331, 23);
+            this.textFechaInicial.TabIndex = 1;
             this.textFechaInicial.Click += new System.EventHandler(this.textFechaInicial_Click);
             // 
             // calendarInicialSci
@@ -295,6 +296,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupGastos.Controls.Add(this.panelFechaGastos);
+            this.groupGastos.Controls.Add(this.labelSaldoOp);
             this.groupGastos.Controls.Add(this.panel3);
             this.groupGastos.Controls.Add(this.btnEditarGasto);
             this.groupGastos.Controls.Add(this.btnEliminarGasto);
@@ -321,7 +323,7 @@
             this.panelFechaGastos.Controls.Add(this.calendarGastos);
             this.panelFechaGastos.Controls.Add(this.trackHoraGastos);
             this.panelFechaGastos.Controls.Add(this.trackMinutosGastos);
-            this.panelFechaGastos.Location = new System.Drawing.Point(203, 21);
+            this.panelFechaGastos.Location = new System.Drawing.Point(203, 22);
             this.panelFechaGastos.Name = "panelFechaGastos";
             this.panelFechaGastos.Size = new System.Drawing.Size(287, 340);
             this.panelFechaGastos.TabIndex = 48;
@@ -458,7 +460,7 @@
             this.comboTipoGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboTipoGastos.Name = "comboTipoGastos";
             this.comboTipoGastos.Size = new System.Drawing.Size(324, 25);
-            this.comboTipoGastos.TabIndex = 11;
+            this.comboTipoGastos.TabIndex = 17;
             this.comboTipoGastos.TextChanged += new System.EventHandler(this.comboTipoGastos2_TextChanged);
             // 
             // label2
@@ -480,7 +482,7 @@
             this.textRutaXml.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRutaXml.Name = "textRutaXml";
             this.textRutaXml.Size = new System.Drawing.Size(228, 23);
-            this.textRutaXml.TabIndex = 17;
+            this.textRutaXml.TabIndex = 22;
             // 
             // label3
             // 
@@ -512,7 +514,7 @@
             this.textPoliza.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textPoliza.Name = "textPoliza";
             this.textPoliza.Size = new System.Drawing.Size(203, 23);
-            this.textPoliza.TabIndex = 10;
+            this.textPoliza.TabIndex = 25;
             this.textPoliza.Text = "0";
             // 
             // label37
@@ -535,7 +537,7 @@
             this.comboGasolinerias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboGasolinerias.Name = "comboGasolinerias";
             this.comboGasolinerias.Size = new System.Drawing.Size(324, 25);
-            this.comboGasolinerias.TabIndex = 12;
+            this.comboGasolinerias.TabIndex = 18;
             this.comboGasolinerias.Visible = false;
             // 
             // textConceptoGasto
@@ -562,7 +564,7 @@
             this.comboFormaPago.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboFormaPago.Name = "comboFormaPago";
             this.comboFormaPago.Size = new System.Drawing.Size(203, 25);
-            this.comboFormaPago.TabIndex = 13;
+            this.comboFormaPago.TabIndex = 28;
             // 
             // comboCasetas
             // 
@@ -618,7 +620,7 @@
             this.textTicket.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textTicket.Name = "textTicket";
             this.textTicket.Size = new System.Drawing.Size(203, 23);
-            this.textTicket.TabIndex = 11;
+            this.textTicket.TabIndex = 26;
             // 
             // btnExaminarPdf
             // 
@@ -627,7 +629,7 @@
             this.btnExaminarPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExaminarPdf.Name = "btnExaminarPdf";
             this.btnExaminarPdf.Size = new System.Drawing.Size(89, 28);
-            this.btnExaminarPdf.TabIndex = 16;
+            this.btnExaminarPdf.TabIndex = 21;
             this.btnExaminarPdf.Text = "Examinar...";
             this.btnExaminarPdf.UseVisualStyleBackColor = true;
             this.btnExaminarPdf.Click += new System.EventHandler(this.btnExaminarPdf_Click);
@@ -652,7 +654,8 @@
             this.comboOperadoresGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboOperadoresGasto.Name = "comboOperadoresGasto";
             this.comboOperadoresGasto.Size = new System.Drawing.Size(324, 25);
-            this.comboOperadoresGasto.TabIndex = 10;
+            this.comboOperadoresGasto.TabIndex = 16;
+            this.comboOperadoresGasto.TextChanged += new System.EventHandler(this.comboOperadoresGasto_TextChanged);
             // 
             // textNumFactura
             // 
@@ -662,7 +665,7 @@
             this.textNumFactura.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textNumFactura.Name = "textNumFactura";
             this.textNumFactura.Size = new System.Drawing.Size(203, 23);
-            this.textNumFactura.TabIndex = 12;
+            this.textNumFactura.TabIndex = 27;
             // 
             // textRutaPdf
             // 
@@ -672,7 +675,7 @@
             this.textRutaPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRutaPdf.Name = "textRutaPdf";
             this.textRutaPdf.Size = new System.Drawing.Size(228, 23);
-            this.textRutaPdf.TabIndex = 15;
+            this.textRutaPdf.TabIndex = 20;
             // 
             // label17
             // 
@@ -692,7 +695,7 @@
             this.btnExaminarXml.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExaminarXml.Name = "btnExaminarXml";
             this.btnExaminarXml.Size = new System.Drawing.Size(89, 28);
-            this.btnExaminarXml.TabIndex = 18;
+            this.btnExaminarXml.TabIndex = 23;
             this.btnExaminarXml.Text = "Examinar...";
             this.btnExaminarXml.UseVisualStyleBackColor = true;
             this.btnExaminarXml.Click += new System.EventHandler(this.btnExaminarXml_Click);
@@ -722,7 +725,7 @@
             this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(94, 33);
-            this.btnAgregarGasto.TabIndex = 14;
+            this.btnAgregarGasto.TabIndex = 29;
             this.btnAgregarGasto.Text = "Guardar";
             this.btnAgregarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -737,7 +740,7 @@
             this.textFechaDelGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaDelGasto.Name = "textFechaDelGasto";
             this.textFechaDelGasto.Size = new System.Drawing.Size(324, 23);
-            this.textFechaDelGasto.TabIndex = 14;
+            this.textFechaDelGasto.TabIndex = 19;
             this.textFechaDelGasto.Click += new System.EventHandler(this.textFechaDelGasto_Click);
             // 
             // label4
@@ -759,7 +762,7 @@
             this.textMontoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textMontoGasto.Name = "textMontoGasto";
             this.textMontoGasto.Size = new System.Drawing.Size(203, 23);
-            this.textMontoGasto.TabIndex = 9;
+            this.textMontoGasto.TabIndex = 24;
             // 
             // btnEditarGasto
             // 
@@ -774,7 +777,7 @@
             this.btnEditarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditarGasto.Name = "btnEditarGasto";
             this.btnEditarGasto.Size = new System.Drawing.Size(119, 41);
-            this.btnEditarGasto.TabIndex = 50;
+            this.btnEditarGasto.TabIndex = 14;
             this.btnEditarGasto.Text = "Editar Gasto";
             this.btnEditarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -794,7 +797,7 @@
             this.btnEliminarGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEliminarGasto.Name = "btnEliminarGasto";
             this.btnEliminarGasto.Size = new System.Drawing.Size(119, 41);
-            this.btnEliminarGasto.TabIndex = 45;
+            this.btnEliminarGasto.TabIndex = 15;
             this.btnEliminarGasto.Text = "Eliminar Gasto";
             this.btnEliminarGasto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -814,7 +817,7 @@
             this.btnNuevoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNuevoGasto.Name = "btnNuevoGasto";
             this.btnNuevoGasto.Size = new System.Drawing.Size(119, 41);
-            this.btnNuevoGasto.TabIndex = 49;
+            this.btnNuevoGasto.TabIndex = 13;
             this.btnNuevoGasto.Text = "Nuevo Gasto";
             this.btnNuevoGasto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevoGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1108,7 +1111,7 @@
             this.panel2.Controls.Add(this.label22);
             this.panel2.Location = new System.Drawing.Point(4, 8);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(452, 693);
+            this.panel2.Size = new System.Drawing.Size(486, 693);
             this.panel2.TabIndex = 34;
             // 
             // btnAbajo
@@ -1123,7 +1126,7 @@
             this.btnAbajo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAbajo.Name = "btnAbajo";
             this.btnAbajo.Size = new System.Drawing.Size(24, 24);
-            this.btnAbajo.TabIndex = 24;
+            this.btnAbajo.TabIndex = 12;
             this.btnAbajo.UseVisualStyleBackColor = false;
             this.btnAbajo.Visible = false;
             this.btnAbajo.Click += new System.EventHandler(this.btnAbajo_Click);
@@ -1140,7 +1143,7 @@
             this.btnArriba.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnArriba.Name = "btnArriba";
             this.btnArriba.Size = new System.Drawing.Size(24, 24);
-            this.btnArriba.TabIndex = 23;
+            this.btnArriba.TabIndex = 11;
             this.btnArriba.UseVisualStyleBackColor = false;
             this.btnArriba.Visible = false;
             this.btnArriba.Click += new System.EventHandler(this.btnArriba_Click);
@@ -1153,11 +1156,11 @@
             this.btnAgregarDeposito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarDeposito.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarDeposito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarDeposito.Location = new System.Drawing.Point(375, 284);
+            this.btnAgregarDeposito.Location = new System.Drawing.Point(419, 284);
             this.btnAgregarDeposito.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarDeposito.Name = "btnAgregarDeposito";
             this.btnAgregarDeposito.Size = new System.Drawing.Size(64, 28);
-            this.btnAgregarDeposito.TabIndex = 22;
+            this.btnAgregarDeposito.TabIndex = 10;
             this.btnAgregarDeposito.Text = "Depósito";
             this.btnAgregarDeposito.UseVisualStyleBackColor = false;
             this.btnAgregarDeposito.Visible = false;
@@ -1171,11 +1174,11 @@
             this.btnAgregarOperador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarOperador.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarOperador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarOperador.Location = new System.Drawing.Point(375, 248);
+            this.btnAgregarOperador.Location = new System.Drawing.Point(419, 248);
             this.btnAgregarOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarOperador.Name = "btnAgregarOperador";
             this.btnAgregarOperador.Size = new System.Drawing.Size(64, 28);
-            this.btnAgregarOperador.TabIndex = 21;
+            this.btnAgregarOperador.TabIndex = 9;
             this.btnAgregarOperador.Text = "Agregar";
             this.btnAgregarOperador.UseVisualStyleBackColor = false;
             this.btnAgregarOperador.Click += new System.EventHandler(this.btnAgregarOperador_Click);
@@ -1187,19 +1190,20 @@
             this.label11.Location = new System.Drawing.Point(53, 253);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 17);
-            this.label11.TabIndex = 20;
+            this.label11.TabIndex = 0;
             this.label11.Text = "Operadores";
             // 
             // comboOperadores
             // 
-            this.comboOperadores.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOperadores.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboOperadores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboOperadores.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperadores.FormattingEnabled = true;
             this.comboOperadores.Location = new System.Drawing.Point(152, 248);
             this.comboOperadores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboOperadores.Name = "comboOperadores";
-            this.comboOperadores.Size = new System.Drawing.Size(213, 25);
-            this.comboOperadores.TabIndex = 19;
-            this.comboOperadores.Click += new System.EventHandler(this.comboOperadores_Click);
+            this.comboOperadores.Size = new System.Drawing.Size(261, 25);
+            this.comboOperadores.TabIndex = 8;
             // 
             // btnAgregarViaje
             // 
@@ -1210,7 +1214,7 @@
             this.btnAgregarViaje.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAgregarViaje.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarViaje.Image")));
             this.btnAgregarViaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarViaje.Location = new System.Drawing.Point(273, 395);
+            this.btnAgregarViaje.Location = new System.Drawing.Point(187, 427);
             this.btnAgregarViaje.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarViaje.Name = "btnAgregarViaje";
             this.btnAgregarViaje.Size = new System.Drawing.Size(166, 40);
@@ -1226,7 +1230,7 @@
             this.listOperadoresAsignados.Location = new System.Drawing.Point(152, 284);
             this.listOperadoresAsignados.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listOperadoresAsignados.Name = "listOperadoresAsignados";
-            this.listOperadoresAsignados.Size = new System.Drawing.Size(213, 84);
+            this.listOperadoresAsignados.Size = new System.Drawing.Size(261, 84);
             this.listOperadoresAsignados.TabIndex = 8;
             this.listOperadoresAsignados.Click += new System.EventHandler(this.listOperadoresAsignados_Click);
             this.listOperadoresAsignados.DoubleClick += new System.EventHandler(this.listOperadoresAsignados_DoubleClick);
@@ -1248,7 +1252,7 @@
             this.comboClientes.Location = new System.Drawing.Point(152, 122);
             this.comboClientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboClientes.Name = "comboClientes";
-            this.comboClientes.Size = new System.Drawing.Size(287, 25);
+            this.comboClientes.Size = new System.Drawing.Size(331, 25);
             this.comboClientes.TabIndex = 4;
             this.comboClientes.TextChanged += new System.EventHandler(this.comboClientes_TextChanged);
             // 
@@ -1258,8 +1262,8 @@
             this.textClaveViajeCliente.Location = new System.Drawing.Point(152, 93);
             this.textClaveViajeCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textClaveViajeCliente.Name = "textClaveViajeCliente";
-            this.textClaveViajeCliente.Size = new System.Drawing.Size(287, 23);
-            this.textClaveViajeCliente.TabIndex = 1;
+            this.textClaveViajeCliente.Size = new System.Drawing.Size(331, 23);
+            this.textClaveViajeCliente.TabIndex = 3;
             // 
             // label6
             // 
@@ -1273,13 +1277,15 @@
             // 
             // comboRutas
             // 
+            this.comboRutas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboRutas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboRutas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRutas.FormattingEnabled = true;
             this.comboRutas.Location = new System.Drawing.Point(152, 153);
             this.comboRutas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboRutas.Name = "comboRutas";
-            this.comboRutas.Size = new System.Drawing.Size(287, 25);
-            this.comboRutas.TabIndex = 2;
+            this.comboRutas.Size = new System.Drawing.Size(331, 25);
+            this.comboRutas.TabIndex = 5;
             this.comboRutas.TextChanged += new System.EventHandler(this.comboRutas_TextChanged);
             // 
             // label9
@@ -1294,13 +1300,15 @@
             // 
             // comboUnidades
             // 
+            this.comboUnidades.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboUnidades.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboUnidades.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboUnidades.FormattingEnabled = true;
             this.comboUnidades.Location = new System.Drawing.Point(152, 184);
             this.comboUnidades.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboUnidades.Name = "comboUnidades";
-            this.comboUnidades.Size = new System.Drawing.Size(287, 25);
-            this.comboUnidades.TabIndex = 3;
+            this.comboUnidades.Size = new System.Drawing.Size(331, 25);
+            this.comboUnidades.TabIndex = 6;
             this.comboUnidades.TextChanged += new System.EventHandler(this.comboUnidades_TextChanged);
             // 
             // label1
@@ -1321,8 +1329,8 @@
             this.comboStatus.Location = new System.Drawing.Point(152, 215);
             this.comboStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(287, 25);
-            this.comboStatus.TabIndex = 5;
+            this.comboStatus.Size = new System.Drawing.Size(331, 25);
+            this.comboStatus.TabIndex = 7;
             this.comboStatus.SelectedValueChanged += new System.EventHandler(this.comboStatus_SelectedValueChanged);
             // 
             // label22
@@ -1369,11 +1377,11 @@
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Location = new System.Drawing.Point(462, 4);
+            this.groupBox1.Location = new System.Drawing.Point(496, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(413, 697);
+            this.groupBox1.Size = new System.Drawing.Size(379, 697);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de La Ruta y La Unidad";
@@ -1928,7 +1936,7 @@
             this.comboOperadoresCortes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboOperadoresCortes.Name = "comboOperadoresCortes";
             this.comboOperadoresCortes.Size = new System.Drawing.Size(312, 25);
-            this.comboOperadoresCortes.TabIndex = 15;
+            this.comboOperadoresCortes.TabIndex = 33;
             this.comboOperadoresCortes.SelectedValueChanged += new System.EventHandler(this.comboOperadoresCortes_SelectedValueChanged);
             // 
             // textFechaHoraInicialCorte
@@ -1939,7 +1947,7 @@
             this.textFechaHoraInicialCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaHoraInicialCorte.Name = "textFechaHoraInicialCorte";
             this.textFechaHoraInicialCorte.Size = new System.Drawing.Size(312, 23);
-            this.textFechaHoraInicialCorte.TabIndex = 16;
+            this.textFechaHoraInicialCorte.TabIndex = 34;
             this.textFechaHoraInicialCorte.Click += new System.EventHandler(this.textFechaHoraInicialOperador_Click);
             this.textFechaHoraInicialCorte.TextChanged += new System.EventHandler(this.textFechaHoraInicialCorte_TextChanged);
             // 
@@ -1973,7 +1981,7 @@
             this.textTotalHoras.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textTotalHoras.Name = "textTotalHoras";
             this.textTotalHoras.Size = new System.Drawing.Size(139, 23);
-            this.textTotalHoras.TabIndex = 18;
+            this.textTotalHoras.TabIndex = 36;
             this.textTotalHoras.Click += new System.EventHandler(this.textTotalHoras_Click);
             // 
             // textFechaHoraFinalCorte
@@ -1984,7 +1992,7 @@
             this.textFechaHoraFinalCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaHoraFinalCorte.Name = "textFechaHoraFinalCorte";
             this.textFechaHoraFinalCorte.Size = new System.Drawing.Size(312, 23);
-            this.textFechaHoraFinalCorte.TabIndex = 17;
+            this.textFechaHoraFinalCorte.TabIndex = 35;
             this.textFechaHoraFinalCorte.Click += new System.EventHandler(this.textFechaHoraFinalCorte_Click);
             this.textFechaHoraFinalCorte.TextChanged += new System.EventHandler(this.textFechaHoraFinalCorte_TextChanged);
             // 
@@ -2007,7 +2015,7 @@
             this.btnRedondear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRedondear.Name = "btnRedondear";
             this.btnRedondear.Size = new System.Drawing.Size(92, 25);
-            this.btnRedondear.TabIndex = 29;
+            this.btnRedondear.TabIndex = 39;
             this.btnRedondear.Text = "Redondear";
             this.btnRedondear.UseVisualStyleBackColor = true;
             this.btnRedondear.Click += new System.EventHandler(this.btnRedondear_Click);
@@ -2021,7 +2029,7 @@
             this.textCostoHoraOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textCostoHoraOperador.Name = "textCostoHoraOperador";
             this.textCostoHoraOperador.Size = new System.Drawing.Size(77, 23);
-            this.textCostoHoraOperador.TabIndex = 19;
+            this.textCostoHoraOperador.TabIndex = 37;
             this.textCostoHoraOperador.TextChanged += new System.EventHandler(this.textCostoHoraOperador_TextChanged);
             // 
             // label18
@@ -2066,7 +2074,7 @@
             this.textCostoTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textCostoTotal.Name = "textCostoTotal";
             this.textCostoTotal.Size = new System.Drawing.Size(201, 23);
-            this.textCostoTotal.TabIndex = 20;
+            this.textCostoTotal.TabIndex = 38;
             // 
             // btnAgregarCorteOperador
             // 
@@ -2082,7 +2090,7 @@
             this.btnAgregarCorteOperador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregarCorteOperador.Name = "btnAgregarCorteOperador";
             this.btnAgregarCorteOperador.Size = new System.Drawing.Size(94, 33);
-            this.btnAgregarCorteOperador.TabIndex = 22;
+            this.btnAgregarCorteOperador.TabIndex = 40;
             this.btnAgregarCorteOperador.Text = "Guardar";
             this.btnAgregarCorteOperador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarCorteOperador.UseVisualStyleBackColor = false;
@@ -2101,7 +2109,7 @@
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(119, 41);
-            this.button3.TabIndex = 51;
+            this.button3.TabIndex = 31;
             this.button3.Text = "Editar Corte";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2121,7 +2129,7 @@
             this.btnEliminarCorte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEliminarCorte.Name = "btnEliminarCorte";
             this.btnEliminarCorte.Size = new System.Drawing.Size(119, 41);
-            this.btnEliminarCorte.TabIndex = 24;
+            this.btnEliminarCorte.TabIndex = 32;
             this.btnEliminarCorte.Text = "Eliminar Corte";
             this.btnEliminarCorte.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarCorte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2141,7 +2149,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 41);
-            this.button1.TabIndex = 50;
+            this.button1.TabIndex = 30;
             this.button1.Text = "Nuevo Corte";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2351,7 +2359,7 @@
             this.comboTipoCobro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboTipoCobro.Name = "comboTipoCobro";
             this.comboTipoCobro.Size = new System.Drawing.Size(312, 25);
-            this.comboTipoCobro.TabIndex = 30;
+            this.comboTipoCobro.TabIndex = 44;
             // 
             // textFechaCobroAdicional
             // 
@@ -2361,7 +2369,7 @@
             this.textFechaCobroAdicional.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFechaCobroAdicional.Name = "textFechaCobroAdicional";
             this.textFechaCobroAdicional.Size = new System.Drawing.Size(312, 23);
-            this.textFechaCobroAdicional.TabIndex = 16;
+            this.textFechaCobroAdicional.TabIndex = 46;
             this.textFechaCobroAdicional.Click += new System.EventHandler(this.textFechaCobroAdicional_Click);
             // 
             // label12
@@ -2383,7 +2391,7 @@
             this.textMontoCobro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textMontoCobro.Name = "textMontoCobro";
             this.textMontoCobro.Size = new System.Drawing.Size(312, 23);
-            this.textMontoCobro.TabIndex = 17;
+            this.textMontoCobro.TabIndex = 45;
             // 
             // label39
             // 
@@ -2410,7 +2418,7 @@
             this.btnGuardarCobroAdicional.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardarCobroAdicional.Name = "btnGuardarCobroAdicional";
             this.btnGuardarCobroAdicional.Size = new System.Drawing.Size(94, 33);
-            this.btnGuardarCobroAdicional.TabIndex = 22;
+            this.btnGuardarCobroAdicional.TabIndex = 47;
             this.btnGuardarCobroAdicional.Text = "Guardar";
             this.btnGuardarCobroAdicional.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardarCobroAdicional.UseVisualStyleBackColor = false;
@@ -2429,7 +2437,7 @@
             this.btnEditarCobro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditarCobro.Name = "btnEditarCobro";
             this.btnEditarCobro.Size = new System.Drawing.Size(119, 41);
-            this.btnEditarCobro.TabIndex = 51;
+            this.btnEditarCobro.TabIndex = 42;
             this.btnEditarCobro.Text = "Editar Cobro";
             this.btnEditarCobro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarCobro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2449,7 +2457,7 @@
             this.btnEliminarCobro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEliminarCobro.Name = "btnEliminarCobro";
             this.btnEliminarCobro.Size = new System.Drawing.Size(119, 41);
-            this.btnEliminarCobro.TabIndex = 24;
+            this.btnEliminarCobro.TabIndex = 43;
             this.btnEliminarCobro.Text = "Eliminar Cobro";
             this.btnEliminarCobro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarCobro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2469,7 +2477,7 @@
             this.btnNuevoCobro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNuevoCobro.Name = "btnNuevoCobro";
             this.btnNuevoCobro.Size = new System.Drawing.Size(119, 41);
-            this.btnNuevoCobro.TabIndex = 50;
+            this.btnNuevoCobro.TabIndex = 41;
             this.btnNuevoCobro.Text = "Nuevo Cobro";
             this.btnNuevoCobro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevoCobro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2545,6 +2553,19 @@
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // labelSaldoOp
+            // 
+            this.labelSaldoOp.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelSaldoOp.AutoSize = true;
+            this.labelSaldoOp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldoOp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.labelSaldoOp.Location = new System.Drawing.Point(400, 32);
+            this.labelSaldoOp.Name = "labelSaldoOp";
+            this.labelSaldoOp.Size = new System.Drawing.Size(295, 19);
+            this.labelSaldoOp.TabIndex = 48;
+            this.labelSaldoOp.Text = "Saldo actual del Operador: $1,400.00";
+            this.labelSaldoOp.Visible = false;
             // 
             // FormAgregarViaje
             // 
@@ -2791,5 +2812,6 @@
         private System.Windows.Forms.MonthCalendar calendarFechaCobro;
         private System.Windows.Forms.TrackBar trackHoraFechaCobro;
         private System.Windows.Forms.TrackBar trackMinutosHoraCobro;
+        private System.Windows.Forms.Label labelSaldoOp;
     }
 }

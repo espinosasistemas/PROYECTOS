@@ -13,5 +13,6 @@ namespace SCI.COMMON.Entidades
         public string Tipo { get; set; }
         public string Referencia { get; set; }
         public DateTime Fecha { get; set; }
+        public string Nota { get; set; }
     }
 }

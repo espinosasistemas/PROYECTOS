@@ -13,9 +13,11 @@ namespace SCI.COMMON.Validadores
             RuleFor(d => d.IdOperador).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(d => d.IdViajeSci).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(d => d.Monto).NotNull().NotEmpty().GreaterThan(-1);
-            RuleFor(d => d.Tipo).NotNull().NotEmpty();
             RuleFor(d => d.Tipo).NotNull().NotEmpty().Length(0,40);
+            RuleFor(d => d.Referencia).NotNull().Length(0, 40);
             RuleFor(d => d.Fecha).NotNull().NotEmpty();
+            RuleFor(d => d.Nota).NotNull().Length(0, 100);
+            
         }
     }
 }

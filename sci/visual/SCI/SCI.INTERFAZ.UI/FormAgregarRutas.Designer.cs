@@ -70,7 +70,7 @@
             this.comboClientes.Location = new System.Drawing.Point(130, 131);
             this.comboClientes.Name = "comboClientes";
             this.comboClientes.Size = new System.Drawing.Size(381, 28);
-            this.comboClientes.TabIndex = 6;
+            this.comboClientes.TabIndex = 4;
             // 
             // label4
             // 
@@ -79,7 +79,7 @@
             this.label4.Location = new System.Drawing.Point(76, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 16);
-            this.label4.TabIndex = 5;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Cliente";
             // 
             // comboUnidadAFacturar
@@ -108,7 +108,7 @@
             this.btnAgregarRuta.Location = new System.Drawing.Point(382, 187);
             this.btnAgregarRuta.Name = "btnAgregarRuta";
             this.btnAgregarRuta.Size = new System.Drawing.Size(130, 33);
-            this.btnAgregarRuta.TabIndex = 4;
+            this.btnAgregarRuta.TabIndex = 5;
             this.btnAgregarRuta.Text = "Agregar Cliente";
             this.btnAgregarRuta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarRuta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

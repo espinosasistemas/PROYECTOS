@@ -43,12 +43,6 @@ namespace SCI.INTERFAZ.UI
             user = u;
         }
 
-        /*private void cargarTiposDeUnidades()
-        {
-            IEnumerable<tipounidad> tiposDeUnidades = managerTipoDeUnidades.ObtenerTodos;
-            comboTipoDeUnidad.DataSource = tiposDeUnidades.Select(u => (u.IdTipoDeUnidad + "/" + u.Descripcion)).ToList();
-        }*/
-
         private void cargarTodosLosClientes()
         {
             IEnumerable<cliente> todosLosClientes = managerCliente.ObtenerTodos;
@@ -84,24 +78,29 @@ namespace SCI.INTERFAZ.UI
                 try
                 {
                     ruta rutaNueva = CrearRuta(idCliente);
-                    if (managerRutas.Insertar(rutaNueva))
+                    if (nombreRutaesValido(rutaNueva.Nombre))
                     {
-                        resultado = "Se ha agregado correctamente la nueva Ruta.";
-                        ruta lastRuta = managerRutas.BuscarUltimoIngresado();
-                        log registro = new log
+                        if (managerRutas.Insertar(rutaNueva))
                         {
-                            Accion = "agregar",
-                            NombreUsuario = user.NombreUsuario,
-                            Fecha = DateTime.Now,
-                            ModuloAfectado = "ruta-id:" + lastRuta.IdRuta
-                        };
-                        managerLog.Insertar(registro);
-                        this.Close();
+                            resultado = "Se ha agregado correctamente la nueva Ruta.";
+                            ruta lastRuta = managerRutas.BuscarUltimoIngresado();
+                            log registro = new log
+                            {
+                                Accion = "agregar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "ruta-id:" + lastRuta.IdRuta
+                            };
+                            managerLog.Insertar(registro);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show(managerRutas.Error, "Error al ingresar la nueva Ruta.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show(managerRutas.Error, "Error al ingresar la nueva Ruta.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        MessageBox.Show("Ya existe una ruta con ese mismo nombre, es necesario que sean diferentes.", "Error al ingresar la nueva Ruta.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
@@ -114,28 +113,65 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        entidadAeditar.Nombre = textNombre.Text;
-                        entidadAeditar.Costo = double.Parse(textCosto.Text);
-                        entidadAeditar.UnidadAFacturar = comboUnidadAFacturar.Text;
-                        entidadAeditar.IdCliente = idCliente;
-
-                        if (managerRutas.Actualizar(entidadAeditar))
+                        if (entidadAeditar.Nombre != textNombre.Text.Trim())
                         {
-                            resultado = "Se ha actualizado correctamente los datos de la ruta.";
-                            log registro = new log
+                            entidadAeditar.Nombre = textNombre.Text.Trim();
+                            entidadAeditar.Costo = double.Parse(textCosto.Text);
+                            entidadAeditar.UnidadAFacturar = comboUnidadAFacturar.Text;
+                            entidadAeditar.IdCliente = idCliente;
+
+                            if (nombreRutaesValido(entidadAeditar.Nombre))
                             {
-                                Accion = "editar",
-                                NombreUsuario = user.NombreUsuario,
-                                Fecha = DateTime.Now,
-                                ModuloAfectado = "ruta-id:" + entidadAeditar.IdRuta
-                            };
-                            managerLog.Insertar(registro);
-                            this.Close();
+                                //continuar
+                                if (managerRutas.Actualizar(entidadAeditar))
+                                {
+                                    resultado = "Se ha actualizado correctamente los datos de la ruta.";
+                                    log registro = new log
+                                    {
+                                        Accion = "editar",
+                                        NombreUsuario = user.NombreUsuario,
+                                        Fecha = DateTime.Now,
+                                        ModuloAfectado = "ruta-id:" + entidadAeditar.IdRuta
+                                    };
+                                    managerLog.Insertar(registro);
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show(managerRutas.Error, "Error al actualizar los datos de la Ruta.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                                MessageBox.Show("Ya existe una ruta con ese mismo nombre, es necesario que sean diferentes.", "Error al ingresar la nueva Ruta.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+
                         else
                         {
-                            MessageBox.Show(managerRutas.Error, "Error al actualizar los datos de la Ruta.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            entidadAeditar.Nombre = textNombre.Text.Trim();
+                            entidadAeditar.Costo = double.Parse(textCosto.Text);
+                            entidadAeditar.UnidadAFacturar = comboUnidadAFacturar.Text;
+                            entidadAeditar.IdCliente = idCliente;
+
+                            if (managerRutas.Actualizar(entidadAeditar))
+                            {
+                                resultado = "Se ha actualizado correctamente los datos de la ruta.";
+                                log registro = new log
+                                {
+                                    Accion = "editar",
+                                    NombreUsuario = user.NombreUsuario,
+                                    Fecha = DateTime.Now,
+                                    ModuloAfectado = "ruta-id:" + entidadAeditar.IdRuta
+                                };
+                                managerLog.Insertar(registro);
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show(managerRutas.Error, "Error al actualizar los datos de la Ruta.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
+                        
+
                     }
                     catch (Exception ex)
                     {
@@ -146,11 +182,18 @@ namespace SCI.INTERFAZ.UI
 
         }
 
+        private bool nombreRutaesValido(string nombre)
+        {
+            ruta rutaEncontrada = managerRutas.BuscarPorNombreExacto(nombre);
+            if (rutaEncontrada == null) return true;
+            return false;
+        }
+
         private ruta CrearRuta(int idCliente)
         {
             return new ruta
             {
-                Nombre = textNombre.Text,
+                Nombre = textNombre.Text.Trim(),
                 Costo = double.Parse(textCosto.Text),
                 UnidadAFacturar = comboUnidadAFacturar.Text,
                 IdCliente = idCliente
