@@ -1331,7 +1331,6 @@
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(331, 25);
             this.comboStatus.TabIndex = 7;
-            this.comboStatus.SelectedValueChanged += new System.EventHandler(this.comboStatus_SelectedValueChanged);
             // 
             // label22
             // 

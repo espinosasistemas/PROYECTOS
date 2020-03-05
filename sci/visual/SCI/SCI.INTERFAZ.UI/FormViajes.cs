@@ -24,6 +24,7 @@ namespace SCI.INTERFAZ.UI
         ILogManager managerLog;
         IOperadoresEnViajeManager managerOperadorEnViaje;
         IOperadorManager managerOperador;
+        ICobroAdicionalManager managerCobrosAdicionales;
 
         bool primeraCarga = true;
         int filaSeleccionada = -1;
@@ -43,6 +44,8 @@ namespace SCI.INTERFAZ.UI
             managerLog = Tools.FabricManager.LogManager();
             managerOperadorEnViaje = Tools.FabricManager.OperadoresEnViajeManager();
             managerOperador = Tools.FabricManager.OperadorManager();
+            managerCobrosAdicionales = Tools.FabricManager.CobrosAdicionalManager();
+
             user = u;
         }
 
@@ -70,7 +73,6 @@ namespace SCI.INTERFAZ.UI
             if (status == string.Empty)
             {
                 TodosViajes = managerViajes.ObtenerTodos.Where(v=>v.IdStatus!=5);
-
             }
             else
             {
@@ -86,6 +88,7 @@ namespace SCI.INTERFAZ.UI
             dgvViajes.Columns["idUnidad"].Visible = false;
             dgvViajes.Columns["FechaFin"].Visible = false;
 
+            dgvViajes.Columns.Add("Cobros", "Cobros");
             dgvViajes.Columns.Add("Gastos", "Gastos");
             dgvViajes.Columns.Add("Cortes", "Cortes");
             dgvViajes.Columns.Add("Economico", "Economico");
@@ -96,13 +99,13 @@ namespace SCI.INTERFAZ.UI
 
             if (dgvViajes.Rows.Count > 0)
             {
-                
-
+                IEnumerable<cobrosadicionales> todosLosCobrosAdicionales; 
                 IEnumerable<gasto> todoLosGastos;
                 IEnumerable<cortesoperador> todosLosCortes;
                 IEnumerable<cliente> todosLosClientes  = managerCliente.ObtenerTodos;
                 IEnumerable<operadoresenviaje> operadoresEnViaje = managerOperadorEnViaje.ObtenerTodos;
                 IEnumerable<operador> todosLosOperadores = managerOperador.ObtenerTodos;
+                
 
                 int idOpMenorEnViaje;
                 //operador opSeleccionado;
@@ -138,13 +141,15 @@ namespace SCI.INTERFAZ.UI
                     idUnidadViaje = int.Parse(dgvViajes["idUnidad", i].Value.ToString());
                     dgvViajes["Economico", i].Value = (from u in todasLasUnidades where u.IdUnidad == idUnidadViaje select u.NumeroEconomico).SingleOrDefault();
 
-                    
                     todoLosGastos = managerGasto.BuscarPorIdViajeOps(idViajeSci);
-                    dgvViajes["Gastos", i].Value = "$" + todoLosGastos.Sum(g => g.Costo).ToString();
+                    dgvViajes["Gastos", i].Value = string.Format("{0:C2}", todoLosGastos.Sum(g => g.Costo));
 
                     todosLosCortes = managerCortes.BuscarCortesPorIdViaje(idViajeSci);
-                    dgvViajes["Cortes", i].Value = "$" + todosLosCortes.Sum(g => g.Costo).ToString();
-                    
+                    dgvViajes["Cortes", i].Value = string.Format("{0:C2}", todosLosCortes.Sum(g => g.Costo));
+
+                    todosLosCobrosAdicionales = managerCobrosAdicionales.BuscarCobrosPorViaje(idViajeSci);
+                    dgvViajes["Cobros", i].Value = string.Format("{0:C2}", todosLosCobrosAdicionales.Sum(g => g.Monto));
+
                     try
                     {
                         posicion = (from s in operadoresEnViaje where s.IdViajeSci == idViajeSci select s.Posicion).Min();
@@ -173,8 +178,9 @@ namespace SCI.INTERFAZ.UI
             dgvViajes.Columns["Ruta"].DisplayIndex = 4;
             dgvViajes.Columns["Economico"].DisplayIndex = 5;
             dgvViajes.Columns["Operador"].DisplayIndex = 6;
-            dgvViajes.Columns["Cortes"].DisplayIndex = 7;
-            dgvViajes.Columns["Gastos"].DisplayIndex = 8;
+            dgvViajes.Columns["Gastos"].DisplayIndex = 7;
+            dgvViajes.Columns["Cortes"].DisplayIndex = 8;
+            dgvViajes.Columns["Cobros"].DisplayIndex = 9;
 
         }
 
