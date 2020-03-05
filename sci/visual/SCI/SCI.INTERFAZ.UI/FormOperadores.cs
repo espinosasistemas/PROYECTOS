@@ -138,6 +138,21 @@ namespace SCI.INTERFAZ.UI
         {
             cargarTodosOperadores();
         }
-       
+
+        private void dgvOperadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex;
+            if (filaSeleccionada >= 0)
+            {
+                FormAgregarOperador fm = new FormAgregarOperador(user, "editar", int.Parse(dgvOperadores["idOperador", filaSeleccionada].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    cargarTodosOperadores();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
+
+            }
+        }
     }
 }

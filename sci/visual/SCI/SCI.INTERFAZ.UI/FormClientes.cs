@@ -138,5 +138,20 @@ namespace SCI.INTERFAZ.UI
         {
             this.Close();
         }
+
+        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex;
+            if (filaSeleccionada >= 0)
+            {
+                FormAgregarCliente fm = new FormAgregarCliente(user, "editar", int.Parse(dgvClientes["idcliente", filaSeleccionada].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    cargarTodosLosCliente();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
+            }
+        }
     }
 }

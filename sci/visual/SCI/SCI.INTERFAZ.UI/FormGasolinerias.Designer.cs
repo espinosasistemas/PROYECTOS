@@ -202,6 +202,7 @@
             this.dgvGasolinerias.Size = new System.Drawing.Size(685, 389);
             this.dgvGasolinerias.TabIndex = 0;
             this.dgvGasolinerias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGasolinerias_CellClick);
+            this.dgvGasolinerias.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGasolinerias_CellDoubleClick);
             // 
             // panel1
             // 

@@ -152,5 +152,20 @@ namespace SCI.INTERFAZ.UI
         {
             cargarTodasUnidades();
         }
+
+        private void dgvUnidades_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex;
+            if (filaSeleccionada >= 0)
+            {
+                FormAgregarUnidad fm = new FormAgregarUnidad(user, "editar", int.Parse(dgvUnidades["idUnidad", filaSeleccionada].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    cargarTodasUnidades();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
+            }
+        }
     }
 }

@@ -150,6 +150,21 @@ namespace SCI.INTERFAZ.UI
             cargarTodasLasRutas();
         }
 
+        private void dgvRutas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex;
+            if (filaSeleccionada >= 0)
+            {
+                FormAgregarRutas fm = new FormAgregarRutas(user, "editar", int.Parse(dgvRutas["idruta", filaSeleccionada].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    cargarTodasLasRutas();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
+            }
+        }
+
         /*-------------------*/
     }
 }

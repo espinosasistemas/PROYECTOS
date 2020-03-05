@@ -109,7 +109,7 @@
             this.btnAgregarRuta.Name = "btnAgregarRuta";
             this.btnAgregarRuta.Size = new System.Drawing.Size(130, 33);
             this.btnAgregarRuta.TabIndex = 5;
-            this.btnAgregarRuta.Text = "Agregar Cliente";
+            this.btnAgregarRuta.Text = "Agregar Ruta";
             this.btnAgregarRuta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarRuta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarRuta.UseVisualStyleBackColor = false;

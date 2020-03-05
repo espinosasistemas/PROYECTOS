@@ -202,6 +202,7 @@
             this.dgvCasetas.Size = new System.Drawing.Size(685, 389);
             this.dgvCasetas.TabIndex = 0;
             this.dgvCasetas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCasetas_CellClick);
+            this.dgvCasetas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCasetas_CellDoubleClick);
             // 
             // panel1
             // 

@@ -150,5 +150,20 @@ namespace SCI.INTERFAZ.UI
         {
             cargarTodasLasGasolinerias();
         }
+
+        private void dgvGasolinerias_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex;
+            if (filaSeleccionada >= 0)
+            {
+                FormAgregarGasolineria fm = new FormAgregarGasolineria(user, "editar", int.Parse(dgvGasolinerias["idGasolineria", filaSeleccionada].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    cargarTodasLasGasolinerias();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
+            }
+        }
     }
 }

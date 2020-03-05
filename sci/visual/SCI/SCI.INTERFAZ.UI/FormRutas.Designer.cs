@@ -220,6 +220,7 @@
             this.dgvRutas.Size = new System.Drawing.Size(685, 389);
             this.dgvRutas.TabIndex = 0;
             this.dgvRutas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRutas_CellClick);
+            this.dgvRutas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRutas_CellDoubleClick);
             // 
             // panel1
             // 

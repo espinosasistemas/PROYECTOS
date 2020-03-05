@@ -240,6 +240,7 @@
             this.dgvUnidades.Size = new System.Drawing.Size(685, 389);
             this.dgvUnidades.TabIndex = 0;
             this.dgvUnidades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnidades_CellClick);
+            this.dgvUnidades.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnidades_CellDoubleClick);
             // 
             // FormUnidades
             // 

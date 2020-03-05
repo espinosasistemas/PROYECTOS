@@ -202,6 +202,7 @@
             this.dgvOperadores.Size = new System.Drawing.Size(685, 389);
             this.dgvOperadores.TabIndex = 0;
             this.dgvOperadores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperadores_CellClick);
+            this.dgvOperadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperadores_CellDoubleClick);
             // 
             // panel1
             // 

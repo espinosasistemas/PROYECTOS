@@ -160,5 +160,20 @@ namespace SCI.INTERFAZ.UI
         {
             cargarTodasLasCasetas();
         }
+
+        private void dgvCasetas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex;
+            if (filaSeleccionada >= 0)
+            {
+                FormAgregarCasetas fm = new FormAgregarCasetas(user, "editar", int.Parse(dgvCasetas["idCaseta", filaSeleccionada].Value.ToString()));
+                DialogResult DialogForm = fm.ShowDialog();
+                if (fm.Valor != string.Empty)
+                {
+                    cargarTodasLasCasetas();
+                    mostrarLabelStatus(fm.Valor, true);
+                }
+            }
+        }
     }
 }
