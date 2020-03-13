@@ -149,6 +149,16 @@ namespace SCI.INTERFAZ.UI
                         if (managerDeposito.Eliminar(idDepositoAEliminar.ToString()))
                         {
                             operadoresenviaje opEnViaje = managerOperadorEnViaje.BuscarPorIdViajeOpsyOperador(idViaje, opSeleccionado.IdOperador);
+
+                            log registro = new log
+                            {
+                                Accion = "eliminar",
+                                NombreUsuario = user.NombreUsuario,
+                                Fecha = DateTime.Now,
+                                ModuloAfectado = "deposito-id:" + idDepositoAEliminar
+                            };
+                            managerLog.Insertar(registro);
+
                             opEnViaje.SaldoActual = opEnViaje.SaldoActual - montoDelDeposito;
                             managerOperadorEnViaje.Actualizar(opEnViaje);
                             cargarTodosLosDepositos();

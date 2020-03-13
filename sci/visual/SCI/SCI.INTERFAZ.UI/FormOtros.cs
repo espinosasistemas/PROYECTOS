@@ -100,20 +100,13 @@ namespace SCI.INTERFAZ.UI
 
         private void btnCrearTipoGasto_Click(object sender, EventArgs e)
         {
-            FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto(user,"agregar", -1);
-            DialogResult DialogForm = fm.ShowDialog();
-            if (fm.Valor != string.Empty)
-            {
-                cargarTodosLosGastos();
-                mostrarLabelStatus(fm.Valor, true);
-            }
-        }
+            FormPermiso fp = new FormPermiso();
+            DialogResult DialogForm2 = fp.ShowDialog();
 
-        private void btnEditarGasto_Click(object sender, EventArgs e)
-        {
-            if (filaSeleccionadaGasto >= 0)
+            if (fp.Valor == true)
             {
-                FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto(user,"editar", int.Parse(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()));
+
+                FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto(user, "agregar", -1);
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -121,44 +114,86 @@ namespace SCI.INTERFAZ.UI
                     mostrarLabelStatus(fm.Valor, true);
                 }
             }
+            else
+            {
+                MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void btnEditarGasto_Click(object sender, EventArgs e)
+        {
+            if (filaSeleccionadaGasto >= 0)
+            {
+                FormPermiso fp = new FormPermiso();
+                DialogResult DialogForm2 = fp.ShowDialog();
+
+                if (fp.Valor == true)
+                {
+
+                    FormAgregarTipoDeGasto fm = new FormAgregarTipoDeGasto(user, "editar", int.Parse(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()));
+                    DialogResult DialogForm = fm.ShowDialog();
+                    if (fm.Valor != string.Empty)
+                    {
+                        cargarTodosLosGastos();
+                        mostrarLabelStatus(fm.Valor, true);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnEliminarGasto_Click(object sender, EventArgs e)
         {
-            DialogResult dialogEliminar = new DialogResult();
-            if (filaSeleccionadaGasto >= 0)
+            FormPermiso fp = new FormPermiso();
+            DialogResult DialogForm2 = fp.ShowDialog();
+
+            if (fp.Valor == true)
             {
-                string nombre = dgvGastos["concepto", filaSeleccionadaGasto].Value.ToString();
-                dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el tipo de gasto: {nombre}?", "Eliminar Gasto.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogEliminar == DialogResult.Yes)
+                DialogResult dialogEliminar = new DialogResult();
+                if (filaSeleccionadaGasto >= 0)
                 {
-                    try
+                    string nombre = dgvGastos["concepto", filaSeleccionadaGasto].Value.ToString();
+                    dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el tipo de gasto: {nombre}?", "Eliminar Gasto.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogEliminar == DialogResult.Yes)
                     {
-                        if (managerGasto.Eliminar(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()))
+                        try
                         {
-                            log registro = new log
+                            if (managerGasto.Eliminar(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()))
                             {
-                                Accion = "eliminar",
-                                NombreUsuario = user.NombreUsuario,
-                                Fecha = DateTime.Now,
-                                ModuloAfectado = "tipogasto-id:" + dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()
-                            };
-                            managerLog.Insertar(registro);
+                                log registro = new log
+                                {
+                                    Accion = "eliminar",
+                                    NombreUsuario = user.NombreUsuario,
+                                    Fecha = DateTime.Now,
+                                    ModuloAfectado = "tipogasto-id:" + dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()
+                                };
+                                managerLog.Insertar(registro);
 
-                            cargarTodosLosGastos();
-                            mostrarLabelStatus("Se ha eliminado Correctamente el tipo de Gasto. " + nombre, true);
+                                cargarTodosLosGastos();
+                                mostrarLabelStatus("Se ha eliminado Correctamente el tipo de Gasto. " + nombre, true);
+                            }
+                            else
+                                mostrarLabelStatus("No se ha podido Eliminar el tipo de Gasto. " + managerGasto.Error, false);
+
                         }
-                        else
-                            mostrarLabelStatus("No se ha podido Eliminar el tipo de Gasto. " + managerGasto.Error, false);
+                        catch (Exception ex)
+                        {
+                            mostrarLabelStatus("No se ha podido Eliminar el tipo de gasto. " + ex.Message, false);
+                        }
+                    }
 
-                    }
-                    catch (Exception ex)
-                    {
-                        mostrarLabelStatus("No se ha podido Eliminar el tipo de gasto. " + ex.Message, false);
-                    }
                 }
-
             }
+            else
+            {
+                MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void FormOtros_Load(object sender, EventArgs e)
@@ -169,20 +204,12 @@ namespace SCI.INTERFAZ.UI
 
         private void btnAgregarEstado_Click(object sender, EventArgs e)
         {
-            FormAgregarStatus fm = new FormAgregarStatus(user,"agregar", -1);
-            DialogResult DialogForm = fm.ShowDialog();
-            if (fm.Valor != string.Empty)
-            {
-                cargarTodosLosStatus();
-                mostrarLabelStatus(fm.Valor, true);
-            }
-        }
+            FormPermiso fp = new FormPermiso();
+            DialogResult DialogForm2 = fp.ShowDialog();
 
-        private void btnEditarEstado_Click(object sender, EventArgs e)
-        {
-            if (filaSeleccionadaGasto >= 0)
+            if (fp.Valor == true)
             {
-                FormAgregarStatus fm = new FormAgregarStatus(user,"editar", int.Parse(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()));
+                FormAgregarStatus fm = new FormAgregarStatus(user, "agregar", -1);
                 DialogResult DialogForm = fm.ShowDialog();
                 if (fm.Valor != string.Empty)
                 {
@@ -190,44 +217,82 @@ namespace SCI.INTERFAZ.UI
                     mostrarLabelStatus(fm.Valor, true);
                 }
             }
+            else
+            {
+                MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEditarEstado_Click(object sender, EventArgs e)
+        {
+            if (filaSeleccionadaGasto >= 0)
+            {
+                FormPermiso fp = new FormPermiso();
+                DialogResult DialogForm2 = fp.ShowDialog();
+
+                if (fp.Valor == true)
+                {
+
+                    FormAgregarStatus fm = new FormAgregarStatus(user, "editar", int.Parse(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()));
+                    DialogResult DialogForm = fm.ShowDialog();
+                    if (fm.Valor != string.Empty)
+                    {
+                        cargarTodosLosStatus();
+                        mostrarLabelStatus(fm.Valor, true);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnEliminarEstado_Click(object sender, EventArgs e)
         {
-            DialogResult dialogEliminar = new DialogResult();
-            if (filaSeleccionadaStatus >= 0)
+            FormPermiso fp = new FormPermiso();
+            DialogResult DialogForm2 = fp.ShowDialog();
+
+            if (fp.Valor == true)
             {
-                string nombre = dgvStatus["nombre", filaSeleccionadaStatus].Value.ToString();
-                dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el status: {nombre}?", "Eliminar Status.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogEliminar == DialogResult.Yes)
+
+                DialogResult dialogEliminar = new DialogResult();
+                if (filaSeleccionadaStatus >= 0)
                 {
-                    try
+                    string nombre = dgvStatus["nombre", filaSeleccionadaStatus].Value.ToString();
+                    dialogEliminar = MessageBox.Show($"¿Esta seguro de eliminar el status: {nombre}?", "Eliminar Status.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogEliminar == DialogResult.Yes)
                     {
-                        if (managerStatus.Eliminar(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()))
+                        try
                         {
-                            log registro = new log
+                            if (managerStatus.Eliminar(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()))
                             {
-                                Accion = "eliminar",
-                                NombreUsuario = user.NombreUsuario,
-                                Fecha = DateTime.Now,
-                                ModuloAfectado = "statusviaje-id:" + dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()
-                            };
-                            managerLog.Insertar(registro);
+                                log registro = new log
+                                {
+                                    Accion = "eliminar",
+                                    NombreUsuario = user.NombreUsuario,
+                                    Fecha = DateTime.Now,
+                                    ModuloAfectado = "statusviaje-id:" + dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()
+                                };
+                                managerLog.Insertar(registro);
 
-                            cargarTodosLosStatus();
-                            mostrarLabelStatus("Se ha eliminado Correctamente el Status. " + nombre, true);
+                                cargarTodosLosStatus();
+                                mostrarLabelStatus("Se ha eliminado Correctamente el Status. " + nombre, true);
+                            }
+                            else
+                                mostrarLabelStatus("No se ha podido Eliminar el status. " + managerStatus.Error, false);
+
                         }
-                        else
-                            mostrarLabelStatus("No se ha podido Eliminar el status. " + managerStatus.Error, false);
+                        catch (Exception ex)
+                        {
+                            mostrarLabelStatus("No se ha podido Eliminar el status. " + ex.Message, false);
+                        }
+                    }
 
-                    }
-                    catch (Exception ex)
-                    {
-                        mostrarLabelStatus("No se ha podido Eliminar el status. " + ex.Message, false);
-                    }
                 }
-
             }
+            else
+                MessageBox.Show("El usuario o la contraseña son incorrectos para poder editar el viaje cerrado.", "No se pudo editar viaje.", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -290,6 +290,7 @@ namespace SCI.INTERFAZ.UI
 
             }*/
             
+            
             listBoxStatus.Visible = false;
             if (filaSeleccionada != -1)
             {
