@@ -53,7 +53,7 @@ namespace SCI.INTERFAZ.UI
 
                 for (int i = 0; i < dgvGasolinerias.Rows.Count; i++)
                 {
-                    tGasto = managerTipoDeGasto.BuscarPorId(dgvGasolinerias["idTipoGasto", i].Value.ToString());
+                    tGasto = managerTipoDeGasto.BuscarPorId(int.Parse(dgvGasolinerias["idTipoGasto", i].Value.ToString()));
                     dgvGasolinerias["tipoDeGasto", i].Value = tGasto.Concepto;
                 }
 
@@ -89,7 +89,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (managerGasolineria.Eliminar(dgvGasolinerias["idGasolineria", filaSeleccionada].Value.ToString()))
+                        if (managerGasolineria.Eliminar(int.Parse(dgvGasolinerias["idGasolineria", filaSeleccionada].Value.ToString())))
                         {
                             log registro = new log
                             {

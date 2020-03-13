@@ -15,6 +15,6 @@ namespace SCI.COMMON.Interfaces
         /// <param name="idViajeOps">Recibe el id del Viaje de SCI</param>
         /// <param name="idOperador">Recibe el id del operador </param>
         /// <returns>Regresa una colección de depositos asociados a un operador en un viaje.</returns>
-        IEnumerable<deposito> BuscarPorIdViajeyOperador(int idViajeOps, int idOperador);
+        IEnumerable<deposito> BuscarPorIdViajeyOperador(int idViajeSci, int idOperador);
     }
 }

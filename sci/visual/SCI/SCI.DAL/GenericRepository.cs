@@ -136,7 +136,7 @@ namespace SCI.DAL
             }
         }
 
-        public bool Delete(string id)
+        public bool Delete(int id)
         {
             try
             {
@@ -175,7 +175,7 @@ namespace SCI.DAL
             return Read.Where(predicado.Compile());
         }
 
-        public T SearchById(string id)
+        public T SearchById(int id)
         {
             try
             {

@@ -46,7 +46,7 @@ namespace SCI.COMMON.Interfaces
         /// </summary>
         /// <param name="id">Id de la Entidad a Eliminar</param>
         /// <returns>Confirmación de Eliminación</returns>
-        bool Delete(string id);
+        bool Delete(int id);
 
         //Query -> Realizar consultas de acuerdo a la tabla, mediante expresiones lambda
         //Consulta entorno a objetos no a sql
@@ -63,7 +63,7 @@ namespace SCI.COMMON.Interfaces
         /// </summary>
         /// <param name="id">Id de la Entidad a obtener</param>
         /// <returns>La entidad completa que le corresponde el Id propocionado</returns>
-        T SearchById(string id);
+        T SearchById(int id);
 
         
         //producto ObtenUltimo();

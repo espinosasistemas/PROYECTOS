@@ -108,7 +108,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (managerOperadores.Eliminar(dgvOperadores["idoperador", filaSeleccionada].Value.ToString()))
+                        if (managerOperadores.Eliminar(int.Parse(dgvOperadores["idoperador", filaSeleccionada].Value.ToString())))
                         {
                             log registro = new log
                             {

@@ -46,7 +46,7 @@ namespace SCI.INTERFAZ.UI
             cargarTiposDeUnidades();
             if (accion == "editar")
             {
-                unidadAeditar = managerUnidades.BuscarPorId(idUnidadAEditar.ToString());
+                unidadAeditar = managerUnidades.BuscarPorId(idUnidadAEditar);
                 textNombreUnidad.Text = unidadAeditar.Nombre;
                 textNumEco.Text = unidadAeditar.NumeroEconomico.ToString();
                 textPlacas.Text = unidadAeditar.Placas;
@@ -55,7 +55,7 @@ namespace SCI.INTERFAZ.UI
                 dateVencimientoSeguro.Value = unidadAeditar.FechaVencimientoSeguro;
                 comboTipoCombustible.Text = unidadAeditar.TipoCombustible;
 
-                tipounidad tUnidad = managerTipoDeUnidades.BuscarPorId(unidadAeditar.IdTipoDeUnidad.ToString());
+                tipounidad tUnidad = managerTipoDeUnidades.BuscarPorId(unidadAeditar.IdTipoDeUnidad);
                 idTipoDeUnidad = tUnidad.IdTipoDeUnidad;
                 comboTipoDeUnidad.Text = tUnidad.IdTipoDeUnidad.ToString() + "/" + tUnidad.Descripcion;
                 this.Text = "Actualizar los datos de la Unidad.";

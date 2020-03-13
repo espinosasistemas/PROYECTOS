@@ -41,14 +41,14 @@ namespace SCI.COMMON.Interfaces
         /// </summary>
         /// <param name="id">Id de la entidad a eliminar</param>
         /// <returns>Confirmación de la eliminación</returns>
-        bool Eliminar(string id);
+        bool Eliminar(int id);
 
         /// <summary>
         /// Obtiene un elemento de acuerdo a su id.
         /// </summary>
         /// <param name="id">Id del elemento a obtener</param>
         /// <returns>La entidad completa correspodiente al id proporcionado</returns>
-        T BuscarPorId(string id);
+        T BuscarPorId(int id);
 
         T BuscarUltimoIngresado();
 

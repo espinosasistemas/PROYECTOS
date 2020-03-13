@@ -45,8 +45,8 @@ namespace SCI.INTERFAZ.UI
             cargarTipoGasto();
             if (accion == "editar")
             {
-                entidadAeditar = managerGasolineria.BuscarPorId(idAEditar.ToString());
-                tipogasto Tgasto = managerTipoDeGasto.BuscarPorId(entidadAeditar.IdTipoGasto.ToString());
+                entidadAeditar = managerGasolineria.BuscarPorId(idAEditar);
+                tipogasto Tgasto = managerTipoDeGasto.BuscarPorId(entidadAeditar.IdTipoGasto);
                 textNombre.Text = entidadAeditar.Nombre;
                 textDireccion.Text = entidadAeditar.Direccion.ToString();
                 textRfc.Text = entidadAeditar.Rfc;

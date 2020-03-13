@@ -56,8 +56,8 @@ namespace SCI.INTERFAZ.UI
 
             if (accion == "editar")
             {
-                entidadAeditar = managerRutas.BuscarPorId(idAEditar.ToString());
-                cliente  clienteSeleccionado= managerCliente.BuscarPorId(entidadAeditar.IdCliente.ToString());
+                entidadAeditar = managerRutas.BuscarPorId(idAEditar);
+                cliente  clienteSeleccionado= managerCliente.BuscarPorId(entidadAeditar.IdCliente);
                 textNombre.Text = entidadAeditar.Nombre;
                 textCosto.Text = entidadAeditar.Costo.ToString();
                 comboClientes.Text = clienteSeleccionado.IdCliente + "/" + clienteSeleccionado.RazonSocial;

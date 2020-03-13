@@ -109,7 +109,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (accion == "editar")
             {
-                entidadAeditar = managerStatus.BuscarPorId(idAEditar.ToString());
+                entidadAeditar = managerStatus.BuscarPorId(idAEditar);
                 textNombre.Text = entidadAeditar.Nombre;
                 this.Text = "Actualizar los datos del Status.";
             }

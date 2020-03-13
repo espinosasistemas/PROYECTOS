@@ -72,7 +72,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (managerClientes.Eliminar(dgvClientes["idcliente", filaSeleccionada].Value.ToString()))
+                        if (managerClientes.Eliminar(int.Parse(dgvClientes["idcliente", filaSeleccionada].Value.ToString())))
                         {
                             log registro = new log
                             {

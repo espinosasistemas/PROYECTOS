@@ -42,6 +42,7 @@
             this.calendarGastos = new System.Windows.Forms.MonthCalendar();
             this.trackHoraGastos = new System.Windows.Forms.TrackBar();
             this.trackMinutosGastos = new System.Windows.Forms.TrackBar();
+            this.labelSaldoOp = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboTipoGastos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -203,7 +204,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.labelSaldoOp = new System.Windows.Forms.Label();
             this.groupGastos.SuspendLayout();
             this.panelFechaGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackHoraGastos)).BeginInit();
@@ -296,13 +296,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupGastos.Controls.Add(this.panelFechaGastos);
-            this.groupGastos.Controls.Add(this.labelSaldoOp);
             this.groupGastos.Controls.Add(this.panel3);
             this.groupGastos.Controls.Add(this.btnEditarGasto);
             this.groupGastos.Controls.Add(this.btnEliminarGasto);
             this.groupGastos.Controls.Add(this.btnNuevoGasto);
             this.groupGastos.Controls.Add(this.labelTotalDeGastos);
             this.groupGastos.Controls.Add(this.dgvGastos);
+            this.groupGastos.Controls.Add(this.labelSaldoOp);
             this.groupGastos.Location = new System.Drawing.Point(7, 7);
             this.groupGastos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupGastos.Name = "groupGastos";
@@ -416,6 +416,19 @@
             this.trackMinutosGastos.TabIndex = 22;
             this.trackMinutosGastos.Scroll += new System.EventHandler(this.trackMinutosGastos_Scroll);
             // 
+            // labelSaldoOp
+            // 
+            this.labelSaldoOp.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelSaldoOp.AutoSize = true;
+            this.labelSaldoOp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldoOp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.labelSaldoOp.Location = new System.Drawing.Point(400, 32);
+            this.labelSaldoOp.Name = "labelSaldoOp";
+            this.labelSaldoOp.Size = new System.Drawing.Size(295, 19);
+            this.labelSaldoOp.TabIndex = 48;
+            this.labelSaldoOp.Text = "Saldo actual del Operador: $1,400.00";
+            this.labelSaldoOp.Visible = false;
+            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -425,9 +438,8 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.textPoliza);
-            this.panel3.Controls.Add(this.label37);
             this.panel3.Controls.Add(this.comboGasolinerias);
-            this.panel3.Controls.Add(this.textConceptoGasto);
+            this.panel3.Controls.Add(this.label37);
             this.panel3.Controls.Add(this.comboFormaPago);
             this.panel3.Controls.Add(this.comboCasetas);
             this.panel3.Controls.Add(this.label10);
@@ -446,6 +458,7 @@
             this.panel3.Controls.Add(this.textFechaDelGasto);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.textMontoGasto);
+            this.panel3.Controls.Add(this.textConceptoGasto);
             this.panel3.Location = new System.Drawing.Point(6, 268);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(870, 434);
@@ -533,7 +546,7 @@
             this.comboGasolinerias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboGasolinerias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboGasolinerias.FormattingEnabled = true;
-            this.comboGasolinerias.Location = new System.Drawing.Point(197, 67);
+            this.comboGasolinerias.Location = new System.Drawing.Point(197, 68);
             this.comboGasolinerias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboGasolinerias.Name = "comboGasolinerias";
             this.comboGasolinerias.Size = new System.Drawing.Size(324, 25);
@@ -544,7 +557,7 @@
             // 
             this.textConceptoGasto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textConceptoGasto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textConceptoGasto.Location = new System.Drawing.Point(197, 69);
+            this.textConceptoGasto.Location = new System.Drawing.Point(197, 68);
             this.textConceptoGasto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textConceptoGasto.Name = "textConceptoGasto";
             this.textConceptoGasto.Size = new System.Drawing.Size(324, 23);
@@ -2552,19 +2565,6 @@
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // labelSaldoOp
-            // 
-            this.labelSaldoOp.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelSaldoOp.AutoSize = true;
-            this.labelSaldoOp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldoOp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.labelSaldoOp.Location = new System.Drawing.Point(400, 32);
-            this.labelSaldoOp.Name = "labelSaldoOp";
-            this.labelSaldoOp.Size = new System.Drawing.Size(295, 19);
-            this.labelSaldoOp.TabIndex = 48;
-            this.labelSaldoOp.Text = "Saldo actual del Operador: $1,400.00";
-            this.labelSaldoOp.Visible = false;
             // 
             // FormAgregarViaje
             // 

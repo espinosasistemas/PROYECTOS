@@ -57,8 +57,8 @@ namespace SCI.INTERFAZ.UI
                 tipogasto tGasto = new tipogasto();
                 for (int i = 0; i < dgvCasetas.Rows.Count; i++)
                 {
-                    tUnidad = managerTipoDeUnidad.BuscarPorId(dgvCasetas["idTipoDeUnidad", i].Value.ToString());
-                    tGasto = managerTipoDeGasto.BuscarPorId(dgvCasetas["idTipoDeGasto", i].Value.ToString());
+                    tUnidad = managerTipoDeUnidad.BuscarPorId(int.Parse(dgvCasetas["idTipoDeUnidad", i].Value.ToString()));
+                    tGasto = managerTipoDeGasto.BuscarPorId(int.Parse(dgvCasetas["idTipoDeGasto", i].Value.ToString()));
 
                     dgvCasetas["TipoDeUnidad", i].Value = tUnidad.Descripcion;
                     dgvCasetas["TipoDeGasto", i].Value = tGasto.Concepto;
@@ -89,7 +89,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (managerCaseta.Eliminar(dgvCasetas["idCaseta", filaSeleccionada].Value.ToString()))
+                        if (managerCaseta.Eliminar(int.Parse(dgvCasetas["idCaseta", filaSeleccionada].Value.ToString())))
                         {
                             log registro = new log
                             {

@@ -163,7 +163,7 @@ namespace SCI.INTERFAZ.UI
                     {
                         try
                         {
-                            if (managerGasto.Eliminar(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString()))
+                            if (managerGasto.Eliminar(int.Parse(dgvGastos["idTipoGasto", filaSeleccionadaGasto].Value.ToString())))
                             {
                                 log registro = new log
                                 {
@@ -265,7 +265,7 @@ namespace SCI.INTERFAZ.UI
                     {
                         try
                         {
-                            if (managerStatus.Eliminar(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString()))
+                            if (managerStatus.Eliminar(int.Parse(dgvStatus["idStatus", filaSeleccionadaStatus].Value.ToString())))
                             {
                                 log registro = new log
                                 {

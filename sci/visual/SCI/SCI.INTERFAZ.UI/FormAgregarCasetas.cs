@@ -49,8 +49,8 @@ namespace SCI.INTERFAZ.UI
             cargarTipoGasto();
             if (accion == "editar")
             {
-                entidadAeditar = managerCasetas.BuscarPorId(idAEditar.ToString());
-                tipounidad Tunidad = managerTipoDeUnidades.BuscarPorId(entidadAeditar.IdTipoDeUnidad.ToString());
+                entidadAeditar = managerCasetas.BuscarPorId(idAEditar);
+                tipounidad Tunidad = managerTipoDeUnidades.BuscarPorId(entidadAeditar.IdTipoDeUnidad);
                 textNombre.Text = entidadAeditar.Nombre;
                 textCosto.Text = entidadAeditar.Costo.ToString();
                 comboTipoDeUnidad.Text = Tunidad.IdTipoDeUnidad + "/" + Tunidad.Descripcion;

@@ -137,7 +137,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (accion == "editar")
             {
-                operadorAeditar = managerOperador.BuscarPorId(idOperadorAEditar.ToString());
+                operadorAeditar = managerOperador.BuscarPorId(idOperadorAEditar);
                 textNombre.Text = operadorAeditar.Nombre;
                 textApellidos.Text = operadorAeditar.Apellidos;
                 dateTimeFechaIngreso.Value = operadorAeditar.FechaIngreso;

@@ -60,7 +60,7 @@ namespace SCI.INTERFAZ.UI
             //dgvDepositos.Rows.Clear();
             if (opSeleccionado != null)
             {
-                IEnumerable<deposito> depositosPorOperador = managerDeposito.BuscarDepositosPorVIaje(idViaje, opSeleccionado.IdOperador);
+                IEnumerable<deposito> depositosPorOperador = managerDeposito.BuscarPorIdViajeyOperador(idViaje, opSeleccionado.IdOperador);
                 if (depositosPorOperador != null)
                 {
                     dgvDepositos.DataSource = depositosPorOperador.ToArray();
@@ -146,7 +146,7 @@ namespace SCI.INTERFAZ.UI
                         //Como no existen gastos asociados al operador en el viaje entonces podemos eliminar el Deposito y decrementar el saldo actual.
                         int idDepositoAEliminar = int.Parse(dgvDepositos["idDeposito", filaSeleccionada].Value.ToString());
                         double montoDelDeposito = double.Parse(dgvDepositos["monto", filaSeleccionada].Value.ToString());
-                        if (managerDeposito.Eliminar(idDepositoAEliminar.ToString()))
+                        if (managerDeposito.Eliminar(idDepositoAEliminar))
                         {
                             operadoresenviaje opEnViaje = managerOperadorEnViaje.BuscarPorIdViajeOpsyOperador(idViaje, opSeleccionado.IdOperador);
 

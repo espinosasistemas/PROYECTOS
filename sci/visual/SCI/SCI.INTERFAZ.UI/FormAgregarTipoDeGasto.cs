@@ -110,7 +110,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (accion == "editar")
             {
-                entidadAeditar = managerTipoDeGasto.BuscarPorId(idAEditar.ToString());
+                entidadAeditar = managerTipoDeGasto.BuscarPorId(idAEditar);
                 textConcepto.Text = entidadAeditar.Concepto;
                 this.Text = "Actualizar los datos del conceptos.";
             }

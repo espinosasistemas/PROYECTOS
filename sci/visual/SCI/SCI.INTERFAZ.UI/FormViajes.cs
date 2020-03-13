@@ -135,7 +135,7 @@ namespace SCI.INTERFAZ.UI
                     dgvViajes["Ruta", i].Value = (from r in todasLasRutas where r.IdRuta == idRutaViaje select r.Nombre).SingleOrDefault();
 
                     idClienteViaje = int.Parse((from r in todasLasRutas where r.IdRuta == idRutaViaje select r.IdCliente).SingleOrDefault().ToString());
-                    clienteSeleccionado = managerCliente.BuscarPorId(idClienteViaje.ToString());
+                    clienteSeleccionado = managerCliente.BuscarPorId(idClienteViaje);
                     dgvViajes["Cliente", i].Value = clienteSeleccionado.RazonSocial;
 
                     idUnidadViaje = int.Parse(dgvViajes["idUnidad", i].Value.ToString());
@@ -337,7 +337,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (managerViajes.Eliminar(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString()))
+                        if (managerViajes.Eliminar(int.Parse(dgvViajes["idViajeSci", filaSeleccionada].Value.ToString())))
                         {
                             log registro = new log
                             {

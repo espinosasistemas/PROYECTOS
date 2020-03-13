@@ -46,7 +46,7 @@ namespace SCI.INTERFAZ.UI
                 tipounidad tUnidad = new tipounidad();
                 for (int i = 0; i < dgvUnidades.Rows.Count; i++)
                 {
-                    tUnidad = managerTipoDeUnidad.BuscarPorId(dgvUnidades["idTipoDeUnidad", i].Value.ToString());
+                    tUnidad = managerTipoDeUnidad.BuscarPorId(int.Parse(dgvUnidades["idTipoDeUnidad", i].Value.ToString()));
                     dgvUnidades["tipoDeUnidad", i].Value = tUnidad.Descripcion;
                 }
                 dgvUnidades.Columns["idTipoDeUnidad"].Visible = false;
@@ -101,7 +101,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (managerUnidades.Eliminar(dgvUnidades["idUnidad", filaSeleccionada].Value.ToString()))
+                        if (managerUnidades.Eliminar(int.Parse(dgvUnidades["idUnidad", filaSeleccionada].Value.ToString())))
                         {
                             log registro = new log
                             {

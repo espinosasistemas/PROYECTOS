@@ -71,7 +71,7 @@ namespace SCI.INTERFAZ.UI
                 {
                     try
                     {
-                        if (managerRuta.Eliminar(dgvRutas["idruta", filaSeleccionada].Value.ToString()))
+                        if (managerRuta.Eliminar(int.Parse(dgvRutas["idruta", filaSeleccionada].Value.ToString())))
                         {
                             log registro = new log
                             {
@@ -114,7 +114,7 @@ namespace SCI.INTERFAZ.UI
                 cliente clienteSeleccionado;
                 for (int i = 0; i < dgvRutas.Rows.Count; i++)
                 {
-                    clienteSeleccionado = managerCliente.BuscarPorId(dgvRutas["idcliente", i].Value.ToString());
+                    clienteSeleccionado = managerCliente.BuscarPorId(int.Parse(dgvRutas["idcliente", i].Value.ToString()));
                     dgvRutas["Cliente", i].Value = clienteSeleccionado.RazonSocial;
                 }
                 mostrarLabelStatus("Se han cargado toda las rutas.", true);

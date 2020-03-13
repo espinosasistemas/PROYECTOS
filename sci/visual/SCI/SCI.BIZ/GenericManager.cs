@@ -37,7 +37,7 @@ namespace SCI.BIZ
             return repository.Update(entidad);
         }
 
-        public T BuscarPorId(string id)
+        public T BuscarPorId(int id)
         {
             return repository.SearchById(id);
         }
@@ -47,7 +47,7 @@ namespace SCI.BIZ
             return repository.Read.Last();
         }
 
-        public bool Eliminar(string id)
+        public bool Eliminar(int id)
         {
             return repository.Delete(id);
         }

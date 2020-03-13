@@ -56,7 +56,7 @@ namespace SCI.INTERFAZ.UI
         {
             if (accion == "editar")
             {
-                entidadAeditar = managerCliente.BuscarPorId(idAEditar.ToString());
+                entidadAeditar = managerCliente.BuscarPorId(idAEditar);
                 textRazonSocial.Text = entidadAeditar.RazonSocial;
                 textRfc.Text = entidadAeditar.Rfc;
                 textGiro.Text = entidadAeditar.Giro;
