@@ -144,7 +144,7 @@
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.Size = new System.Drawing.Size(130, 33);
             this.btnStatus.TabIndex = 1;
-            this.btnStatus.Text = "Mostrar Todos";
+            this.btnStatus.Text = "Elegir Status";
             this.btnStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStatus.UseVisualStyleBackColor = false;

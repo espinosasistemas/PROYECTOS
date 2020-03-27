@@ -10,6 +10,11 @@ namespace SCI.BIZ
 {
     public class FabricManager
     {
+        public IFacturaManager FacturaManager()
+        {
+            return new FacturaManager(new GenericRepository<factura>(new FacturaValidator()));
+        }
+
         public ICobroAdicionalManager CobrosAdicionalManager()
         {
             return new CobrosAdicionalesManager(new GenericRepository<cobrosadicionales>(new CobrosAdicionalesValidator()));

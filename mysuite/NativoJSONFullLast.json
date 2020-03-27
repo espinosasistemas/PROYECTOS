@@ -1,0 +1,111 @@
+{
+  "doctype": "FACTURA",
+  "numero_interno": "",
+  "nota_comprobante_cabecera": "NOTA DE CABECERA",
+  "nota_comprobante_pie": "NOTA DE PIE",
+  "usuario": "",
+  "emisor": {
+    "rfc": "AAA010101AAA",
+    "razon_social": "SUPER EMPRESA INVALIDA S.A DE C. V.",
+    "direccion_fiscal": {
+      "calle": "MATIAS ROMERO",
+      "num_exterior": "216",
+      "num_interior": "",
+      "colonia": "DEL VALLE",
+      "municipio": "BENITO JUAREZ",
+      "estado": "CDMX",
+      "pais": "MEXICO",
+      "codigo_postal": "03100",
+      "localidad": "",
+      "referencia": ""
+    },
+    "regimen_fiscal": "601",
+    "lugar_expedicion": "03100",
+    "sucursal": " INOMACH",
+    "correo": "",
+    "cuenta_pago": ""
+  },
+  "receptor": {
+    "rfc": "CHM780704HU1  ",
+    "razon_social": "COLEGIO HEBREO MAGUEN DAVID, A.C.       ",
+    "rfc_extranjero": "",
+    "residencia_fiscal": "",
+    "correo": "",
+    "direccion_fiscal": {
+      "calle": "AVENIDA DR JOSE MARIA VERTIZ",
+      "num_exterior": "1155",
+      "num_interior": "103",
+      "colonia": "VERTIZ-NARVARTE",
+      "municipio": "BENITO JUAREZ",
+      "estado": "CDMX",
+      "pais": "MEX",
+      "codigo_postal": "03100",
+      "localidad": "",
+      "referencia": ""
+    },
+    "uso_cfdi": "G01"
+  },
+  "conceptos": [
+    {
+      "UUID": "d1ce720e-1d3c-4986-a537-a46e016e52e8",
+      "ID": 154,
+      "Description": "CAMISA DE VESTIR MANGA LARGA",
+      "ListPrice": "50.00",
+      "Discount": "0",
+      "Unit": "UN",
+      "ClaveProdServ": "53102601",
+      "ClaveUnidad": "BTU",
+      "InfoAduanera": "",
+      "CuentaPredial": "0232123",
+      "Taxes": [
+        {
+          "UUID": "1ba9c9b3-bbe5-4422-89c1-048d6cffc1b2",
+          "type": "TRASLADO",
+          "impuesto": "002",
+          "tipofactor": "Tasa",
+          "tasacuota": "0.160000",
+          "taxbase": "100",
+          "amount": "16.00"
+        }
+      ],
+      "Qty": "2",
+      "Amount": "100.00",
+      "Identificacion": "000121",
+      "Partes": [
+        {
+          "UUID": "7110c041-55c8-4482-ac2f-3b997d135455",
+          "ClaveProdServ": "53102601",
+          "Identificacion": "0002",
+          "Qty": "2",
+          "Unit": "UN",
+          "Description": "Pijamas o camisas de dormir o batas para niño",
+          "UnitPrice": "40.00",
+          "Amount": "80.00",
+          "InfoAduanera": ""
+        }
+      ]
+    }
+  ],
+  "totales": {
+    "total": "116.00",
+    "subtotal": "100.00",
+    "descuento": "0.00",
+    "moneda": "MXN|2",
+    "factor_cambio": "1",
+    "impuestos_trasladados": "16.00",
+    "impuestos_retenidos": "0.00"
+  },
+  "fecha_emision": "2017-05-11 17:27:00",
+  "serie": "",
+  "folio": "",
+  "metodo_pago": "PUE",
+  "forma_pago": "01",
+  "confirmacion": "12345",
+  "condiciones_pago": "3 MESES",
+  "cfdi_relacionados": {
+    "tipo_relacion": "01",
+    "listado_folios": "1b0678c2-e285-41aa-a232-928a165d71dc"
+  },
+  "complementos": null,
+  "addendas": null
+}

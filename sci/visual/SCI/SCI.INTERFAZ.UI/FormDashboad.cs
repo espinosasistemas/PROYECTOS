@@ -14,7 +14,6 @@ namespace SCI.INTERFAZ.UI
 {
     public partial class FormPrincipal : Form
     {
-        //IUsuarioManager managerUsuario;
         private Form activeForm = null;
         usuario user;
         
@@ -22,8 +21,6 @@ namespace SCI.INTERFAZ.UI
         {
             InitializeComponent();
             customizeDising();
-            //managerUsuario = Tools.FabricManager.UsuarioManager();
-            //user = managerUsuario.Login("test","x");
             user = u;
         }
 
@@ -31,7 +28,12 @@ namespace SCI.INTERFAZ.UI
         {
             panelCatalogoSubMenu.Visible = true;
             panelViajesSubMenu.Visible = true;
-            panelReportesSubMenu.Visible = false;
+            panelFacturaSubMenu.Visible = true;
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            this.Text = "Sistema de Control de Servicios Corporativos Integrales. - Bienvenido " + user.NombreCompleto;
         }
 
         private void hideSubmenu()
@@ -40,8 +42,8 @@ namespace SCI.INTERFAZ.UI
                 panelCatalogoSubMenu.Visible = false;
             if (panelViajesSubMenu.Visible == true)
                 panelViajesSubMenu.Visible = false;
-            if (panelReportesSubMenu.Visible == true)
-                panelReportesSubMenu.Visible = false;
+            if (panelFacturaSubMenu.Visible == true)
+                panelFacturaSubMenu.Visible = false;
         }
 
         private void showSubMenu(Panel subMenu)
@@ -58,6 +60,16 @@ namespace SCI.INTERFAZ.UI
         private void btnCatalogos_Click(object sender, EventArgs e)
         {
             //showSubMenu(panelCatalogoSubMenu);
+        }
+
+        private void btnTransporte_Click(object sender, EventArgs e)
+        {
+            //showSubMenu(panelViajesSubMenu);
+        }
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            //showSubMenu(panelFacturaSubMenu);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -99,6 +111,11 @@ namespace SCI.INTERFAZ.UI
             openDashBoardForm(new FormGasolinerias(user));
         }
 
+        private void btnFactura_Click_1(object sender, EventArgs e)
+        {
+            openDashBoardForm(new FormFacturas(user));
+        }
+
         private void openDashBoardForm(Form childForm)
         {
             if (activeForm != null)
@@ -113,26 +130,15 @@ namespace SCI.INTERFAZ.UI
             childForm.Show();
         }
 
-        private void btnTransporte_Click(object sender, EventArgs e)
-        {
-            //showSubMenu(panelViajesSubMenu);
-        }
+        
 
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            //showSubMenu(panelReportesSubMenu);
-            //MessageBox.Show(this.Size.ToString());
-        }
+        
 
         private void FormPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //this.Close();
             Application.Exit();
         }
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-            this.Text = "Sistema de Control de Servicios Corporativos Integrales. - Bienvenido " + user.NombreCompleto;
-        }
+        
     }
 }

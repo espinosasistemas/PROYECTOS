@@ -136,88 +136,94 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormDashboad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormDashboad.Designer.cs">
+      <DependentUpon>FormDashboad.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarCasetas.cs">
+    <Compile Include="FACTURAS\FormFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarCasetas.Designer.cs">
+    <Compile Include="FACTURAS\FormFacturas.Designer.cs">
+      <DependentUpon>FormFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPERACIONES\FormAgregarCasetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPERACIONES\FormAgregarCasetas.Designer.cs">
       <DependentUpon>FormAgregarCasetas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarCliente.cs">
+    <Compile Include="OPERACIONES\FormAgregarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarCliente.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarCliente.Designer.cs">
       <DependentUpon>FormAgregarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarDeposito.cs">
+    <Compile Include="OPERACIONES\FormAgregarDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarDeposito.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarDeposito.Designer.cs">
       <DependentUpon>FormAgregarDeposito.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarGasolineria.cs">
+    <Compile Include="OPERACIONES\FormAgregarGasolineria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarGasolineria.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarGasolineria.Designer.cs">
       <DependentUpon>FormAgregarGasolineria.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarOperador.cs">
+    <Compile Include="OPERACIONES\FormAgregarOperador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarOperador.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarOperador.Designer.cs">
       <DependentUpon>FormAgregarOperador.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarRutas.cs">
+    <Compile Include="OPERACIONES\FormAgregarRutas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarRutas.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarRutas.Designer.cs">
       <DependentUpon>FormAgregarRutas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarStatus.cs">
+    <Compile Include="OPERACIONES\FormAgregarStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarStatus.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarStatus.Designer.cs">
       <DependentUpon>FormAgregarStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarTipoDeGasto.cs">
+    <Compile Include="OPERACIONES\FormAgregarTipoDeGasto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarTipoDeGasto.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarTipoDeGasto.Designer.cs">
       <DependentUpon>FormAgregarTipoDeGasto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarUnidad.cs">
+    <Compile Include="OPERACIONES\FormAgregarUnidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarUnidad.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarUnidad.Designer.cs">
       <DependentUpon>FormAgregarUnidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregarViaje.cs">
+    <Compile Include="OPERACIONES\FormAgregarViaje.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarViaje.Designer.cs">
+    <Compile Include="OPERACIONES\FormAgregarViaje.Designer.cs">
       <DependentUpon>FormAgregarViaje.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCasetas.cs">
+    <Compile Include="CATALOGOS\FormCasetas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCasetas.Designer.cs">
+    <Compile Include="CATALOGOS\FormCasetas.Designer.cs">
       <DependentUpon>FormCasetas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormClientes.cs">
+    <Compile Include="CATALOGOS\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormClientes.Designer.cs">
+    <Compile Include="CATALOGOS\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGasolinerias.cs">
+    <Compile Include="CATALOGOS\FormGasolinerias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGasolinerias.Designer.cs">
+    <Compile Include="CATALOGOS\FormGasolinerias.Designer.cs">
       <DependentUpon>FormGasolinerias.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
@@ -226,16 +232,16 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOperadores.cs">
+    <Compile Include="CATALOGOS\FormOperadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOperadores.Designer.cs">
+    <Compile Include="CATALOGOS\FormOperadores.Designer.cs">
       <DependentUpon>FormOperadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOtros.cs">
+    <Compile Include="CATALOGOS\FormOtros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOtros.Designer.cs">
+    <Compile Include="CATALOGOS\FormOtros.Designer.cs">
       <DependentUpon>FormOtros.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPermiso.cs">
@@ -244,88 +250,91 @@
     <Compile Include="FormPermiso.Designer.cs">
       <DependentUpon>FormPermiso.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRutas.cs">
+    <Compile Include="CATALOGOS\FormRutas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRutas.Designer.cs">
+    <Compile Include="CATALOGOS\FormRutas.Designer.cs">
       <DependentUpon>FormRutas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUnidades.cs">
+    <Compile Include="CATALOGOS\FormUnidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUnidades.Designer.cs">
+    <Compile Include="CATALOGOS\FormUnidades.Designer.cs">
       <DependentUpon>FormUnidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormViajes.cs">
+    <Compile Include="CATALOGOS\FormViajes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViajes.Designer.cs">
+    <Compile Include="CATALOGOS\FormViajes.Designer.cs">
       <DependentUpon>FormViajes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormDashboad.resx">
+      <DependentUpon>FormDashboad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarCasetas.resx">
+    <EmbeddedResource Include="FACTURAS\FormFacturas.resx">
+      <DependentUpon>FormFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPERACIONES\FormAgregarCasetas.resx">
       <DependentUpon>FormAgregarCasetas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarCliente.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarCliente.resx">
       <DependentUpon>FormAgregarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarDeposito.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarDeposito.resx">
       <DependentUpon>FormAgregarDeposito.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarGasolineria.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarGasolineria.resx">
       <DependentUpon>FormAgregarGasolineria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarOperador.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarOperador.resx">
       <DependentUpon>FormAgregarOperador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarRutas.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarRutas.resx">
       <DependentUpon>FormAgregarRutas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarStatus.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarStatus.resx">
       <DependentUpon>FormAgregarStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarTipoDeGasto.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarTipoDeGasto.resx">
       <DependentUpon>FormAgregarTipoDeGasto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarUnidad.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarUnidad.resx">
       <DependentUpon>FormAgregarUnidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregarViaje.resx">
+    <EmbeddedResource Include="OPERACIONES\FormAgregarViaje.resx">
       <DependentUpon>FormAgregarViaje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCasetas.resx">
+    <EmbeddedResource Include="CATALOGOS\FormCasetas.resx">
       <DependentUpon>FormCasetas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormClientes.resx">
+    <EmbeddedResource Include="CATALOGOS\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGasolinerias.resx">
+    <EmbeddedResource Include="CATALOGOS\FormGasolinerias.resx">
       <DependentUpon>FormGasolinerias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOperadores.resx">
+    <EmbeddedResource Include="CATALOGOS\FormOperadores.resx">
       <DependentUpon>FormOperadores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOtros.resx">
+    <EmbeddedResource Include="CATALOGOS\FormOtros.resx">
       <DependentUpon>FormOtros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPermiso.resx">
       <DependentUpon>FormPermiso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRutas.resx">
+    <EmbeddedResource Include="CATALOGOS\FormRutas.resx">
       <DependentUpon>FormRutas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUnidades.resx">
+    <EmbeddedResource Include="CATALOGOS\FormUnidades.resx">
       <DependentUpon>FormUnidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViajes.resx">
+    <EmbeddedResource Include="CATALOGOS\FormViajes.resx">
       <DependentUpon>FormViajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

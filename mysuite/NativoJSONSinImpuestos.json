@@ -1,0 +1,101 @@
+{
+  "doctype": "FACTURA",
+  "numero_interno": "",
+"usuario":"",
+  "nota_comprobante_cabecera": "Nota de Cabecera",
+  "nota_comprobante_pie": "Nota de Pie",
+  "emisor": {
+    "rfc": "AAA010101AAA",
+    "razon_social": "EMPRESA DE PRUEBAS SA DE CV",
+    "direccion_fiscal": {
+      "calle": "MATIAS ROMERO",
+      "num_exterior": "216",
+      "num_interior": "2DO PISO",
+      "colonia": "DEL VALLE",
+      "municipio": "BENITO JUAREZ",
+      "estado": "CDMX",
+      "pais": "MEXICO",
+      "codigo_postal": "03100",
+      "localidad": "N/A",
+      "referencia": "N/A"
+    },
+    "regimen_fiscal": "601",
+    "lugar_expedicion": "03100",
+    "sucursal": "ACADEMICCONTROL",
+    "correo": "hassan.arteaga@mysuitemex.com",
+    "cuenta_pago": ""
+  },
+  "receptor": {
+"correo":"hassan.arteaga@gmail.com",
+    "rfc": "AAAA010101AA ",
+    "razon_social": "EMPRESA PRUEBAS A.C.       ",
+    "rfc_extranjero": "",
+    "residencia_fiscal": "MEX",
+    "direccion_fiscal": {
+      "calle": "LA CALLE PRINCIPAL",
+      "num_exterior": "1",
+      "num_interior": "101",
+      "colonia": "DEL VALLE CENTRO",
+      "municipio": "BENITO JUAREZ",
+      "estado": "CDMX",
+      "pais": "MEX",
+      "codigo_postal": "03100",
+      "localidad": "N/A",
+      "referencia": "N/A"
+    },
+    "uso_cfdi": "G01"
+  },
+  "conceptos": [
+    {
+      "UUID": "6fadf407-97d5-40be-8b52-32acada371b6",
+      "ID": 153,
+      "Description": "CAMISA DE VESTIR MANGA CORTA",
+      "ListPrice": "100",
+      "Discount": "0.0",
+      "Unit": "UN",
+      "ClaveProdServ": "25172509",
+      "ClaveUnidad": "G40",
+      "InfoAduanera": "N/A",
+      "CuentaPredial": "N/A",
+      "Taxes": null,
+      "Qty": "2.0",
+      "Amount": "200",
+      "Identificacion": "DES32",
+      "Partes": [
+        {
+          "UUID": "9bc0c5a4-a0c4-4d8e-8e97-82fd9f2b04a0",
+          "ClaveProdServ": "53102603",
+          "Identificacion": "DES32-PROVIDER",
+          "Qty": "2",
+          "Unit": "UN",
+          "Description": "Pijamas o camisas de dormir o batas para niña",
+          "UnitPrice": "100.00",
+          "Amount": "200.00",
+          "InfoAduanera": "N/A"
+        }
+      ]
+    }
+  ],
+  "totales": {
+    "total": "200.00",
+    "subtotal": "200.00",
+    "descuento": "0.00",
+    "moneda": "MXN|2",
+    "factor_cambio": "1.0000",
+    "impuestos_trasladados": "0.00",
+    "impuestos_retenidos": "0.00"
+  },
+  "fecha_emision": "2017-04-19 14:00:00",
+  "serie": "",
+  "folio": "",
+  "metodo_pago": "PUE",
+  "forma_pago": "04",
+  "confirmacion": "12345",
+  "condiciones_pago": "3 MESES",
+  "cfdi_relacionados": {
+    "tipo_relacion": "04",
+    "listado_folios": "8b637b22-51f9-443d-9a59-41586e8d3d4f, 65959545-ab23-4519-bd41-9ac29e32a4f3"
+  },
+  "complementos": null,
+  "addendas": null
+}
