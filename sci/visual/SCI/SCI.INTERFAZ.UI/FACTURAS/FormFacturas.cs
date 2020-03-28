@@ -21,6 +21,10 @@ namespace SCI.INTERFAZ.UI
         usuario user;
         private Form activeForm = null;
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         public FormFacturas(usuario u)
         {
             InitializeComponent();
@@ -45,7 +49,7 @@ namespace SCI.INTERFAZ.UI
         public void CargarTodasLasFacturas(string status)
         {
             IEnumerable<factura> TodasLasFacturas;
-            int idViajeSci = 0;
+            //int idViajeSci = 0;
             dgvFacturas.Columns.Clear();
             TodasLasFacturas = managerFactura.ObtenerTodos;
             dgvFacturas.DataSource = TodasLasFacturas.OrderByDescending(s => s.IdFactura).ToArray();
@@ -55,5 +59,13 @@ namespace SCI.INTERFAZ.UI
         {
             CargarTodasLasFacturas(string.Empty);
         }
+
+        private void btnCrearFactura_Click(object sender, EventArgs e)
+        {
+            //listBoxStatus.Visible = false;
+            openDashBoardForm(new FormAgregarFactura(user, "agregar", -1));
+        }
+
+        
     }
 }

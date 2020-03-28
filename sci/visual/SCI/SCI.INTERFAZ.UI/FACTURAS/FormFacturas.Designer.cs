@@ -87,6 +87,7 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // groupBox1
             // 
@@ -240,6 +241,7 @@
             this.btnCrearFactura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCrearFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCrearFactura.UseVisualStyleBackColor = false;
+            this.btnCrearFactura.Click += new System.EventHandler(this.btnCrearFactura_Click);
             // 
             // btnBuscarTodasFacturas
             // 
