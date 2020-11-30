@@ -22,13 +22,13 @@ namespace SCI.INTERFAZ.UI
 
             //Application.Run(new FormOperadoresCombo());
 
-            Application.Run(new FormLogin());
+            //Application.Run(new FormLogin());
 
             //Application.Run(new FormAgregarGasolineria("editar", 7));
             //Application.Run(new FormAgregarViaje(new usuario {NombreCompleto= "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "agregar",-1));
             //Application.Run(new FormAgregarViaje(new usuario { NombreCompleto = "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "editar", 262));
 
-            //Application.Run(new FormAgregarFactura(new usuario { NombreCompleto = "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "editar", 262));
+            Application.Run(new FormAgregarFactura(new usuario { NombreCompleto = "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }, "editar", 262));
 
             //Application.Run(new FormPrincipal(new usuario { NombreCompleto = "Usuario administrador", NombreUsuario = "root", Password = "Falomay@-2" }));
             //Application.Run(new FormAgregarViaje("editar", 13));

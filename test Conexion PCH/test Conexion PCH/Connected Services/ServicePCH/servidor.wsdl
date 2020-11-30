@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://serviciosmayoristas.pchmayoreo.com/soap/PCH_MAYOREO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://serviciosmayoristas.pchmayoreo.com/soap/PCH_MAYOREO" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://serviciosmayoristas.pchmayoreo.com/soap/PCH_MAYOREO">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="ctInventario">
+        <xsd:all>
+          <xsd:element name="almacen" type="xsd:int" />
+          <xsd:element name="existencia" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctArregloInventario">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ctInventario[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ctArticulo">
+        <xsd:all>
+          <xsd:element name="sku" type="xsd:string" />
+          <xsd:element name="descripcion" type="xsd:string" />
+          <xsd:element name="skuFabricante" type="xsd:string" />
+          <xsd:element name="seccion" type="xsd:string" />
+          <xsd:element name="linea" type="xsd:string" />
+          <xsd:element name="marca" type="xsd:string" />
+          <xsd:element name="serie" type="xsd:string" />
+          <xsd:element name="precio" type="xsd:float" />
+          <xsd:element name="peso" type="xsd:float" />
+          <xsd:element name="alto" type="xsd:float" />
+          <xsd:element name="largo" type="xsd:float" />
+          <xsd:element name="ancho" type="xsd:float" />
+          <xsd:element name="moneda" type="xsd:string" />
+          <xsd:element name="upc" type="xsd:string" />
+          <xsd:element name="inventario" type="tns:ctArregloInventario" />
+          <xsd:element name="id_marca" type="xsd:int" />
+          <xsd:element name="id_seccion" type="xsd:int" />
+          <xsd:element name="id_linea" type="xsd:int" />
+          <xsd:element name="id_serie" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctArregloArticulo">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ctArticulo[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ctCamposObtenerListaArticulos">
+        <xsd:all>
+          <xsd:element name="estatus" type="xsd:boolean" />
+          <xsd:element name="mensaje" type="xsd:string" />
+          <xsd:element name="datos" type="tns:ctArregloArticulo" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctCamposObtenerArticulo">
+        <xsd:all>
+          <xsd:element name="estatus" type="xsd:boolean" />
+          <xsd:element name="mensaje" type="xsd:string" />
+          <xsd:element name="datos" type="tns:ctArticulo" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctCamposObtenerParidad">
+        <xsd:all>
+          <xsd:element name="estatus" type="xsd:boolean" />
+          <xsd:element name="mensaje" type="xsd:string" />
+          <xsd:element name="datos" type="xsd:float" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctArticuloCantidad">
+        <xsd:all>
+          <xsd:element name="strSku" type="xsd:string" />
+          <xsd:element name="iCantidad" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctArregloArticuloCantidad">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ctArticuloCantidad[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ctCamposGenerarRemision">
+        <xsd:all>
+          <xsd:element name="estatus" type="xsd:boolean" />
+          <xsd:element name="mensaje" type="xsd:string" />
+          <xsd:element name="datos" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctFacturaPorOc">
+        <xsd:all>
+          <xsd:element name="iFactura" type="xsd:int" />
+          <xsd:element name="strSucursal" type="xsd:string" />
+          <xsd:element name="dtFecha" type="xsd:string" />
+          <xsd:element name="fTotal" type="xsd:float" />
+          <xsd:element name="strPdf" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctCamposFacturaPorOc">
+        <xsd:all>
+          <xsd:element name="estatus" type="xsd:boolean" />
+          <xsd:element name="mensaje" type="xsd:string" />
+          <xsd:element name="datos" type="tns:ctFacturaPorOc" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctFactura">
+        <xsd:all>
+          <xsd:element name="iFactura" type="xsd:int" />
+          <xsd:element name="strSucursal" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctCamposFactura">
+        <xsd:all>
+          <xsd:element name="estatus" type="xsd:boolean" />
+          <xsd:element name="mensaje" type="xsd:string" />
+          <xsd:element name="datos" type="tns:ctFactura" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctArticuloCantidadPrecio">
+        <xsd:all>
+          <xsd:element name="strSku" type="xsd:string" />
+          <xsd:element name="iCantidad" type="xsd:int" />
+          <xsd:element name="fPrecio" type="xsd:float" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctArregloArticuloCantidadPrecio">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ctArticuloCantidadPrecio[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ctArticuloPrecio">
+        <xsd:all>
+          <xsd:element name="strSku" type="xsd:string" />
+          <xsd:element name="fPrecio" type="xsd:float" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctRespuestaAprobatorio">
+        <xsd:all>
+          <xsd:element name="strRespuesta" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ctCamposServicioAprobatorio">
+        <xsd:all>
+          <xsd:element name="estatus" type="xsd:boolean" />
+          <xsd:element name="mensaje" type="xsd:string" />
+          <xsd:element name="datos" type="tns:ctRespuestaAprobatorio" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerListaArticulosRequest">
+    <wsdl:part name="cliente" type="xsd:int" />
+    <wsdl:part name="llave" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerListaArticulosResponse">
+    <wsdl:part name="resultado" type="tns:ctCamposObtenerListaArticulos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerArticuloRequest">
+    <wsdl:part name="cliente" type="xsd:int" />
+    <wsdl:part name="llave" type="xsd:string" />
+    <wsdl:part name="sku" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerArticuloResponse">
+    <wsdl:part name="resultado" type="tns:ctCamposObtenerArticulo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerParidadRequest">
+    <wsdl:part name="cliente" type="xsd:int" />
+    <wsdl:part name="llave" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerParidadResponse">
+    <wsdl:part name="resultado" type="tns:ctCamposObtenerParidad" />
+  </wsdl:message>
+  <wsdl:message name="GenerarRemisionRequest">
+    <wsdl:part name="cliente" type="xsd:int" />
+    <wsdl:part name="llave" type="xsd:string" />
+    <wsdl:part name="almacen" type="xsd:int" />
+    <wsdl:part name="moneda" type="xsd:string" />
+    <wsdl:part name="articulos" type="tns:ctArregloArticuloCantidad" />
+    <wsdl:part name="incluirSeguro" type="xsd:string" />
+    <wsdl:part name="folioOC" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerarRemisionResponse">
+    <wsdl:part name="resultado" type="tns:ctCamposGenerarRemision" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerFacturaPorOcRequest">
+    <wsdl:part name="cliente" type="xsd:int" />
+    <wsdl:part name="llave" type="xsd:string" />
+    <wsdl:part name="oc" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerFacturaPorOcResponse">
+    <wsdl:part name="resultado" type="tns:ctCamposFacturaPorOc" />
+  </wsdl:message>
+  <wsdl:message name="GenerarFacturaRequest">
+    <wsdl:part name="cliente" type="xsd:int" />
+    <wsdl:part name="llave" type="xsd:string" />
+    <wsdl:part name="remision" type="xsd:int" />
+    <wsdl:part name="nombre" type="xsd:string" />
+    <wsdl:part name="calle" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="colonia" type="xsd:string" />
+    <wsdl:part name="ciudad" type="xsd:string" />
+    <wsdl:part name="estado" type="xsd:string" />
+    <wsdl:part name="cp" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerarFacturaResponse">
+    <wsdl:part name="resultado" type="tns:ctCamposFactura" />
+  </wsdl:message>
+  <wsdl:message name="GenerarRemisionConPrecioRequest">
+    <wsdl:part name="cliente" type="xsd:int" />
+    <wsdl:part name="llave" type="xsd:string" />
+    <wsdl:part name="almacen" type="xsd:int" />
+    <wsdl:part name="moneda" type="xsd:string" />
+    <wsdl:part name="articulos" type="tns:ctArregloArticuloCantidadPrecio" />
+    <wsdl:part name="incluirSeguro" type="xsd:string" />
+    <wsdl:part name="folioOC" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerarRemisionConPrecioResponse">
+    <wsdl:part name="resultado" type="tns:ctCamposGenerarRemision" />
+  </wsdl:message>
+  <wsdl:message name="ServicioAprobatorioRequest">
+    <wsdl:part name="cliente" type="xsd:int" />
+    <wsdl:part name="llave" type="xsd:string" />
+    <wsdl:part name="articulo" type="tns:ctArticuloPrecio" />
+  </wsdl:message>
+  <wsdl:message name="ServicioAprobatorioResponse">
+    <wsdl:part name="resultado" type="tns:ctCamposServicioAprobatorio" />
+  </wsdl:message>
+  <wsdl:portType name="PCH_MAYOREOPortType">
+    <wsdl:operation name="ObtenerListaArticulos">
+      <documentation>Proporciona una lista de articulos con gran cantidad de informaciÃ³n, incluyendo existencia, precio, peso y medidas con valores en el SI.</documentation>
+      <wsdl:input message="tns:ObtenerListaArticulosRequest" />
+      <wsdl:output message="tns:ObtenerListaArticulosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerArticulo">
+      <documentation>Proporciona la informaciÃ³n del articulo solicitado, incluyendo existencia, precio, peso y medidas con valores en el SI.</documentation>
+      <wsdl:input message="tns:ObtenerArticuloRequest" />
+      <wsdl:output message="tns:ObtenerArticuloResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerParidad">
+      <documentation>Proporciona la paridad (tipo de cambio) de nuestro sistema.</documentation>
+      <wsdl:input message="tns:ObtenerParidadRequest" />
+      <wsdl:output message="tns:ObtenerParidadResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarRemision">
+      <documentation>Genera un apartado (remision) con los artiuclos solicitados.</documentation>
+      <wsdl:input message="tns:GenerarRemisionRequest" />
+      <wsdl:output message="tns:GenerarRemisionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFacturaPorOc">
+      <documentation>Se obtiene la factura y el PDF en base al numero OC que se proporciona.</documentation>
+      <wsdl:input message="tns:ObtenerFacturaPorOcRequest" />
+      <wsdl:output message="tns:ObtenerFacturaPorOcResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarFactura">
+      <documentation>Se genera una factura a partir de la remision proporcionada</documentation>
+      <wsdl:input message="tns:GenerarFacturaRequest" />
+      <wsdl:output message="tns:GenerarFacturaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarRemisionConPrecio">
+      <documentation>Genera un apartado (remision) con los articulos solicitados incluyendo precios.</documentation>
+      <wsdl:input message="tns:GenerarRemisionConPrecioRequest" />
+      <wsdl:output message="tns:GenerarRemisionConPrecioResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ServicioAprobatorio">
+      <wsdl:input message="tns:ServicioAprobatorioRequest" />
+      <wsdl:output message="tns:ServicioAprobatorioResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PCH_MAYOREOBinding" type="tns:PCH_MAYOREOPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="ObtenerListaArticulos">
+      <soap:operation soapAction="http://serviciosmayoristas.pchmayoreo.com/servidor.php/ObtenerListaArticulos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerArticulo">
+      <soap:operation soapAction="http://serviciosmayoristas.pchmayoreo.com/servidor.php/ObtenerArticulo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerParidad">
+      <soap:operation soapAction="http://serviciosmayoristas.pchmayoreo.com/servidor.php/ObtenerParidad" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarRemision">
+      <soap:operation soapAction="http://serviciosmayoristas.pchmayoreo.com/servidor.php/GenerarRemision" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFacturaPorOc">
+      <soap:operation soapAction="http://serviciosmayoristas.pchmayoreo.com/servidor.php/ObtenerFacturaPorOc" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarFactura">
+      <soap:operation soapAction="http://serviciosmayoristas.pchmayoreo.com/servidor.php/GenerarFactura" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarRemisionConPrecio">
+      <soap:operation soapAction="http://serviciosmayoristas.pchmayoreo.com/servidor.php/GenerarRemisionConPrecio" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServicioAprobatorio">
+      <soap:operation soapAction="http://serviciosmayoristas.pchmayoreo.com/servidor.php/ServicioAprobatorio" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://serviciosmayoristas.pchmayoreo.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PCH_MAYOREO">
+    <wsdl:port name="PCH_MAYOREOPort" binding="tns:PCH_MAYOREOBinding">
+      <soap:address location="http://serviciosmayoristas.pchmayoreo.com/servidor.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

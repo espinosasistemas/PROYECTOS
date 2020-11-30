@@ -34,6 +34,19 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageReceptor = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboUsoDeCFDI = new System.Windows.Forms.ComboBox();
+            this.btnBuscarClienteRFC = new System.Windows.Forms.Button();
+            this.btnCargarClientes = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboClientes = new System.Windows.Forms.ComboBox();
+            this.textCorreo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textNombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textRfc = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelFechaFinal = new System.Windows.Forms.Panel();
             this.btnCancelarFechaFinal = new System.Windows.Forms.Button();
             this.btnFechaHoyFinal = new System.Windows.Forms.Button();
@@ -42,33 +55,41 @@
             this.trackHorasFinal = new System.Windows.Forms.TrackBar();
             this.trackMinutosFinal = new System.Windows.Forms.TrackBar();
             this.tabPageConceptos = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textClaveViaje = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPageOtrosDatos = new System.Windows.Forms.TabPage();
-            this.btnGenerarCfdi = new System.Windows.Forms.Button();
-            this.btnVistaPrevia = new System.Windows.Forms.Button();
+            this.btnPrevius = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textRfc = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textRazonSocial = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textCorreo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboClientes = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnCargarClientes = new System.Windows.Forms.Button();
-            this.btnBuscarClienteRFC = new System.Windows.Forms.Button();
-            this.comboUsoDeCFDI = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageReceptor.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panelFechaFinal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackHorasFinal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackMinutosFinal)).BeginInit();
+            this.tabPageConceptos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -143,6 +164,156 @@
             this.tabPageReceptor.TabIndex = 0;
             this.tabPageReceptor.Text = "Receptor";
             this.tabPageReceptor.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.comboUsoDeCFDI);
+            this.groupBox1.Controls.Add(this.btnBuscarClienteRFC);
+            this.groupBox1.Controls.Add(this.btnCargarClientes);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.comboClientes);
+            this.groupBox1.Controls.Add(this.textCorreo);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.textNombre);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textRfc);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(6, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(876, 432);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos del Cliente";
+            // 
+            // comboUsoDeCFDI
+            // 
+            this.comboUsoDeCFDI.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.comboUsoDeCFDI.FormattingEnabled = true;
+            this.comboUsoDeCFDI.Items.AddRange(new object[] {
+            "G01 - Adquisición de mercancias",
+            "G02 - Devoluciones, descuentos o bonificaciones",
+            "G03 - Gastos en general",
+            "I01 - Construcciones",
+            "I02 - Mobilario y equipo de oficina por inversiones",
+            "I03 - Equipo de transporte",
+            "I04 - Equipo de computo y accesorios",
+            "I05 - Dados, troqueles, moldes, matrices y herramental",
+            "I06 - Comunicaciones telefónicas",
+            "I07 - Comunicaciones satelitales",
+            "I08 - Otra maquinaria y equipo",
+            "P01 - Por definir"});
+            this.comboUsoDeCFDI.Location = new System.Drawing.Point(262, 211);
+            this.comboUsoDeCFDI.Name = "comboUsoDeCFDI";
+            this.comboUsoDeCFDI.Size = new System.Drawing.Size(444, 28);
+            this.comboUsoDeCFDI.TabIndex = 15;
+            // 
+            // btnBuscarClienteRFC
+            // 
+            this.btnBuscarClienteRFC.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarClienteRFC.Image")));
+            this.btnBuscarClienteRFC.Location = new System.Drawing.Point(675, 116);
+            this.btnBuscarClienteRFC.Name = "btnBuscarClienteRFC";
+            this.btnBuscarClienteRFC.Size = new System.Drawing.Size(31, 28);
+            this.btnBuscarClienteRFC.TabIndex = 14;
+            this.btnBuscarClienteRFC.UseVisualStyleBackColor = true;
+            this.btnBuscarClienteRFC.Click += new System.EventHandler(this.btnBuscarClienteRFC_Click);
+            // 
+            // btnCargarClientes
+            // 
+            this.btnCargarClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnCargarClientes.Image")));
+            this.btnCargarClientes.Location = new System.Drawing.Point(675, 81);
+            this.btnCargarClientes.Name = "btnCargarClientes";
+            this.btnCargarClientes.Size = new System.Drawing.Size(31, 30);
+            this.btnCargarClientes.TabIndex = 13;
+            this.btnCargarClientes.UseVisualStyleBackColor = true;
+            this.btnCargarClientes.Click += new System.EventHandler(this.btnCargarClientes_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(197, 89);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 17);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Clientes";
+            // 
+            // comboClientes
+            // 
+            this.comboClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.comboClientes.FormattingEnabled = true;
+            this.comboClientes.Location = new System.Drawing.Point(262, 82);
+            this.comboClientes.Name = "comboClientes";
+            this.comboClientes.Size = new System.Drawing.Size(413, 28);
+            this.comboClientes.TabIndex = 11;
+            this.comboClientes.TextChanged += new System.EventHandler(this.comboClientes_TextChanged);
+            // 
+            // textCorreo
+            // 
+            this.textCorreo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCorreo.Location = new System.Drawing.Point(262, 181);
+            this.textCorreo.Name = "textCorreo";
+            this.textCorreo.Size = new System.Drawing.Size(444, 26);
+            this.textCorreo.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(203, 187);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Correo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(171, 219);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Uso de CFDI";
+            // 
+            // textNombre
+            // 
+            this.textNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombre.Location = new System.Drawing.Point(262, 149);
+            this.textNombre.Name = "textNombre";
+            this.textNombre.Size = new System.Drawing.Size(444, 26);
+            this.textNombre.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(106, 155);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Nombre de Contacto";
+            // 
+            // textRfc
+            // 
+            this.textRfc.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRfc.Location = new System.Drawing.Point(262, 117);
+            this.textRfc.Name = "textRfc";
+            this.textRfc.Size = new System.Drawing.Size(413, 26);
+            this.textRfc.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(223, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "RFC";
             // 
             // panelFechaFinal
             // 
@@ -241,6 +412,25 @@
             // 
             // tabPageConceptos
             // 
+            this.tabPageConceptos.Controls.Add(this.textBox7);
+            this.tabPageConceptos.Controls.Add(this.label13);
+            this.tabPageConceptos.Controls.Add(this.textBox2);
+            this.tabPageConceptos.Controls.Add(this.label12);
+            this.tabPageConceptos.Controls.Add(this.comboBox1);
+            this.tabPageConceptos.Controls.Add(this.textBox6);
+            this.tabPageConceptos.Controls.Add(this.label11);
+            this.tabPageConceptos.Controls.Add(this.textBox5);
+            this.tabPageConceptos.Controls.Add(this.label10);
+            this.tabPageConceptos.Controls.Add(this.textBox4);
+            this.tabPageConceptos.Controls.Add(this.label9);
+            this.tabPageConceptos.Controls.Add(this.textBox3);
+            this.tabPageConceptos.Controls.Add(this.label8);
+            this.tabPageConceptos.Controls.Add(this.label7);
+            this.tabPageConceptos.Controls.Add(this.textBox1);
+            this.tabPageConceptos.Controls.Add(this.label6);
+            this.tabPageConceptos.Controls.Add(this.button2);
+            this.tabPageConceptos.Controls.Add(this.textClaveViaje);
+            this.tabPageConceptos.Controls.Add(this.dataGridView1);
             this.tabPageConceptos.Location = new System.Drawing.Point(4, 25);
             this.tabPageConceptos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageConceptos.Name = "tabPageConceptos";
@@ -249,6 +439,36 @@
             this.tabPageConceptos.TabIndex = 1;
             this.tabPageConceptos.Text = "Conceptos";
             this.tabPageConceptos.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(509, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(31, 28);
+            this.button2.TabIndex = 16;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textClaveViaje
+            // 
+            this.textClaveViaje.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textClaveViaje.ForeColor = System.Drawing.Color.DarkGray;
+            this.textClaveViaje.Location = new System.Drawing.Point(128, 15);
+            this.textClaveViaje.Name = "textClaveViaje";
+            this.textClaveViaje.Size = new System.Drawing.Size(381, 26);
+            this.textClaveViaje.TabIndex = 15;
+            this.textClaveViaje.Text = "Ingrese el número de viaje";
+            this.textClaveViaje.Click += new System.EventHandler(this.textClaveViaje_Click);
+            this.textClaveViaje.Leave += new System.EventHandler(this.textClaveViaje_Leave);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 216);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(876, 166);
+            this.dataGridView1.TabIndex = 0;
             // 
             // tabPageOtrosDatos
             // 
@@ -260,45 +480,46 @@
             this.tabPageOtrosDatos.Text = "Otros Datos";
             this.tabPageOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // btnGenerarCfdi
+            // btnPrevius
             // 
-            this.btnGenerarCfdi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerarCfdi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnGenerarCfdi.FlatAppearance.BorderSize = 0;
-            this.btnGenerarCfdi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnGenerarCfdi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarCfdi.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGenerarCfdi.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerarCfdi.Image")));
-            this.btnGenerarCfdi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarCfdi.Location = new System.Drawing.Point(626, 4);
-            this.btnGenerarCfdi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGenerarCfdi.Name = "btnGenerarCfdi";
-            this.btnGenerarCfdi.Size = new System.Drawing.Size(119, 41);
-            this.btnGenerarCfdi.TabIndex = 14;
-            this.btnGenerarCfdi.Text = "Generar CFDI";
-            this.btnGenerarCfdi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarCfdi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGenerarCfdi.UseVisualStyleBackColor = false;
+            this.btnPrevius.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrevius.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnPrevius.FlatAppearance.BorderSize = 0;
+            this.btnPrevius.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnPrevius.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevius.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnPrevius.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevius.Image")));
+            this.btnPrevius.Location = new System.Drawing.Point(631, 6);
+            this.btnPrevius.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrevius.Name = "btnPrevius";
+            this.btnPrevius.Size = new System.Drawing.Size(119, 41);
+            this.btnPrevius.TabIndex = 14;
+            this.btnPrevius.Text = "Anterior";
+            this.btnPrevius.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrevius.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrevius.UseVisualStyleBackColor = false;
+            this.btnPrevius.Click += new System.EventHandler(this.btnPrevius_Click);
             // 
-            // btnVistaPrevia
+            // btnNext
             // 
-            this.btnVistaPrevia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVistaPrevia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnVistaPrevia.FlatAppearance.BorderSize = 0;
-            this.btnVistaPrevia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.btnVistaPrevia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVistaPrevia.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnVistaPrevia.Image = ((System.Drawing.Image)(resources.GetObject("btnVistaPrevia.Image")));
-            this.btnVistaPrevia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVistaPrevia.Location = new System.Drawing.Point(751, 4);
-            this.btnVistaPrevia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnVistaPrevia.Name = "btnVistaPrevia";
-            this.btnVistaPrevia.Size = new System.Drawing.Size(119, 41);
-            this.btnVistaPrevia.TabIndex = 15;
-            this.btnVistaPrevia.Text = "Vista Previa";
-            this.btnVistaPrevia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVistaPrevia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVistaPrevia.UseVisualStyleBackColor = false;
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
+            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnNext.Location = new System.Drawing.Point(756, 6);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(119, 41);
+            this.btnNext.TabIndex = 15;
+            this.btnNext.Text = "Siguiente ";
+            this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // panel2
             // 
@@ -315,148 +536,160 @@
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.btnVistaPrevia);
-            this.panel3.Controls.Add(this.btnGenerarCfdi);
+            this.panel3.Controls.Add(this.btnPrevius);
+            this.panel3.Controls.Add(this.btnNext);
             this.panel3.Location = new System.Drawing.Point(16, 496);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(888, 55);
             this.panel3.TabIndex = 13;
             // 
-            // groupBox1
+            // textBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.comboUsoDeCFDI);
-            this.groupBox1.Controls.Add(this.btnBuscarClienteRFC);
-            this.groupBox1.Controls.Add(this.btnCargarClientes);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.comboClientes);
-            this.groupBox1.Controls.Add(this.textCorreo);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textRazonSocial);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textRfc);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(6, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(876, 432);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos del Cliente";
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(128, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(411, 26);
+            this.textBox1.TabIndex = 18;
             // 
-            // textRfc
+            // label6
             // 
-            this.textRfc.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRfc.Location = new System.Drawing.Point(262, 117);
-            this.textRfc.Name = "textRfc";
-            this.textRfc.Size = new System.Drawing.Size(413, 26);
-            this.textRfc.TabIndex = 4;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(39, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Descripción";
             // 
-            // label2
+            // label7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(223, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "RFC";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 83);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(113, 17);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Clave Prod/Serv";
             // 
-            // textRazonSocial
+            // textBox3
             // 
-            this.textRazonSocial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRazonSocial.Location = new System.Drawing.Point(262, 149);
-            this.textRazonSocial.Name = "textRazonSocial";
-            this.textRazonSocial.Size = new System.Drawing.Size(444, 26);
-            this.textRazonSocial.TabIndex = 6;
+            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(128, 110);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(210, 26);
+            this.textBox3.TabIndex = 22;
             // 
-            // label1
+            // label8
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(166, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Razón Social";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(51, 115);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 17);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Cantidad";
             // 
-            // label3
+            // textBox4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(171, 187);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Uso de CFDI";
+            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(672, 16);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(210, 26);
+            this.textBox4.TabIndex = 24;
             // 
-            // textCorreo
+            // label9
             // 
-            this.textCorreo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCorreo.Location = new System.Drawing.Point(262, 213);
-            this.textCorreo.Name = "textCorreo";
-            this.textCorreo.Size = new System.Drawing.Size(444, 26);
-            this.textCorreo.TabIndex = 10;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(571, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(95, 17);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Valor Unitario";
             // 
-            // label4
+            // textBox5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(203, 219);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Correo";
+            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(128, 141);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(210, 26);
+            this.textBox5.TabIndex = 26;
             // 
-            // comboClientes
+            // label10
             // 
-            this.comboClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.comboClientes.FormattingEnabled = true;
-            this.comboClientes.Location = new System.Drawing.Point(262, 82);
-            this.comboClientes.Name = "comboClientes";
-            this.comboClientes.Size = new System.Drawing.Size(413, 28);
-            this.comboClientes.TabIndex = 11;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(25, 147);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 17);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Clave Unidad";
             // 
-            // label5
+            // textBox6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(197, 89);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 17);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Clientes";
+            this.textBox6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(672, 45);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(210, 26);
+            this.textBox6.TabIndex = 28;
             // 
-            // btnCargarClientes
+            // label11
             // 
-            this.btnCargarClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnCargarClientes.Image")));
-            this.btnCargarClientes.Location = new System.Drawing.Point(675, 81);
-            this.btnCargarClientes.Name = "btnCargarClientes";
-            this.btnCargarClientes.Size = new System.Drawing.Size(31, 30);
-            this.btnCargarClientes.TabIndex = 13;
-            this.btnCargarClientes.UseVisualStyleBackColor = true;
-            this.btnCargarClientes.Click += new System.EventHandler(this.btnCargarClientes_Click);
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(607, 50);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 17);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Importe";
             // 
-            // btnBuscarClienteRFC
+            // comboBox1
             // 
-            this.btnBuscarClienteRFC.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarClienteRFC.Image")));
-            this.btnBuscarClienteRFC.Location = new System.Drawing.Point(675, 116);
-            this.btnBuscarClienteRFC.Name = "btnBuscarClienteRFC";
-            this.btnBuscarClienteRFC.Size = new System.Drawing.Size(31, 28);
-            this.btnBuscarClienteRFC.TabIndex = 14;
-            this.btnBuscarClienteRFC.UseVisualStyleBackColor = true;
-            this.btnBuscarClienteRFC.Click += new System.EventHandler(this.btnBuscarClienteRFC_Click);
+            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "78101802 - Servicios transporte de carga por carretera (en camión) a nivel region" +
+                "al y nacional"});
+            this.comboBox1.Location = new System.Drawing.Point(128, 77);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(411, 28);
+            this.comboBox1.TabIndex = 30;
             // 
-            // comboUsoDeCFDI
+            // textBox2
             // 
-            this.comboUsoDeCFDI.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.comboUsoDeCFDI.FormattingEnabled = true;
-            this.comboUsoDeCFDI.Location = new System.Drawing.Point(262, 179);
-            this.comboUsoDeCFDI.Name = "comboUsoDeCFDI";
-            this.comboUsoDeCFDI.Size = new System.Drawing.Size(444, 28);
-            this.comboUsoDeCFDI.TabIndex = 15;
+            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(672, 74);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(210, 26);
+            this.textBox2.TabIndex = 32;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(601, 79);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 17);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Iva (16%)";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(672, 105);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(210, 26);
+            this.textBox7.TabIndex = 34;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(563, 111);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 17);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Retención (4%)";
             // 
             // FormAgregarFactura
             // 
@@ -474,14 +707,17 @@
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPageReceptor.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panelFechaFinal.ResumeLayout(false);
             this.panelFechaFinal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackHorasFinal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackMinutosFinal)).EndInit();
+            this.tabPageConceptos.ResumeLayout(false);
+            this.tabPageConceptos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -502,13 +738,13 @@
         private System.Windows.Forms.MonthCalendar calendarFinalSci;
         private System.Windows.Forms.TrackBar trackHorasFinal;
         private System.Windows.Forms.TrackBar trackMinutosFinal;
-        private System.Windows.Forms.Button btnGenerarCfdi;
-        private System.Windows.Forms.Button btnVistaPrevia;
+        private System.Windows.Forms.Button btnPrevius;
+        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textRazonSocial;
+        private System.Windows.Forms.TextBox textNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textRfc;
         private System.Windows.Forms.Label label2;
@@ -519,5 +755,24 @@
         private System.Windows.Forms.Button btnBuscarClienteRFC;
         private System.Windows.Forms.Button btnCargarClientes;
         private System.Windows.Forms.ComboBox comboUsoDeCFDI;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textClaveViaje;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label12;
     }
 }
